@@ -2,9 +2,10 @@ const express = require("express");
 const app = express();
 const port = 4646;
 
+require("dotenv").config();
+
 const mongoose = require("mongoose");
-mongoose.connect(
-  "mongodb+srv://ahhyun:ohmypet@cluster0.i2tx8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGO_DB, {
       useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
   }
 ).then(() => console.log('MongoDB Connected...'))
