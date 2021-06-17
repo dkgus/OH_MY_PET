@@ -19,7 +19,7 @@ lecNm : {
 },
 
 //예약 번호
-revNm : {
+revNo : {
     type: Number,
 },
 });
