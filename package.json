@@ -18,6 +18,7 @@
   "homepage": "https://github.com/dkgus/OH_MY_PET#readme",
   "dependencies": {
     "app": "^0.1.0",
+    "bcrypt": "^5.0.1",
     "express": "^4.17.1",
     "mongoose": "^5.12.14"
   },
