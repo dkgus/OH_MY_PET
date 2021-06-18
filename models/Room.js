@@ -1,4 +1,3 @@
-const { text } = require("body-parser");
 const mongoose = require("mongoose");
 
 
@@ -39,7 +38,7 @@ regDt: {
 
 //특이사항
 memo: {
-    type: text,
+    type: String,
 }
 
 });
