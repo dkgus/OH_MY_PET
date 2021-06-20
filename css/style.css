@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* { font-family: 'Nanum Gothic', sans-serif; box-sizing: border-box; outline: none; }
+html { font-size: 12px; color: #212121; }
+body { padding: 0; margin: 0; }
+ul { list-style: none; padding: 0; margin: 0; }
+dl { display: table; width: 80%; padding: 0; margin: 0;}
+dt { display: table-cell; vertical-align: middle; width: 200px; height: 50px; padding-left: 20px; }
+dd { display: table-cell; vertical-align: middle; }
+
+input[type='text'],
+input[type='number'],
+input[type='password'],
+input[type='email'],
+select { width: 100%; height: 40px; border: 1px solid #d5d5d5; border-radius: 5px; padding: 0 10px; }
+a { text-decoration: none; color: #212121; }
+
+/** 공통 */
+.layout_width { 
+	max-width: 1200px; 
+	margin: 0 auto !important; 
+}
+/** login page */
+.login_box { width: 320px; position: fixed; left: calc(50% - 160px); top: calc(50% - 140px); }
+
+.login_box .login_title { font-size: 30px; text-align: center; font-family: Cafe24Ssurround; margin-bottom: 20px; }
+.login_box input[type='text'] { margin-bottom: 5px; }
+
+.login_box input[type='submit'] { background-color: #ffaf2d;
+	 color: #ffffff;
+	 border: 0;
+	 width: 100%;
+	 height: 45px;
+	 cursor: pointer;
+	 border-radius: 5px;
+	 margin-top: 15px;
+	 font-size: 13px;
+ }
+.login_box .join_btn {
+	 background-color: #ffaf2d;
+	 color: #ffffff;
+	 border: 0;
+	 width: 100%;
+	 height: 45px;
+	 cursor: pointer;
+	 border-radius: 5px;
+	 margin-top: 8px;
+	 text-align: center;
+
+ }
+.login_box .join_btn a {
+	font-size: 13px;
+	display: block;
+	line-height: 45px;
+	vertical-align: middle;
+	color: #ffffff;
+}
+/** mypage */
+
+
+.mypage .mypage_back {
+	width: 100%;
+	height: 200px;
+	background-color: #ffaf2d;
+	text-align: center;
+	
+	
+	
+}
+.mypage .mypage_back a {
+	color: #ffffff;
+	font-family: Cafe24Ssurround;
+	font-size: 50px;
+	line-height: 200px;
+	vertical-align: middle;
+
+	
+}
+
+.mypage .my_info .infobox {
+	margin-top: 100px;
+	border: 1px solid #212121;
+	padding: 30px;
+
+
+}
+
+.mypage .my_info .infobox dd {
+	width: 40px;
+	font-size: 13px;
+	padding-left: 60px;
+	
+}
