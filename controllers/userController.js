@@ -3,34 +3,34 @@ const bcrypt = require("bcrypt");
 
 // @description    Show all users
 // @route          GET /users
-router.get("/", async (req, res) => {
+export const showAllUsers = async (req, res) => {
   await User.find({})
     .sort({ username: 1 })
     .exec((err, users) => {
       res.render("users/index", { users: users });
     });
-});
+};
 
 // @description    Show a user
 // @route          GET /users/:id
-router.get("/:id", async (req, res) => {
+export const showUser = async (req, res) => {
   try {
     const user = await User.findOne({ _id: req.params.id }, {});
     res.render("users/show", { user: user });
   } catch (err) {
     console.error(err);
   }
-});
+};
 
 // @description    Show a register form
 // @route          GET /users/new
-router.get("/new", async (req, res) => {
+export const showRegisterForm = async (req, res) => {
   await res.render("users/new");
-});
+};
 
 // @description    Register a User
 // @route          POST /users/new
-router.post("/", async (req, res) => {
+export const registerUser = async (req, res) => {
   const { username, name, email, password, passwordConfirmation } = req.body;
   try {
     // validation
@@ -76,22 +76,22 @@ router.post("/", async (req, res) => {
     console.log(err);
     res.status(500).send("server error");
   }
-});
+};
 
 // @description    Show a update form
 // @route          GET /users/:userid/edit
-router.get("/:id/edit", async (req, res) => {
+export const showUpdateForm = async (req, res) => {
   try {
-    const post = await User.findOne({ _id: req.params.id }, {});
-    res.render("posts/edit", { post: post });
+    const user = await User.findOne({ _id: req.params.id }, {});
+    res.render("users/edit", { user: user });
   } catch (err) {
     console.error(err);
   }
-});
+};
 
 // @description    Update a user
-// @route          POST /users/:id/edit
-router.put("/:id/edit", async (req, res) => {
+// @route          PUT /users/:id/edit
+export const updateUser = async (req, res) => {
   try {
     await Post.findOneAndUpdate({ _id: req.params.id }, req.body, () => {
       res.redirect("/users/" + req.params.id);
@@ -99,11 +99,11 @@ router.put("/:id/edit", async (req, res) => {
   } catch (err) {
     console.error(err);
   }
-});
+};
 
 // @description    Delete a user
 // @route          DELETE /users/:id/edit
-router.delete("/:id", async (req, res) => {
+export const deleteUser = async (req, res) => {
   try {
     await User.deleteOne({ _id: req.params.id }, () => {
       res.redirect("/users");
@@ -111,4 +111,4 @@ router.delete("/:id", async (req, res) => {
   } catch (err) {
     console.error(err);
   }
-});
+};
