@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 @font-face {
     font-family: 'Cafe24Ssurround';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
-* { font-family: 'Nanum Gothic', sans-serif; box-sizing: border-box; outline: none; }
-html { font-size: 12px; color: #212121; }
+* { font-family: 'Noto Sans KR', sans-serif; box-sizing: border-box; outline: none; }
+html { font-size: 14px; color: #212121; }
 body { padding: 0; margin: 0; }
 ul { list-style: none; padding: 0; margin: 0; }
-dl { display: table; width: 80%; padding: 0; margin: 0;}
+dl { display: table; width: 100%; padding: 0; margin: 0;}
 dt { display: table-cell; vertical-align: middle; width: 200px; height: 50px; padding-left: 20px; }
 dd { display: table-cell; vertical-align: middle; }
 
@@ -22,13 +22,32 @@ a { text-decoration: none; color: #212121; }
 
 /** 공통 */
 .layout_width { 
-	max-width: 1200px; 
+	max-width: 1100px; 
 	margin: 0 auto !important; 
 }
+
+.box1 {
+	width: 1100px;
+	border: 1px solid #8f8c83;
+	padding: 30px;
+}
+
+.title1 {
+	font-size: 20px;
+}
+
+.table1 {
+	margin-top: 15px;
+	width: 100%;
+	border-top: 1px solid #444444;
+    border-collapse: collapse;
+}
+
 /** login page */
 .login_box { width: 320px; position: fixed; left: calc(50% - 160px); top: calc(50% - 140px); }
 
 .login_box .login_title { font-size: 30px; text-align: center; font-family: Cafe24Ssurround; margin-bottom: 20px; }
+
 .login_box input[type='text'] { margin-bottom: 5px; }
 
 .login_box input[type='submit'] { background-color: #ffaf2d;
@@ -51,7 +70,6 @@ a { text-decoration: none; color: #212121; }
 	 border-radius: 5px;
 	 margin-top: 8px;
 	 text-align: center;
-
  }
 .login_box .join_btn a {
 	font-size: 13px;
@@ -68,31 +86,78 @@ a { text-decoration: none; color: #212121; }
 	height: 200px;
 	background-color: #ffaf2d;
 	text-align: center;
-	
-	
-	
 }
+
 .mypage .mypage_back a {
 	color: #ffffff;
 	font-family: Cafe24Ssurround;
 	font-size: 50px;
 	line-height: 200px;
 	vertical-align: middle;
-
-	
 }
 
 .mypage .my_info .infobox {
 	margin-top: 100px;
-	border: 1px solid #212121;
-	padding: 30px;
+}
+.mypage .my_info .infobox dl {
+	width: 80%;
+}
+.mypage .my_info .infobox dd {
+	width: 40px;
+	font-size: 12px;
+	padding-left: 60px;
+}
 
+.mypage .my_info .lec_box {
+	margin-top: 50px;
+}
+.mypage .my_info .lec_box .lec_res tr {
+	text-align: center
+	
+}
+.mypage .my_info .lec_box .lec_res td {
+	padding: 20px;
+	border-bottom: 1px solid #444444;
+}
+
+.mypage .my_info .lec_box .lec_res tr:first-child td {
+	padding: 10px;
+}
+
+.mypage .my_info .hotel_box {
+	margin-top: 50px;
 
 }
 
-.mypage .my_info .infobox dd {
-	width: 40px;
-	font-size: 13px;
-	padding-left: 60px;
+.mypage .my_info .hotel_box:after, .mypage .my_info .lec_box .plus:after {
+	clear:right;
+	content: '';
+	display: block;
+}
+.mypage .my_info .hotel_box .plus, .mypage .my_info .lec_box .plus {
+	float: right;
+	font-size: 14px;
+	margin-top: 5px;
+}
+.mypage .my_info .hotel_title, .mypage .my_info .lec_title {
+	display: inline-block;
+}
+
+.mypage .my_info .hotel_box .hotel_res tr {
+	text-align: center
+}
+
+.mypage .my_info .hotel_box .hotel_res td {
+	padding: 20px;
+	border-bottom: 1px solid #444444;
+}
+
+.mypage .my_info .hotel_box .hotel_res tr:first-child td {
+	padding: 10px;
+}
+
+/** join */
+.join_box .join_form dl dd {
+	width: 20px;
 	
 }
