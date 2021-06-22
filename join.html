@@ -7,6 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<script src="js/script.js"></script>
+	<script src="js/juso.js"></script>
+	<script src="js/layer.js"></script>
 	<title>oh_my_pet</title>
 </head>
 <body>
@@ -34,7 +36,7 @@
 				<dl>
 					<dt>닉네임</dt>
 					<dd>
-						<input type='text' name='nickname' value='닉네임을 입력해주세요.'>
+						<input type='text' name='nickname' value='' placeholder='닉네임을 입력해주세요.'>
 					</dd>
 				</dl>
 				<dl>
@@ -44,13 +46,13 @@
 					</dd>
 				</dl>
 				<dl>
-					<dt>주소</dt>
+					<dt class='juso_dt'>주소</dt>
 					<dd>
 						<input type="text" id="sample6_postcode" placeholder="우편번호" class='zip'>
 						<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class='zip_btn'><br>
 						<input type="text" id="sample6_address" placeholder="주소" class='juso'><br>
 						<input type="text" id="sample6_detailAddress" placeholder="상세주소" class='detail'>
-						<input type="text" id="sample6_extraAddress" placeholder="참고항목">
+						<input type="text" id="sample6_extraAddress" placeholder="나머지주소">
 					</dd>
 				</dl>
 			<input type='submit' value='회원가입' class='join_btn'>

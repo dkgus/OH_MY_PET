@@ -196,27 +196,32 @@ a { text-decoration: none; color: #212121; }
 	 
  }
 .join_box .zip {
-	margin-bottom: 5px;
-	width: 50%;
+	margin-bottom: 15px;
+	width: 75%;
 }
 .join_box .zip_btn {
 	background-color: #ffffff;
 	border: 1px solid #ffaf2d;
-	height: 35px;
+	height: 40px;
 	cursor: pointer;
 	border-radius: 5px;
 	font-size: 13px;
 	margin-bottom: 5px;
 	color: #ffaf2d;
+	float:right;
 }
 .join_box .zip_btn:hover {
 	color: #ffffff;
 	background-color: #ffaf2d;
 }
  .join_box .juso, .join_box .detail {
-	margin-bottom: 5px;
+	margin-bottom: 15px;
 	 
 }
 .join_box input[type='text']:focus, .join_box input[type='password']:focus {
 	border-color: #ffaf2d;
+}
+.join_box .juso_dt {
+	vertical-align: top;
+	line-height: 40px;
 }
