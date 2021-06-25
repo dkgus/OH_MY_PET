@@ -9,7 +9,7 @@ const {
   showUpdateForm,
   updateNotice,
   deleteNotice,
-} = require("../controllers/eventController");
+} = require("../controller/eventController");
 
 
 
@@ -29,7 +29,8 @@ router
 // event/new
 router.route("/new").get(showCreateForm).post(createPost);
 
-module.exports = router;
+module.export = router;
+
 
 
 

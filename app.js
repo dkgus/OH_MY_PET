@@ -1,8 +1,8 @@
   const express = require("express");
 const app = express();
 const port = 4646;
-const evntRoutes = require("./routes/eventRoutes");
-const roomRoutes = require("./routes/roomRouter");
+const evntRoutes = require("./routes/event");
+const roomRoutes = require("./routes/room");
 
 
 require("dotenv").config();

@@ -11,6 +11,12 @@ user: {
     ref: "User",
   },
 
+//호텔 종류 : 임시 a, b, c호텔 선택
+hotelName: {
+    type: String,
+    required: true,
+},
+
 
 //방 종류: select box에서 dorm 또는 family만 선택가능
 roomType: {

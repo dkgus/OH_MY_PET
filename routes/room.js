@@ -9,7 +9,7 @@ const {
   showUpdateForm,
   updateNotice,
   deleteNotice,
-} = require("../controllers/roomController");
+} = require("../controller/roomController");
 
 
 
@@ -29,7 +29,9 @@ router
 // room/new
 router.route("/new").get(showCreateForm).post(createPost);
 
-module.exports = router;
+module.export = router;
+
+
 
 
 
