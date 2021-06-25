@@ -5,6 +5,10 @@ const userRoutes = require("./routes/userRouter");
 const noticeRoutes = require("./routes/noticeRouter");
 const communityRoutes = require("./routes/communityRouter");
 const mongoose = require("mongoose");
+const morgan = require("morgan");
+const dotenv = require("dotenv");
+
+dotenv.config();
 mongoose
   .connect(
     "mongodb+srv://ahhyun:ohmypet@cluster0.i2tx8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
@@ -18,6 +22,11 @@ mongoose
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
 
+// body-parser
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.use(morgan("dev"));
 app.use("/users", userRoutes);
 app.use("/notices", noticeRoutes);
 app.use("/community", communityRoutes);

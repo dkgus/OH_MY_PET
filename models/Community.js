@@ -27,7 +27,7 @@ const communitySchema = new mongoose.Schema({
   },
 
   // 수정일
-  createdAt: {
+  modifiedAt: {
     type: Date,
   },
 });

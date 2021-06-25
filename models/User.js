@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
   // 아이디
-  name: {
+  email: {
     type: String,
     required: true,
   },
@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
   },
 
   // 반려동물 이름 = 닉네임
-  name: {
+  nickname: {
     type: String,
     required: true,
   },
@@ -22,13 +22,11 @@ const userSchema = new mongoose.Schema({
   // 반려동물 종류
   type: {
     type: String,
-    required: true,
   },
 
   // 전화번호
   phone: {
     type: Number,
-    required: true,
   },
 
   // 가입일자
