@@ -12,14 +12,14 @@ user: {
   },
 
 
-//강연 제목
-lecNm : {
+//이벤트 명
+eventNm : {
     type: String,
     required: true,
 },
 
-//예약 번호
-revNo : {
+//이벤트 예약 번호
+eventNo : {
     type: Number,
     required: true,
 
