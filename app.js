@@ -10,15 +10,12 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 mongoose
-  .connect(
-    "mongodb+srv://ahhyun:ohmypet@cluster0.i2tx8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-    }
-  )
+  .connect(process.env.MONGO_DB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
 
