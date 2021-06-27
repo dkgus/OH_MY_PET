@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { isAuthenticatedUser } = require("../utils/auth");
 
 const {
   showAllUsers,
@@ -9,13 +10,14 @@ const {
   showUpdateForm,
   updateUser,
   deleteUser,
+  loginUser,
 } = require("../controllers/userController");
 
 // users/
 router.route("/").get(showAllUsers);
 
 // users/:id
-router.route("/:id").get(showUser);
+router.route("/:id").get(isAuthenticatedUser, showUser);
 
 // users/:id/edit
 router
@@ -26,5 +28,8 @@ router
 
 // users/new
 router.route("/new").get(showRegisterForm).post(registerUser);
+
+// users/login
+router.route("/login").post(loginUser);
 
 module.exports = router;

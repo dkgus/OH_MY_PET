@@ -22,7 +22,6 @@ mongoose
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
 
-// body-parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
