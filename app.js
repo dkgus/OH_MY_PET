@@ -4,7 +4,6 @@ const port = 4646;
 const evntRoutes = require("./routes/event");
 const roomRoutes = require("./routes/room");
 
-
 require("dotenv").config();
 
 const mongoose = require("mongoose");

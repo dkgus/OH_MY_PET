@@ -2,34 +2,34 @@ const express  = require('express');
 const router = express.Router();
 
 const {
-  showAllNotices,
-  showNotice,
+  showAllRooms,
+  showRoom,
   showCreateForm,
-  createNotice,
+  createRoom,
   showUpdateForm,
-  updateNotice,
-  deleteNotice,
+  updateRoom,
+  deleteRoom,
 } = require("../controller/roomController");
 
 
 
 // room/
-router.route("/").get(showAllPosts);
+router.route("/").get(showAllRooms);
 
 // room/:id
-router.route("/:id").get(showPost);
+router.route("/:id").get(showRoom);
 
 // room/:id/edit
 router
   .route("/:id/edit")
   .get(showUpdateForm)
-  .put(updatePost)
-  .delete(deletePost);
+  .put(updateRoom)
+  .delete(deleteRoom);
 
 // room/new
-router.route("/new").get(showCreateForm).post(createPost);
+router.route("/new").get(showCreateForm).post(createRoom);
 
-module.export = router;
+module.exports = router;
 
 
 
