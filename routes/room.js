@@ -16,18 +16,19 @@ const {
 // room/
 router.route("/").get(showAllRooms);
 
-// room/:id
-router.route("/:id").get(showRoom);
 
 // room/:id/edit
 router
-  .route("/:id/edit")
-  .get(showUpdateForm)
-  .put(updateRoom)
-  .delete(deleteRoom);
+.route("/:id/edit")
+.get(showUpdateForm)
+.put(updateRoom)
+.delete(deleteRoom);
 
 // room/new
 router.route("/new").get(showCreateForm).post(createRoom);
+
+// room/:id
+router.route("/:id").get(showRoom);
 
 module.exports = router;
 

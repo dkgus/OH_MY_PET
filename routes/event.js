@@ -16,8 +16,6 @@ const {
 // event/
 router.route("/").get(showAllEvents);
 
-// event/:id
-router.route("/:id").get(showEvent);
 
 // event/:id/edit
 router
@@ -25,13 +23,16 @@ router
   .get(showUpdateForm)
   .put(updateEvent)
   .delete(deleteEvent);
+  
+  // event/new
+  router.route("/new").get(showCreateForm).post(createEvent);
+  
+  // event/:id
+  router.route("/:id").get(showEvent);
 
-// event/new
-router.route("/new").get(showCreateForm).post(createEvent);
-
-module.exports = router;
-
-
+  module.exports = router;
+  
+  
 
 
 
