@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class='login_box'>
+	<div class='login_title'>로그인</div>
+	<form method='post' action='/member/login' autocomplete='off' target='ifrmHidden'>
+		<input type='text' name='name' placeholder='아이디를 입력해주세요.'>
+		<input type='password' name='password' placeholder='비밀번호를 입력해주세요.'>
+		<input type='submit' value='로그인'>
+	</form>
+	<button class='join_btn'><a href='/member/join'>회원가입</a></button>
+</div>
+<!-- //login_box -->
+{% endblock %}

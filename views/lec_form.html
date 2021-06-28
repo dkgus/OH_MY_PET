@@ -1,0 +1,32 @@
+{% extends '../layout.html' %}
+{% block content %}
+	<div class='lec_box layout_width'>
+		<div class='lec_form'>
+			<div class='lec_left'>
+				<img src="image/dog1.jpg">
+			</div>
+			<div class='lec_right'>
+				<div class='right_title'>
+					{{ eventNm }}
+				</div>
+				<form method='post' action='lec' target='ifrmHidden'>
+					<div class='select_box'>
+						<select>
+							<option>{{ eventNm }} {{ eventNo }}</option>
+						</select>
+						<input type='submit' value='예약하기' class='res_btn'>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class='lec_details'>
+			<div class='lec_details_title'>
+			어쩌고쓰
+			나는야 상세페이지 제목
+			</div>
+			<div class='lec_details_in'>
+				나는 상세페이지 내용
+			</div>
+		</div>
+	</div>
+{% endblock %}
