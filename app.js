@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const port = 4646;
+const evntRoutes = require("./routes/event");
+const roomRoutes = require("./routes/room");
 
 require("dotenv").config();
 
@@ -10,6 +12,12 @@ mongoose.connect(process.env.MONGO_DB, {
   }
 ).then(() => console.log('MongoDB Connected...'))
  .catch(err => console.log(err)); 
+
+
+
+ app.use("/event", evntRoutes);
+ app.use("/room", roomRoutes);
+ 
 
 
 app.get('/',(req,res)=>{
