@@ -14,6 +14,12 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
 
+  // 이름
+  name: {
+    type: String,
+    required: true,
+  },
+
   // 반려동물 이름 = 닉네임
   nickname: {
     type: String,
@@ -27,7 +33,7 @@ const userSchema = new mongoose.Schema({
 
   // 전화번호
   phone: {
-    type: Number,
+    type: String,
   },
 
   // 가입일자

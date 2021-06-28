@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
 const nunjucks = require("nunjucks");
+const path = require("path");
 
 app.set("view engine", "html");
 nunjucks.configure("views", {
@@ -33,7 +34,7 @@ app.use(morgan("dev"));
 app.use("/users", userRoutes);
 app.use("/notices", noticeRoutes);
 app.use("/community", communityRoutes);
-
+app.use(express.static(path.join(__dirname, "public")));
 app.get("/", (req, res) => {
   res.send("DB가 연결되었습니다");
 });

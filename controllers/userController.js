@@ -79,6 +79,8 @@ module.exports = {
         nickname,
         email,
         password: passwordHash,
+        phone,
+        type,
       });
 
       await newUser.save();
@@ -124,7 +126,7 @@ module.exports = {
     }
   },
 
-  // @description    Login
+  // @description    Show a Login form
   // @route          GET /users/login
   showLoginForm: (req, res) => {
     res.render("users/login", { title: "로그인" });

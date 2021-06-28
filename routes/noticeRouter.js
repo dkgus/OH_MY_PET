@@ -27,4 +27,7 @@ router
 // notices/:id
 router.route("/:id").get(showNotice);
 
+// notices/new
+router.route("/new").get(showCreateForm).post(createNotice);
+
 module.exports = router;

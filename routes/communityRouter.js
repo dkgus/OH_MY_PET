@@ -17,6 +17,9 @@ router.route("/").get(showAllPosts);
 // community/new
 router.route("/new").get(showCreateForm).post(createPost);
 
+// community/:id
+router.route("/:id").get(showPost);
+
 // community/:id/edit
 router
   .route("/:id/edit")

@@ -26,6 +26,9 @@ router.route("/login").get(showLoginForm).post(loginUser);
 // users/logout
 router.route("/logout").post(logoutUser);
 
+// users/:id
+router.route("/:id").get(showUser);
+
 // users/:id/edit
 router
   .route("/:id/edit")
