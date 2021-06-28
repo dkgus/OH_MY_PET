@@ -18,8 +18,8 @@ module.exports = {
   showUser: async (req, res) => {
     try {
       const user = await User.findOne({ _id: req.params.id }, {});
-      //res.render("users/show", { user: user });
-      res.send({ user: user });
+      res.render("users/show", { user: user });
+      // res.send({ user: user });
     } catch (err) {
       console.error(err);
     }
@@ -27,8 +27,8 @@ module.exports = {
 
   // @description    Show a register form
   // @route          GET /users/new
-  showRegisterForm: async (req, res) => {
-    await res.render("users/new");
+  showRegisterForm: (req, res) => {
+    res.render("users/new");
   },
 
   // @description    Register a User
@@ -125,6 +125,12 @@ module.exports = {
   },
 
   // @description    Login
+  // @route          GET /users/login
+  showLoginForm: (req, res) => {
+    res.render("users/login", { title: "로그인" });
+  },
+
+  // @description    Login
   // @route          POST /users/login
   loginUser: async (req, res) => {
     const { email, password } = req.body;
@@ -156,7 +162,7 @@ module.exports = {
     sendToken(user, 200, res);
   },
 
-  // @description    Login
+  // @description    Logout
   // @route          GET /users/logout
   logoutUser: async (req, res) => {
     res.cookie("token", null, {

@@ -7,6 +7,13 @@ const communityRoutes = require("./routes/communityRouter");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
+const nunjucks = require("nunjucks");
+
+app.set("view engine", "html");
+nunjucks.configure("views", {
+  express: app,
+  watch: true,
+});
 
 dotenv.config();
 mongoose

@@ -11,13 +11,20 @@ const {
   deleteUser,
   loginUser,
   logoutUser,
+  showLoginForm,
 } = require("../controllers/userController");
 
 // users/
 router.route("/").get(showAllUsers);
 
-// users/:id
-router.route("/:id").get(showUser);
+// users/new
+router.route("/new").get(showRegisterForm).post(registerUser);
+
+// users/login
+router.route("/login").get(showLoginForm).post(loginUser);
+
+// users/logout
+router.route("/logout").post(logoutUser);
 
 // users/:id/edit
 router
@@ -26,13 +33,7 @@ router
   .put(updateUser)
   .delete(deleteUser);
 
-// users/new
-router.route("/new").get(showRegisterForm).post(registerUser);
-
-// users/login
-router.route("/login").post(loginUser);
-
-// users/logout
-router.route("/logout").post(logoutUser);
+// users/:id
+router.route("/:id").get(showUser);
 
 module.exports = router;

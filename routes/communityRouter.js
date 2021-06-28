@@ -14,8 +14,8 @@ const {
 // community/
 router.route("/").get(showAllPosts);
 
-// community/:id
-router.route("/:id").get(showPost);
+// community/new
+router.route("/new").get(showCreateForm).post(createPost);
 
 // community/:id/edit
 router
@@ -24,7 +24,7 @@ router
   .put(updatePost)
   .delete(deletePost);
 
-// community/new
-router.route("/new").get(showCreateForm).post(createPost);
+// community/:id
+router.route("/:id").get(showPost);
 
 module.exports = router;

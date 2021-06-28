@@ -14,8 +14,8 @@ const {
 // notices/
 router.route("/").get(showAllNotices);
 
-// notices/:id
-router.route("/:id").get(showNotice);
+// notices/new
+router.route("/new").get(showCreateForm).post(createNotice);
 
 // notices/:id/edit
 router
@@ -24,7 +24,7 @@ router
   .put(updateNotice)
   .delete(deleteNotice);
 
-// notices/new
-router.route("/new").get(showCreateForm).post(createNotice);
+// notices/:id
+router.route("/:id").get(showNotice);
 
 module.exports = router;
