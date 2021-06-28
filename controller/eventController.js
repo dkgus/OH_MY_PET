@@ -37,8 +37,8 @@ module.exports = {
   try {
     // validation
     // 필수 정보를 모두 입력했는지?
-    if (!nickname || !phone || !lecTitle) {
-      const msg = "반려동물의 이름, 연락처, 강연or 이벤트명을 입력해주세요.";
+    if (!nickname || !phone || !eventNm) {
+      const msg = "반려동물의 이름, 연락처, 이벤트명을 입력해주세요.";
       return res.send(`<script>alert("${msg}");history.back();</script>`);
     }
       await Event.save();
