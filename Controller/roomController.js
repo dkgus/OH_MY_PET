@@ -33,7 +33,7 @@ module.exports = {
   // @description    Create a new room
   // @route          POST /room/new
   createRoom: async (req, res) => {
-    const { title, content } = req.body;
+    const { nickname, phone, email, hotelName, roomType, revStart, revEnd } = req.body;
   try {
     // validation
     // 필수 정보를 모두 입력했는지?

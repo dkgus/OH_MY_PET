@@ -19,7 +19,7 @@ module.exports = {
   showEvent: async (req, res) => {
     try {
       const event = await Event.findOne({ _id: req.params.id }, {});
-      res.render("event/show", { event: Event });
+      res.render("event/show", { event: event });
     } catch (err) {
       console.error(err);
     }
@@ -34,7 +34,7 @@ module.exports = {
   // @description    Create a new event
   // @route          POST /event/new
   createEvent: async (req, res) => {
-    const { title, content } = req.body;
+    const { nickname, phone, eventNm } = req.body;
   try {
     // validation
     // 필수 정보를 모두 입력했는지?
@@ -84,3 +84,4 @@ module.exports = {
       console.error(err);
     }
   },
+}

@@ -16,19 +16,18 @@ const {
 // event/
 router.route("/").get(showAllEvents);
 
+// event/new
+router.route("/new").get(showCreateForm).post(createEvent);
 
 // event/:id/edit
 router
-  .route("/:id/edit")
-  .get(showUpdateForm)
-  .put(updateEvent)
-  .delete(deleteEvent);
-  
-  // event/new
-  router.route("/new").get(showCreateForm).post(createEvent);
-  
-  // event/:id
-  router.route("/:id").get(showEvent);
+.route("/:id/edit")
+.get(showUpdateForm)
+.put(updateEvent)
+.delete(deleteEvent);
 
-  module.exports = router;
+// event/:id
+router.route("/:id").get(showEvent);
+
+module.exports = router;
   
