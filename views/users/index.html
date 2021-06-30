@@ -1,1 +1,15 @@
-hihihi
+{% extends '../layout.html' %}
+
+<!-- 회원 가입-->
+{% block content %}
+<ul class="list-group">
+  {% if(users.length == 0) %}
+    <li class="list-group-item"> There is no user yet.</li>
+  {% endif %}
+  {% for user in users %}
+    <li class="list-group-item">
+      <a href="/users/{{ user._id }}">{{ user.email }}</a>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

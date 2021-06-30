@@ -3,19 +3,27 @@
 <div class='mypage'>
 	<div class='mypage_back'>
 		<div class='layout_width'>
-		<a href='/member/mypage'>my page</a>
+		<a href='/users/show'>my page</a>
 		</div>
 	</div>
 	<div class='my_info layout_width'>
 		<div class='infobox box1'>
 		<div class='info_title title1'>내 정보</div>
 		<dl>
-			<dd>아이디</dd>
+			<dd>이름</dd>
 			<dt>{{ name }}</dt>
 		</dl>
 		<dl>
 			<dd>반려동물 이름</dd>
 			<dt>{{ nickname }}</dt>
+		</dl>
+		<dl>
+			<dd>아이디</dd>
+			<dt>{{ email }}</dt>
+		</dl>
+		<dl>
+			<dd>전화번호</dd>
+			<dt>{{ phone }}</dt>
 		</dl>
 		<dl>
 			<dd>회원등급</dd>
@@ -25,17 +33,13 @@
 			<dd>반려동물 종류</dd>
 			<dt>{{ type }}</dt>
 		</dl>
-		<dl>
-			<dd>전화번호</dd>
-			<dt>{{ phone }}</dt>
-		</dl>
 		</div>
 		<!--//infobox -->
-		<div class='lec_box box1'>
-		<div class='lec_title title1'>강연예약 현황</div><div class='plus'><a href='/lec'>상세보기</a></div>
-		<table class='lec_res table1'>
+		<div class='event_box box1'>
+		<div class='event_title title1'>이벤트 현황</div><div class='plus'><a href='/'>상세보기</a></div>
+		<table class='event_res table1'>
 				<tr>
-					<td>강연 제목</td>
+					<td>이벤트 제목</td>
 					<td>예약일</td>
 					<td>예약자 성함</td>
 				<tr>
@@ -45,7 +49,7 @@
 				</tr>
 			</table>
 		</div>
-		<!--// lec_box -->
+		<!--// event_box -->
 		<div class='hotel_box box1'>
 			<div class='hotel_title title1'>호텔예약 현황</div><div class='plus'><a href='hotel/'>상세보기</a></div>
 			<table class='hotel_res table1'>
@@ -57,7 +61,7 @@
 					<td>체크인</td>
 					<td>체크아웃</td>
 				<tr>
-					<td>{{ hotelNm }}</td>
+					<td>{{ hotelName }}</td>
 					<td>{{ memo }}</td>
 					<td>{{ roomType }}</td>
 					<td>{{ regDt }}</td>

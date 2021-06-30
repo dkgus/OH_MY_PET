@@ -1,0 +1,23 @@
+{% extends '../layout.html' %}
+{% block content %}
+	<div class='event_res_box layout_width'>
+		<div class='res_form'>
+			<div class='res_left'>
+				<img src="image/dog1.jpg">
+			</div>
+			<div class='res_right'>
+				<div class='right_title'>
+					{{ eventNm }}
+				</div>
+				<form method='post' action='event' target='ifrmHidden'>
+					<div class='select_box'>
+						<select name='event_res'>
+							<option></option>
+						</select>
+						<input type='submit' value='예약하기' class='res_btn'>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}
