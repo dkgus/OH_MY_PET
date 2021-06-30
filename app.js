@@ -5,32 +5,28 @@ const userRoutes = require("./routes/userRouter");
 const noticeRoutes = require("./routes/noticeRouter");
 const communityRoutes = require("./routes/communityRouter");
 const mongoose = require("mongoose");
-const nunjucks = require("nunjucks");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
+const nunjucks = require("nunjucks");
+const path = require("path");
+
+app.set("view engine", "html");
+nunjucks.configure("views", {
+  express: app,
+  watch: true,
+});
 
 dotenv.config();
 mongoose
-  .connect(
-    "mongodb+srv://ahhyun:ohmypet@cluster0.i2tx8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-    }
-  )
+  .connect(process.env.MONGO_DB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
 
-app.set('view engine', 'html');
-nunjucks.configure('views', {
-   express : app,
-   watch : true,
-});
-
-
-// body-parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -38,8 +34,7 @@ app.use(morgan("dev"));
 app.use("/users", userRoutes);
 app.use("/notices", noticeRoutes);
 app.use("/community", communityRoutes);
-
-
+app.use(express.static(path.join(__dirname, "public")));
 app.get("/", (req, res) => {
   res.send("DB가 연결되었습니다");
 });

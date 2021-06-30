@@ -14,8 +14,8 @@ const {
 // notices/
 router.route("/").get(showAllNotices);
 
-// notices/:id
-router.route("/:id").get(showNotice);
+// notices/new
+router.route("/new").get(showCreateForm).post(createNotice);
 
 // notices/:id/edit
 router
@@ -23,6 +23,9 @@ router
   .get(showUpdateForm)
   .put(updateNotice)
   .delete(deleteNotice);
+
+// notices/:id
+router.route("/:id").get(showNotice);
 
 // notices/new
 router.route("/new").get(showCreateForm).post(createNotice);
