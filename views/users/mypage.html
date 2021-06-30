@@ -1,0 +1,79 @@
+{% extends '../layout.html' %}
+{% block content %}
+<div class='mypage'>
+	<div class='mypage_back'>
+		<div class='layout_width'>
+		<a href='/member/mypage'>my page</a>
+		</div>
+	</div>
+	<div class='my_info layout_width'>
+		<div class='infobox box1'>
+		<div class='info_title title1'>내 정보</div>
+		{% if item.memId %}
+		{% for item in user %}
+		<dl>
+			<dd>이름</dd>
+			<dt>{{ item.name }}</dt>
+		</dl>
+		<dl>
+			<dd>반려동물 이름</dd>
+			<dt>{{ item.nickname }}</dt>
+		</dl>
+		<dl>
+			<dd>회원등급</dd>
+			<dt>{{ item.role }}</dt>
+		</dl>
+		<dl>
+			<dd>반려동물 종류</dd>
+			<dt>{{ item.type }}</dt>
+		</dl>
+		<dl>
+			<dd>전화번호</dd>
+			<dt>{{ item.phone }}</dt>
+			
+		</dl>
+		{% endfor %}
+		{% endif %}
+		</div>
+		<!--//infobox -->
+		<div class='lec_box box1'>
+		<div class='lec_title title1'>강연예약 현황</div><div class='plus'><a href='/lec'>상세보기</a></div>
+		<table class='lec_res table1'>
+				<tr>
+					<td>강연 제목</td>
+					<td>예약일</td>
+					<td>예약자 성함</td>
+				<tr>
+					<td>{{ event.eventNm }}</td>
+					<td>{{ event.eventNo }}</td>
+					<td>{{ event.user }}</td>
+				</tr>
+			</table>
+		</div>
+		<!--// lec_box -->
+		<div class='hotel_box box1'>
+			<div class='hotel_title title1'>호텔예약 현황</div><div class='plus'><a href='hotel/'>상세보기</a></div>
+			<table class='hotel_res table1'>
+				<tr>
+					<td>호텔명</td>
+					<td>주소</td>
+					<td>객실 종류</td>
+					<td>예약일</td>
+					<td>체크인</td>
+					<td>체크아웃</td>
+				<tr>
+					<td>{{ room.hotelNm }}</td>
+					<td>{{ room.memo }}</td>
+					<td>{{ room.roomType }}</td>`
+					<td>{{ room.regDt }}</td>
+					<td>{{ room.revStart }}</td>
+					<td>{{ room.revEnd }}</td>
+				</tr>
+			</table>
+		</div>
+		<!--// hotel_box-->
+	</div>
+	<!--// my_info layout_width-->
+</div>
+<!-- //mypage -->
+{% endblock %}

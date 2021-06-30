@@ -1,8 +1,16 @@
 const express = require("express");
 const app = express();
 const port = 4646;
+const userRoutes = require("./routes/user");
 const evntRoutes = require("./routes/event");
 const roomRoutes = require("./routes/room");
+const nunjucks = require("nunjucks");
+
+app.set("view engine", "html");
+nunjucks.configure("views", {
+  express: app,
+  watch: true,
+});
 
 require("dotenv").config();
 
@@ -14,7 +22,7 @@ mongoose.connect(process.env.MONGO_DB, {
  .catch(err => console.log(err)); 
 
 
-
+ app.use("/users", userRoutes);
  app.use("/event", evntRoutes);
  app.use("/room", roomRoutes);
  

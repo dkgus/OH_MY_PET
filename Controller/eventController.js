@@ -34,7 +34,7 @@ module.exports = {
   // @description    Create a new event
   // @route          POST /event/new
   createEvent: async (req, res) => {
-    const { nickname, phone, eventNm } = req.body;
+    const { nickname, phone, eventNm } = req.body;//req.body에서 받은것중에 사용할 것들만 꺼내서 쓰기
   try {
     // validation
     // 필수 정보를 모두 입력했는지?
@@ -42,7 +42,7 @@ module.exports = {
       const msg = "반려동물의 이름, 연락처, 이벤트명을 입력해주세요.";
       return res.send(`<script>alert("${msg}");history.back();</script>`);
     }
-      await Event.save();
+      await Event.create({ eventNm, user : req.user._id });//여기 save를 쓸때는 객체가있을때만! 여기서는따로 객체 필요하지않기때문에
       res.redirect("/event");
     } catch (err) {
       console.log(err);

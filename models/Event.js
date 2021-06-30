@@ -18,12 +18,12 @@ eventNm : {
     required: true,
 },
 
-//이벤트 예약 번호
-eventNo : {
-    type: Number,
-    required: true,
+// //이벤트 예약 번호
+// eventNo : {
+//     type: Number,
+//     required: true,
 
-},
+// },
 });
 
 

@@ -6,7 +6,8 @@ module.exports = {
   // @description    Show all rooms
   // @route          GET /room
   showAllRooms: async (req, res) => {
-    await Room.find({})
+    await Room.find({})//이쯤에서.populate(참조가 필요한 document이름)-> exec
+    //그리고나서 한줄 더추가했는데 뭐였지..조인할때 뭘 추가해야한다고했음
       .sort({ createdAt: -1 })
       .exec((err, rooms) => {
         res.render("room/index", { rooms: rooms });
@@ -18,7 +19,9 @@ module.exports = {
   showRoom: async (req, res) => {
     try {
       const room = await Room.findOne({ _id: req.params.id }, {});
-      res.render("room/show", { room: room });
+      res.render("room/show", { room: room });//여기 후자 room은 변수 room을 가리키고 앞의 room 은 html상 포인문을
+                                              //포인문을 통해 출력될 room.name~이런식으로 될 객체이름이다
+                                              //하지만 두개 나눠서 구분하는것이 번거롭기때문에 room 이렇게 하나만 써주면된다.
     } catch (err) {
       console.error(err);
     }
@@ -41,12 +44,12 @@ module.exports = {
       const msg = "이름, 연락처, 이메일, 호텔명, 객실종류, 일정시작일, 일정 종료일을 입력해주세요.";
       return res.send(`<script>alert("${msg}");history.back();</script>`);
     }
-      await Room.save();
+      await Room.create();
       res.redirect("/room");
     } catch (err) {
       console.log(err);
       res.status(500).send("server error");
-    }
+    }ㅌ
   },
 
   // @description    Show a update form
