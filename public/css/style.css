@@ -359,9 +359,7 @@ a {
   padding: 0;
   font-size: 15px;
 }
-
 /** event_form E */
-
 .event_detail .event_detail_top {
 font-size: 20px;
 margin-top: 30px;
@@ -369,29 +367,26 @@ padding: 15px;
 margin-bottom: 20px;
 }
 .event_detail .event_detail_top i {
-
 }
 .event_detail .event_detail_top .etc {
 font-size: 20px;
 }
 .event_detail .event_detail_top {
 border-top: 2px solid #ffaf2d;
-
 }
 .event_detail_mid {
 box-shadow: 10px 10px 20px rgb(0 0 0 / 12%);
 border: 0;
 margin-bottom: 25px;
+border-radius: 10px;
 }
 .event_detail_mid .event_detail_box table {
 display: inline-block;
 width: 80%;
 font-size: 15px;
 font-weight: 500;
-
 }
 .event_detail_mid .event_detail_box table tr td {
-
 padding: 20px;
 width: 900px;
 }
@@ -402,10 +397,7 @@ width: 200px;
 .event_detail_mid .event_detail_box .img_box {
 display: inline-block;
 margin-right: 20px;
-
 }
 .event_detail_mid .event_detail_box .img_box img {
 width: 150px;
-
-
 }
