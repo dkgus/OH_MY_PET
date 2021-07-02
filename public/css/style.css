@@ -98,8 +98,8 @@ a {
   margin-bottom: 20px;
 }
 
-.login_box input[type="text"] {
-  margin-bottom: 5px;
+.login_box input[type="email"] {
+  margin-bottom: 8px;
 }
 
 .login_box input[type="submit"] {
@@ -362,3 +362,20 @@ a {
 }
 
 /** event_form E */
+
+.event_detail .event_detail_top {
+font-size: 20px;
+margin-top: 30px;
+padding: 15px;
+margin-bottom: 20px;
+}
+.event_detail .event_detail_top .etc {
+font-size: 20px;
+}
+.event_detail .event_detail_top {
+border: 1px solid #999;
+
+}
+.event_detail .event_detail_mid dl dd {
+	width: 20%;
+}

@@ -29,7 +29,8 @@ module.exports = {
   // @route          GET /users/new
   showRegisterForm: (req, res) => {
     res.render("users/new");
-  },
+
+	},
 
   // @description    Register a User
   // @route          POST /users/new

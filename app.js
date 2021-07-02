@@ -4,6 +4,9 @@ const port = 4646;
 const userRoutes = require("./routes/userRouter");
 const noticeRoutes = require("./routes/noticeRouter");
 const communityRoutes = require("./routes/communityRouter");
+const evntRoutes = require("./routes/event");
+const roomRoutes = require("./routes/room");
+
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
@@ -34,6 +37,9 @@ app.use(morgan("dev"));
 app.use("/users", userRoutes);
 app.use("/notices", noticeRoutes);
 app.use("/community", communityRoutes);
+app.use("/event", evntRoutes);
+app.use("/room", roomRoutes);
+
 app.use(express.static(path.join(__dirname, "public")));
 app.get("/", (req, res) => {
   res.send("DB가 연결되었습니다");
