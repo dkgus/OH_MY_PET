@@ -366,7 +366,7 @@ a {
 .event_detail .event_detail_top {
 font-size: 20px;
 margin-top: 30px;
-padding: 15px;
+padding: 20px;
 margin-bottom: 20px;
 }
 .event_detail .event_detail_top .etc {
@@ -376,6 +376,14 @@ font-size: 20px;
 border: 1px solid #999;
 
 }
-.event_detail .event_detail_mid dl dd {
-	width: 20%;
+
+.event_detail .event_detail_mid .event_detail_box table tr td {
+border: 1px solid #212121;
+padding: 20px;
+width: 900px;
+}
+.event_detail .event_detail_mid .event_detail_box table tr .pad {
+border: 1px solid #212121;
+padding: 20px;
+width: 200px;
 }
