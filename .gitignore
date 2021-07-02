@@ -1,0 +1,8 @@
+# .gitignore 
+node_modules
+.env
+say.txt
+app.js
+package.json
+package-lock.json
+ckeditor/
