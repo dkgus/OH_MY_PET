@@ -23,7 +23,16 @@
     <title>{% if pageTitle %}{{ pageTitle }} - {% endif %}OH_MY_PET</title>
   </head>
   <body>
-    {% block content %} {% endblock %}
+    <header>
+      {% block header %} {% include "outline/header/_main.html" %} {% endblock%}
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer>
+      {% block footer %} {% include "outline/footer/_main.html" %} {% endblock
+      %}
+    </footer>
     <iframe
       name="ifrmHidden"
       width="100%"
@@ -31,50 +40,4 @@
       frameborder="0"
     ></iframe>
   </body>
-  <footer>
-    <div class="footer_wrap layout_width">
-      <div class="footer_left">
-        <ul class="footer_menu">
-          <li><a href="#">@이름</a></li>
-          <li><a href="#">@이름</a></li>
-          <li><a href="#">@이름</a></li>
-          <li><a href="#">@이름</a></li>
-          <li><a href="#">@이름</a></li>
-        </ul>
-        <!--//footer_menu-->
-        <div class="support">
-          <div class="support_title">고객센터</div>
-          <div class="support_tel">0000-0000</div>
-          <p class="support_time">
-            평일, 토요일 07:00~18:00<br />
-            (공휴일 07:00~13:00 / 일요일 휴무)<br />
-            카카오톡 <a href="#">@ohmypet</a> 친구추가하고 소식과 혜택을
-            받아보세요.
-          </p>
-        </div>
-        <!--//support-->
-      </div>
-      <!--//footer_left-->
-
-      <div class="footer_right">
-        <div class="company">
-          <div class="company_title">(주)Oh My Pet</div>
-          <p class="company_info">
-            대표이사 : 어쩌구 ｜ 사업장소재지 : 인천시 어쩌구 저쩌구 웅앵동
-            웅앵호 오마이펫<br />
-
-            개인정보보호책임자 : 김반려 ｜ 개인정보 관리 이메일 :
-            ohmypet@ohmypet.com<br />
-            호스팅 서비스 사업자 : (주)Oh My Pet<br />
-          </p>
-        </div>
-        <!--//company-->
-        <div class="copyright">
-          Copyright &copy; 2021 Oh My Pet.All Rights Reserved.
-        </div>
-        <!--//copyright-->
-      </div>
-      <!--//footer_right-->
-    </div>
-  </footer>
 </html>
