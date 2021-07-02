@@ -68,7 +68,6 @@ a {
 }
 .box1 {
   width: 1100px;
-  border: 1px solid #8f8c83;
   padding: 30px;
 }
 .title1 {
@@ -366,24 +365,47 @@ a {
 .event_detail .event_detail_top {
 font-size: 20px;
 margin-top: 30px;
-padding: 20px;
+padding: 15px;
 margin-bottom: 20px;
+}
+.event_detail .event_detail_top i {
+
 }
 .event_detail .event_detail_top .etc {
 font-size: 20px;
 }
 .event_detail .event_detail_top {
-border: 1px solid #999;
+border-top: 2px solid #ffaf2d;
 
 }
+.event_detail_mid {
+box-shadow: 10px 10px 20px rgb(0 0 0 / 12%);
+border: 0;
+margin-bottom: 25px;
+}
+.event_detail_mid .event_detail_box table {
+display: inline-block;
+width: 80%;
+font-size: 15px;
+font-weight: 500;
 
-.event_detail .event_detail_mid .event_detail_box table tr td {
-border: 1px solid #212121;
+}
+.event_detail_mid .event_detail_box table tr td {
+
 padding: 20px;
 width: 900px;
 }
-.event_detail .event_detail_mid .event_detail_box table tr .pad {
-border: 1px solid #212121;
+.event_detail_mid .event_detail_box table tr .pad {
 padding: 20px;
 width: 200px;
+}
+.event_detail_mid .event_detail_box .img_box {
+display: inline-block;
+margin-right: 20px;
+
+}
+.event_detail_mid .event_detail_box .img_box img {
+width: 150px;
+
+
 }
