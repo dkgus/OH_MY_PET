@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<link rel="stylesheet" type="text/css" href="css/form.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src = "js/ckeditor/ckeditor.js"></script>
+<script src="js/form.js" defer> </script>
+<title>작성 :: 오 마이 펫</title>
+</head>
+<body>
+  <!--상단 S-->
+  <header style="height: 100px;">
+  </header>
+  <!--상단 E-->
+  <!--본문 S-->
+  <div class='form_wrap layoutwidth'>
+    <div class="form_box">
+      <form method='post' action='folder=#&file=#' target='ifrmHidden' autocomplete='off'>
+	      <input type='hidden' name='mode' value='isset($idx)?"modify":"upload"'>
+      	<input type='hidden' name='idx' value='$idx'>
+        <div class='top'>
+          <ul>
+            <li>제목</li>
+            <li>
+              <input type='text' name='subject' id='subject'>
+            </li>
+            <li>읽기 권한</li>
+            <li>
+              <select id="access" value="access">
+                <option>GUEST</option>
+                <option>MEMBER</option>
+                <option>VIP</option>
+                <option>MANAGER</option>
+              </select>
+            </li>
+          </ul>
+        </div>
+      	<div class="form">
+            <textarea id="content" name="content" rows="40"></textarea>
+            <script> CKEDITOR.replace( 'content', { filebrowserImageUploadUrl: '../uploadIMG.jsp' }); </script>
+	      </div>
+      </div><!-- //form_box -->
+      <div class='btnWrap'>
+        <button id="back" name="back" onclick="list()"><i class="xi-bars"></i>목록</button>
+        <div class='submit'>
+          <i class="xi-pen"></i>
+          <input type="submit" class="search_btn" value="등록">
+      </div>
+      </div> <!-- //btnWrap -->
+  </div> <!-- //form_wrap -->
+  <!--본문 E-->
+  <!--하단 S-->
+  <footer style="height: 100px;">
+  </footer>
+  <!--하단 E-->
+</body>
+</html>
