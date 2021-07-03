@@ -1,0 +1,83 @@
+{% extends '../layout.html' %} {% block content %}
+<div class="layout_width">
+  <div class="hotel_res_title">예약하기</div>
+
+  
+    <div class="hotel_img">
+        호텔 이미지
+    </div>
+    <div class="sub_title">{{ hotelName }}</div>
+    <table>
+        <tr>
+            <td>
+                위치
+            </td>
+            <td>
+                호텔 위치
+            </td>
+        </tr>
+        <tr>
+            <td>
+                연락처
+            </td>
+            <td>
+                0000000000
+            </td>
+        </tr>
+    </table>
+    <div class="sub_title">예약자 정보</div>
+    <form name="" action="" method="post"></form>
+    <table>
+        <tr>
+            <td>
+                예약자 성함
+            </td>
+            <td>
+                {{user.name}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                방 종류
+            </td>
+            <td>
+                <select name="roomType" id="">
+                    <option value="">dorm</option>
+                    <option value="">family</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                체크인|체크아웃
+            </td>
+            <td>
+                <select name='period'>
+                    <!-- {% for  in  %} -->
+                        <option value='{{ 기간... }}'>{{ room.revStart }} ~ {{ room.revEnd }}</option>
+                    <!-- {% endfor %} -->
+                    </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                기타요청사항
+            </td>
+            <td>
+                <textarea name="memo" id="" cols="30" rows="10"></textarea>
+            </td>
+        </tr>
+    </table>
+
+    <input type='submit' value='예약하기' class='res_btn'>
+
+  </form>
+
+  <!-- guide text -->
+  <ul class="guide_text">
+    <li>예약시 주의사항1</li>
+    <li>예약시 주의사항2</li>
+    <li>예약시 주의사항3</li>
+  </ul>
+</div>
+{% endblock %}
