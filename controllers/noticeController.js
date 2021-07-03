@@ -39,7 +39,7 @@ module.exports = {
         const msg = "글 제목, 내용, 등급을 모두 입력해주세요.";
         return res.send(`<script>alert("${msg}");history.back();</script>`);
       }
-      await Notice.save();
+      await Notice.create(req.body);
       res.redirect("/notices");
     } catch (err) {
       console.log(err);

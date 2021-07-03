@@ -1,16 +1,15 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const sendToken = require("../utils/jwtToken");
+const event = require("../models/Event");
+const community = require("../models/Community");
 
 module.exports = {
   // @description    Show all users
   // @route          GET /users
   showAllUsers: async (req, res) => {
-    await User.find({})
-      .sort({ username: 1 })
-      .exec((err, users) => {
-        res.render("users/index", { users: users });
-      });
+    const users = await User.find({}).sort({ username: 1 });
+    res.render("users/index", { users: users });
   },
 
   // @description    Show a user
@@ -18,8 +17,8 @@ module.exports = {
   showUser: async (req, res) => {
     try {
       const user = await User.findOne({ _id: req.params.id }, {});
-      res.render("users/show", { user: user });
-      // res.send({ user: user });
+      res.render("users/show", { user });
+      console.log(user);
     } catch (err) {
       console.error(err);
     }
@@ -84,6 +83,7 @@ module.exports = {
       });
 
       await newUser.save();
+
       res.redirect("/users");
     } catch (err) {
       console.log(err);
@@ -161,7 +161,7 @@ module.exports = {
       return res.send(`<script>alert("${msg}");history.back();</script>`);
     }
 
-    sendToken(user, 200, res);
+    sendToken(user, res);
   },
 
   // @description    Logout
@@ -175,5 +175,14 @@ module.exports = {
       success: true,
       message: "Logged out",
     });
+  },
+
+  // @description    Show my page
+  // @route          GET /users/mypage
+  showMyPage: async (req, res) => {
+    const user = await User.findOne({ _id: req.user._id }, {});
+    const events = await event.find().populate("user");
+    const posts = await community.find().populate("user");
+    res.render("users/mypage", { user, events, posts });
   },
 };

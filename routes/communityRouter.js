@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { isAuthenticatedUser } = require("../utils/auth");
 
 const {
   showAllPosts,
@@ -15,7 +16,10 @@ const {
 router.route("/").get(showAllPosts);
 
 // community/new
-router.route("/new").get(showCreateForm).post(createPost);
+router
+  .route("/new")
+  .get(isAuthenticatedUser, showCreateForm)
+  .post(isAuthenticatedUser, createPost);
 
 // community/:id
 router.route("/:id").get(showPost);

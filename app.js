@@ -9,6 +9,9 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const nunjucks = require("nunjucks");
 const path = require("path");
+const evntRoutes = require("./routes/event");
+const cookieParser = require("cookie-parser");
+app.use(express.static(path.join(__dirname, "public")));
 
 app.set("view engine", "html");
 nunjucks.configure("views", {
@@ -16,6 +19,7 @@ nunjucks.configure("views", {
   watch: true,
 });
 
+app.use(cookieParser());
 dotenv.config();
 mongoose
   .connect(process.env.MONGO_DB, {
@@ -31,10 +35,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(morgan("dev"));
+
+app.use("/event", evntRoutes);
 app.use("/users", userRoutes);
 app.use("/notices", noticeRoutes);
 app.use("/community", communityRoutes);
-app.use(express.static(path.join(__dirname, "public")));
+app.use("/", (req, res) => res.render("main/index.html"));
+
 app.get("/", (req, res) => {
   res.send("DB가 연결되었습니다");
 });

@@ -1,0 +1,35 @@
+{% extends '../layout.html' %}
+
+<!-- 회원 가입-->
+{% block content %}
+   <div class='join_box layout_width'>
+      <div class='join_title'>내 정보</div>
+         <form method='post' action='/users/new' autocomplete='off' class='join_form'>
+            <dl>
+               <dt>이름</dt>
+               <dd class='pad'>
+                  {{ user.name }}
+               </dd>
+            </dl>
+            <dl>
+               <dt>반려동물 이름</dt>
+               <dd class='pad'>
+                {{ user.nickname }} ({{ user.type }})
+               </dd>
+            </dl>
+            <dl>
+               <dt>이메일</dt>
+               <dd class='pad'>
+                {{ user.email }}
+               </dd>
+            </dl>
+            <dl>
+               <dt>전화번호</dt>
+               <dd class='pad'>
+                {{ user.phone }}
+               </dd>
+            </dl>
+         <input type='submit' value='수정하기' class='join_btn'>
+      </form>
+   </div>
+{% endblock %}
