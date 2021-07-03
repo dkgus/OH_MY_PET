@@ -44,11 +44,26 @@ module.exports = {
     }
       await Event.create({ eventNm, user : req.user._id });//여기 save를 쓸때는 객체가있을때만! 여기서는따로 객체 필요하지않기때문에
       res.redirect("/event");
+      console.log(req.user);
     } catch (err) {
       console.log(err);
       res.status(500).send("server error");
     }
   },
+
+
+
+  // @description    Create a new event detail form
+  // @route          POST /event/detail
+	showDetailForm: async (req, res) => {
+		try {
+        const event = await Event.findOne({});
+				res.render("event/detail",{event: event});
+		} catch (err) {
+			console.error(err);
+		}
+	},
+
 
   // @description    Show a update form
   // @route          GET /event/:id/edit

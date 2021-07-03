@@ -27,21 +27,20 @@ router.route("/login").get(showLoginForm).post(loginUser);
 // users/logout
 router.route("/logout").post(logoutUser);
 
-
 // users/mypage
-router.route("/mypage").get(showMyhomeForm)
+router.route("/mypage");
 
-// users/:id
-router.route("/:id").get(showUser);
 
 // users/:id/edit
 router
-  .route("/:id/edit")
-  .get(showUpdateForm)
-  .put(updateUser)
-  .delete(deleteUser);
+.route("/:id/edit")
+.get(showUpdateForm)
+.put(updateUser)
+.delete(deleteUser);
+
 
 // users/:id
-router.route("/:id").get(showUser);
+router.route("/:id").get(showMyhomeForm);
+
 
 module.exports = router;

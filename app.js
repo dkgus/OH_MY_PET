@@ -1,10 +1,18 @@
 const express = require("express");
 const app = express();
 const port = 4646;
+const nunjucks = require("nunjucks");
+const methodOverride =require('method-override');
+const dotenv = require("dotenv");
+const path = require("path");
+
 const userRoutes = require("./routes/user");
 const evntRoutes = require("./routes/event");
 const roomRoutes = require("./routes/room");
-const nunjucks = require("nunjucks");
+const noticeRoutes = require("./routes/notice");
+const communityRoutes = require("./routes/community");
+
+dotenv.config();
 
 app.set("view engine", "html");
 nunjucks.configure("views", {
@@ -22,11 +30,16 @@ mongoose.connect(process.env.MONGO_DB, {
  .catch(err => console.log(err)); 
 
 
+ app.use(express.json());
+ app.use(express.urlencoded({ extended: true }));
+
  app.use("/users", userRoutes);
+ app.use("/notices", noticeRoutes);
+ app.use("/community", communityRoutes);
  app.use("/event", evntRoutes);
  app.use("/room", roomRoutes);
  
-
+ app.use(express.static(path.join(__dirname, "public")));
 
 app.get('/',(req,res)=>{
     res.send("DB가 연결되었습니다");

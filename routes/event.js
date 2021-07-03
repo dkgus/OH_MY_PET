@@ -9,6 +9,7 @@ const {
   showUpdateForm,
   updateEvent,
   deleteEvent,
+  showDetailForm,
 } = require("../controller/eventController");
 
 
@@ -18,6 +19,9 @@ router.route("/").get(showAllEvents);
 
 // event/new
 router.route("/new").get(showCreateForm).post(createEvent);
+
+// event/detail
+router.route("/detail").get(showDetailForm);
 
 // event/:id/edit
 router
