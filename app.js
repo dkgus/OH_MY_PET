@@ -5,7 +5,7 @@ const nunjucks = require("nunjucks");
 const methodOverride =require('method-override');
 const dotenv = require("dotenv");
 const path = require("path");
-
+const cookieParser = require("cookie-parser");
 const userRoutes = require("./routes/user");
 const evntRoutes = require("./routes/event");
 const roomRoutes = require("./routes/room");
@@ -20,7 +20,8 @@ nunjucks.configure("views", {
   watch: true,
 });
 
-require("dotenv").config();
+app.use(cookieParser());
+dotenv.config();
 
 const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGO_DB, {
@@ -29,6 +30,7 @@ mongoose.connect(process.env.MONGO_DB, {
 ).then(() => console.log('MongoDB Connected...'))
  .catch(err => console.log(err)); 
 
+ app.use(express.static(path.join(__dirname, "public")));
 
  app.use(express.json());
  app.use(express.urlencoded({ extended: true }));
@@ -38,8 +40,8 @@ mongoose.connect(process.env.MONGO_DB, {
  app.use("/community", communityRoutes);
  app.use("/event", evntRoutes);
  app.use("/room", roomRoutes);
+ app.use("/", (req,res) => res.render("main/index.html")); //넓은범위일수록 제일아래로
  
- app.use(express.static(path.join(__dirname, "public")));
 
 app.get('/',(req,res)=>{
     res.send("DB가 연결되었습니다");

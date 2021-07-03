@@ -1,5 +1,6 @@
 const express  = require('express');
 const router = express.Router();
+const { isAuthenticatedUser } = require("../utils/auth");
 
 const {
   showAllEvents,
@@ -18,10 +19,9 @@ const {
 router.route("/").get(showAllEvents);
 
 // event/new
-router.route("/new").get(showCreateForm).post(createEvent);
+router.route("/new").get(showCreateForm).post(isAuthenticatedUser, createEvent);
 
-// event/detail
-router.route("/detail").get(showDetailForm);
+
 
 // event/:id/edit
 router

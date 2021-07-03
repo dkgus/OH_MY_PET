@@ -1,27 +1,15 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const sendToken = require("../utils/jwtToken");
+const event = require("../models/Event");
+const community = require("../models/Community");
 
 module.exports = {
   // @description    Show all users
   // @route          GET /users
   showAllUsers: async (req, res) => {
-    await User.find({})
-      .sort({ username: 1 })
-      .exec((err, users) => {
-        res.render("users/index", { users: users });
-      });
-  },
-
-  // @description    Show a myhome form
-  // @route          GET /users/myhome
-  showMyhomeForm: async(req, res) => {
-    try{
-        const user = await User.findOne({ _id: req.params.id }, {});
-        res.render("users/mypage", { user: user });
-    }catch(err){
-      console.error(err);
-    }
+    await User.find({}).sort({ username: 1 });
+    res.render("users/index", { users: users });
   },
 
 
@@ -191,5 +179,14 @@ module.exports = {
       success: true,
       message: "Logged out",
     });
+  },
+
+  // @description    Show my page
+  // @route          GET /users/mypage
+  showMyPage: async (req, res) => {
+    const user = await User.findOne({ _id: req.user._id }, {});
+    const events = await event.find().populate("user");
+    const posts = await community.find().populate("user");
+    res.render("users/mypage", { user, events, posts });
   },
 };

@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { isAuthenticatedUser } = require("../utils/auth");
 
 const {
   showAllUsers,
@@ -12,8 +13,9 @@ const {
   loginUser,
   logoutUser,
   showLoginForm,
-  showMyhomeForm,
+  showMyPage,
 } = require("../controller/userController");
+
 
 // users/
 router.route("/").get(showAllUsers);
@@ -28,19 +30,18 @@ router.route("/login").get(showLoginForm).post(loginUser);
 router.route("/logout").post(logoutUser);
 
 // users/mypage
-router.route("/mypage");
-
+router.route("/mypage").get(isAuthenticatedUser, showMyPage);
 
 // users/:id/edit
 router
-.route("/:id/edit")
-.get(showUpdateForm)
-.put(updateUser)
-.delete(deleteUser);
-
+  .route("/:id/edit")
+  .get(showUpdateForm)
+  .put(updateUser)
+  .delete(deleteUser);
 
 // users/:id
-router.route("/:id").get(showMyhomeForm);
+router.route("/:id").get(showUser);
+
 
 
 module.exports = router;
