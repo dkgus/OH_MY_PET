@@ -13,7 +13,7 @@
                 위치
             </td>
             <td>
-                호텔 위치
+                호텔 위치 <button>상세보기</button>
             </td>
         </tr>
         <tr>
@@ -34,6 +34,14 @@
             </td>
             <td>
                 {{user.name}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                예약자 연락처
+            </td>
+            <td>
+                {{user.phone}}
             </td>
         </tr>
         <tr>
@@ -68,16 +76,16 @@
             </td>
         </tr>
     </table>
-
     <input type='submit' value='예약하기' class='res_btn'>
-
   </form>
 
   <!-- guide text -->
+  <div class="guide_box">
   <ul class="guide_text">
     <li>예약시 주의사항1</li>
     <li>예약시 주의사항2</li>
     <li>예약시 주의사항3</li>
   </ul>
+</div>
 </div>
 {% endblock %}
