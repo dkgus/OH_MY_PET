@@ -1,0 +1,78 @@
+<!-- 어드민 _ 호텔 등록 페이지 -->
+{% extends 'layout.html' %}
+<!-- admin page layout -->
+
+{% block content %}
+
+<!-- add event -->
+<div>ADD ROOM</div>
+<div class="admin_addroom_box">
+  <form action="">
+    <label for="">hotel name</label>
+    <input type="text" value="" />
+    <label for="">reservation date</label>
+    <input type="number" value="" />
+    <label for="">price</label>
+    <input type="number" value="" />
+    <label for="">hotel description</label>
+    <input type="textarea" value="" />
+    <label for="">room category</label>
+    <select name="" id="">
+      <option value="">Dorm</option>
+      <option value="">Family</option>
+    </select>
+    <input type="submit" value="add room" calss="" />
+  </form>
+</div>
+
+<!-- event list -->
+<div>ROOM LIST</div>
+<form action="">
+  <table>
+    <thead>
+      <tr>
+        <td>hotel name</td>
+        <td>reservation date</td>
+        <td>room type</td>
+        <td>remove hotel</td>
+      </tr>
+    </thead>
+    <tbody>
+      <!--{% for in %}-->
+      <tr>
+        <td>{{ hotelName }}</td>
+        <td>reservation date</td>
+        <td>{{ roomType }}</td>
+        <td>remove hotel</td>
+      </tr>
+      <!--{% endfor %}-->
+    </tbody>
+  </table>
+</form>
+
+<!-- confirm event res. -->
+<div>RESERVATION LIST</div>
+<table>
+  <thead>
+    <tr>
+      <td>hotel name</td>
+      <td>user name</td>
+      <td>room type</td>
+      <td>check-in/out</td>
+      <td>memo</td>
+    </tr>
+  </thead>
+  <tbody>
+    <!--{% for in %}-->
+    <tr>
+      <td>{{ eventNm }}</td>
+      <td>{{ user }}</td>
+      <td>{{ roomType }}</td>
+      <td>{{ revStart }} ~ {{ revEnd }}</td>
+      <td>{{ memo }}</td>
+    </tr>
+    <!--{% endfor %}-->
+  </tbody>
+</table>
+
+{% endblock %}
