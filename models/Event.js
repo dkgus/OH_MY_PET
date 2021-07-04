@@ -14,6 +14,12 @@ const eventSchema = new mongoose.Schema({
     required: true,
   },
 
+  // 예약일시
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+
   //이벤트 예약 번호
   eventNo: {
     type: Number,

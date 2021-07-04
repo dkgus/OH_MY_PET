@@ -14,6 +14,7 @@ const {
   logoutUser,
   showLoginForm,
   showMyPage,
+  goHome,
 } = require("../controllers/userController");
 
 // users/
@@ -26,19 +27,15 @@ router.route("/new").get(showRegisterForm).post(registerUser);
 router.route("/login").get(showLoginForm).post(loginUser);
 
 // users/logout
-router.route("/logout").post(logoutUser);
+router.route("/logout").get(logoutUser);
 
 // users/mypage
 router.route("/mypage").get(isAuthenticatedUser, showMyPage);
 
 // users/:id/edit
-router
-  .route("/:id/edit")
-  .get(showUpdateForm)
-  .put(updateUser)
-  .delete(deleteUser);
+router.route("/:id").get(showUpdateForm).post(updateUser).delete(deleteUser);
 
 // users/:id
-router.route("/:id").get(showUser);
+// router.route("/:id").get(showUser);
 
 module.exports = router;

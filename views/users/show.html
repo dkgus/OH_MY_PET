@@ -4,7 +4,7 @@
 {% block content %}
    <div class='join_box layout_width'>
       <div class='join_title'>내 정보</div>
-         <form method='post' action='/users/new' autocomplete='off' class='join_form'>
+ 
             <dl>
                <dt>이름</dt>
                <dd class='pad'>
@@ -29,7 +29,7 @@
                 {{ user.phone }}
                </dd>
             </dl>
-         <input type='submit' value='수정하기' class='join_btn'>
-      </form>
+         <a href="{{user._id}}/edit">수정하기 </a>
+
    </div>
 {% endblock %}

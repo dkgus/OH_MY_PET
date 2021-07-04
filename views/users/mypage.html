@@ -3,11 +3,12 @@
 <!-- 회원 가입-->
 {% block content %}
    <div class='layout_width'>
+   <a href="{{user._id}}">수정하기</a>
     <div class='join_title'><h2>내정보</h2></div>
           <dl>
-             <dt>이름</dt>
+             <dt>반려동물 이름</dt>
              <dd class='pad'>
-                {{ user.nickname }}
+               {{ user.nickname }}
              </dd>
           </dl>
           <dl>
@@ -26,12 +27,10 @@
       <div class='join_title'><h2>이벤트 예약 내역</h2></div>
       {% for item in events %}
             <dl>
-              
                <dt>행사명</dt>
                <dd class='pad'>
                 <a href="event/{{item._id}}">{{ item.eventNm }}</a>
                </dd>
-              
             </dl>
             <dl>
                <dt>예약자 이름</dt>
@@ -42,7 +41,7 @@
             <dl>
                <dt>예약자 연락처</dt>
                <dd class='pad'>
-                {{ item.phone }}
+                {{ item.user.phone }}
                </dd>
             </dl>
             <hr />

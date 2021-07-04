@@ -68,7 +68,6 @@ a {
 }
 .box1 {
   width: 1100px;
-  border: 1px solid #8f8c83;
   padding: 30px;
 }
 .title1 {
@@ -77,13 +76,13 @@ a {
 .table1 {
   margin-top: 15px;
   width: 100%;
-  border-top: 1px solid #444444;
+  border-top: 2px solid #ffaf2d;
   border-collapse: collapse;
 }
 .pad {
   padding-left: 5px;
 }
-/** login page S */
+/** users/login page S */
 .login_box {
   width: 320px;
   position: fixed;
@@ -98,8 +97,8 @@ a {
   margin-bottom: 20px;
 }
 
-.login_box input[type="text"] {
-  margin-bottom: 5px;
+.login_box input[type="email"] {
+  margin-bottom: 8px;
 }
 
 .login_box input[type="submit"] {
@@ -131,8 +130,12 @@ a {
   /* vertical-align: middle; */
   color: #ffffff;
 }
-/** login E */
-/** mypage S */
+/** users/login E */
+/** users/show S */
+.mypage {
+  background-color: #f6f6f6;
+  height: 1000px;
+}
 .mypage .mypage_back {
   width: 100%;
   height: 200px;
@@ -146,61 +149,71 @@ a {
   line-height: 200px;
   vertical-align: middle;
 }
+.mypage .my_info .mypage_title {
+  font-size: 25px;
+  padding: 15px;
+  border-top: 3px solid #ffaf2d;
+  font-family: Cafe24Ssurround;
+  font-weight: 500;
+  background-color: #ffffff;
+  margin: 30px 0;
+}
 .mypage .my_info .infobox {
-  margin-top: 100px;
+  background-color: #ffffff;
+  height: 100%;
+  margin-bottom: 20px;
 }
-.mypage .my_info .infobox dl {
-  width: 80%;
+.mypage .my_info .infobox .info_left {
+  padding: 5px 40px 20px;
+  display: inline-block;
+  margin-right: 150px;
 }
-.mypage .my_info .infobox dd {
-  width: 40px;
-  font-size: 12px;
-  padding-left: 60px;
+.mypage .my_info .infobox .info_right {
+  display: inline-block;
+  vertical-align: top;
 }
-.mypage .my_info .lec_box {
-  margin-top: 50px;
+.mypage .my_info .infobox .info_left img {
+  width: 150px;
 }
-.mypage .my_info .lec_box .lec_res tr {
-  text-align: center;
-}
-.mypage .my_info .lec_box .lec_res td {
-  padding: 20px;
-  border-bottom: 1px solid #444444;
-}
-.mypage .my_info .lec_box .lec_res tr:first-child td {
-  padding: 10px;
-}
-.mypage .my_info .hotel_box {
-  margin-top: 50px;
-}
-.mypage .my_info .hotel_box:after,
-.mypage .my_info .lec_box .plus:after {
-  clear: right;
-  content: "";
-  display: block;
-}
-.mypage .my_info .hotel_box .plus,
-.mypage .my_info .lec_box .plus {
-  float: right;
-  font-size: 14px;
-  margin-top: 5px;
-}
-.mypage .my_info .hotel_title,
-.mypage .my_info .lec_title {
+.mypage .my_info .infobox .info_right .user_name {
+  font-size: 25px;
+  padding-bottom: 20px;
+  font-weight: 700;
   display: inline-block;
 }
-.mypage .my_info .hotel_box .hotel_res tr {
-  text-align: center;
-}
-.mypage .my_info .hotel_box .hotel_res td {
-  padding: 20px;
-  border-bottom: 1px solid #444444;
-}
-.mypage .my_info .hotel_box .hotel_res tr:first-child td {
+.mypage .my_info .infobox .info_right .edit {
+  display: inline-block;
+  vertical-align: top;
   padding: 10px;
 }
-/** mypage E */
-/** join S */
+.mypage .my_info .infobox .info_right table {
+  width: 100%;
+  border-top: 2px solid #ffaf2d;
+}
+.mypage .my_info .infobox .info_right table tr td {
+  width: 300px;
+  padding: 15px 15px 15px 5px;
+  font-size: 17px;
+  font-weight: 500;
+}
+.mypage .infobox ._wrap {
+  text-align: center;
+}
+.mypage .infobox .mypage_hotel_title,
+.mypage .infobox .mypage_event_title {
+  display: inline-block;
+  padding: 30px 170px;
+  font-size: 24px;
+  font-family: Cafe24Ssurround;
+}
+
+.mypage .infobox .mypage_hotel_title img,
+.mypage .infobox .mypage_event_title img {
+  margin-top: 20px;
+  width: 150px;
+}
+/** users/show E */
+/** users/new S */
 .join_box {
   width: 640px;
   position: fixed;
@@ -243,7 +256,8 @@ a {
   width: 75%;
 }
 .join_box input[type="text"]:focus,
-.join_box input[type="password"]:focus {
+.join_box input[type="password"]:focus,
+.join_box input[type="email"]:focus {
   border-color: #ffaf2d;
 }
 .join_box dl dd:last-child {
@@ -272,33 +286,33 @@ a {
 .join_box input[type="radio"]:checked + label .xi-radiobox-checked {
   display: inline-block;
 }
-/** join E */
-/** lec S */
-.event_box .event_title {
+/** users/new E */
+/** event index S */
+.Event_box .Event_title {
   font-family: Cafe24Ssurround;
   font-size: 30px;
   margin: 30px 0;
   padding-left: 7px;
 }
-.event_banner_wrap {
+.Event_banner_wrap {
   margin-bottom: 60px;
 }
-.event_banner_wrap img {
+.Event_banner_wrap img {
   width: 100%;
   border-radius: 10px;
 }
-.event_box .event_banner_wrap .event_text_wrap {
+.Event_box .Event_banner_wrap .Event_text_wrap {
   height: 30px;
   margin-top: 10px;
 }
-.event_box .banner_etc {
+.Event_box .banner_etc {
   display: inline-block;
 }
-.event_box .banner_etc .banner_subject {
+.Event_box .banner_etc .banner_subject {
   font-size: 19px;
 }
 /** keeping-box btn */
-.event_box .event_banner_wrap .banner_etc .banner_subject .keeping-box {
+.Event_box .Event_banner_wrap .banner_etc .banner_subject .keeping-box {
   display: inline-block;
   border: 1px solid #ffaf2d;
   padding: 1px 10px;
@@ -306,7 +320,7 @@ a {
   color: #ffaf2d;
   font-size: 15px;
 }
-.event_banner_wrap .event_text_wrap .banner_date {
+.Event_banner_wrap .Event_text_wrap .banner_date {
   display: inline-block;
   font-size: 15px;
   /* float: right; */
@@ -315,48 +329,58 @@ a {
   padding-right: 2px;
   color: #807d7d;
 }
-.event_banner_wrap .event_text_wrap:after {
+.Event_banner_wrap .Event_text_wrap:after {
   clear: right;
   display: block;
   content: "";
 }
-/** lec E */
-/** lec_form S */
-.lec_box .lec_form {
+/** event E */
+/** event_new S */
+.event_res_box .res_title {
+  margin: 30px 0 20px;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 28px;
+  font-family: Cafe24Ssurround;
+  border-top: 2px solid #ffaf2d;
+}
+.event_res_box .res_form {
   margin-top: 80px;
 }
-.lec_box .lec_form .lec_left {
+.event_res_box .res_form .res_left {
   display: inline-block;
   vertical-align: top;
 }
-.lec_box .lec_form .lec_right {
+.event_res_box .res_form .res_left img {
+  border-radius: 7px;
+  box-shadow: 10px 10px 20px rgb(0 0 0 / 12%);
+}
+.event_res_box .res_form .res_right {
   width: 400px;
   height: 400px;
-  border: 1px solid black;
+  box-shadow: 10px 10px 20px rgb(0 0 0 / 12%);
   display: inline-block;
   margin-left: 30px;
   padding: 40px;
+  border-radius: 7px;
 }
-.lec_box .lec_form .lec_right .right_title {
+.event_res_box .res_form .res_right .right_title {
   font-size: 24px;
   margin-bottom: 8px;
 }
-.lec_box .lec_form .lec_right .mini_title {
-  font-size: 16px;
-  line-height: 24px;
-  height: 48px;
-  overflow: hidden;
-  margin-bottom: 24px;
-}
-.lec_box .lec_right .select_box select {
+.event_res_box .res_right .select_box select {
   width: 100%;
-  padding: 0.8em 0.5em;
-  border: 1px solid #999;
-  border-radius: 0px;
+  padding: 7px 10px;
+  border: 1px solid #dee2e6;
+  font-size: 15px;
   height: 48px;
   margin-bottom: 30px;
+  background: url("/image/select.png") no-repeat 95% 50%/15px auto;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
-.lec_box .lec_right .select_box .res_btn {
+.event_res_box .res_right .select_box .res_btn {
   width: 100%;
   background-color: #ffaf2d;
   color: #ffffff;
@@ -364,14 +388,49 @@ a {
   height: 48px;
   padding: 0;
   font-size: 15px;
+  border-radius: 7px;
 }
-.lec_box .lec_details {
-  margin-top: 60px;
-  width: 100%;
-  height: 100%;
-  border: 1px solid #212121;
+/** event_form E */
+.event_detail .event_detail_top {
+  margin-top: 30px;
+  padding: 15px;
+  margin-bottom: 20px;
 }
-.lec_box .lec_details .lec_details_title {
-  font-size: 40px;
+.event_detail .event_detail_top i {
+  font-size: 20px;
+  font-weight: bold;
 }
-/** lec_form E */
+.event_detail .event_detail_top .etc {
+  font-size: 28px;
+  font-family: Cafe24Ssurround;
+}
+.event_detail .event_detail_top {
+  border-top: 2px solid #ffaf2d;
+}
+.event_detail_mid {
+  box-shadow: 10px 10px 20px rgb(0 0 0 / 12%);
+  border: 0;
+  margin-bottom: 25px;
+  border-radius: 10px;
+}
+.event_detail_mid .event_detail_box table {
+  display: inline-block;
+  width: 80%;
+  font-size: 15px;
+  font-weight: 500;
+}
+.event_detail_mid .event_detail_box table tr td {
+  padding: 20px;
+  width: 900px;
+}
+.event_detail_mid .event_detail_box table tr .pad {
+  padding: 20px;
+  width: 200px;
+}
+.event_detail_mid .event_detail_box .img_box {
+  display: inline-block;
+  margin-right: 20px;
+}
+.event_detail_mid .event_detail_box .img_box img {
+  width: 150px;
+}

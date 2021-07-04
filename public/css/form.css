@@ -1,0 +1,93 @@
+.form_wrap {
+  margin-bottom: 80px;
+  position: relative;
+}
+
+.form_box {
+  margin-top: 50px;
+}
+
+.top {
+  margin-bottom: 25px;
+}
+
+.top li {
+  display: inline-block;
+  text-align: center;
+}
+
+.top li:nth-child(1) {
+  width: 5%;
+}
+.top li:nth-child(2) {
+  width: 76%;
+}
+.top li:nth-child(3) {
+  width: 8%;
+}
+.top li:nth-child(4) {
+  width: 10%;
+  padding-right: 0;
+}
+
+.top input[type="text"] {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #585858;
+}
+
+#access {
+  width: 100%;
+  height: 25px;
+  border: none;
+  border-bottom: 1px solid #585858;
+  background: url(../img/selectdown.png) no-repeat 95% 50%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-left: 10px;
+}
+
+.form {
+  border-top: 1px solid #585858;
+  border-bottom: 1px solid #585858;
+}
+
+.btnWrap {
+  margin-top: 20px;
+}
+
+button {
+  border: none;
+  background-color: #585858;
+  color: #fff;
+  border-radius: 50px;
+  padding: 5px 10px;
+  position: absolute;
+  left: 0;
+}
+
+button .xi-bars {
+  margin-right: 5px;
+}
+
+.submit {
+  border-radius: 50px;
+  padding: 5px 10px;
+  background-color: #ffaf2d;
+  color: #fff;
+  position: absolute;
+  right: 0;
+}
+
+.btnWrap .xi-pen-o {
+  color: #fff;
+}
+
+.submit input[type="submit"] {
+  appearance: none;
+  border: none;
+  background-color: #ffaf2d;
+  color: #fff;
+  padding: 0;
+}
