@@ -150,13 +150,25 @@
     <!--공지사항 게시판-->
     <div class="notice_box">
       <div class="notice_title">공지사항</div>
-      <div class="notice_list">게시글 목록 영역</div>
+      <div class="notice_list">
+        <ul>
+          {% for in %} {% if loop.revindex0 <= 5 %}
+          <li>{ Notice.title } { Notice.createdAt }</li>
+          {% endif %} {% endfor %}
+        </ul>
+      </div>
     </div>
 
     <!--커뮤니티 게시판-->
     <div class="cummunity_box">
       <div class="board_title">커뮤니티</div>
-      <div class="cummunity_list">게시글 목록 영역</div>
+      <div class="cummunity_list">
+        <ul>
+          {% for in %} {% if loop.revindex0 <= 5 %}
+          <li>{ Community.title } { Community.createdAt }</li>
+          {% endif %} {% endfor %}
+        </ul>
+      </div>
     </div>
   </div>
   <!-- board end -->
