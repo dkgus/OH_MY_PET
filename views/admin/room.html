@@ -4,54 +4,8 @@
 
 {% block content %}
 
-<!-- add event -->
-<div>ADD ROOM</div>
-<div class="admin_addroom_box">
-  <form action="">
-    <label for="">hotel name</label>
-    <input type="text" value="" />
-    <label for="">reservation date</label>
-    <input type="number" value="" />
-    <label for="">price</label>
-    <input type="number" value="" />
-    <label for="">hotel description</label>
-    <input type="textarea" value="" />
-    <label for="">room category</label>
-    <select name="" id="">
-      <option value="">Dorm</option>
-      <option value="">Family</option>
-    </select>
-    <input type="submit" value="add room" calss="" />
-  </form>
-</div>
-
-<!-- event list -->
-<div>ROOM LIST</div>
-<form action="">
-  <table>
-    <thead>
-      <tr>
-        <td>hotel name</td>
-        <td>reservation date</td>
-        <td>room type</td>
-        <td>remove hotel</td>
-      </tr>
-    </thead>
-    <tbody>
-      <!--{% for in %}-->
-      <tr>
-        <td>{{ hotelName }}</td>
-        <td>reservation date</td>
-        <td>{{ roomType }}</td>
-        <td>remove hotel</td>
-      </tr>
-      <!--{% endfor %}-->
-    </tbody>
-  </table>
-</form>
-
 <!-- confirm event res. -->
-<div>RESERVATION LIST</div>
+<div>ROOM RESERVATION LIST</div>
 <table>
   <thead>
     <tr>
@@ -60,16 +14,24 @@
       <td>room type</td>
       <td>check-in/out</td>
       <td>memo</td>
+      <td>delete</td>
     </tr>
   </thead>
   <tbody>
     <!--{% for in %}-->
     <tr>
-      <td>{{ eventNm }}</td>
-      <td>{{ user }}</td>
-      <td>{{ roomType }}</td>
-      <td>{{ revStart }} ~ {{ revEnd }}</td>
-      <td>{{ memo }}</td>
+      <td>{{ room.roomNm }}</td>
+      <td>{{ room.user }}</td>
+      <td>{{ room.roomType }}</td>
+      <td>{{ room.revStart }} ~ {{ room.revEnd }}</td>
+      <td>{{ room.memo }}</td>
+      <td>
+        <input
+          type="submit"
+          value="Delete"
+          onclick="return confirm('해당 예약 내용을 삭제하시겠습니까?');"
+        />
+      </td>
     </tr>
     <!--{% endfor %}-->
   </tbody>

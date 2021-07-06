@@ -2,33 +2,6 @@
 <div class="layout_width">
   <div class="hotel_res_title">예약하기</div>
 
-  <!-- hotel info -->
-    <div class="hotel_img">
-        호텔 이미지
-    </div>
-    <div class="sub_title">{{ hotelName }}</div>
-    <table>
-        <tr>
-            <td>
-                위치
-            </td>
-            <td>
-                호텔 위치 <button>상세보기</button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                연락처
-            </td>
-            <td>
-                0000000000
-            </td>
-        </tr>
-        <tr>
-            <td>설명</td>
-            <td>{{ hotelDes }}</td>
-        </tr>
-    </table>
 
     <!-- reservation -->
     <div class="sub_title">예약자 정보</div>
@@ -36,18 +9,18 @@
     <table>
         <tr>
             <td>
-                예약자 성함
+                성함
             </td>
             <td>
-                {{user.name}}
+                <input type="text" name="user" placeholder="성함을 입력해주세요.">
             </td>
         </tr>
         <tr>
             <td>
-                예약자 연락처
+                호텔 이름
             </td>
             <td>
-                {{user.phone}}
+                <input type="text" name="hotelName" placeholder="예약하실 호텔 이름을 입력해주세요.">
             </td>
         </tr>
         <tr>
@@ -63,14 +36,18 @@
         </tr>
         <tr>
             <td>
-                체크인|체크아웃
+                체크인
             </td>
             <td>
-                <select name='period'>
-                    <!-- {% for  in  %} -->
-                        <option value='{{ 기간... }}'>{{ room.revStart }} ~ {{ room.revEnd }}</option>
-                    <!-- {% endfor %} -->
-                    </select>
+                <input type="date" name="revStart">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                체크아웃
+            </td>
+            <td>
+                <input type="date" name="revEnd">
             </td>
         </tr>
         <tr>
@@ -78,7 +55,7 @@
                 기타요청사항
             </td>
             <td>
-                <textarea name="memo" id="" cols="30" rows="10"></textarea>
+                <textarea name="memo" cols="30" rows="4" placeholder="기타요청사항을 입력해주세요."></textarea>
             </td>
         </tr>
     </table>
@@ -94,4 +71,6 @@
   </ul>
 </div>
 </div>
+
+<!-- 예약 후 '예약이 완료되었습니다' 알림 -->
 {% endblock %}

@@ -4,60 +4,14 @@
 
 {% block content %}
 
-<!-- add event -->
-<div>ADD EVENT</div>
-<div class="admin_addevent_box">
-  <form action="">
-    <label for="">event name</label>
-    <input type="text" value="" />
-    <label for="">event date</label>
-    <input type="number" value="" />
-    <label for="">event price</label>
-    <input type="number" value="" />
-    <label for="">event description</label>
-    <input type="textarea" value="" />
-    <label for="">event category</label>
-    <select name="" id="">
-      <option value="">Festival</option>
-      <option value="">Lecture</option>
-    </select>
-    <input type="submit" value="add event" calss="" />
-  </form>
-</div>
-
-<!-- event list -->
-<div>EVENT LIST</div>
-<form action="">
-  <table>
-    <thead>
-      <tr>
-        <td>event category</td>
-        <td>event name</td>
-        <td>event date</td>
-        <td>remove event</td>
-      </tr>
-    </thead>
-    <tbody>
-      <!--{% for in %}-->
-      <tr>
-        <td>event category</td>
-        <td>{{ eventNm }}</td>
-        <td>event date</td>
-        <td>remove event<!-- button / input type submit으로 delete 버튼 --></td>
-      </tr>
-      <!--{% endfor %}-->
-    </tbody>
-  </table>
-</form>
-
 <!-- confirm event res. -->
-<div>RESERVATION LIST</div>
+<div>EVENT RESERVATION LIST</div>
 <table>
   <thead>
     <tr>
       <td>event name</td>
       <td>user name</td>
-      <td>reservation number</td>
+      <td>delete</td>
     </tr>
   </thead>
   <tbody>
@@ -65,7 +19,13 @@
     <tr>
       <td>{{ eventNm }}</td>
       <td>{{ user }}</td>
-      <td>{{ eventNo }}</td>
+      <td>
+        <input
+          type="submit"
+          value="Delete"
+          onclick="return confirm('해당 예약 내용을 삭제하시겠습니까?');"
+        />
+      </td>
     </tr>
     <!--{% endfor %}-->
   </tbody>
