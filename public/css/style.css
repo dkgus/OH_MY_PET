@@ -451,7 +451,22 @@ width: 150px;
 }
 /** event/detail E */
 /** room/index S */
+.room_list .room_list_top {
+margin-top: 20px;
+border-top: 3px solid #ffaf2d;
+padding-top: 15px;
+}
 .room_list .room_list_top i {
 	font-size: 20px;
 	font-weight: bold;
+}
+.room_list .room_list_box {
+padding-left: 20px;
+
+}
+.room_list_mid {
+padding: 30px;
+
+	display: inline-block;
+	width: 33%;
 }

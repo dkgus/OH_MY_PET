@@ -6,22 +6,20 @@
 	</div>
 	{% for item in rooms %}
 	<div class='room_list_mid'>
-		<div class='room_list_box box1'>
+		<div class='room_list_box'>
 			<div class='img_box'>
 			<img src="/image/room.png" class='img'>
 			</div>
 			<table>
 			<tr>
-				<td class='pad'>호텔명</td>
-				<td>{{ item.hotelName }}</td>
+				<td class='pad'>{{ item.hotelName }}</td>
 			</tr>
 			<tr>
-				<td class='pad'>roomtype</td>
-				<td>{{ item.roomtype }}</td>
+				<td class='pad'>{{ item.roomtype }}</td>
 			</tr>
 			</table>
 		</div>
 	</div>
-	{% endfor %}
+{% endfor %}
 </div>
 {% endblock %}
