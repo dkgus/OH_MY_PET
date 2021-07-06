@@ -6,6 +6,7 @@
 
 <!-- confirm event res. -->
 <div>EVENT RESERVATION LIST</div>
+<!-- DELETE METHOD -->
 <table>
   <thead>
     <tr>
@@ -17,8 +18,8 @@
   <tbody>
     <!--{% for in %}-->
     <tr>
-      <td>{{ eventNm }}</td>
-      <td>{{ user }}</td>
+      <td>{{ event.eventNm }}</td>
+      <td>{{ event.user }}</td>
       <td>
         <input
           type="submit"
