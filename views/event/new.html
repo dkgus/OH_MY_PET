@@ -1,0 +1,28 @@
+{% extends '../layout.html' %}
+<!-- 이벤트 예약하기 폼 -->
+{% block content %}
+	<div class='event_res_box layout_width'>
+		<div class='res_title'>예약하기</div>
+		{% for item in events %}
+		<div class='res_form'>
+			<div class='res_left'>
+				<img src="/image/dog1.jpg">
+			</div>
+			<div class='res_right'>
+				<div class='right_title'>
+					{{ item.eventNm }}
+				</div>
+				<form method='post' action='event' target='ifrmHidden'>
+					<div class='select_box'>
+						<select name='event_res'>
+							<option value='{{ item.eventNm }}'>{{ item.eventNo }}</option>
+							<option value='{{ item.eventNm }}'>{{ item.eventNo }}</option>
+						</select>
+						<input type='submit' value='예약하기' class='res_btn'>
+					</div>
+				</form>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+{% endblock %}

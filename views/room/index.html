@@ -1,0 +1,27 @@
+{% extends '../layout.html' %}
+{% block content %}
+<div class='room_list layout_width'>
+	<div class='room_list_top'>
+	<a href=""><i class='xi-angle-left'></i></a><span class='room_list_title title1'> 호텔 리스트</span>
+	</div>
+	{% for item in rooms %}
+	<div class='room_list_mid'>
+		<div class='room_list_box box1'>
+			<div class='img_box'>
+			<img src="/image/room.png" class='img'>
+			</div>
+			<table>
+			<tr>
+				<td class='pad'>호텔명</td>
+				<td>{{ item.hotelName }}</td>
+			</tr>
+			<tr>
+				<td class='pad'>roomtype</td>
+				<td>{{ item.roomtype }}</td>
+			</tr>
+			</table>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
