@@ -9,11 +9,11 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 
 // routes
-const userRoutes = require("./routes/userRouter");
-const noticeRoutes = require("./routes/noticeRouter");
-const communityRoutes = require("./routes/communityRouter");
+const userRoutes = require("./routes/user");
+const noticeRoutes = require("./routes/notice");
+const communityRoutes = require("./routes/community");
 const evntRoutes = require("./routes/event");
-const roomRoutes = require("./routes/roomRouter");
+const roomRoutes = require("./routes/room");
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -46,6 +46,24 @@ app.use("/notices", noticeRoutes);
 app.use("/community", communityRoutes);
 app.use("/room", roomRoutes);
 app.use("/", (req, res) => res.render("main/index.html"));
+
+
+
+
+// 페이지 없을때 처리 미들웨어
+app.use((req, res, next) => {
+  const error = new Error(`${req.method} ${req.url}는 없는 페이지 입니다`);
+	error.status = 404;
+	next(error);
+});
+
+
+// 오류 처리 미들웨어
+app.use((err, req, res, next) => {
+  res.locals.error = err;
+	res.status(err.status || 500).render('error');
+});
+
 
 app.listen(port, () => {
   console.log(`${port}에서 대기중`);

@@ -3,13 +3,11 @@
 {% block content %}
 		<div class='event_detail layout_width'>
 			<div class='event_detail_top'>
-			<a href=""><i class='xi-angle-left'></i></a><span class='etc'> 예약 현황</span>
+			<a href=""><i class='xi-angle-left'></i></a><span class='etc'> 예약 상세 현황</span>
 			</div>
-			{% for item in events %}
+			{% for item in event %}
 			<div class='event_detail_mid'>
 				<div class='event_detail_box box1'>
-					<div class='img_box'>
-					<img src="/image/{{ }}" class='img'>
 					</div>
 					<table>
 					<tr>
@@ -17,16 +15,15 @@
 						<td>{{ item.eventNm }}</td>
 					</tr>
 					<tr>
-						<td class='pad'></td>
-						<td></td>
+						<td class='pad'>예약자 성함</td>
+						<td>김롸롸</td>
 					</tr>
 					<tr>
-						<td class='pad'>예약자 성함</td>
-						<td>{{ item.user.nickname }}</td>
+						<td class='pad'>예약자 연락처</td>
+						<td>01011110000</td>
 					</tr>
 					</table>
 				</div>
-			</div>
 			{% endfor %}
 		</div>
 {% endblock %}

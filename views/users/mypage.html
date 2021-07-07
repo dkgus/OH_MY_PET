@@ -1,125 +1,72 @@
 {% extends '../layout.html' %}
-<!-- 마이페이지 -->
+
+<!-- 회원 가입-->
 {% block content %}
-	<div class='mypage'>
-		<div class='mypage_back'>
-			<div class='layout_width'>
-				<a href='/users/mypage'>my page</a>
-			</div>
-		</div>
-		<div class='my_info layout_width'>
-			<div class='mypage_title'>마이페이지</div>
-			<div class='infobox box1'>
-				<div class='info'>
-					<div class='info_left'>
-							<img src='/image/pets.png'>
-					</div>
-					<div class='info_right'>
-						<div class='user_name'>{{ user.nickname }} 님</div><a href="{{user._id}}"><div class='edit'><i class='xi-pen'></i></div></a>
-						<table>
-							<tr>
-								<td>반려동물 이름</td>
-								<td>{{ user.nickname }}</td>
-							</tr>
-							<tr>
-								<td>이메일</td>
-								<td>{{ user.email }}</td>
-							</tr>
-							<tr>
-								<td>가입일자</td>
-								<td>{{ user.createdAt }}</td>
-							</tr>
-						</table>
-					</div>
-				</div>
-			</div>
-			<div class='infobox'>
-					<div class='_wrap'>
-						<div class='mypage_event_title'>이벤트 예약현황</div>
-								{% for item in events %}
-								<table>
-								<tr>
-               <td>행사명</td>
-               <td class='pad'>
+   <div class='layout_width'>
+   <a href="{{user._id}}">수정하기</a>
+    <div class='join_title'><h2>내정보</h2></div>
+          <dl>
+             <dt>반려동물 이름</dt>
+             <dd class='pad'>
+               {{ user.nickname }}
+             </dd>
+          </dl>
+          <dl>
+             <dt>이메일</dt>
+             <dd class='pad'>
+              {{ user.email }}
+             </dd>
+          </dl>
+          <dl>
+             <dt>가입일자</dt>
+             <dd class='pad'>
+              {{ user.createdAt }}
+             </dd>
+          </dl>
+          <hr />
+      <div class='join_title'><h2>이벤트 예약 내역</h2></div>
+      {% for item in events %}
+            <dl>
+               <dt>이벤트명</dt>
+               <dd class='pad'>
                 <a href="event/{{item._id}}">{{ item.eventNm }}</a>
-               </td>
-           	 </tr>
-            <tr>
-               <td>예약자 이름</td>
-               <td class='pad'>
+               </dd>
+            </dl>
+            <dl>
+               <dt>예약자명</dt>
+               <dd class='pad'>
                 {{ item.user.nickname }}
-               </td>
-            </tr>
-            <tr>
-               <td>예약자 연락처</td>
-               <td class='pad'>
+               </dd>
+            </dl>
+            <dl>
+               <dt>예약자 연락처</dt>
+               <dd class='pad'>
                 {{ item.user.phone }}
-               </td>
-            </tr>
-						</table>
+               </dd>
+            </dl>
+            <hr />
       {% endfor %}
-						</div>
-					</div>
-					<div class='infobox'>
-							<div class='_wrap'>
-								<div class='mypage_hotel_title'>호텔 예약현황</div>
-										{% for item in rooms %}
-										<table>
-										<tr>
-		               <td>호텔명</td>
-		               <td class='pad'>
-		                <a href="room/{{item._id}}">{{ item.hotelName }}</a>
-		               </td>
-		           	 </tr>
-		            <tr>
-		               <td>예약자 이름</td>
-		               <td class='pad'>
-		                {{ item.user.nickname }}
-		               </td>
-		            </tr>
-		            <tr>
-		               <td>예약자 연락처</td>
-		               <td class='pad'>
-		                {{ item.user.phone }}
-		               </td>
-		            </tr>
-								<tr>
-		               <td>예약일</td>
-		               <td class='pad'>
-		                {{ item.regDt }}
-		               </td>
-		            </tr>
-								</table>
-		      {% endfor %}
-								</div>
-							</div>
-					<div class='infobox'>
-							<div class='_wrap'>
-								<div class='mypage_write_title'>작성한 글 내역</div>
-			      {% for item in posts %}
-			            <tr>
-			               <td>글제목</td>
-			               <td class='pad'>
-			                  {{ item.title }}
-			               </td>
-			            </tr>
-			            <tr>
-			               <td>글내용</td>
-			               <td class='pad'>
-			                {{ item.content }}
-			               </td>
-			            </tr>
-			            <tr>
-			               <td>작성시간</td>
-			               <td class='pad'>
-			                {{ item.createdAt }}
-			               </td>
-			            </tr>
+      <div class='join_title'><h2>작성한 글 내역</h2></div>
+      {% for item in posts %}
+            <dl>
+               <dt>글제목</dt>
+               <dd class='pad'>
+                  {{ item.title }}
+               </dd>
+            </dl>
+            <dl>
+               <dt>글내용</dt>
+               <dd class='pad'>
+                {{ item.content }}
+               </dd>
+            </dl>
+            <dl>
+               <dt>작성시간</dt>
+               <dd class='pad'>
+                {{ item.createdAt }}
+               </dd>
+            </dl>
+            <hr />
       {% endfor %}
-						</div>
-					</div>
-				</div>
-		</div>
-	<!-- //mypage -->
-	</div>
+   </div>
 {% endblock %}

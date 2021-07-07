@@ -1,0 +1,38 @@
+{% extends '../layout.html' %}
+{% block content %}
+  <div class='form_wrap layoutwidth'>
+    <div class="form_box">
+      <form method='post' action='folder=#&file=#' target='ifrmHidden' autocomplete='off'>
+	      <input type='hidden' name='mode' value='isset($idx)?"modify":"upload"'>
+      	<input type='hidden' name='idx' value='$idx'>
+        <div class='top'>
+          <ul>
+            <li>제목</li>
+            <li>
+              <input type='text' name='subject' id='subject'>
+            </li>
+            <li>읽기 권한</li>
+            <li>
+              <select id="access" value="access">
+                <option>GUEST</option>
+                <option>MEMBER</option>
+                <option>VIP</option>
+                <option>MANAGER</option>
+              </select>
+            </li>
+          </ul>
+        </div>
+      	<div class="form">
+            <textarea id="content" name="content" rows="40"></textarea>
+            <script> CKEDITOR.replace( 'content', { filebrowserImageUploadUrl: '../uploadIMG.jsp' }); </script>
+	      </div>
+      </div><!-- //form_box -->
+      <div class='btnWrap'>
+        <button id="back" name="back" onclick="list()"><i class="xi-bars"></i>목록</button>
+        <div class='submit'>
+          <i class="xi-pen"></i>
+          <input type="submit" class="search_btn" value="등록">
+      </div>
+      </div> <!-- //btnWrap -->
+  </div> <!-- //form_wrap -->
+  {% endblock %}

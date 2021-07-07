@@ -2,15 +2,15 @@
 <!-- 이벤트 예약하기 폼 -->
 {% block content %}
 	<div class='event_res_box layout_width'>
-		<div class='res_title'>예약하기</div>
+		<div class='res_title border_title'>예약하기</div>
 		<div class='res_form'>
 			<div class='res_right'>
 				<div class='right_title'>
 				예약폼을 작성해주세요.
 				</div>
-				<form method='get' action='/event/new' autocomplete='off'>
+				<form method='post' action='/event/new' autocomplete='off'>
 					<div class='input_box'>
-						<table>
+						<table class='mb10'>
 							<tr>
 						<td class='pad'>반려동물 이름</td>
 						<td><input type='text' name='nickname' class='mt10'></td>
@@ -24,7 +24,7 @@
 						<td><input type='text' name='eventNm' class='mt10'></td>
 						</tr>
 						</table>
-						<input type='submit' value='예약하기' class='res_btn'>
+						<input type='submit' value='예약하기' class='res_btn btn1 mt10'>
 					</div>
 				</form>
 			</div>
