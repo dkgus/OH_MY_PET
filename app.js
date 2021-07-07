@@ -45,14 +45,14 @@ app.use("/users", userRoutes);
 app.use("/notices", noticeRoutes);
 app.use("/community", communityRoutes);
 app.use("/room", roomRoutes);
-// app.use("/", (req, res) => res.render("main/index.html"));
+app.use("/", (req, res) => res.render("main/index.html"));
 
 
 
 
- // 페이지 없을때 처리 미들웨어
+// 페이지 없을때 처리 미들웨어
 app.use((req, res, next) => {
-	const error = new Error(`${req.method} ${req.url}는 없는 페이지 입니다`);
+  const error = new Error(`${req.method} ${req.url}는 없는 페이지 입니다`);
 	error.status = 404;
 	next(error);
 });
@@ -60,7 +60,7 @@ app.use((req, res, next) => {
 
 // 오류 처리 미들웨어
 app.use((err, req, res, next) => { 
-	res.locals.error = err;
+  res.locals.error = err;
 	res.status(err.status || 500).render('error');
 });
 
