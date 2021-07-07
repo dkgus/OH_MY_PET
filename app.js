@@ -1,18 +1,21 @@
 const express = require("express");
 const app = express();
 const port = 4646;
-const nunjucks = require("nunjucks");
-const methodOverride =require('method-override');
+const mongoose = require("mongoose");
+const morgan = require("morgan");
 const dotenv = require("dotenv");
+const nunjucks = require("nunjucks");
 const path = require("path");
 const cookieParser = require("cookie-parser");
+
+// routes
 const userRoutes = require("./routes/user");
-const evntRoutes = require("./routes/event");
-const roomRoutes = require("./routes/room");
 const noticeRoutes = require("./routes/notice");
 const communityRoutes = require("./routes/community");
+const evntRoutes = require("./routes/event");
+const roomRoutes = require("./routes/room");
 
-dotenv.config();
+app.use(express.static(path.join(__dirname, "public")));
 
 app.set("view engine", "html");
 nunjucks.configure("views", {
@@ -22,31 +25,46 @@ nunjucks.configure("views", {
 
 app.use(cookieParser());
 dotenv.config();
+mongoose
+  .connect(process.env.MONGO_DB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
+  .then(() => console.log("MongoDB Connected..."))
+  .catch((err) => console.log(err));
 
-const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGO_DB, {
-      useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
-  }
-).then(() => console.log('MongoDB Connected...'))
- .catch(err => console.log(err)); 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
- app.use(express.static(path.join(__dirname, "public")));
+app.use(morgan("dev"));
 
- app.use(express.json());
- app.use(express.urlencoded({ extended: true }));
+app.use("/event", evntRoutes);
+app.use("/users", userRoutes);
+app.use("/notices", noticeRoutes);
+app.use("/community", communityRoutes);
+app.use("/room", roomRoutes);
+// app.use("/", (req, res) => res.render("main/index.html"));
 
- app.use("/users", userRoutes);
- app.use("/notices", noticeRoutes);
- app.use("/community", communityRoutes);
- app.use("/event", evntRoutes);
- app.use("/room", roomRoutes);
- app.use("/", (req,res) => res.render("main/index.html")); //넓은범위일수록 제일아래로
- 
 
-app.get('/',(req,res)=>{
-    res.send("DB가 연결되었습니다");
+
+
+ // 페이지 없을때 처리 미들웨어
+app.use((req, res, next) => {
+	const error = new Error(`${req.method} ${req.url}는 없는 페이지 입니다`);
+	error.status = 404;
+	next(error);
 });
 
-app.listen(port, ()=>{
-    console.log(`${port}에서 대기중`)
+
+// 오류 처리 미들웨어
+app.use((err, req, res, next) => { 
+	res.locals.error = err;
+	res.status(err.status || 500).render('error');
+});
+
+
+app.listen(port, () => {
+  console.log(`${port}에서 대기중`);
 });

@@ -8,18 +8,17 @@ module.exports = {
   // @description    Show all users
   // @route          GET /users
   showAllUsers: async (req, res) => {
-    await User.find({}).sort({ username: 1 });
+    const users = await User.find({}).sort({ username: 1 });
     res.render("users/index", { users: users });
   },
-
 
   // @description    Show a user
   // @route          GET /users/:id
   showUser: async (req, res) => {
     try {
       const user = await User.findOne({ _id: req.params.id }, {});
-      res.render("users/show", { user: user });
-      // res.send({ user: user });
+      res.render("users/show", { user });
+      console.log(user);
     } catch (err) {
       console.error(err);
     }
@@ -70,8 +69,6 @@ module.exports = {
         return res.send(`<script>alert("${msg}");history.back();</script>`);
       }
 
-
-
       // 비밀번호 암호화
       const salt = await bcrypt.genSalt();
       const passwordHash = await bcrypt.hash(password, salt);
@@ -86,8 +83,8 @@ module.exports = {
       });
 
       await newUser.save();
+
       res.redirect("/users");
-      
     } catch (err) {
       console.log(err);
       res.status(500).send("server error");
@@ -109,9 +106,8 @@ module.exports = {
   // @route          PUT /users/:id/edit
   updateUser: async (req, res) => {
     try {
-      await Post.findOneAndUpdate({ _id: req.params.id }, req.body, () => {
-        res.redirect("/users/" + req.params.id);
-      });
+      await User.findOneAndUpdate({ _id: req.params.id }, req.body);
+      res.redirect("/users/mypage");
     } catch (err) {
       console.error(err);
     }
@@ -135,10 +131,9 @@ module.exports = {
     res.render("users/login", { title: "로그인" });
   },
 
-
   // @description    Login
   // @route          POST /users/login
-  loginUser: async (req, res) => {
+  loginUser: async (req, res, next) => {
     const { email, password } = req.body;
 
     // 이메일, 비밀번호 입력되었는지 확인
@@ -165,7 +160,7 @@ module.exports = {
       return res.send(`<script>alert("${msg}");history.back();</script>`);
     }
 
-    sendToken(user, 200, res);
+    sendToken(user, res);
   },
 
   // @description    Logout
@@ -175,18 +170,19 @@ module.exports = {
       expires: new Date(Date.now()),
       httpOnly: true,
     });
-    res.status(200).json({
-      success: true,
-      message: "Logged out",
-    });
+    // res.status(200).json({
+    //   success: true,
+    //   message: "Logged out",
+    // });
+    res.redirect("/");
   },
 
   // @description    Show my page
   // @route          GET /users/mypage
   showMyPage: async (req, res) => {
     const user = await User.findOne({ _id: req.user._id }, {});
-    const events = await event.find().populate("user");
-    const posts = await community.find().populate("user");
+    const events = await event.find({ user: req.user._id }).populate("user");
+    const posts = await community.find({ user: req.user._id }).populate("user");
     res.render("users/mypage", { user, events, posts });
   },
 };
