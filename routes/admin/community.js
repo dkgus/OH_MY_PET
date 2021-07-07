@@ -3,12 +3,12 @@ const router = express.Router();
 const { isAuthenticatedUser } = require("../utils/auth");
 
 const {
-} = require("../controller/communityController");
+    deletePost,
+} = require("../controller/adminController");
 
 
-// community/:id/edit
-router
-.route("/:id/edit")
-.delete(deleteCommunity);
+
+router.route("/admin/:id/edit").delete(deletePost);
+
 
 module.exports = router;

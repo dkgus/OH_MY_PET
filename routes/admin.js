@@ -7,9 +7,6 @@ const {
     showLoginForm,
     loginUser,
     logoutUser,
-    deletePost,
-    deleteEvent,
-    deleteRoom,
   } = require("../controller/adminController");
 
 
@@ -24,10 +21,6 @@ router.route("/login").get(isAuthenticatedUser, showLoginForm).post(loginUser);
 router.route("/logout").get(isAuthenticatedUser, logoutUser);
 
 
-//admin/delete  
-router.route("/:id/postedit").delete(deletePost);
-router.route("/:id/eventedit").delete(deleteEvent);
-router.route("/:id/roomedit").delete(deleteRoom);
 
 
 module.exports = router;
