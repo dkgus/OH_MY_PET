@@ -63,7 +63,7 @@ module.exports = {
     }
   },
 
-  // @description    Update a user
+  // @description    Update a room
   // @route          PUT /room/:id/edit
   updateRoom: async (req, res) => {
     try {
@@ -75,7 +75,7 @@ module.exports = {
     }
   },
 
-  // @description    Delete a user
+  // @description    Delete a room
   // @route          DELETE /room/:id/edit
   deleteRoom: async (req, res) => {
     try {

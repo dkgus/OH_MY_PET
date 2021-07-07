@@ -16,9 +16,7 @@ module.exports = {
   showEvent: async (req, res) => {
     try {
       const event = await Event.findOne({ _id: req.params.id }, {});
-      const events = await event.find().populate("user");
-      const posts = await community.find().populate("user");
-      res.render("event/show", { event: event });
+      res.render("event/show", { event: event, events });
 
     } catch (err) {
       console.error(err);
