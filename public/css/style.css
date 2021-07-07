@@ -370,31 +370,33 @@ border-top: 2px solid #ffaf2d;
 	box-shadow: 10px 10px 20px rgb(0 0 0 / 12%);
 }
 .event_res_box .res_form .res_right {
-  width: 400px;
+  width: 600px;
   height: 400px;
 	box-shadow: 10px 10px 20px rgb(0 0 0 / 12%);
   display: inline-block;
-  margin-left: 30px;
   padding: 40px;
 	border-radius: 7px;
+	position: fixed;
+	top: 200px;
+	left: 650PX;
+
 }
 .event_res_box .res_form .res_right .right_title {
   font-size: 24px;
-  margin-bottom: 8px;
+  margin-bottom: 40px;
 }
-.event_res_box .res_right .select_box select {
-  width: 100%;
-  padding: 7px 10px;
-  border: 1px solid #dee2e6;
-	font-size: 15px;
-  height: 48px;
-  margin-bottom: 30px;
-	background: url('/image/select.png') no-repeat 95% 50%/15px auto;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none
+.event_res_box .res_right .input_box input[type='text'] {
+width: 400px;
+
 }
-.event_res_box .res_right .select_box .res_btn {
+.event_res_box .res_right .input_box table td {
+width: 150px;
+
+}
+.event_res_box .res_right .input_box .pad {
+	padding-bottom: 15px;
+}
+.event_res_box .res_right .input_box .res_btn {
   width: 100%;
   background-color: #ffaf2d;
   color: #ffffff;
@@ -466,7 +468,11 @@ padding-left: 20px;
 }
 .room_list_mid {
 padding: 30px;
+display: inline-block;
+width: 33%;
+}
+.room_list_mid .room_list_box .img_box img {
+width: 300px;
+height: 200px;
 
-	display: inline-block;
-	width: 33%;
 }
