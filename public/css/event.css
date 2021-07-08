@@ -1,0 +1,114 @@
+/* index S */
+.Event_banner_wrap {
+  margin-bottom: 60px;
+}
+.Event_banner_wrap img {
+  width: 100%;
+  border-radius: 10px;
+}
+.event_box .Event_banner_wrap .Event_text_wrap {
+  height: 30px;
+}
+.event_box .banner_etc {
+  display: inline-block;
+}
+.event_box .banner_etc .banner_subject {
+  font-size: 19px;
+}
+/** keeping-box btn */
+.event_box .Event_banner_wrap .banner_etc .banner_subject .keeping-box {
+  display: inline-block;
+  border: 1px solid #ffaf2d;
+  padding: 1px 10px;
+  border-radius: 20px;
+  color: #ffaf2d;
+  font-size: 15px;
+}
+.Event_banner_wrap .Event_text_wrap .banner_date {
+  display: inline-block;
+  font-size: 15px;
+  float: right;
+  line-height: 28px;
+  vertical-align: top;
+  padding-right: 2px;
+  color: #807d7d;
+}
+.Event_banner_wrap .Event_text_wrap:after {
+  clear: right;
+  display: block;
+  content: "";
+}
+/* index E */
+
+/* new S */
+.event_res_box .res_form {
+	padding: 0 250px;
+}
+.event_res_box .res_form .res_right {
+  width: 600px;
+  height: 400px;
+	box-shadow: 10px 10px 20px rgb(0 0 0 / 12%);
+  display: inline-block;
+  padding: 40px;
+	border-radius: 7px;
+}
+.event_res_box .res_form .res_right .right_title {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+.event_res_box .res_right .input_box input[type='text'] {
+width: 400px;
+}
+.event_res_box .res_right .input_box table td {
+width: 150px;
+}
+.event_res_box .res_right .input_box .res_btn {
+font-size: 16px;
+}
+/* new E */
+
+/* detail S */
+.event_detail .event_detail_top {
+margin-top: 30px;
+padding: 15px;
+margin-bottom: 20px;
+}
+.event_detail .event_detail_top i {
+	font-size: 20px;
+	font-weight: bold;
+}
+.event_detail .event_detail_top .etc {
+font-size: 28px;
+font-family: Cafe24Ssurround;
+}
+.event_detail .event_detail_top {
+border-top: 2px solid #ffaf2d;
+}
+.event_detail_mid {
+box-shadow: 10px 10px 20px rgb(0 0 0 / 12%);
+border: 0;
+margin-bottom: 25px;
+border-radius: 10px;
+}
+.event_detail_mid .event_detail_box table {
+display: inline-block;
+width: 80%;
+font-size: 15px;
+font-weight: 500;
+}
+.event_detail_mid .event_detail_box table tr td {
+padding: 20px;
+width: 900px;
+}
+.event_detail_mid .event_detail_box table tr .pad {
+padding: 20px;
+width: 200px;
+}
+.event_detail_mid .event_detail_box .img_box {
+display: inline-block;
+margin-right: 20px;
+}
+.event_detail_mid .event_detail_box .img_box img {
+width: 150px;
+}
+/* detail E */

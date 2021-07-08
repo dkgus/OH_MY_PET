@@ -1,0 +1,35 @@
+{% extends '../layout.html' %}
+{% block content %}
+<link rel="stylesheet" href="/css/board.css" />
+  <div class="boardTitle layout_width"><img src="image/title.png">notice</img></div>
+  <div class='boardWrap layout_width'>
+    <div class='post'>
+      <div class="info">
+        <ul class="top">
+          <li class="category"><i class="xi-caret-up"></i>카테고리</li>
+          <l class="title">제목</li>
+        </ul>
+        <div class="sub_info">
+          <ul class="profile_info">
+            <li class="photo"><img src=""></li>
+            <li class="grade">2</li>
+          </ul>
+          <ul class="poster_info">
+            <li>닉네임</li> <br>
+            <li>작성일자</li>
+            <li>조회수</li>
+          </ul>
+        </div> <!-- //sub_info -->
+      </div> <!-- //info -->
+      <div class='content' style="border-bottom: none;">
+        나는 내용입니다!
+      </div>
+    </div> <!--//post-->
+    <div class='buttonWrap'>
+      <button><i class="xi-pen"></i>작성</button>
+      <button><i class="xi-wrench"></i>수정</button>
+      <button><i class="xi-trash"></i>삭제</button>
+      <button><i class="xi-bars"></i>목록</button>
+    </div>
+  </div> <!--//boardWrap-->
+  {% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div>COMMUNITY</div>
+<!-- DELETE METHOD -->
+<table>
+  <thead>
+    <tr>
+      <td>title</td>
+      <td>content</td>
+      <td>user</td>
+      <td>date</td>
+      <td>delete</td>
+    </tr>
+  </thead>
+  <tbody>
+    <!--{% for in %}-->
+    <tr>
+      <td>{{ community.title }}</td>
+      <td>{{ community.content }}</td>
+      <td>{{ community.user }}</td>
+      <td>{{ community.createdAt }}</td>
+      <td>
+        <input
+          type="submit"
+          value="Delete"
+          onclick="return confirm('해당 게시글을 삭제하시겠습니까?');"
+        />
+      </td>
+    </tr>
+    <!--{% endfor %}-->
+  </tbody>
+</table>
+{% endblock %}
