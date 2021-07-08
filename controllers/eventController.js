@@ -17,7 +17,7 @@ module.exports = {
     try {
       const event = await Event.findOne({ _id: req.params.id }, {});
       const events = await event.find().populate("user");
-      res.render("event/show", { event: event, events });
+      res.render("event/show", { event: event });
 
     } catch (err) {
       console.error(err);
