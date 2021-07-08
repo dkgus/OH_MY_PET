@@ -1,0 +1,29 @@
+{% extends '../layout.html' %}
+<!-- 이벤트 예약 상세보기 -->
+{% block content %}
+		<div class='event_detail layout_width'>
+			<div class='event_detail_top'>
+			<a href=""><i class='xi-angle-left'></i></a><span class='etc'> 예약 상세 현황</span>
+			</div>
+
+			<div class='event_detail_mid'>
+				<div class='event_detail_box box1'>
+					</div>
+					<table>
+					<tr>
+						<td class='pad'>이벤트명</td>
+						<td>{{ event.eventNm }}</td>
+					</tr>
+					<tr>
+						<td class='pad'>예약자 성함</td>
+						<td>{{ user.nickname }}</td>
+					</tr>
+					<tr>
+						<td class='pad'>예약자 연락처</td>
+						<td>{{ user.phone }}</td>
+					</tr>
+					</table>
+				</div>
+
+		</div>
+{% endblock %}

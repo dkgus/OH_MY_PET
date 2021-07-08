@@ -1,25 +1,14 @@
 {% extends '../layout.html' %}
+<!-- 이벤트 전체보기 -->
 {% block content %}
 	<div class='event_box layout_width'>
-		<div class='Event_title'>행사</div>
+		<div class='Event_title border_title'>이벤트 예약 전체보기</div>
+		{% for item in events %}
 		<div class='Event_banner_wrap'>
-			<div class='banner_coentent'>
-				<a href='#'><img src='image/event1.jpg'></a>
-			</div>
-			<div class='Event_text_wrap'>
-				<div class='banner_etc'>
-					<div class='banner_subject'>
-						<!-- keeping 클래스 추가시 진행중 -->
-						<div class='keeping-box keeping'>
-						<span>진행중</span>
-						</div>
-						<span>{{ eventNm }}</span>
-					</div><!--//banner_subject-->
-				</div><!--//banner_etc-->
-				<div class='banner_date'>
-					<span>{{ eventNo }}</span>
-				</div>
+						<dl>
+						<a href="event/{{item._id}}"<dd>{{ item.eventNm }} {{user.nickname}} {{user.phone}}</dd></a>
+						</dl>
 			</div><!--//Event_text_wrap-->
-		</div><!--//Event_banner_wrap-->
+		{% endfor %}
 	</div><!--//Event_box-->
 {% endblock %}

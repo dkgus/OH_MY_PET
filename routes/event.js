@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { isAuthenticatedUser } = require("../utils/auth");
+const { isAuthenticatedUser, isAdmin, isGoldMember } = require("../utils/auth");
 
 const {
   showAllEvents,
@@ -13,10 +13,13 @@ const {
 } = require("../controllers/eventController");
 
 // event/
-router.route("/").get(showAllEvents);
+router.route("/").get(isAuthenticatedUser, showAllEvents);
 
 // event/new
-router.route("/new").get(showCreateForm).post(isAuthenticatedUser, createEvent);
+router
+  .route("/new")
+  .get(isAuthenticatedUser, showCreateForm)
+  .post(isAuthenticatedUser, createEvent);
 
 // event/:id/edit
 router
@@ -26,6 +29,6 @@ router
   .delete(deleteEvent);
 
 // event/:id
-router.route("/:id").get(showEvent);
+router.route("/:id").get(isAuthenticatedUser, showEvent);
 
 module.exports = router;
