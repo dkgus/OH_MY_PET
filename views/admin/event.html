@@ -16,19 +16,15 @@
     </tr>
   </thead>
   <tbody>
-    <!--{% for in %}-->
+    {% for item in event %}
     <tr>
-      <td>{{ event.eventNm }}</td>
-      <td>{{ event.user }}</td>
+      <td>{{ item.eventNm }}</td>
+      <td>{{ item.user }}</td>
       <td>
-        <input
-          type="submit"
-          value="Delete"
-          onclick="return confirm('해당 예약 내용을 삭제하시겠습니까?');"
-        />
+        <input type="submit" value="Delete" onclick="deleteEvent();" />
       </td>
     </tr>
-    <!--{% endfor %}-->
+    {% endfor %}
   </tbody>
 </table>
 

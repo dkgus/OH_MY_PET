@@ -1,5 +1,5 @@
 // Create and send token and save in the cookie
-const sendToken = (user, statuCode, res) => {
+const sendToken = (user, res) => {
   // Create Jwt token
   const token = user.getJwtToken();
 

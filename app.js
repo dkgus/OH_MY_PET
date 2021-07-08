@@ -1,17 +1,26 @@
 const express = require("express");
 const app = express();
 const port = 4646;
-const userRoutes = require("./routes/userRouter");
-const noticeRoutes = require("./routes/noticeRouter");
-const communityRoutes = require("./routes/communityRouter");
-const evntRoutes = require("./routes/event");
-const roomRoutes = require("./routes/room");
-
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
 const nunjucks = require("nunjucks");
 const path = require("path");
+const cookieParser = require("cookie-parser");
+
+// routes
+const userRoutes = require("./routes/user");
+const noticeRoutes = require("./routes/notice");
+const communityRoutes = require("./routes/community");
+const evntRoutes = require("./routes/event");
+const roomRoutes = require("./routes/room");
+
+/** 관리자 routes */
+const adminRouter = require("./routes/admin"); // 관리자 메인
+const adminMemberRouter = require("./routes/admin/member");
+const adminRoomRouter = require("./routes/admin/room");
+const adminEventRouter = require("./routes/admin/event");
+const adminCommunityRouter = require("./routes/admin/community");
 
 app.set("view engine", "html");
 nunjucks.configure("views", {
@@ -19,6 +28,9 @@ nunjucks.configure("views", {
   watch: true,
 });
 
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use(cookieParser());
 dotenv.config();
 mongoose
   .connect(process.env.MONGO_DB, {
@@ -34,15 +46,33 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(morgan("dev"));
+
+/** 라우터 등록 */
+app.use("/event", evntRoutes);
 app.use("/users", userRoutes);
 app.use("/notices", noticeRoutes);
 app.use("/community", communityRoutes);
-app.use("/event", evntRoutes);
 app.use("/room", roomRoutes);
+//app.use("/", (req, res) => res.render("main/index.html"));
 
-app.use(express.static(path.join(__dirname, "public")));
-app.get("/", (req, res) => {
-  res.send("DB가 연결되었습니다");
+/** 관리자 */
+app.use("/admin", adminRouter); // 관리자 메인
+app.use("/admin/member", adminMemberRouter);
+app.use("/admin/room", adminRoomRouter);
+app.use("/admin/event", adminEventRouter);
+app.use("/admin/community", adminCommunityRouter);
+
+// 페이지 없을때 처리 미들웨어
+app.use((req, res, next) => {
+  const error = new Error(`${req.method} ${req.url}는 없는 페이지 입니다`);
+  error.status = 404;
+  next(error);
+});
+
+// 오류 처리 미들웨어
+app.use((err, req, res, next) => {
+  res.locals.error = err;
+  res.status(err.status || 500).render("error");
 });
 
 app.listen(port, () => {

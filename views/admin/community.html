@@ -13,21 +13,17 @@
     </tr>
   </thead>
   <tbody>
-    <!--{% for in %}-->
+    {% for item in community %}
     <tr>
-      <td>{{ community.title }}</td>
-      <td>{{ community.content }}</td>
-      <td>{{ community.user }}</td>
-      <td>{{ community.createdAt }}</td>
+      <td>{{ item.title }}</td>
+      <td>{{ item.content }}</td>
+      <td>{{ item.user }}</td>
+      <td>{{ item.createdAt }}</td>
       <td>
-        <input
-          type="submit"
-          value="Delete"
-          onclick="return confirm('해당 게시글을 삭제하시겠습니까?');"
-        />
+        <input type="submit" value="Delete" onclick="deletePost();" />
       </td>
     </tr>
-    <!--{% endfor %}-->
+    {% endfor %}
   </tbody>
 </table>
 {% endblock %}

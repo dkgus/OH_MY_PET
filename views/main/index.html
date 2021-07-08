@@ -1,5 +1,5 @@
 {% extends '../layout.html' %} {% block content %}
-
+<link rel="stylesheet" href="/css/main.css" />
 <main>
   <!--main benner start-->
   <div class="main_banner">메인배너영역</div>
@@ -15,99 +15,17 @@
       </p>
       <ul class="s_event_box">
         <li class="s_event_list">
-          <a href="#"><img src="image/cats.jpg" /></a>
+          <img src="image/cats.jpg" />
         </li>
         <li class="s_event_list">
-          <a href="#"><img src="image/cats.jpg" /></a>
+          <img src="image/cats.jpg" />
         </li>
         <li class="s_event_list">
-          <a href="#"><img src="image/cats.jpg" /></a>
+          <img src="image/cats.jpg" />
         </li>
       </ul>
+      <a href="/notices" class="event_more"> 이벤트 더보기 </a>
       <!--//event box-->
-
-      <article class="event_rolling">
-        <div class="event_list layout_width">
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <a href="#" class="swiper-slide event">
-                <img src="image/event1.jpg" />
-                <div class="event_sort">강연</div>
-                <div class="event_wrap">
-                  <span class="eventnm">기가막히게 유익한 강연</span>
-                </div>
-              </a>
-              <a href="#" class="swiper-slide event">
-                <img src="image/evnet2.jpg" />
-                <div class="event_sort">강연</div>
-                <div class="event_wrap">
-                  <span class="eventnm">기가막히게 유익한 강연</span>
-                </div>
-              </a>
-              <a href="#" class="swiper-slide event">
-                <img src="image/event1.jpg" />
-                <div class="event_sort">페스티벌</div>
-                <div class="event_wrap">
-                  <span class="eventnm">정말 신나는 페스티벌</span>
-                </div>
-              </a>
-              <a href="#" class="swiper-slide event">
-                <img src="image/evnet2.jpg" />
-                <div class="event_sort">페스티벌</div>
-                <div class="event_wrap">
-                  <span class="eventnm">정말 신나는 페스티벌</span>
-                </div>
-              </a>
-              <a href="#" class="swiper-slide event">
-                <img src="image/event1.jpg" />
-                <div class="event_sort">페스티벌</div>
-                <div class="event_wrap">
-                  <span class="eventnm">정말 신나는 페스티벌</span>
-                </div>
-              </a>
-              <a href="#" class="swiper-slide event">
-                <img src="image/evnet2.jpg" />
-                <div class="event_sort">페스티벌</div>
-                <div class="event_wrap">
-                  <span class="eventnm">정말 신나는 페스티벌</span>
-                </div>
-              </a>
-              <a href="#" class="swiper-slide event">
-                <img src="image/event1.jpg" />
-                <div class="event_sort">페스티벌</div>
-                <div class="event_wrap">
-                  <span class="eventnm">정말 신나는 페스티벌</span>
-                </div>
-              </a>
-              <a href="#" class="swiper-slide event">
-                <img src="image/evnet2.jpg" />
-                <div class="event_sort">강연</div>
-                <div class="event_wrap">
-                  <span class="eventnm">기가막히게 유익한 강연</span>
-                </div>
-              </a>
-              <a href="#" class="swiper-slide event">
-                <img src="image/event1.jpg" />
-                <div class="event_sort">페스티벌</div>
-                <div class="event_wrap">
-                  <span class="eventnm">정말 신나는 페스티벌</span>
-                </div>
-              </a>
-              <a href="#" class="swiper-slide event">
-                <img src="image/evnet2.jpg" />
-                <div class="event_sort">강연</div>
-                <div class="event_wrap">
-                  <span class="eventnm">기가막히게 유익한 강연</span>
-                </div>
-              </a>
-            </div>
-            <!--swiper-wrapper-->
-          </div>
-          <!--swiper-container-->
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
-      </article>
     </div>
   </section>
   <!--event end-->
@@ -121,24 +39,24 @@
     </p>
     <ul class="hotel_box">
       <li class="hotel_list">
-        <a href="#">
-          <img src="image/hotel1.jpg" />
-          <p class="hotel_sort">종류</p>
-          <p class="hotelnm">[인천] 돌봐줄개</p>
+        <a href="/room1">
+          <img src="/image/room.png" />
+          <p class="hotel_sort">인천</p>
+          <p class="hotelnm">개편한세상</p>
         </a>
       </li>
       <li class="hotel_list">
-        <a href="#">
-          <img src="image/hotel1.jpg" />
-          <p class="hotel_sort">종류</p>
-          <p class="hotelnm">[서울] 반려동물 동반 숙박 가능한 짱호텔</p>
+        <a href="/room2">
+          <img src="/image/room2.png" />
+          <p class="hotel_sort">서울</p>
+          <p class="hotelnm">엘리스애견호텔</p>
         </a>
       </li>
       <li class="hotel_list">
-        <a href="#">
-          <img src="image/hotel1.jpg" />
-          <p class="hotel_sort">종류</p>
-          <p class="hotelnm">[인천] 펫토피아</p>
+        <a href="/room3">
+          <img src="/image/room3.png" />
+          <p class="hotel_sort">경기</p>
+          <p class="hotelnm">망고쿠로</p>
         </a>
       </li>
     </ul>
@@ -146,28 +64,30 @@
   <!--hotel list end-->
 
   <!-- board start -->
-  <div class="board">
-    <!--공지사항 게시판-->
-    <div class="notice_box">
-      <div class="notice_title">공지사항</div>
-      <div class="notice_list">
-        <ul>
-          {% for in %} {% if loop.revindex0 <= 5 %}
-          <li>{ Notice.title } { Notice.createdAt }</li>
-          {% endif %} {% endfor %}
-        </ul>
+  <div class="layout_width">
+    <div class="board">
+      <!--공지사항 게시판-->
+      <div class="notice_box">
+        <div class="notice_title">공지사항</div>
+        <div class="notice_list">
+          <ul>
+            {% for notice in Notice %} {% if loop.revindex0 <= 5 %}
+            <li>{ notice.title } { notice.createdAt }</li>
+            {% endif %} {% endfor %}
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <!--커뮤니티 게시판-->
-    <div class="cummunity_box">
-      <div class="board_title">커뮤니티</div>
-      <div class="cummunity_list">
-        <ul>
-          {% for in %} {% if loop.revindex0 <= 5 %}
-          <li>{ Community.title } { Community.createdAt }</li>
-          {% endif %} {% endfor %}
-        </ul>
+      <!--커뮤니티 게시판-->
+      <div class="cummunity_box">
+        <div class="board_title">커뮤니티</div>
+        <div class="cummunity_list">
+          <ul>
+            {% for community in Community %} {% if loop.revindex0 <= 5 %}
+            <li>{ community.title } { community.createdAt }</li>
+            {% endif %} {% endfor %}
+          </ul>
+        </div>
       </div>
     </div>
   </div>

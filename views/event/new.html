@@ -1,5 +1,6 @@
 {% extends '../layout.html' %}
 {% block content %}
+<link rel="stylesheet" href="/css/event.css" />
 	<div class='event_res_box layout_width'>
 		<div class='res_form'>
 			<div class='res_left'>
@@ -9,14 +10,15 @@
 				<div class='right_title'>
 					{{ eventNm }}
 				</div>
-				<form method='post' action='event' target='ifrmHidden'>
+				<form method='POST' action='/event/new' target='ifrmHidden'>
 					<div class='select_box'>
-						<select name='event_res'>
-							<option value='이벤트1'>이벤트1</option>
-							<option value='이벤트2'>이벤트2</option>
+						<select name='eventNm'>
+							<option name="event1" value='event1'>이벤트1</option>
+							<option name="event2" value='event2'>이벤트2</option>
 						</select>
-						<input type='submit' value='예약하기' class='res_btn'>
 					</div>
+					<input type='submit' value='예약하기' class='res_btn'>
+
 				</form>
 			</div>
 		</div>

@@ -1,14 +1,14 @@
 {% extends 'layout.html' %}
-
 {% block content %}
-<div class='login_box'>
-	<div class='login_title'>로그인</div>
+<link rel="stylesheet" href="/css/users.css" />
+<div class='user_box layout_width'>
+	<div class='user_title'>로그인</div>
 	<form method='post' action='/users/login' autocomplete='off'>
-		<input type='email' name='email' placeholder='이메일을 입력해주세요.'>
+		<input type='text' name='email' placeholder='이메일을 입력해주세요.'>
 		<input type='password' name='password' placeholder='비밀번호를 입력해주세요.'>
 		<input type='submit' value='로그인'>
 	</form>
-	<button class='join_btn'><a href='/users/new'>회원가입</a></button>
+	<button class='join_btn'><a href='/member/join'>회원가입</a></button>
 </div>
-<!-- //login_box -->
+<!-- //user_box -->
 {% endblock %}

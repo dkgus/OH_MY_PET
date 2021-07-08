@@ -1,78 +1,36 @@
 {% extends '../layout.html' %}
+
+<!-- 회원 가입-->
 {% block content %}
-<div class='mypage'>
-	<div class='mypage_back'>
-		<div class='layout_width'>
-		<a href='/users/show'>my page</a>
-		</div>
-	</div>
-	<div class='my_info layout_width'>
-		<div class='infobox box1'>
-		<div class='info_title title1'>내 정보</div>
-		<dl>
-			<dd>이름</dd>
-			<dt>{{ item.name }}</dt>
-		</dl>
-		<dl>
-			<dd>반려동물 이름</dd>
-			<dt>{{ item.nickname }}</dt>
-		</dl>
-		<dl>
-			<dd>아이디</dd>
-			<dt>{{ email }}</dt>
-		</dl>
-		<dl>
-			<dd>전화번호</dd>
-			<dt>{{ phone }}</dt>
-		</dl>
-		<dl>
-			<dd>회원등급</dd>
-			<dt>{{ role }}</dt>
-		</dl>
-		<dl>
-			<dd>반려동물 종류</dd>
-			<dt>{{ type }}</dt>
-		</dl>
-		</div>
-		<!--//infobox -->
-		<div class='event_box box1'>
-		<div class='event_title title1'>이벤트 현황</div><div class='plus'><a href='/'>상세보기</a></div>
-		<table class='event_res table1'>
-				<tr>
-					<td>이벤트 제목</td>
-					<td>예약일</td>
-					<td>예약자 성함</td>
-				<tr>
-					<td>{{ eventNm }}</td>
-					<td>{{ eventNo }}</td>
-					<td>{{ user }}</td>
-				</tr>
-			</table>
-		</div>
-		<!--// event_box -->
-		<div class='hotel_box box1'>
-			<div class='hotel_title title1'>호텔예약 현황</div><div class='plus'><a href='hotel/'>상세보기</a></div>
-			<table class='hotel_res table1'>
-				<tr>
-					<td>호텔명</td>
-					<td>주소</td>
-					<td>room type</td>
-					<td>예약일</td>
-					<td>체크인</td>
-					<td>체크아웃</td>
-				<tr>
-					<td>{{ hotelName }}</td>
-					<td>{{ memo }}</td>
-					<td>{{ roomType }}</td>
-					<td>{{ regDt }}</td>
-					<td>{{ revStart }}</td>
-					<td>{{ revEnd }}</td>
-				</tr>
-			</table>
-		</div>
-		<!--// hotel_box-->
-	</div>
-	<!--// my_info layout_width-->
-</div>
-<!-- //mypage -->
+<link rel="stylesheet" href="/css/users.css" />
+   <div class='join_box layout_width'>
+      <div class='join_title'>내 정보</div>
+ 
+            <dl>
+               <dt>이름</dt>
+               <dd class='pad'>
+                  {{ user.name }}
+               </dd>
+            </dl>
+            <dl>
+               <dt>반려동물 이름</dt>
+               <dd class='pad'>
+                {{ user.nickname }} ({{ user.type }})
+               </dd>
+            </dl>
+            <dl>
+               <dt>이메일</dt>
+               <dd class='pad'>
+                {{ user.email }}
+               </dd>
+            </dl>
+            <dl>
+               <dt>전화번호</dt>
+               <dd class='pad'>
+                {{ user.phone }}
+               </dd>
+            </dl>
+         <a href="{{user._id}}/edit">수정하기 </a>
+
+   </div>
 {% endblock %}

@@ -1,7 +1,6 @@
 {
   "name": "oh_my_pet",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app"
@@ -25,11 +24,13 @@
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.12.14",
+    "mongoose": "^5.13.2",
     "morgan": "^1.10.0",
-    "nunjucks": "^3.2.3"
+    "nunjucks": "^3.2.3",
+    "pm2": "^5.1.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.8"
-  }
+    "nodemon": "^2.0.9"
+  },
+  "description": ""
 }

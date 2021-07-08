@@ -1,49 +1,24 @@
 {% extends '../layout.html' %}
 {% block content %}
+<link rel="stylesheet" href="/css/event.css" />
 		<div class='event_detail layout_width'>
 			<div class='event_detail_top'>
 			<a href=""><i class='xi-angle-left'></i></a><span class='etc'> 예약 현황</span>
 			</div>
 			<div class='event_detail_mid'>
 				<div class='event_detail_box box1'>
-					<div class='img_box'>
-					<img src="/image/img.jpg" class='img'>
-					</div>
-					<table>
-					<tr>
-						<td class='pad'>이벤트명</td>
-						<td>{{ eventNm }}개와 고양이의 시간</td>
-					</tr>
-					<tr>
-						<td class='pad'>예약번호</td>
-						<td>{{ eventNo }}FS245-S1NO201</td>
-					</tr>
-					<tr>
-						<td class='pad'>예약자 성함</td>
-						<td>{{ user }}김페르시안 고양이 2세</td>
-					</tr>
-					</table>
-				</div>
-			</div>
-			<div class='event_detail_mid'>
-				<div class='event_detail_box box1'>
-					<div class='img_box'>
-					<img src="/image/img2.jpg" class='img'>
-					</div>
-					<table>
-					<tr>
-						<td class='pad'>이벤트명</td>
-						<td>{{ eventNm }}개와 고양이의 시간</td>
-					</tr>
-					<tr>
-						<td class='pad'>예약번호</td>
-						<td>{{ eventNo }}FS245-S1NO201</td>
-					</tr>
-					<tr>
-						<td class='pad'>예약자 성함</td>
-						<td>{{ user }}김페르시안 고양이 2세</td>
-					</tr>
-					</table>
+					<dl>
+						<dd class='pad'>이벤트명</dd>
+						<dt>{{ eventNm }}</dt>
+					</dl>
+					<dl>
+						<dd class='pad'>예약번호</dd>
+						<dt>{{ eventNo }}</dt>
+					</dl>
+					<dl>
+						<dd class='pad'>예약자 성함</dd>
+						<dt>{{ name }}</dt>
+					</dl>
 				</div>
 			</div>
 		</div>

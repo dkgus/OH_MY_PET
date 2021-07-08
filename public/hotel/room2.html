@@ -1,0 +1,94 @@
+{% extends '../../veiws/layout.html' %} {% block content %}
+
+<!-- 호텔명 -->
+<div class="layout_width">
+    <div>[서울] 앨리스애견호텔</div>
+
+    <div>
+        <img src="/image/room2.png" class="img" />
+    </div>
+    <!-- 예약 폼 -->
+    <form action="room/new" method="POST">
+        <input type="hidden" name="roomNm" value="호텔2">
+        <!-- 호텔 설명 -->
+        <div class="room_des_box">
+            <table>
+            <tr>
+                <td>호텔명</td>
+                <td>앨리스애견호텔</td>
+            </tr>
+            <tr>
+                <td>위치</td>
+                <td>서울 강남구</td>
+            </tr>
+            <tr>
+                <td>1박 가격</td>
+                <td>5,000원</td>
+            </tr>
+            </table>
+        <input type="submit" value="호텔 예약하기" />
+    </form>
+
+
+  <div class="room_info">
+    <div>
+      <i class="xi-maker-drop"></i>
+      <div>서울특별시 강남구 웅앵동 132-1</div>
+      <a href="">지도보기</a>
+    </div>
+    <div>
+      <i class="xi-time-o"></i>
+      <div>체크인 16:00 | 체크아웃 11:00</div>
+    </div>
+    <div>
+      <i class="xi-group"></i>
+      <div>1객실 당 최대 3명 수용 가능</div>
+    </div>
+    <div>
+      <i class="xi-call"></i>
+      <div>02)000-0000</div>
+    </div>
+    <div>
+      <i class="xi-check-circle-o"></i>
+      <div>
+        앨리스애견호텔은 집에서 아이들과 함께 밥을 먹고 자는,<br />
+        24시간내내 함께 생활하는 애견호텔입니다.
+      </div>
+    </div>
+  </div>
+  <div class="room_info2">
+    <div class="room_infobox">
+      <div class="room_infotit">객실</div>
+      <div class="room_infodes">
+        50개 객실에는 냉장고 및 미니바도 갖추어져 있어 편하게 머무실 수
+        있습니다. 무료 유선 및 무선 인터넷이 지원되며 위성 프로그램도 시청하실
+        수 있습니다. 욕실에는 별도의 욕조와 샤워, 무료 세면용품, 비데 등이
+        마련되어 있습니다. 편의 시설/서비스로는 전화 외에 금고 및 책상도
+        있습니다.
+      </div>
+    </div>
+    <div class="room_infobox">
+      <div class="room_infotit">편의시설</div>
+      <div class="room_infodes">
+        야외 수영장, 실내 수영장, 워터슬라이드 등의 다양한 레크리에이션 시설을
+        이용할 수 있는 기회를 놓치지 마세요. 이 리조트에는 무료 무선 인터넷,
+        콘시어지 서비스, 아케이드/게임룸 등도 마련되어 있습니다.
+      </div>
+    </div>
+    <div class="room_infobox">
+      <div class="room_infotit">다이닝</div>
+      <div class="room_infodes">
+        리조트의 레스토랑에서 맛있는 식사를 즐겨보세요. 또는 편하게 24시간
+        룸서비스를 이용하실 수도 있습니다. 아침 식사(뷔페)를 매일 07:00 ~
+        10:30에 유료로 이용하실 수 있습니다.
+      </div>
+    </div>
+    <div class="room_infobox">
+      <div class="room_infotit">숙소 부대시설</div>
+      <div class="room_infodes">
+        애견 유치원, 키즈 시설, 피트니스, 주차, 조식, 전용 해변, 셔틀버스
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
