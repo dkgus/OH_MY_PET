@@ -9,8 +9,10 @@
 		<link rel="stylesheet" type="text/css" href="/css/{{ css }}.css">
 		{% endfor %}
 		{% endif %}
+		{{ addCss | join(",") }}
 		{% block style %}
 		{% endblock %}
+
 		<script src='https://unpkg.com/@babel/standalone/babel.min.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
