@@ -1,6 +1,7 @@
 {% extends '../layout.html' %}
 {% block content %}
-  <div class='form_wrap layoutwidth'>
+<link rel="stylesheet" href="/css/board.css" />
+  <div class='form_wrap layout_width'>
     <div class="form_box">
       <form method='post' action='folder=#&file=#' target='ifrmHidden' autocomplete='off'>
 	      <input type='hidden' name='mode' value='isset($idx)?"modify":"upload"'>

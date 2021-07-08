@@ -1,13 +1,11 @@
 {% extends '../layout.html' %}
 {% block content %}
-  <div class='form_wrap layoutwidth'>
+<link rel="stylesheet" href="/css/board.css" />
+  <div class='form_wrap layout_width'>
     <div class="form_box">
       <form method='post' action=''
       autocomplete='off'>
-        
-	      <input type='hidden' name='mode' value='isset($idx)?"modify":"upload"'>
-      	<input type='hidden' name='idx' value='$idx'>
-        <div class='top'>
+        <div class='info'>
           <ul>
             <li>제목</li>
             <li>
@@ -25,12 +23,12 @@
           </ul>
         </div>
       	<div class="form">
-            <textarea id="content" name="content" rows="40"></textarea>
+            <textarea id="content" name="content" cols="100%" rows="40"></textarea>
             <script> CKEDITOR.replace( 'content', { filebrowserImageUploadUrl: '../uploadIMG.jsp' }); </script>
 	      </div>
       </div><!-- //form_box -->
       <div class='btnWrap'>
-        <button id="back" name="back" onclick="list()"><i class="xi-bars"></i>목록</button>
+        <a href="/community"><i class="xi-bars"></i>목록</a>
         <div class='submit'>
           <i class="xi-pen"></i>
           <input type="submit" class="search_btn" value="등록">

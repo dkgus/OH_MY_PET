@@ -9,7 +9,7 @@ const {
   showUpdateForm,
   updateNotice,
   deleteNotice,
-} = require("../controllers/noticeController");
+} = require("../controller/noticeController");
 
 // notices/
 router.route("/").get(showAllNotices);

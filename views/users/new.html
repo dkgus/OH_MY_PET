@@ -1,13 +1,15 @@
 {% extends '../layout.html' %}
-<!-- 회원 가입 폼-->
+
+<!-- 회원 가입-->
 {% block content %}
-   <div class='join_box layout_width'>
-      <div class='join_title'>회원가입</div>
+<link rel="stylesheet" href="/css/users.css" />
+   <div class='user_box layout_width'>
+      <div class='user_title'>회원가입</div>
          <form method='post' action='/users/new' autocomplete='off' class='join_form'>
             <dl>
                <dt>이름</dt>
                <dd class='pad'>
-                  <input type='text' name='name' placeholder='이름을 입력해주세요.'>
+                  <input type='text' name='name' placeholder='닉네임을 입력해주세요.'>
                </dd>
             </dl>
             <dl>
@@ -19,7 +21,7 @@
             <dl>
                <dt>이메일</dt>
                <dd class='pad'>
-                  <input type='email' name='email' value='' placeholder='이메일을 입력해주세요.'>
+                  <input type='email' name='email' value='' placeholder='예: nyanya123@naver.com'>
                </dd>
             </dl>
             <dl>
@@ -31,13 +33,13 @@
             <dl>
                <dt>비밀번호 확인</dt>
                   <dd class='pad'>
-                     <input type='password' name='memPwRe' placeholder=''>
+                     <input type='password' name='memPwRe' placeholder='비밀번호를 다시 입력해주세요.'>
                   </dd>
             </dl>
             <dl>
                <dt>전화번호</dt>
                <dd class='pad'>
-                  <input type='text' name='phone' placeholder='-을 제외하고 입력해주세요.'>
+                  <input type='text' name='phone' placeholder='-을 제외하고 입력해주세요'>
                </dd>
             </dl>
             <dl>
@@ -75,7 +77,7 @@
                </label>
                </dd>
             </dl>
-         <input type='submit' value='회원가입' class='join_btn btn1 mt10'>
+         <input type='submit' value='회원가입' class='join_btn'>
       </form>
    </div>
 {% endblock %}

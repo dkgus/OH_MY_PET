@@ -1,23 +1,34 @@
 {% extends '../layout.html' %}
 {% block content %}
-  <div class="boardTitle layoutwidth"><img src="img/title.png">community</img></div>
-  <div class='boardWrap layoutwidth'>
+<link rel="stylesheet" href="/css/board.css" />
+  <div class="boardTitle layout_width"><img src="image/title.png">community</img></div>
+  <div class='boardWrap layout_width'>
   <div class='list'>
     <ul class='top'>
-      <li class='subject_c'>제목</li>
-      <li class='writer_c'>작성자</li>
-      <li class='date_c'>작성일</li>
-      <li class='hit_c'>조회수</li>
+      <li class='subject'>제목</li>
+      <li class='writer'>작성자</li>
+      <li class='date'>작성일</li>
     </ul>
     <ul class='bottom'>
-      <div class='eachList'>
-        <a href="#">{{ title }}}</a>
-        <li class='writer_c'>{{ user }}</li>
-        <li class='date_c'>{{ createdAt }}</li>
-        <li class='hit_c'>429</li>
-      </div>
+      {% if list.length > 0 %}
+        {% for item in list %}
+          <li>
+            <a href='/community/{{ item.idx }}' class='title'>
+              {{ item.title }}
+            </a>
+            <div class='post_info'>
+              <span class='poster'>{{ item.user }}</span>
+              <span class='date'>{{ item.createdAt }}</span>
+            </div>
+          </li>
+        {% endfor %}
+      {% else %}
+        <li>게시글이 없습니다</li>
+      {% endif %}
     </ul>
-    <a href='/community/new'><i class="xi-pen"></i>작성</a>
+    <div class='boardBtn'>
+      <a href='/community/new'><i class="xi-pen"></i>작성</a>
+    </div>
   </div> <!--//list-->
     <div class='pagination'>
       <ul>

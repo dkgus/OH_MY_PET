@@ -1,0 +1,77 @@
+{% extends '../layout.html' %} {% block content %}
+<link rel="stylesheet" href="/css/room.css" />
+<div class="layout_width">
+  <div class="hotel_res_title">예약하기</div>
+
+
+    <!-- reservation -->
+    <div class="sub_title">예약자 정보</div>
+    <form name="" action="" method="post"></form>
+    <table>
+        <tr>
+            <td>
+                성함
+            </td>
+            <td>
+                <input type="text" name="user" placeholder="성함을 입력해주세요.">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                호텔 이름
+            </td>
+            <td>
+                <input type="text" name="hotelName" placeholder="예약하실 호텔 이름을 입력해주세요.">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                방 종류
+            </td>
+            <td>
+                <select name="roomType" id="">
+                    <option value="">dorm</option>
+                    <option value="">family</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                체크인
+            </td>
+            <td>
+                <input type="date" name="revStart">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                체크아웃
+            </td>
+            <td>
+                <input type="date" name="revEnd">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                기타요청사항
+            </td>
+            <td>
+                <textarea name="memo" cols="30" rows="4" placeholder="기타요청사항을 입력해주세요."></textarea>
+            </td>
+        </tr>
+    </table>
+    <input type='submit' value='예약하기' class='res_btn'>
+  </form>
+
+  <!-- guide text -->
+  <div class="guide_box">
+  <ul class="guide_text">
+    <li>예약시 주의사항1</li>
+    <li>예약시 주의사항2</li>
+    <li>예약시 주의사항3</li>
+  </ul>
+</div>
+</div>
+
+<!-- 예약 후 '예약이 완료되었습니다' 알림 -->
+{% endblock %}

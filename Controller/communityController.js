@@ -39,9 +39,8 @@ module.exports = {
         const msg = "글 제목, 내용을 모두 입력해주세요.";
         return res.send(`<script>alert("${msg}");history.back();</script>`);
       }
-      await Community.create({ title, content, user: req.user._id });
-      // res.redirect("/community");
-      res.status(200).send("success");
+      await Community.save();
+      res.redirect("/community");
     } catch (err) {
       console.log(err);
       res.status(500).send("server error");

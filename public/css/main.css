@@ -1,39 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap");
-
-* {
-  font-family: "Noto Sans KR", sans-serif;
-  color: #3d3d3d;
-}
-
-html {
-  font-size: 16px;
-  line-height: 1.15;
-}
-
-body {
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  display: list-item;
-}
-
-.layout_width {
-  width: 1100px;
-  margin: 0 auto;
-}
-
+/* body_common S */
 .box_title {
   position: relative;
   font-size: 2rem;
@@ -51,9 +16,9 @@ li {
   padding-top: 25px;
   line-height: 32px;
 }
-/*초기화, 공통설정 끝*/
+/* body_common E */
 
-/*유저 메뉴 시작*/
+/* body_user S */
 .user_menu {
   margin: 0 auto;
   padding-top: 15px;
@@ -86,9 +51,9 @@ li {
 .user_menu nav a:first-child:after {
   display: none;
 }
-/*유저 메뉴 끝*/
+/* body_user E */
 
-/*메인 메뉴 영역 시작*/
+/* body_menu S */
 nav .gnb {
   text-align: center;
 }
@@ -134,9 +99,9 @@ nav .icon_menu .search {
   height: 20px;
   margin-left: 20px;
 }
-/*메인 메뉴 영역 끝*/
+/* body_menu E*/
 
-/*메인 배너 영역 시작*/
+/* body_banner S */
 .main_banner {
   position: relative;
 }
@@ -144,10 +109,9 @@ nav .icon_menu .search {
 .main_banner .banner {
   width: 100%;
 }
-/*메인 배너 영역 끝*/
+/* body_banner E */
 
-/*이벤트 진열 영역 시작*/
-
+/* body_display S */
 .event_display .s_event_box {
   margin: 55px -9px 0 -9px;
 }
@@ -177,10 +141,9 @@ nav .icon_menu .search {
   float: right;
   margin-top: 50px;
 }
+/* body_display E*/
 
-/*상품 진열 영역 끝*/
-
-/*호텔 영역 시작*/
+/* body_hotel S */
 .hotel .hotel_box {
   margin: 55px -9px 0 -9px;
 }
@@ -222,29 +185,37 @@ nav .icon_menu .search {
   letter-spacing: -2px;
   margin-top: 0;
 }
-/*호텔 영역 끝*/
+/* body_hotel E*/
 
-/*게시판 영역 시작*/
+/* body_board S */
 .board .notice_box,
 .board .cummunity_box {
   display: inline-block;
   width: 500px;
   text-align: center;
 }
+/* body_board E */
+/* body E */
 
-/*게시판 영역 끝*/
-
-/*footer_left 시작*/
+/* footer S */
+/* footer_left S */
 footer {
   background-color: #f9f9f9;
-  margin-top: 150px;
+  margin-top: 100px;
   height: 280px;
-  padding: 55px 0 70px;
+  padding: 10px 0;
 }
 
 footer .footer_left {
   float: left;
   width: 490px;
+  padding-top: 30px;
+}
+
+footer .footer_left:after {
+  clear: left;
+  content: "";
+  display: block;
 }
 
 footer .footer_right {
@@ -253,37 +224,14 @@ footer .footer_right {
   width: 610px;
 }
 
-footer .footer_menu li {
-  display: inline-block;
-  position: relative;
-  margin-left: 15px;
-  padding-left: 15px;
-  vertical-align: top;
-  line-height: 24px;
-}
-
-footer .footer_menu li:first-child {
-  margin-left: 0;
-  padding-left: 0;
-}
-
-footer .footer_menu li:before {
+footer .footer_right:after {
+  clear: right;
   content: "";
   display: block;
-  width: 2px;
-  height: 14px;
-  background-color: #d8d8d8;
-  position: absolute;
-  left: -2px;
-  top: 6px;
 }
 
-footer .footer_menu li:first-child:before {
-  display: none;
-}
-
-footer .footer_left .support {
-  margin: 36px 0 27px;
+.footer_left .support {
+  padding-top: 15px;
 }
 
 footer .footer_left .support .support_title {
@@ -311,9 +259,9 @@ footer .footer_left .support .support_time > a {
   font-weight: 500;
 }
 
-/*footer left 끝*/
+/* footer_left E */
 
-/*footer_right 시작*/
+/* footer_right S */
 footer .footer_right .company {
   margin: 60px 0 10px;
   letter-spacing: -1px;
@@ -354,4 +302,5 @@ footer .footer_right .family_site_default {
   background: #ffffff url("../image/family_site_btn.png") no-repeat 95% 50%;
   line-height: 43px;
 }
-/*footer_right 시작*/
+/* footer_right E */
+/* footer E */

@@ -9,7 +9,7 @@ const {
   showUpdateForm,
   updateRoom,
   deleteRoom,
-} = require("../controllers/roomController");
+} = require("../Controller/roomController");
 
 // room/
 router.route("/").get(showAllRooms);

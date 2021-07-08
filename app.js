@@ -59,7 +59,7 @@ app.use((req, res, next) => {
 
 
 // 오류 처리 미들웨어
-app.use((err, req, res, next) => {
+app.use((err, req, res, next) => { 
   res.locals.error = err;
 	res.status(err.status || 500).render('error');
 });

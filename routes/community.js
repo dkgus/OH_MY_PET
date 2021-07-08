@@ -10,10 +10,11 @@ const {
   showUpdateForm,
   updatePost,
   deletePost,
-} = require("../controllers/communityController");
+} = require("../controller/communityController");
 
 // community/
-router.route("/").get(showAllPosts);
+router.route("/")
+      .get(showAllPosts)
 
 // community/new
 router
