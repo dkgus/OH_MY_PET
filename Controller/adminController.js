@@ -99,11 +99,11 @@ module.exports = {
 
 
   // @description    Delete a room
-  // @route          DELETE /room/:id/edit
+  // @route          DELETE admin/room/:id/edit
   deleteRoom: async (req, res) => {
     try {
       await Room.deleteOne({ _id: req.params.id }, () => {
-        res.redirect("/room");
+        res.redirect("/admin/room");
       });
     } catch (err) {
       console.error(err);
