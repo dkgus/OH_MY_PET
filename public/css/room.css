@@ -1,9 +1,12 @@
 /* index S */
-.main_title {
-	font-size: 30px;
-	text-align: center;
-	font-family: Cafe24Ssurround;
-	margin-bottom: 20px;
+.border_title {
+		font-size: 25px;
+		padding: 15px;
+		border-top: 3px solid #ffaf2d;
+		font-family: Cafe24Ssurround;
+		font-weight: 500;
+		background-color: #ffffff;
+		margin: 30px 0;
 }
 .room_list .room_list_top {
 margin: 20px 0 50px;
