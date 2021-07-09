@@ -10,8 +10,14 @@ module.exports = {
   // @description    Show a admin Login form
   // @route          GET /admin
   showLoginForm: (req, res) => {
-    res.render("admin/login", { title: "관리자 로그인" });
+
+    const data = {
+      addCss : ['admin'],
+    };
+
+   return res.render("admin/login", data);
   },
+
 
   // @description    admin Login
   // @route          POST /admin

@@ -1,23 +1,24 @@
 const Event = require("../models/Event");
+const User = require("../models/User");
 
 module.exports = {
-  // @description    Show all events 개인페이지등에서 보는 모든 이벤트
+  // @description    Show all events
   // @route          GET /event
   showAllEvents: async (req, res) => {
-    await Event.find({})
-      .sort({ createdAt: -1 })
-      .exec((err, events) => {
-        res.render("event/index", { events: events });
-      });
+    const events = await Event.find({ user: req.user._id }).populate("user");
+    const user = await User.findOne({ _id: req.user._id }, {});
+    res.render("event/index", { events, user });
   },
 
-  // @description    Show a event//예약내역 개별조회용
+  // @description    Show a event
   // @route          GET /event/:id
   showEvent: async (req, res) => {
     try {
       const event = await Event.findOne({ _id: req.params.id }, {});
-      res.render("event/show", { event: event, events });
+      const user = await User.findOne({ _id: req.user._id }, {});
 
+      res.render("event/show", { event, user });
+      console.log(user);
     } catch (err) {
       console.error(err);
     }

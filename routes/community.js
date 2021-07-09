@@ -13,8 +13,7 @@ const {
 } = require("../controller/communityController");
 
 // community/
-router.route("/")
-      .get(showAllPosts)
+router.route("/").get(showAllPosts);
 
 // community/new
 router

@@ -8,6 +8,7 @@ const nunjucks = require("nunjucks");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 
+
 // routes
 const userRoutes = require("./routes/user");
 const noticeRoutes = require("./routes/notice");
@@ -15,13 +16,25 @@ const communityRoutes = require("./routes/community");
 const evntRoutes = require("./routes/event");
 const roomRoutes = require("./routes/room");
 
-app.use(express.static(path.join(__dirname, "public")));
+
+/** 관리자 routes */
+const adminRouter = require('./routes/admin'); // 관리자 메인
+const adminMemberRouter = require('./routes/admin/member');
+const adminRoomRouter = require('./routes/admin/room');
+const adminEventRouter = require('./routes/admin/event');
+const adminCommunityRouter = require('./routes/admin/community');
+
+
+
 
 app.set("view engine", "html");
 nunjucks.configure("views", {
   express: app,
   watch: true,
 });
+
+
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cookieParser());
 dotenv.config();
@@ -35,17 +48,31 @@ mongoose
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
 
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(morgan("dev"));
 
+
+/** 라우터 등록 */
 app.use("/event", evntRoutes);
 app.use("/users", userRoutes);
 app.use("/notices", noticeRoutes);
 app.use("/community", communityRoutes);
 app.use("/room", roomRoutes);
-app.use("/", (req, res) => res.render("main/index.html"));
+//app.use("/", (req, res) => res.render("main/index.html"));
+
+
+
+/** 관리자 */
+app.use("/admin", adminRouter); // 관리자 메인
+app.use('/admin/member', adminMemberRouter);
+app.use('/admin/room', adminRoomRouter);
+app.use('/admin/event', adminEventRouter);
+app.use('/admin/community', adminCommunityRouter);
+
 
 
 
@@ -59,7 +86,7 @@ app.use((req, res, next) => {
 
 
 // 오류 처리 미들웨어
-app.use((err, req, res, next) => { 
+app.use((err, req, res, next) => {
   res.locals.error = err;
 	res.status(err.status || 500).render('error');
 });

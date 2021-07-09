@@ -16,7 +16,7 @@ const {
 
 
 // event/
-router.route("/").get(showAllEvents,);
+router.route("/").get(isAuthenticatedUser, showAllEvents);
 
 // event/new
 router.route("/new").get(showCreateForm).post(isAuthenticatedUser, createEvent);
@@ -31,7 +31,7 @@ router
 .delete(deleteEvent);
 
 // event/:id
-router.route("/:id").get(showEvent);
+router.route("/:id").get(isAuthenticatedUser,showEvent);
 
 module.exports = router;
   

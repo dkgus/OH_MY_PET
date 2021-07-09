@@ -1,30 +1,50 @@
-const express = require("express");
+const express  = require('express');
 const router = express.Router();
+const { isAuthenticatedUser } = require("../utils/auth");
 
 const {
-  showAllRooms,
-  showRoom,
-  showCreateForm,
-  createRoom,
+  showAllUsers,
+  showUser,
+  showRegisterForm,
+  registerUser,
   showUpdateForm,
-  updateRoom,
-  deleteRoom,
-} = require("../Controller/roomController");
+  updateUser,
+  deleteUser,
+  loginUser,
+  logoutUser,
+  showLoginForm,
+  showMyPage,
+} = require("../controller/userController");
 
-// room/
-router.route("/").get(showAllRooms);
+// users/
+router.route("/").get(showAllUsers);
 
-// room/new
-router.route("/new").get(showCreateForm).post(createRoom);
+// users/new
+router.route("/new").get(showRegisterForm).post(registerUser);
 
-// room/:id/edit
+// users/login
+router.route("/login").get(showLoginForm).post(loginUser);
+
+// users/logout
+router.route("/logout").post(logoutUser);
+
+// users/mypage
+router.route("/mypage").get(isAuthenticatedUser, showMyPage);
+
+// users/:id/edit
 router
   .route("/:id/edit")
   .get(showUpdateForm)
-  .put(updateRoom)
-  .delete(deleteRoom);
+  .put(updateUser)
+  .delete(deleteUser);
 
-// room/:id
-router.route("/:id").get(showRoom);
+// users/:id
+router.route("/:id").get(showUser);
 
 module.exports = router;
+
+
+
+
+
+

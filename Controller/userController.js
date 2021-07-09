@@ -9,6 +9,9 @@ module.exports = {
   // @route          GET /users
   showAllUsers: async (req, res) => {
     const users = await User.find({}).sort({ username: 1 });
+		const data = {
+		 addCss : ['users'],
+	 };
     res.render("users/index", { users: users });
   },
 
@@ -17,6 +20,9 @@ module.exports = {
   showUser: async (req, res) => {
     try {
       const user = await User.findOne({ _id: req.params.id }, {});
+			const data = {
+			 addCss : ['users'],
+		 };
       res.render("users/show", { user });
       console.log(user);
     } catch (err) {
@@ -27,6 +33,9 @@ module.exports = {
   // @description    Show a register form
   // @route          GET /users/new
   showRegisterForm: (req, res) => {
+		const data = {
+		 addCss : ['users'],
+	 };
     res.render("users/new");
   },
 
@@ -34,6 +43,9 @@ module.exports = {
   // @route          POST /users/new
   registerUser: async (req, res) => {
     const { name, nickname, email, password, memPwRe, phone, type } = req.body;
+		const data = {
+		 addCss : ['users'],
+	 };
     try {
       // validation
       // 1. 필수 정보를 모두 입력했는지?

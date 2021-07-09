@@ -6,7 +6,7 @@
 		{% for item in events %}
 		<div class='Event_banner_wrap'>
 						<dl>
-						<a href="event/{{item._id}}"<dd>{{ item.eventNm }} 김롸롸 01011110000</dd></a>
+						<a href="event/{{item._id}}"<dd>{{ item.eventNm }} {{user.nickname}} {{user.phone}}</dd></a>
 						</dl>
 			</div><!--//Event_text_wrap-->
 		{% endfor %}
