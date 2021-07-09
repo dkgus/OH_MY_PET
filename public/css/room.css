@@ -1,4 +1,10 @@
 /* index S */
+.main_title {
+	font-size: 30px;
+	text-align: center;
+	font-family: Cafe24Ssurround;
+	margin-bottom: 20px;
+}
 .room_list .room_list_top {
 margin: 20px 0 50px;
 border-top: 3px solid #ffaf2d;

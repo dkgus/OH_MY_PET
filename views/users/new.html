@@ -1,7 +1,8 @@
 {% extends '../layout.html' %}
-
-<!-- 회원 가입-->
 {% block content %}
+{%set title="회원가입"%}
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/users.css">
    <div class='user_box layout_width'>
       <div class='user_title'>회원가입</div>
          <form method='post' action='/users/new' autocomplete='off' class='join_form'>
