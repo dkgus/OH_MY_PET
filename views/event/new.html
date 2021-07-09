@@ -1,28 +1,31 @@
 {% extends '../layout.html' %}
+<!-- 이벤트 예약하기 폼 -->
 {% block content %}
 	<div class='event_res_box layout_width'>
+		<div class='res_title border_title'>예약하기</div>
 		<div class='res_form'>
-			<div class='res_left'>
-				<img src="image/dog1.jpg">
-			</div>
 			<div class='res_right'>
 				<div class='right_title'>
-					{{ eventNm }}
+				예약폼을 작성해주세요.
 				</div>
-				<form method='POST' action='/event/new' target='ifrmHidden'>
-					<div class='select_box'>
-						<select name='eventNm'>
-							<option name="event1" value='event1'>이벤트1</option>
-							<option name="event2" value='event2'>이벤트2</option>
-						</select>
+				<form method='post' action='/event/new' autocomplete='off'>
+					<div class='input_box'>
+						<table class='mb10'>
+							<tr>
+						<td class='pad'>반려동물 이름</td>
+						<td><input type='text' name='nickname' class='mt10'></td>
+							</tr>
+							<tr>
+								<td class='pad'>전화번호</td>
+								<td><input type='text' name='phone' class='mt10'></td>
+							</tr>
+							<tr>
+						<td class='pad'>이벤트 명</td>
+						<td><input type='text' name='eventNm' class='mt10'></td>
+						</tr>
+						</table>
+						<input type='submit' value='예약하기' class='res_btn btn1 mt10'>
 					</div>
-
-                    아이디<input type="text" name="nickname" value="nickname">
-                    연락처<input type="text" name="phone" value="phone">
-
-
-					<input type='submit' value='예약하기' class='res_btn'>
-
 				</form>
 			</div>
 		</div>

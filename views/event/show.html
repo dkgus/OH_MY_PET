@@ -1,31 +1,29 @@
-  
 {% extends '../layout.html' %}
 <!-- 이벤트 예약 상세보기 -->
 {% block content %}
-<link rel="stylesheet" href="/css/event.css" />
 		<div class='event_detail layout_width'>
 			<div class='event_detail_top'>
 			<a href=""><i class='xi-angle-left'></i></a><span class='etc'> 예약 상세 현황</span>
 			</div>
-			{% for item in event %}
+
 			<div class='event_detail_mid'>
 				<div class='event_detail_box box1'>
 					</div>
 					<table>
 					<tr>
 						<td class='pad'>이벤트명</td>
-						<td>{{ item.eventNm }}</td>
+						<td>{{ event.eventNm }}</td>
 					</tr>
 					<tr>
 						<td class='pad'>예약자 성함</td>
-						<td>김롸롸</td>
+						<td>{{ user.nickname }}</td>
 					</tr>
 					<tr>
 						<td class='pad'>예약자 연락처</td>
-						<td>01011110000</td>
+						<td>{{ user.phone }}</td>
 					</tr>
 					</table>
 				</div>
-			{% endfor %}
+
 		</div>
 {% endblock %}
