@@ -256,5 +256,8 @@
 .styled-table tbody tr {
    border-bottom: 1px solid #dddddd;
 }
+.styled-table tr:nth-child(n+4) {
+  display: none;
+}
   /* mypage E */
   /** users 페이지 by 현빈 E **/
