@@ -4,12 +4,17 @@ module.exports = {
   // @description    Show all posts
   // @route          GET /community
   showAllPosts: async (req, res) => {
+    const data = {
+      addCss : ['board'],
+      addScript : ['board'],
+    };
     await Community.find({})
       .sort({ createdAt: -1 })
       .exec((err, posts) => {
-        res.render("community/index", { posts: posts });
+        res.render("community/index", { data, posts });
       });
-  },
+
+    },
 
   // @description    Show a post
   // @route          GET /community/:id

@@ -12,7 +12,7 @@ module.exports = {
 
   // @description    Show a event
   // @route          GET /event/:id
-  showEvent: async (req, res) => {
+  showEvent: async (req, res) => {  
     try {
       const event = await Event.findOne({ _id: req.params.id }, {});
       const user = await User.findOne({ _id: req.user._id }, {});
