@@ -1,103 +1,118 @@
-{% extends '../../veiws/layout.html' %} {% block content %}
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/room.css" />
+  </head>
+  <body>
+    <title>오마이펫</title>
+    <!-- 호텔명 -->
+    <div class="layout_width">
+      <div class="room_desBox">
+        <div class="room_desBoxLeft">
+          <div class="room_tit">[인천] 개편한세상</div>
 
-<!-- 호텔명 -->
-<div class="layout_width">
-    <div>[인천] 개편한세상</div>
+          <img src="/image/room.png" class="img" />
+        </div>
 
-    <div>
-        <img src="/image/room.png" class="img" />
-    </div>
-    <!-- 예약 폼 -->
-    <form action="room/new" method="POST">
-        <input type="hidden" name="roomNm" value="개편한세상">
         <!-- 호텔 설명 -->
-        <div class="room_des_box">
-            <table>
+        <div class="room_desBoxRight">
+          <table>
             <tr>
-                <td>호텔명</td>
-                <td>개편한세상</td>
+              <td>호텔명</td>
+              <td>개편한세상</td>
             </tr>
             <tr>
-                <td>위치</td>
-                <td>인천광역시 남동구</td>
+              <td>위치</td>
+              <td>인천광역시 남동구</td>
             </tr>
             <tr>
-                <td>1박 가격</td>
-                <td>6,000,000원</td>
+              <td>1박 가격</td>
+              <td>6,000,000원</td>
             </tr>
-            </table>
-        <input type="submit" value="호텔 예약하기" />
-    </form>
+          </table>
+          <a href="/room/new">호텔 예약하기</a>
+        </div>
 
-
-  <div class="room_info">
-    <div>
-      <i class="xi-maker-drop"></i>
-      <div>인천광역시 남동구 석촌로 27</div>
-      <a href="">지도보기</a>
-    </div>
-    <div>
-      <i class="xi-time-o"></i>
-      <div>체크인 15:00 | 체크아웃 11:00</div>
-    </div>
-    <div>
-      <i class="xi-call"></i>
-      <div>032)000-0000</div>
-    </div>
-    <div>
-      <i class="xi-check-circle-o"></i>
-      <div>
-        개편한세상은 강아지 위탁 관리 전문입니다.<br />
-        국제 전문 자격증 + 국내 전문 자격증을 고루 갖추고 있으며, <br>
-        반려견 교육 전문가가 직접 서비스를 제공하는 프리미엄 애견 유치원도 운영중입니다.
+        <div class="room_info">
+          <div>
+            <i class="xi-maker-drop"></i>
+            <div>인천광역시 남동구 석촌로 27</div>
+            <a href="">지도보기</a>
+          </div>
+          <div>
+            <i class="xi-time-o"></i>
+            <div>체크인 15:00 | 체크아웃 11:00</div>
+          </div>
+          <div>
+            <i class="xi-call"></i>
+            <div>032)000-0000</div>
+          </div>
+          <div>
+            <i class="xi-check-circle-o"></i>
+            <div>
+              개편한세상은 강아지 위탁 관리 전문입니다.<br />
+              국제 전문 자격증 + 국내 전문 자격증을 고루 갖추고 있으며, <br />
+              반려견 교육 전문가가 직접 서비스를 제공하는 프리미엄 애견 유치원도
+              운영중입니다.
+            </div>
+          </div>
+        </div>
+        <div class="room_info2">
+          <div class="room_infoBox">
+            <div class="room_infoTit">편의시설</div>
+            <div class="room_infoDes">
+              애견유치원, 애견호텔, 강아지 놀이방, 펫택시, 애견 미용 모두 갖추고
+              있으며, 비용 및 예약은 전화로 문의해주시기 바랍니다.
+            </div>
+          </div>
+          <div class="room_infoBox">
+            <div class="room_infoTit">일일 스케줄</div>
+            <div class="room_infoDes">
+              <table>
+                <tr>
+                  <td>08:00 ~ 08:30</td>
+                  <td>청소 및 소독</td>
+                </tr>
+                <tr>
+                  <td>08:30 ~ 10:30</td>
+                  <td>등원</td>
+                </tr>
+                <tr>
+                  <td>09:30 ~ 12:30</td>
+                  <td>식사 및 노즈워킹, 놀이</td>
+                </tr>
+                <tr>
+                  <td>14:00 ~ 16:00</td>
+                  <td>낮잠 및 리프레시 (펫 마사지)</td>
+                </tr>
+                <tr>
+                  <td>16:00 ~ 18:00</td>
+                  <td>개별 맞춤 교육</td>
+                </tr>
+                <tr>
+                  <td>18:00 ~ 20:00</td>
+                  <td>저녁식사 및 그루밍, 하원</td>
+                </tr>
+              </table>
+              교육 스케줄은 개별 맞춤 설계되고 있습니다.
+            </div>
+          </div>
+          <div class="room_infoBox">
+            <div class="room_infoTit">맞춤 교육</div>
+            <div class="room_infoDes">
+              체계적인 학습 커리큘럽으로 각기 다른 성격을 가진 강아지들을 각자의
+              성향에 맞게 전문적인 학습을 설계합니다. 강압적인 교육은 절대 하지
+              않습니다. 긍정을 강화한 교육을 진행함으로 강아지들에게 스스로
+              즐겁게 교육을 하게 되는 동기를 부여합니다.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="room_info2">
-    <div class="room_infobox">
-      <div class="room_infotit">편의시설</div>
-      <div class="room_infodes">
-        애견유치원, 애견호텔, 강아지 놀이방, 펫택시, 애견 미용 모두 갖추고 있으며, 비용 및 예약은 전화로 문의해주시기 바랍니다.
-      </div>
-    </div>
-    <div class="room_infobox">
-      <div class="room_infotit">일일 스케줄</div>
-      <div class="room_infodes">
-        <table>
-          <tr>
-            <td>08:00 ~ 08:30</td>
-            <td>청소 및 소독</td>
-          </tr>
-          <tr>
-            <td>08:30 ~ 10:30</td>
-            <td>등원</td>
-          </tr>
-          <tr>
-            <td>09:30 ~ 12:30</td>
-            <td>식사 및 노즈워킹, 놀이</td>
-          </tr>
-          <tr>
-            <td>14:00 ~ 16:00</td>
-            <td>낮잠 및 리프레시 (펫 마사지)</td>
-          </tr>
-          <tr>
-            <td>16:00 ~ 18:00</td>
-            <td>개별 맞춤 교육</td>
-          </tr>
-          <tr>
-            <td>18:00 ~ 20:00</td>
-            <td>저녁식사 및 그루밍, 하원</td>
-          </tr>
-        </table>
-        교육 스케줄은 개별 맞춤 설계되고 있습니다.
-      </div>
-    </div>
-    <div class="room_infobox">
-      <div class="room_infotit">맞춤 교육</div>
-      <div class="room_infodes">
-        체계적인 학습 커리큘럽으로 각기 다른 성격을 가진 강아지들을 각자의 성향에 맞게 전문적인 학습을 설계합니다. 강압적인 교육은 절대 하지 않습니다. 긍정을 강화한 교육을 진행함으로 강아지들에게 스스로 즐겁게 교육을 하게 되는 동기를 부여합니다.
-      </div>
-    </div>
-  </div>
-</div>
-{% endblock %}
+  </body>
+</html>

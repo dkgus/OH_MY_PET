@@ -2,7 +2,9 @@
 <link rel="stylesheet" href="/css/main.css" />
 <main>
   <!--main benner start-->
-  <div class="main_banner">메인배너영역</div>
+  <div class="main_banner layout_width">
+    <img src="image/banner.jpg" alt="" />
+  </div>
   <!--main benner end-->
 
   <!--event start-->
@@ -13,18 +15,25 @@
         반려동물에게 더 좋은 반려인이 되기 위한 알찬 강연,<br />
         그리고 반려동물을 위한 신나는 페스티벌까지!
       </p>
+      <a href="/notices" class="event_more"> 이벤트 더보기 </a>
       <ul class="s_event_box">
         <li class="s_event_list">
           <img src="image/cats.jpg" />
+          <p class="list_sort">이벤트</p>
+          <p class="list_name">이벤트이름</p>
         </li>
         <li class="s_event_list">
           <img src="image/cats.jpg" />
+          <p class="list_sort">이벤트</p>
+          <p class="list_name">이벤트이름</p>
         </li>
         <li class="s_event_list">
           <img src="image/cats.jpg" />
+          <p class="list_sort">이벤트</p>
+          <p class="list_name">이벤트이름</p>
         </li>
       </ul>
-      <a href="/notices" class="event_more"> 이벤트 더보기 </a>
+
       <!--//event box-->
     </div>
   </section>
@@ -39,24 +48,24 @@
     </p>
     <ul class="hotel_box">
       <li class="hotel_list">
-        <a href="/room1">
+        <a href="/hotel/room1.html">
           <img src="/image/room.png" />
-          <p class="hotel_sort">인천</p>
-          <p class="hotelnm">개편한세상</p>
+          <p class="list_sort">인천</p>
+          <p class="list_name">개편한세상</p>
         </a>
       </li>
       <li class="hotel_list">
-        <a href="/room2">
+        <a href="/hotel/room2.html">
           <img src="/image/room2.png" />
-          <p class="hotel_sort">서울</p>
-          <p class="hotelnm">엘리스애견호텔</p>
+          <p class="list_sort">서울</p>
+          <p class="list_name">엘리스애견호텔</p>
         </a>
       </li>
       <li class="hotel_list">
-        <a href="/room3">
+        <a href="/hotel/room3.html">
           <img src="/image/room3.png" />
-          <p class="hotel_sort">경기</p>
-          <p class="hotelnm">망고쿠로</p>
+          <p class="list_sort">경기</p>
+          <p class="list_name">망고쿠로</p>
         </a>
       </li>
     </ul>
@@ -68,7 +77,7 @@
     <div class="board">
       <!--공지사항 게시판-->
       <div class="notice_box">
-        <div class="notice_title">공지사항</div>
+        <div class="box_title">공지사항</div>
         <div class="notice_list">
           <ul>
             {% for item in notices %} {% if loop.revindex0 <= 5 %}
@@ -80,7 +89,7 @@
 
       <!--커뮤니티 게시판-->
       <div class="cummunity_box">
-        <div class="board_title">커뮤니티</div>
+        <div class="box_title">커뮤니티</div>
         <div class="cummunity_list">
           <ul>
             {% for item in posts %} {% if loop.revindex0 <= 5 %}
