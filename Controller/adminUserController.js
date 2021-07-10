@@ -1,13 +1,33 @@
 const User = require("../models/User");
-const sendToken = require("../utils/jwtToken");
 
 
 
 
 module.exports = {
+  // @description    Show all users 전체 유저 조회
+  // @route          GET /admin/member
+  showAllUsers: async (req, res) => {
+    const users = await User.find({}).sort({ username: 1 });
+    res.render("admin/member/index", { users: users });
+  },
+
+  // @description    Show a user 
+  // @route          GET /admin/member/:id 
+  // 회원 개별 조회페이지
+
+  showUser: async (req, res) => {
+    try {
+      const user = await User.findOne({ _id: req.params.id }, {});
+      res.render("admin/member/show", { user });
+      console.log(user);
+    } catch (err) {
+      console.error(err);
+    }
+  },
+
 
     // @description    Show a update form
-    // @route          GET admin/member/:id/edit
+    // @route          GET /admin/member/:id/edit
     showUpdateForm: async (req, res) => {
         try {
           const user = await User.findOne({ _id: req.params.id }, {});

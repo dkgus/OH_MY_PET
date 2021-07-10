@@ -1,14 +1,19 @@
-{% extends '../layout.html' %}
+{% extends '../../layout.html' %}
 {% block content %}
-<div class='mypage'>
-	<div class='mypage_back'>
+<div class=''>
+	<div class=''>
+		<!-- 프론트 중 여기페이지담당자는 회원 수정 삭제 추가하면됨니다~-->
 		<div class='layout_width'>
-		<a href='/users/show'>my page</a>
+		<p>회원정보조회 페이지</p> 
+		<br>
+			<a href="/admin/member/{{user._id}}/edit">회원 수정</a>
+			<!-- {{user._id}} -->
+		</form>
 		</div>
 	</div>
 	<div class='my_info layout_width'>
 		<div class='infobox box1'>
-		<div class='info_title title1'>내 정보</div>
+		<div class='info_title title1'>회원정보 정보</div>
 		<dl>
 			<dd>이름</dd>
 			<dt>{{ item.name }}</dt>
@@ -17,7 +22,7 @@
 			<dd>반려동물 이름</dd>
 			<dt>{{ item.nickname }}</dt>
 		</dl>
-		<dl>
+		<dl>  
 			<dd>아이디</dd>
 			<dt>{{ email }}</dt>
 		</dl>

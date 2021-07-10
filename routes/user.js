@@ -3,8 +3,8 @@ const router = express.Router();
 const { isAuthenticatedUser } = require("../utils/auth");
 
 const {
-  showAllUsers,
-  showUser,
+  //showAllUsers,
+  //showUser,
   showRegisterForm,
   registerUser,
   showUpdateForm,
@@ -18,7 +18,7 @@ const {
 } = require("../controller/userController");
 
 // users/
-router.route("/").get(showAllUsers);
+//router.route("/").get(showAllUsers);
 
 // users/new
 router.route("/new").get(showRegisterForm).post(registerUser);
