@@ -13,7 +13,7 @@ const {
 router.use(isAuthenticatedUser);
 
 // admin
-router.route("/login").get(isAuthenticatedUser, showLoginForm).post(loginUser);
+router.route("/").get(isAuthenticatedUser, showLoginForm).post(loginUser);
 
 // admin/logout
 router.route("/logout").get(isAuthenticatedUser, logoutUser);

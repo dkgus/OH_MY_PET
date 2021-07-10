@@ -11,7 +11,7 @@
       <div class="box_title">행사목록</div>
       <p class="subtitle">
         반려동물에게 더 좋은 반려인이 되기 위한 알찬 강연,<br />
-        그리고 반려동물을 위한 신나는 페스티벌까지~!
+        그리고 반려동물을 위한 신나는 페스티벌까지!
       </p>
       <ul class="s_event_box">
         <li class="s_event_list">
@@ -71,8 +71,8 @@
         <div class="notice_title">공지사항</div>
         <div class="notice_list">
           <ul>
-            {% for notice in Notice %} {% if loop.revindex0 <= 5 %}
-            <li>{ notice.title } { notice.createdAt }</li>
+            {% for item in notices %} {% if loop.revindex0 <= 5 %}
+            <li>{ item.title } { item.createdAt }</li>
             {% endif %} {% endfor %}
           </ul>
         </div>
@@ -83,8 +83,8 @@
         <div class="board_title">커뮤니티</div>
         <div class="cummunity_list">
           <ul>
-            {% for community in Community %} {% if loop.revindex0 <= 5 %}
-            <li>{ community.title } { community.createdAt }</li>
+            {% for item in posts %} {% if loop.revindex0 <= 5 %}
+            <li>{ item.title } { item.createdAt }</li>
             {% endif %} {% endfor %}
           </ul>
         </div>

@@ -5,7 +5,7 @@ const event = require("../models/Event");
 const community = require("../models/Community");
 
 module.exports = {
-  // @description    Show all users
+  // @description    Show all users 전체 유저 조회
   // @route          GET /users
   showAllUsers: async (req, res) => {
     const users = await User.find({}).sort({ username: 1 });
@@ -14,6 +14,8 @@ module.exports = {
 
   // @description    Show a user
   // @route          GET /users/:id
+  // 수정페이지 아님. 회원 개별 조회페이지
+
   showUser: async (req, res) => {
     try {
       const user = await User.findOne({ _id: req.params.id }, {});
@@ -104,6 +106,8 @@ module.exports = {
 
   // @description    Update a user
   // @route          PUT /users/:id/edit
+  // 회원수정
+
   updateUser: async (req, res) => {
     try {
       await User.findOneAndUpdate({ _id: req.params.id }, req.body);

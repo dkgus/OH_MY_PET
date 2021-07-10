@@ -56,8 +56,8 @@ app.use("/room", roomRoutes);
 //app.use("/", (req, res) => res.render("main/index.html"));
 
 /** 관리자 */
-app.use("/admin", adminRouter); // 관리자 메인
-app.use("/admin/member", adminMemberRouter);
+app.use("/admin", adminRouter); // 관리자 로그인페이지
+app.use("/admin/member", adminMemberRouter); //회원관리
 app.use("/admin/room", adminRoomRouter);
 app.use("/admin/event", adminEventRouter);
 app.use("/admin/community", adminCommunityRouter);
