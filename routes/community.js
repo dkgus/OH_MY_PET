@@ -32,6 +32,6 @@ router
   .delete(deletePost);
 
 // community/:id
-router.route("/:id").get(showPost);
+router.route("/:id").get(isAuthenticatedUser, showPost);
 
 module.exports = router;
