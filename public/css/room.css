@@ -75,6 +75,10 @@
   text-align: center;
 }
 
+.room_res_form {
+  margin-left: 18px;
+}
+
 .room_res_form td {
   width: 144px;
   font-size: 1.2rem;

@@ -3,7 +3,7 @@
   <!--user menu start-->
   <div class="user_menu">
     <nav>
-      {% if loginUser %}
+      {% if isLogin %}
       <a href="/users/show">마이페이지</a>
       <a href="/users/logout">로그아웃</a>
       {% else %}
@@ -25,7 +25,6 @@
               <i class="xi-emoticon-smiley-o"></i>
               Logo
             </a>
-            <!--수정하다가 이동 좀 편하게 하려고 a태그 추가 나중에 희영 언니 확인하면 지워도 돼!!-->
           </span>
         </li>
         <li><a href="/community">커뮤니티</a></li>
