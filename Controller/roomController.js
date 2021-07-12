@@ -11,6 +11,10 @@ module.exports = {
       });
   },
 
+  showRoomList: async (req, res) => {
+    await res.render("room/list");
+  },
+
   // @description    Show a room
   // @route          GET /room/:id
   showRoom: async (req, res) => {
