@@ -7,7 +7,6 @@ module.exports = {
   showAllEvents: async (req, res) => {
     const events = await Event.find({ user: req.user._id }).populate("user");
     const user = await User.findOne({ _id: req.user._id }, {});
-
     res.render("event/index", { events, user });
   },
 
@@ -17,10 +16,7 @@ module.exports = {
     try {
       const event = await Event.findOne({ _id: req.params.id }, {});
       const user = await User.findOne({ _id: req.user._id }, {});
-			const data = {
-				addCss : ['event'],
-			};
-      res.render("event/show", { data, event, user });
+      res.render("event/show", { event, user });
       console.log(user);
     } catch (err) {
       console.error(err);
@@ -43,10 +39,10 @@ module.exports = {
     try {
       // validation
       // 필수 정보를 모두 입력했는지?
-      if (!nickname || !phone || !eventNm) {
-      const msg = "반려동물의 이름, 연락처, 이벤트명을 입력해주세요.";
-      return res.send(`<script>alert("${msg}");history.back();</script>`);
-      }
+      // if (!nickname || !phone || !eventNm) {
+      //   const msg = "반려동물의 이름, 연락처, 이벤트명을 입력해주세요.";
+      //   return res.send(`<script>alert("${msg}");history.back();</script>`);
+      // }
 
       await Event.create({ eventNm, user: req.user._id });
 
@@ -62,10 +58,7 @@ module.exports = {
   showUpdateForm: async (req, res) => {
     try {
       const event = await Event.findOne({ _id: req.params.id }, {});
-			const data = {
-				addCss : ['event'],
-			};
-      res.render("event/edit", { data, event });
+      res.render("event/edit", { event: event });
     } catch (err) {
       console.error(err);
     }

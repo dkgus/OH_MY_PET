@@ -81,11 +81,7 @@ module.exports = {
   showUpdateForm: async (req, res) => {
     try {
       const user = await User.findOne({ _id: req.params.id }, {});
-			const data = {
-				addCss : ['users'],
-			};
-
-      res.render("users/edit", { data, user });
+      res.render("users/edit", { user: user });
     } catch (err) {
       console.error(err);
     }
@@ -98,10 +94,7 @@ module.exports = {
   updateUser: async (req, res) => {
     try {
       await User.findOneAndUpdate({ _id: req.params.id }, req.body);
-			const data = {
-				addCss : ['users'],
-			};
-      res.redirect("/users/mypage", data);
+      res.redirect("/users/mypage");
     } catch (err) {
       console.error(err);
     }
@@ -124,10 +117,7 @@ module.exports = {
   // @description    Show a Login form
   // @route          GET /users/login
   showLoginForm: (req, res) => {
-		const data = {
-			addCss : ['users'],
-		};
-    res.render("users/login", { data, title: "로그인" });
+    res.render("users/login", { title: "로그인" });
   },
 
   // @description    Login
@@ -182,9 +172,6 @@ module.exports = {
     const user = await User.findOne({ _id: req.user._id }, {});
     const events = await event.find({ user: req.user._id }).populate("user");
     const posts = await community.find({ user: req.user._id }).populate("user");
-		const data = {
-			addCss : ['users'],
-		};
-    res.render("users/mypage", { data, user, events, posts });
+    res.render("users/mypage", { user, events, posts });
   },
 };
