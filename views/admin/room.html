@@ -11,7 +11,7 @@
   <thead>
     <tr>
       <td>hotel name</td>
-      <td>user name</td>
+      <td>user email</td>
       <td>room type</td>
       <td>check-in/out</td>
       <td>memo</td>
@@ -22,7 +22,7 @@
     {% for item in rooms %}
     <tr>
       <td>{{ item.roomNm }}</td>
-      <td>{{ item.user }}</td>
+      <td>{{ item.email }}</td>
       <td>{{ item.roomType }}</td>
       <td>{{ item.revStart }} ~ {{ item.revEnd }}</td>
       <td>{{ item.memo }}</td>

@@ -11,7 +11,7 @@
   <thead>
     <tr>
       <td>event name</td>
-      <td>user name</td>
+      <td>user email</td>
       <td>delete</td>
     </tr>
   </thead>
@@ -19,7 +19,7 @@
     {% for item in events %}
     <tr>
       <td>{{ item.eventNm }}</td>
-      <td>{{ item.user }}</td>
+      <td>{{ item.user.email }}</td>
       <td>
         <input type="submit" value="Delete" onclick="deleteEvent();" />
       </td>
