@@ -19,21 +19,18 @@
     </tr>
   </thead>
   <tbody>
-    <!--{% for in %}-->
+    {% for item in rooms %}
     <tr>
-      <td>{{ room.roomNm }}</td>
-      <td>{{ room.user }}</td>
-      <td>{{ room.roomType }}</td>
-      <td>{{ room.revStart }} ~ {{ room.revEnd }}</td>
-      <td>{{ room.memo }}</td>
+      <td>{{ item.roomNm }}</td>
+      <td>{{ item.user }}</td>
+      <td>{{ item.roomType }}</td>
+      <td>{{ item.revStart }} ~ {{ item.revEnd }}</td>
+      <td>{{ item.memo }}</td>
       <td>
-        <input
-          type="submit"
-          value="Delete"
-          onclick="return confirm('해당 예약 내용을 삭제하시겠습니까?');"
-        />
+        <input type="submit" value="Delete" onclick="deleteRoom();" />
       </td>
     </tr>
+    {% endfor %}
     <!--{% endfor %}-->
   </tbody>
 </table>

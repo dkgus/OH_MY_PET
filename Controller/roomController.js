@@ -7,7 +7,6 @@ module.exports = {
   // @route          GET /room
   showAllRooms: async (req, res) => {
     await Room.find({})//이쯤에서.populate(참조가 필요한 document이름)-> exec
-    //그리고나서 한줄 더추가했는데 뭐였지..조인할때 뭘 추가해야한다고했음
       .sort({ createdAt: -1 })
       .exec((err, rooms) => {
         res.render("room/index", { rooms: rooms });
@@ -49,7 +48,7 @@ module.exports = {
     } catch (err) {
       console.log(err);
       res.status(500).send("server error");
-    }ㅌ
+    }
   },
 
   // @description    Show a update form

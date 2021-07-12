@@ -7,6 +7,7 @@ module.exports = {
   showAllEvents: async (req, res) => {
     const events = await Event.find({ user: req.user._id }).populate("user");
     const user = await User.findOne({ _id: req.user._id }, {});
+
     res.render("event/index", { events, user });
   },
 
@@ -16,8 +17,10 @@ module.exports = {
     try {
       const event = await Event.findOne({ _id: req.params.id }, {});
       const user = await User.findOne({ _id: req.user._id }, {});
-
-      res.render("event/show", { event, user });
+			const data = {
+				addCss : ['event'],
+			};
+      res.render("event/show", { data, event, user });
       console.log(user);
     } catch (err) {
       console.error(err);
@@ -27,7 +30,10 @@ module.exports = {
   // @description    Show a register form
   // @route          GET /event/new
   showCreateForm: async (req, res) => {
-    await res.render("event/new");
+		const data = {
+			addCss : ['event'],
+		};
+    await res.render("event/new", data);
   },
 
   // @description    Create a new event reservation
@@ -56,7 +62,10 @@ module.exports = {
   showUpdateForm: async (req, res) => {
     try {
       const event = await Event.findOne({ _id: req.params.id }, {});
-      res.render("event/edit", { event: event });
+			const data = {
+				addCss : ['event'],
+			};
+      res.render("event/edit", { data, event });
     } catch (err) {
       console.error(err);
     }

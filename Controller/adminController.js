@@ -59,7 +59,7 @@ module.exports = {
       expires: new Date(Date.now()),
       httpOnly: true,
     });
-  
+
     res.redirect("/");
   },
 
@@ -67,7 +67,7 @@ module.exports = {
 
 
 
-  //only for delete Controller 
+  //only for delete Controller
 
 
 
@@ -84,7 +84,7 @@ module.exports = {
   },
 
 
-  
+
   // @description    Delete a event
   // @route          DELETE admin/event/:id/edit
   deleteEvent: async (req, res) => {
@@ -99,11 +99,11 @@ module.exports = {
 
 
   // @description    Delete a room
-  // @route          DELETE /room/:id/edit
+  // @route          DELETE admin/room/:id/edit
   deleteRoom: async (req, res) => {
     try {
       await Room.deleteOne({ _id: req.params.id }, () => {
-        res.redirect("/room");
+        res.redirect("/admin/room");
       });
     } catch (err) {
       console.error(err);

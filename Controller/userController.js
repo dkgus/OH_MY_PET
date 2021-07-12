@@ -5,40 +5,20 @@ const event = require("../models/Event");
 const community = require("../models/Community");
 
 module.exports = {
-  // @description    Show all users
-  // @route          GET /users
-  showAllUsers: async (req, res) => {
-    const users = await User.find({}).sort({ username: 1 });
-    res.render("users/index", { users: users });
-  },
-
-  // @description    Show a user
-  // @route          GET /users/:id
-  showUser: async (req, res) => {
-    try {
-      const user = await User.findOne({ _id: req.params.id }, {});
-
-      res.render("users/show", { user });
-      console.log(user);
-    } catch (err) {
-      console.error(err);
-    }
-  },
 
   // @description    Show a register form
   // @route          GET /users/new
   showRegisterForm: (req, res) => {
 		const data = {
-		 addCss : ['users'],
-	 };
-    return res.render("users/new", data);
+			addCss : ['users'],
+		};
+    res.render("users/new", data);
   },
 
   // @description    Register a User
   // @route          POST /users/new
   registerUser: async (req, res) => {
     const { name, nickname, email, password, memPwRe, phone, type } = req.body;
-
     try {
       // validation
       // 1. 필수 정보를 모두 입력했는지?
@@ -101,8 +81,11 @@ module.exports = {
   showUpdateForm: async (req, res) => {
     try {
       const user = await User.findOne({ _id: req.params.id }, {});
+			const data = {
+				addCss : ['users'],
+			};
 
-      res.render("users/edit", { user: user });
+      res.render("users/edit", { data, user });
     } catch (err) {
       console.error(err);
     }
@@ -110,14 +93,21 @@ module.exports = {
 
   // @description    Update a user
   // @route          PUT /users/:id/edit
+  // 회원수정
+
   updateUser: async (req, res) => {
     try {
       await User.findOneAndUpdate({ _id: req.params.id }, req.body);
-      res.redirect("/users/mypage");
+			const data = {
+				addCss : ['users'],
+			};
+      res.redirect("/users/mypage", data);
     } catch (err) {
       console.error(err);
     }
   },
+
+
 
   // @description    Delete a user
   // @route          DELETE /users/:id/edit
@@ -134,7 +124,10 @@ module.exports = {
   // @description    Show a Login form
   // @route          GET /users/login
   showLoginForm: (req, res) => {
-    res.render("users/login", { title: "로그인" });
+		const data = {
+			addCss : ['users'],
+		};
+    res.render("users/login", { data, title: "로그인" });
   },
 
   // @description    Login
@@ -189,6 +182,9 @@ module.exports = {
     const user = await User.findOne({ _id: req.user._id }, {});
     const events = await event.find({ user: req.user._id }).populate("user");
     const posts = await community.find({ user: req.user._id }).populate("user");
-    res.render("users/mypage", { user, events, posts });
+		const data = {
+			addCss : ['users'],
+		};
+    res.render("users/mypage", { data, user, events, posts });
   },
 };
