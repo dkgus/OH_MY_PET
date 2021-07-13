@@ -1,0 +1,60 @@
+{% extends '../layout.html' %}
+{%set title="{{ post.title }}"%}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/css/board.css">
+  <div class="boardTitle layout_width"><img src="image/title.png">community</img></div>
+  <div class='boardWrap layout_width'>
+    <div class='post'>
+      <div class="info">
+        <ul class="top">
+          <l class="title">{{ post.title }}</li>
+        </ul>
+        <div class="sub_info">
+          <ul class="profile_info">
+            <li class="photo"><img src=""></li>
+            <li class="grade">{{ post.role }}</li>
+          </ul>
+          <ul class="poster_info">
+            <li>{{ post.user }}</li> <br>
+            <li>{{ post.createdAt }}</li>
+            <li>{{ post.hit }}</li>
+          </ul>
+        </div> <!-- //sub_info -->
+      </div> <!-- //info -->
+      <div class='content'>
+        {{ post.content }}
+      </div>
+      <div class='comment'> <!-- 댓글 목록 구역-->
+        <div class='eachCom'>
+          <ul class="com_info">
+            <li class='photo'><img src=""></li>
+            <li class="grade">3</li>
+          </ul>
+          <ul class="com_poster">
+            <li>댓글 작성자</li>
+            <li>작성 일자</li>
+            <div class="comn_btn">
+              <button>수정</button>
+              <span>|</span>
+              <button>삭제</button>
+            </div>
+            <span class="com_content">
+              나는 내용입니다
+            </span>
+          </ul>
+        </div> <!-- //eachCom -->
+      </div> <!-- //comment -->
+      <div class='myComment'> <!-- 댓글 작성 구역 -->
+        <span>닉네임</span><br>
+        <textarea class='comContent'>댓글 내용</textarea>
+        <button>등록</button>
+      </div> <!--//myComment-->
+    </div> <!--//post-->
+    <div class='buttonWrap'>
+      <a href='/community/new'><i class="xi-pen"></i>작성</a>
+      <a href='/community/{{ item._id }}/edit'><i class="xi-wrench"></i>수정</a>
+      <button value='deletePost' class='post_delete'><i class="xi-trash"></i>삭제</button>
+      <a href="/community"><i class="xi-bars"></i>목록</a>
+    </div>
+  </div> <!--//boardWrap-->
+  {% endblock %}

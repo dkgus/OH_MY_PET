@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<link rel="stylesheet" type="text/css" href="css/admin/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="js/admin.js" defer> </script>
+<title>관리 :: 오 마이 펫</title>
+</head>
+<body>
+  <!--메뉴 S-->
+    <nav>
+    <div class='nav'>
+        <ul>
+          <li class='list active'>
+            <b></b>
+            <b></b>
+            <a href="/admin"><i class='xi-lock'></i>ADMIN</a>
+            </li>
+            <li class='list'>
+            <b></b>
+            <b></b>
+            <a href="/admin/member"><i class='xi-user'></i>USER</a>
+            </li>
+            <li class='list'>
+            <b></b>
+            <b></b>
+            <a href="/admin/event"><i class='xi-school'></i>EVENT</a>
+            </li>
+            <li class='list'>
+            <b></b>
+            <b></b>
+            <a href="/admin/room"><i class='xi-building'></i>HOTEL</a>
+            </li>
+            <li class='list'>
+              <b></b>
+              <b></b>
+              <a href="/admin/community"><i class='xi-list-dot'></i>COMMU</a>
+              </li>
+            <li class='list'>
+            <b></b>
+            <b></b>
+            <a href="/"><i class='xi-external-link'></i>MAIN</a>
+            </li>     
+        </ul>
+    </div>
+    </nav>
+  <!--메뉴 E-->
+  <!--본문 S-->
+  {% if loginUser %}
+  <section>
+    <div class='content'>
+        <div class='loginBox'>
+            <div class='loginTitle'>ADMIN ONLY</div>
+            <form method="post" action="/admin" autocomplete='off'>
+                <input type='email' name='email' placeholder='관리자 이메일'><br>
+                <input type='password' name='password' placeholder="비밀번호"><br>
+                <input type='submit' value='LOGIN'>
+            </form>
+        </div>
+    </div>
+  </section>
+  {% else %}
+    {% block content %}{% endblock %}
+
+  {% endif %}
+  <!--본문 E-->
+</body>
+</html>

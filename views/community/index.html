@@ -1,0 +1,45 @@
+{% extends '../layout.html' %}
+{%set title="커뮤니티"%}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/css/board.css">
+  <div class="boardTitle layout_width"><img src="image/title.png">community</img></div>
+  <div class='boardWrap layout_width'>
+  <div class='list'>
+    <ul class='top'>
+      <li class='subject'>제목</li>
+      <li class='writer'>작성자</li>
+      <li class='date'>작성일</li>
+    </ul>
+    <ul class='bottom'>
+      {% if posts.length > 0 %}
+        {% for item in posts %}
+          <li>
+            <a href='/community/{{ item._id }}' class='title'>
+              {{ item.title }}
+            </a>
+            <div class='post_info'>
+              <span class='poster'>{{ item.user }}</span>
+              <span class='date'>{{ item.createdAt }}</span>
+            </div>
+          </li>
+        {% endfor %}
+      {% else %}
+        <li class='noData'>게시글이 없습니다</li>
+      {% endif %}
+    </ul>
+    <div class='boardBtn'>
+      <a href='/community/new'><i class="xi-pen"></i>작성</a>
+    </div>
+  </div> <!--//list-->
+    <div>
+      {{ pagination | safe }}
+    </div> <!--//pagination-->
+    <div class='searchBox'>
+       <form method="get" action="" autocomplete="off">
+            <input type="text" name="sword">
+            <input type="submit" class="search_btn" value="">
+        <i class="xi-search"></i>
+         </form>
+    </div> <!--//searchBox-->
+</div> <!--//boardWrap-->
+{% endblock %}

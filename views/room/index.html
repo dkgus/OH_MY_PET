@@ -1,0 +1,28 @@
+{% extends '../layout.html' %}
+{% block content %}
+{%set title="호텔 예약 내역"%}
+<link rel="stylesheet" href="/css/room.css" />
+<div class='title'>
+    <i class='xi-caret-up'></i>예약 내역
+</div>
+<div class='listWrap'>
+<div class='prevRev'>
+    <ul class='top'>
+        <li class='date'>예약일</li>
+        <li class='name'>호텔명</li>
+        <li class='sDate'>입실일</li>
+        <li class='sDate'>퇴실일</li>
+      </ul>
+      <ul class='bottom'>
+        {% for item in rooms %}
+        <div class='eachList'>
+            <li class='date'>{{ revDate.rooms }}</li>
+            <li class='name'>{{ hotelName.rooms }}</li>
+            <li class='sDate'>{{ revStart.rooms }}</li>
+            <li class='eDate'>{{ revEnd.rooms }}</li>
+        </div>
+        {% endfor %}
+    </ul>
+</div> <!-- //prevREv -->
+</div> <!-- //listWrap -->
+{% endblock %}

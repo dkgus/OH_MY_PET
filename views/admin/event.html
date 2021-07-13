@@ -1,0 +1,31 @@
+<!-- 어드민 _ 이벤트 등록 페이지 -->
+{% extends 'layout.html' %}
+<!-- admin page layout -->
+
+{% block content %}
+
+<!-- confirm event res. -->
+<div>EVENT RESERVATION LIST</div>
+<!-- DELETE METHOD -->
+<table>
+  <thead>
+    <tr>
+      <td>event name</td>
+      <td>user email</td>
+      <td>delete</td>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in events %}
+    <tr>
+      <td>{{ item.eventNm }}</td>
+      <td>{{ item.user.email }}</td>
+      <td>
+        <input type="submit" value="Delete" onclick="deleteEvent();" />
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

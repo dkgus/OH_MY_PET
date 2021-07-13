@@ -1,8 +1,2 @@
-# .gitignore 
-node_modules
+node_modules/
 .env
-say.txt
-app.js
-package.json
-package-lock.json
-ckeditor/

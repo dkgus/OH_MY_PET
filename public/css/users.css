@@ -1,0 +1,263 @@
+.box1 {
+  width: 1100px;
+  padding: 30px;
+}
+.main_title {
+  font-size: 30px;
+  text-align: center;
+  font-family: Cafe24Ssurround;
+  margin-bottom: 20px;
+}
+.sub_title {
+  font-size: 24px;
+  font-family: Cafe24Ssurround;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.border_title {
+  font-size: 25px;
+  padding: 15px;
+  border-top: 3px solid #ffaf2d;
+  font-family: Cafe24Ssurround;
+  font-weight: 500;
+  background-color: #ffffff;
+  margin: 30px 0;
+}
+.mb10 {
+  margin-bottom: 10px;
+}
+.mt10 {
+  margin-top: 10px;
+}
+.btn1 {
+  background-color: #ffaf2d;
+  color: #ffffff;
+  border: 0;
+  width: 100%;
+  height: 45px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* user common S */
+.user_box button,
+.user_box input[type="submit"] {
+  background-color: #ffaf2d;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 0;
+  font-size: 1.5rem;
+}
+
+.user_box input[type="text"],
+.user_box input[type="password"],
+.user_box input[type="email"] {
+  width: 100%;
+  text-align: center;
+  height: 50px;
+  border: 1px solid #d5d5d5;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+.user_box {
+  width: 640px;
+  margin-top: 100px;
+}
+
+.user_title {
+  height: 100px;
+  text-align: center;
+  border-bottom: 3px solid #ffaf2d;
+  font-size: 40px;
+  font-family: Cafe24Ssurround;
+  margin-bottom: 20px;
+}
+
+.join_btn > a {
+  color: #fff;
+}
+
+/* new S */
+
+.user_box .join_form {
+  padding: 40px;
+}
+
+.join_form input[type="submit"] {
+  margin-top: 20px;
+}
+
+.user_box .join_form dl {
+  margin-bottom: 10px;
+}
+.user_box .join_form dl dt {
+  font-size: 16px;
+}
+.user_box .join_form dl dd {
+  width: 70%;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  border-color: #ffaf2d;
+}
+.user_box dl dd:last-child {
+  font-size: 16px;
+}
+.user_box input[type="radio"] {
+  display: none;
+}
+/* 기본 상태 */
+.user_box input[type="radio"] + label .xi-radiobox-blank {
+  display: inline-block;
+  color: #ffaf2d;
+  padding: 0 6px;
+  font-size: 18px;
+}
+.user_box input[type="radio"] + label .xi-radiobox-checked {
+  display: none;
+  color: #ffaf2d;
+  padding: 0 6px;
+  font-size: 18px;
+}
+
+.user_box .join_form dl {
+  display: table;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.user_box .join_form dt {
+  display: table-cell;
+  vertical-align: middle;
+  width: 200px;
+  height: 50px;
+  padding-left: 20px;
+}
+.user_box .join_form dd {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* 선택 상태 */
+.user_box input[type="radio"]:checked + label .xi-radiobox-blank {
+  display: none;
+}
+.user_box input[type="radio"]:checked + label .xi-radiobox-checked {
+  display: inline-block;
+}
+/* new E */
+
+/* mypage S */
+.mypage .mypage_back {
+  width: 100%;
+  height: 200px;
+  background-color: #ffaf2d;
+  text-align: center;
+}
+.mypage .mypage_back a {
+  color: #ffffff;
+  font-family: Cafe24Ssurround;
+  font-size: 50px;
+  line-height: 200px;
+  vertical-align: middle;
+}
+.mypage .mypage_title {
+  font-size: 25px;
+  padding: 15px;
+  border-top: 3px solid #ffaf2d;
+  font-family: Cafe24Ssurround;
+  font-weight: 500;
+  background-color: #ffffff;
+  margin: 30px 0;
+  box-shadow: 10px 10px 20px rgb(0 0 0 / 12%);
+}
+.mypage .my_info .infobox {
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  box-shadow: 10px 10px 20px rgb(0 0 0 / 12%);
+  padding-bottom: 10px;
+}
+.mypage .my_info .infobox .info_left {
+  padding: 5px 40px 20px;
+  display: inline-block;
+  margin-right: 150px;
+}
+.mypage .my_info .infobox .info_right {
+  display: inline-block;
+  vertical-align: top;
+}
+.mypage .my_info .infobox .info_left img {
+  width: 150px;
+}
+.mypage .my_info .infobox .info_right .user_name {
+  font-size: 25px;
+  padding-bottom: 20px;
+  font-weight: 700;
+  display: inline-block;
+}
+.mypage .my_info .infobox .info_right .edit {
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px;
+}
+.mypage .my_info .infobox .info_right .edit i {
+  font-size: 20px;
+}
+.mypage .my_info .infobox .info_right table {
+  width: 100%;
+  border-top: 3px solid #ffaf2d;
+}
+.mypage .my_info .infobox .info_right table tr td {
+  width: 300px;
+  padding: 15px 15px 15px 5px;
+  font-size: 17px;
+  font-weight: 500;
+}
+.mypage .infobox .mypage_hotel_title,
+.mypage .infobox .mypage_event_title,
+.mypage .infobox ._wrap .mypage_write_title {
+  display: inline-block;
+  padding: 30px;
+  font-size: 24px;
+  font-family: Cafe24Ssurround;
+}
+.all_event {
+  display: inline-block;
+  font-size: 17px;
+  vertical-align: middle;
+}
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px;
+  font-size: 15px;
+  min-width: 400px;
+  width: 1050px;
+}
+.styled-table thead tr {
+  background-color: #ffaf2d;
+  color: #ffffff;
+  text-align: center;
+}
+.styled-table tbody tr {
+  text-align: center;
+}
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+.styled-table tr:nth-child(n + 4) {
+  display: none;
+}
+/* mypage E */
+/** users 페이지 by 현빈 E **/
