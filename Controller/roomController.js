@@ -54,7 +54,7 @@ module.exports = {
       const msg = "이름, 연락처, 이메일, 호텔명, 객실종류, 일정시작일, 일정 종료일을 입력해주세요.";
       return res.send(`<script>alert("${msg}");history.back();</script>`);
     }
-      await Room.create();
+      await Room.create({ hotelName, roomType, revStart, revEnd, user: req.user._id });
       res.redirect("/room");
     } catch (err) {
       console.log(err);
