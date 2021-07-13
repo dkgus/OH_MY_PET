@@ -10,6 +10,7 @@ const cookieParser = require("cookie-parser");
 
 
 // routes
+const indexRouter = require('./routes');
 const userRoutes = require("./routes/user");
 const noticeRoutes = require("./routes/notice");
 const communityRoutes = require("./routes/community");
@@ -57,6 +58,7 @@ app.use(morgan("dev"));
 
 
 /** 라우터 등록 */
+app.use(indexRouter); // 메인 라우터 
 app.use("/event", evntRoutes);
 app.use("/users", userRoutes);
 app.use("/notices", noticeRoutes);
