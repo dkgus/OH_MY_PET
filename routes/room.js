@@ -10,6 +10,7 @@ const {
   showUpdateForm,
   updateRoom,
   deleteRoom,
+  showRoomList,
 } = require("../controller/roomController");
 
 // room/
@@ -17,6 +18,9 @@ router.route("/").get(showAllRooms);
 
 // room/new
 router.route("/new").get(showCreateForm).post(createRoom);
+
+// room/list
+router.route("/list").get(showRoomList);
 
 // room/:id/edit
 router

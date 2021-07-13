@@ -26,6 +26,17 @@ module.exports = {
     }
   },
 
+  
+
+  // @description    Show hotel list
+  // @route          GET /room/list
+  showRoomList: async (req, res) => {
+    await res.render("room/list");
+  },
+
+
+
+
   // @description    Show a write form
   // @route          GET /room/new
   showCreateForm: async (req, res) => {
