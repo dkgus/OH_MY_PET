@@ -13,13 +13,13 @@ const {
 } = require("../controller/communityController");
 
 // community/
-router.route("/").get(showAllPosts);
+router.route("/").get( isAuthenticatedUser, showAllPosts);
 
 // community/new
 router
   .route("/new")
-  .get(isAuthenticatedUser, showCreateForm)
-  .post(isAuthenticatedUser, createPost);
+  .get(showCreateForm)
+  .post( isAuthenticatedUser,createPost);
 
 // community/:id
 router.route("/:id").get(showPost);
@@ -32,6 +32,6 @@ router
   .delete(deletePost);
 
 // community/:id
-router.route("/:id").get(isAuthenticatedUser, showPost);
+router.route("/:id").get( isAuthenticatedUser, showPost);
 
 module.exports = router;

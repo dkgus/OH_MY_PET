@@ -1,4 +1,6 @@
 const Community = require("../models/Community");
+const User = require("../models/User");
+
 
 module.exports = {
   // @description    Show all posts
@@ -8,11 +10,11 @@ module.exports = {
       addCss : ['board'],
       addScript : ['board'],
     };
-    await Community.find({})
-      .sort({ createdAt: -1 })
-      .exec((err, posts) => {
-        res.render("community/index", { data, posts });
-      });
+    const posts = await Community.find({ user: req.user._id }).populate("user");
+    const user = await User.findOne({ _id: req.user._id }, {})
+
+
+    res.render("community/index", { data, posts, user });
 
     },
 
@@ -33,7 +35,7 @@ module.exports = {
     await res.render("community/new");
   },
 
-  // @description    Create a new notice
+  // @description    Create a new post
   // @route          POST /community/new
   createPost: async (req, res) => {
     const { title, content } = req.body;
@@ -44,7 +46,7 @@ module.exports = {
         const msg = "글 제목, 내용을 모두 입력해주세요.";
         return res.send(`<script>alert("${msg}");history.back();</script>`);
       }
-      await Community.create({ title, content });
+      await Community.create( { title, content });
       res.redirect("/community");
     } catch (err) {
       console.log(err);
@@ -63,7 +65,7 @@ module.exports = {
     }
   },
 
-  // @description    Update a user
+  // @description    Update a post
   // @route          PUT /community/:id/edit
   updatePost: async (req, res) => {
     try {
@@ -75,7 +77,7 @@ module.exports = {
     }
   },
 
-  // @description    Delete a user
+  // @description    Delete a post
   // @route          DELETE /community/:id/edit
   deletePost: async (req, res) => {
     try {

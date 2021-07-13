@@ -5,14 +5,14 @@ module.exports = {
   // @description    Show all events
   // @route          GET /event
   showAllEvents: async (req, res) => {
-    const events = await Event.find({ user: req.user._id }).populate("user");
-    const user = await User.findOne({ _id: req.user._id }, {})
-    
     const data = {
       addCss : ['event'],
     };
+    const events = await Event.find({ user: req.user._id }).populate("user");
+    const user = await User.findOne({ _id: req.user._id }, {})
     
-    res.render("event/index", { events , user });
+    
+    res.render("event/index", { data, events , user });
   },
 
 
