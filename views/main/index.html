@@ -1,116 +1,40 @@
 {% extends '../layout.html' %} {% block content %}
-
+<link rel="stylesheet" href="/css/main.css" />
 <main>
   <!--main benner start-->
-  <div class="main_banner">메인배너영역(수정중)</div>
+  <div class="main_banner layout_width">
+    <img src="image/banner.jpg" alt="" />
+  </div>
   <!--main benner end-->
-
-<div class="mypage"><a href="/event/new/60d5df6d44202b38fc71cf66">마이페이지 가기</a></div>
-
 
   <!--event start-->
   <section class="event_display">
     <div class="inner layout_width">
       <div class="box_title">행사목록</div>
       <p class="subtitle">
-        반려동물에게 더 좋은 반려인이 되기 위한 어쩌고 저쩌고<br />
-        댕냥이들을 위한 신나는 페스티벌까지~!
+        반려동물에게 더 좋은 반려인이 되기 위한 알찬 강연,<br />
+        그리고 반려동물을 위한 신나는 페스티벌까지!
       </p>
+      <a href="/notices" class="event_more"> 이벤트 더보기 </a>
       <ul class="s_event_box">
         <li class="s_event_list">
-          <a href="#"><img src="image/cats.jpg" /></a>
+          <img src="image/cats.jpg" />
+          <p class="list_sort">이벤트</p>
+          <p class="list_name">이벤트이름</p>
         </li>
         <li class="s_event_list">
-          <a href="#"><img src="image/cats.jpg" /></a>
+          <img src="image/cats.jpg" />
+          <p class="list_sort">이벤트</p>
+          <p class="list_name">이벤트이름</p>
         </li>
         <li class="s_event_list">
-          <a href="#"><img src="image/cats.jpg" /></a>
+          <img src="image/cats.jpg" />
+          <p class="list_sort">이벤트</p>
+          <p class="list_name">이벤트이름</p>
         </li>
       </ul>
-      <!--//event box-->
 
-      <article class="event_rolling">
-        <div class="event_list layout_width">
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <a href="#" class="swiper-slide event">
-                <img src="image/event1.jpg" />
-                <div class="event_sort">강연</div>
-                <div class="event_wrap">
-                  <span class="eventnm">기가막히게 유익한 강연</span>
-                </div>
-              </a>
-              <a href="#" class="swiper-slide event">
-                <img src="image/evnet2.jpg" />
-                <div class="event_sort">강연</div>
-                <div class="event_wrap">
-                  <span class="eventnm">기가막히게 유익한 강연</span>
-                </div>
-              </a>
-              <a href="#" class="swiper-slide event">
-                <img src="image/event1.jpg" />
-                <div class="event_sort">페스티벌</div>
-                <div class="event_wrap">
-                  <span class="eventnm">정말 신나는 페스티벌</span>
-                </div>
-              </a>
-              <a href="#" class="swiper-slide event">
-                <img src="image/evnet2.jpg" />
-                <div class="event_sort">페스티벌</div>
-                <div class="event_wrap">
-                  <span class="eventnm">정말 신나는 페스티벌</span>
-                </div>
-              </a>
-              <a href="#" class="swiper-slide event">
-                <img src="image/event1.jpg" />
-                <div class="event_sort">페스티벌</div>
-                <div class="event_wrap">
-                  <span class="eventnm">정말 신나는 페스티벌</span>
-                </div>
-              </a>
-              <a href="#" class="swiper-slide event">
-                <img src="image/evnet2.jpg" />
-                <div class="event_sort">페스티벌</div>
-                <div class="event_wrap">
-                  <span class="eventnm">정말 신나는 페스티벌</span>
-                </div>
-              </a>
-              <a href="#" class="swiper-slide event">
-                <img src="image/event1.jpg" />
-                <div class="event_sort">페스티벌</div>
-                <div class="event_wrap">
-                  <span class="eventnm">정말 신나는 페스티벌</span>
-                </div>
-              </a>
-              <a href="#" class="swiper-slide event">
-                <img src="image/evnet2.jpg" />
-                <div class="event_sort">강연</div>
-                <div class="event_wrap">
-                  <span class="eventnm">기가막히게 유익한 강연</span>
-                </div>
-              </a>
-              <a href="#" class="swiper-slide event">
-                <img src="image/event1.jpg" />
-                <div class="event_sort">페스티벌</div>
-                <div class="event_wrap">
-                  <span class="eventnm">정말 신나는 페스티벌</span>
-                </div>
-              </a>
-              <a href="#" class="swiper-slide event">
-                <img src="image/evnet2.jpg" />
-                <div class="event_sort">강연</div>
-                <div class="event_wrap">
-                  <span class="eventnm">기가막히게 유익한 강연</span>
-                </div>
-              </a>
-            </div>
-            <!--swiper-wrapper-->
-          </div>
-          <!--swiper-container-->
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
-      </article>
+      <!--//event box-->
     </div>
   </section>
   <!--event end-->
@@ -119,29 +43,29 @@
   <article class="hotel layout_width">
     <div class="box_title">호텔 목록</div>
     <p class="subtitle">
-      반려동물과 함께 떠나는 신나고 즐거운 호캉스<br />
-      반려동물과 어쩌고를 할 수 있는 서비스까지~! 정말 최고다~!
+      갑작스럽게 잡힌 외박 일정, 반려동물이 걱정되세요?<br />
+      오마이펫이 엄선한 반려동물 호텔을 이용해보세요!
     </p>
     <ul class="hotel_box">
       <li class="hotel_list">
-        <a href="#">
-          <img src="image/hotel1.jpg" />
-          <p class="hotel_sort">종류</p>
-          <p class="hotelnm">[인천] 돌봐줄개</p>
+        <a href="/hotel/room1.html">
+          <img src="/image/room.png" />
+          <p class="list_sort">인천</p>
+          <p class="list_name">개편한세상</p>
         </a>
       </li>
       <li class="hotel_list">
-        <a href="#">
-          <img src="image/hotel1.jpg" />
-          <p class="hotel_sort">종류</p>
-          <p class="hotelnm">[서울] 반려동물 동반 숙박 가능한 짱호텔</p>
+        <a href="/hotel/room2.html">
+          <img src="/image/room2.png" />
+          <p class="list_sort">서울</p>
+          <p class="list_name">엘리스애견호텔</p>
         </a>
       </li>
       <li class="hotel_list">
-        <a href="#">
-          <img src="image/hotel1.jpg" />
-          <p class="hotel_sort">종류</p>
-          <p class="hotelnm">[인천] 펫토피아</p>
+        <a href="/hotel/room3.html">
+          <img src="/image/room3.png" />
+          <p class="list_sort">경기</p>
+          <p class="list_name">망고쿠로</p>
         </a>
       </li>
     </ul>
@@ -149,17 +73,33 @@
   <!--hotel list end-->
 
   <!-- board start -->
-  <div class="board">
-    <!--공지사항 게시판-->
-    <div class="notice_box">
-      <div class="notice_title">공지사항</div>
-      <div class="notice_list">게시글 목록 영역</div>
-    </div>
+  <div class="layout_width">
+    <div class="board">
+      <!--공지사항 게시판-->
+      <div class="notice_box">
+        <div class="box_title">공지사항</div>
+        <div class="notice_list">
+          <ul>
+            {% for item in notices %} 
+            {% if loop.revindex0 <= 5 %}
+            <li>{{ item.title }} {{ item.createdAt }}</li>
+            {% endif %} 
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
 
-    <!--커뮤니티 게시판-->
-    <div class="cummunity_box">
-      <div class="board_title">커뮤니티</div>
-      <div class="cummunity_list">게시글 목록 영역</div>
+      <!--커뮤니티 게시판-->
+      <div class="cummunity_box">
+        <div class="box_title">커뮤니티</div>
+        <div class="cummunity_list">
+          <ul>
+            {% for item in posts %} {% if loop.revindex0 <= 5 %}
+            <li>{{ item.title }} {{ item.createdAt }}</li>
+            {% endif %} {% endfor %}
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
   <!-- board end -->
