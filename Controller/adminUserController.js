@@ -7,8 +7,8 @@ module.exports = {
   // @description    Show all users 전체 유저 조회
   // @route          GET /admin/member
   showAllUsers: async (req, res) => {
-    const users = await User.find({}).sort({ username: 1 });
-    res.render("admin/member/index", { users: users });
+    const users = await User.find().sort({ username: 1 });
+    res.render("admin/member/index", { users });
   },
 
   // @description    Show a user 

@@ -64,7 +64,7 @@ app.use("/users", userRoutes);
 app.use("/notices", noticeRoutes);
 app.use("/community", communityRoutes);
 app.use("/room", roomRoutes);
-//app.use("/", (req, res) => res.render("main/index.html"));
+
 
 
 
