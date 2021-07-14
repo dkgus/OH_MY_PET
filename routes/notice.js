@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { isAuthenticatedUser } = require("../utils/auth");
 
 const {
   showAllNotices,
@@ -12,10 +13,13 @@ const {
 } = require("../controller/noticeController");
 
 // notices/
-router.route("/").get(showAllNotices);
+router.route("/").get(isAuthenticatedUser, showAllNotices);
 
 // notices/new
-router.route("/new").get(showCreateForm).post(createNotice);
+router
+  .route("/new")
+  .get(showCreateForm)
+  .post(isAuthenticatedUser, createNotice);
 
 // notices/:id/edit
 router
@@ -25,9 +29,6 @@ router
   .delete(deleteNotice);
 
 // notices/:id
-router.route("/:id").get(showNotice);
-
-// notices/new
-router.route("/new").get(showCreateForm).post(createNotice);
+router.route("/:id").get(isAuthenticatedUser, showNotice);
 
 module.exports = router;
