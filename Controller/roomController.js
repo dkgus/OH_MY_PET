@@ -11,10 +11,6 @@ module.exports = {
       });
   },
 
-  showRoomList: async (req, res) => {
-    await res.render("room/list");
-  },
-
   // @description    Show a room
   // @route          GET /room/:id
   showRoom: async (req, res) => {
@@ -26,6 +22,12 @@ module.exports = {
     } catch (err) {
       console.error(err);
     }
+  },
+
+  // @description    Show hotel list
+  // @route          GET /room/list
+  showRoomList: async (req, res) => {
+    await res.render("room/list");
   },
 
   // @description    Show a write form
@@ -55,7 +57,13 @@ module.exports = {
           "이름, 연락처, 이메일, 호텔명, 객실종류, 일정시작일, 일정 종료일을 입력해주세요.";
         return res.send(`<script>alert("${msg}");history.back();</script>`);
       }
-      await Room.create();
+      await Room.create({
+        hotelName,
+        roomType,
+        revStart,
+        revEnd,
+        user: req.user._id,
+      });
       res.redirect("/room");
     } catch (err) {
       console.log(err);

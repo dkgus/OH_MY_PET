@@ -5,9 +5,13 @@ module.exports = {
   // @description    Show all events
   // @route          GET /event
   showAllEvents: async (req, res) => {
+    const data = {
+      addCss: ["event"],
+    };
     const events = await Event.find({ user: req.user._id }).populate("user");
     const user = await User.findOne({ _id: req.user._id }, {});
-    res.render("event/index", { events, user });
+
+    res.render("event/index", { data, events, user });
   },
 
   // @description    Show a event
@@ -34,12 +38,12 @@ module.exports = {
   createEvent: async (req, res) => {
     const { nickname, phone, eventNm } = req.body;
     try {
-      // validation
-      // 필수 정보를 모두 입력했는지?
-      // if (!nickname || !phone || !eventNm) {
-      //   const msg = "반려동물의 이름, 연락처, 이벤트명을 입력해주세요.";
-      //   return res.send(`<script>alert("${msg}");history.back();</script>`);
-      // }
+      //validation
+      //필수 정보를 모두 입력했는지?
+      if (!nickname || !phone || !eventNm) {
+        const msg = "반려동물의 이름, 연락처, 이벤트명을 입력해주세요.";
+        return res.send(`<script>alert("${msg}");history.back();</script>`);
+      }
 
       await Event.create({ eventNm, user: req.user._id });
 

@@ -5,27 +5,6 @@ const event = require("../models/Event");
 const community = require("../models/Community");
 
 module.exports = {
-  // @description    Show all users 전체 유저 조회
-  // @route          GET /users
-  showAllUsers: async (req, res) => {
-    const users = await User.find({}).sort({ username: 1 });
-    res.render("users/index", { users: users });
-  },
-
-  // @description    Show a user
-  // @route          GET /users/:id
-  // 수정페이지 아님. 회원 개별 조회페이지
-
-  showUser: async (req, res) => {
-    try {
-      const user = await User.findOne({ _id: req.params.id }, {});
-      res.render("users/show", { user });
-      console.log(user);
-    } catch (err) {
-      console.error(err);
-    }
-  },
-
   // @description    Show a register form
   // @route          GET /users/new
   showRegisterForm: (req, res) => {
