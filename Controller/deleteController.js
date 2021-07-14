@@ -158,7 +158,7 @@
      * 
      */
 
- // @description    Show all rooms
+  // @description    Show all rooms
   // @route          GET /admin/room
   showAllRooms: async (req, res) => {
     await Room.find({})//이쯤에서.populate(참조가 필요한 document이름)-> exec
@@ -196,7 +196,7 @@
   // @route          PUT /admin/room/:id/edit
   updateRoom: async (req, res) => {
     try {
-      await this.deleteRoom.findOneAndUpdate({ _id: req.params.id }, req.body, () => {
+      await Room.findOneAndUpdate({ _id: req.params.id }, req.body, () => {
         res.redirect("/admin/room/" + req.params.id);
       });
     } catch (err) {
