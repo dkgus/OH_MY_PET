@@ -1,4 +1,4 @@
-{% extends 'layout.html' %} {% block content %}
+{% extends '../../layout.html' %} {% block content %}
 
 <div>COMMUNITY</div>
 <!-- DELETE METHOD -->
@@ -20,7 +20,7 @@
       <td>{{ item.user.email }}</td>
       <td>{{ item.createdAt }}</td>
       <td>
-        <input type="submit" value="Delete" onclick="deletePost();" />
+        <button onclick="deletePost();">Delete</button>
       </td>
     </tr>
     {% endfor %}

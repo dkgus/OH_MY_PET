@@ -1,0 +1,83 @@
+{% extends '../../layout.html' %}
+{% block content %}
+<div class=''>
+	<div class=''>
+		<!-- 프론트 중 여기페이지담당자는 회원 수정 삭제 추가하면됨니다~-->
+		<div class='layout_width'>
+		<p>회원정보조회 페이지</p>
+		<br>
+			<a href="/admin/member/{{user._id}}/edit">회원 수정</a>
+			<!-- {{user._id}} -->
+		</form>
+		</div>
+	</div>
+	<div class='my_info layout_width'>
+		<div class='infobox box1'>
+		<div class='info_title title1'>회원정보 정보</div>
+		<dl>
+			<dd>이름</dd>
+			<dt>{{ item.name }}</dt>
+		</dl>
+		<dl>
+			<dd>반려동물 이름</dd>
+			<dt>{{ item.nickname }}</dt>
+		</dl>
+		<dl>
+			<dd>아이디</dd>
+			<dt>{{ email }}</dt>
+		</dl>
+		<dl>
+			<dd>전화번호</dd>
+			<dt>{{ phone }}</dt>
+		</dl>
+		<dl>
+			<dd>회원등급</dd>
+			<dt>{{ role }}</dt>
+		</dl>
+		<dl>
+			<dd>반려동물 종류</dd>
+			<dt>{{ type }}</dt>
+		</dl>
+		</div>
+		<!--//infobox -->
+		<div class='event_box box1'>
+		<div class='event_title title1'>이벤트 현황</div><div class='plus'><a href='/'>상세보기</a></div>
+		<table class='event_res table1'>
+				<tr>
+					<td>이벤트 제목</td>
+					<td>예약일</td>
+					<td>예약자 성함</td>
+				<tr>
+					<td>{{ eventNm }}</td>
+					<td>{{ eventNo }}</td>
+					<td>{{ user }}</td>
+				</tr>
+			</table>
+		</div>
+		<!--// event_box -->
+		<div class='hotel_box box1'>
+			<div class='hotel_title title1'>호텔예약 현황</div><div class='plus'><a href='hotel/'>상세보기</a></div>
+			<table class='hotel_res table1'>
+				<tr>
+					<td>호텔명</td>
+					<td>주소</td>
+					<td>room type</td>
+					<td>예약일</td>
+					<td>체크인</td>
+					<td>체크아웃</td>
+				<tr>
+					<td>{{ hotelName }}</td>
+					<td>{{ memo }}</td>
+					<td>{{ roomType }}</td>
+					<td>{{ regDt }}</td>
+					<td>{{ revStart }}</td>
+					<td>{{ revEnd }}</td>
+				</tr>
+			</table>
+		</div>
+		<!--// hotel_box-->
+	</div>
+	<!--// my_info layout_width-->
+</div>
+<!-- //mypage -->
+{% endblock %}

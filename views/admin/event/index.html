@@ -1,5 +1,5 @@
 <!-- 어드민 _ 이벤트 등록 페이지 -->
-{% extends 'layout.html' %}
+{% extends '../../layout.html' %}
 <!-- admin page layout -->
 
 {% block content %}
@@ -21,7 +21,7 @@
       <td>{{ item.eventNm }}</td>
       <td>{{ item.user.email }}</td>
       <td>
-        <input type="submit" value="Delete" onclick="deleteEvent();" />
+        <button onclick="deleteEvent();">DELETE</button>
       </td>
     </tr>
     {% endfor %}
