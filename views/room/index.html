@@ -14,7 +14,7 @@
         <th>호텔 이름</th>
         <th>체크인</th>
         <th>체크아웃</th>
-        <th>예약자 연락처</th>
+        <th>방 종류</th>
       </thead>
       <tbody>
         {% for item in rooms %}
@@ -22,7 +22,7 @@
           <td>{{ item.hotelName }}</a></td>
           <td>{{ item.revStart }}</a></td>
           <td>{{ item.revEnd }}</a></td>
-          <td>{{ user.phone }}</a></td>
+          <td>{{ item.roomType }}</a></td>
         </tr>
         {% endfor %}
       </tbody>
