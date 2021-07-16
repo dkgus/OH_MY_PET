@@ -28,7 +28,10 @@ router
   .route("/:id/edit")
   .get(showUpdateForm)
   .put(updateRoom)
-  .delete(deleteRoom);
+
+//room/:id/delete
+router.route("/:id/delete").get(deleteRoom);
+
 
 // room/:id
 router.route("/:id").get(isAuthenticatedUser, showRoom);

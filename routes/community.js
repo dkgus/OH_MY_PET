@@ -29,7 +29,11 @@ router
   .route("/:id/edit")
   .get(showUpdateForm)
   .put(updatePost)
-  .delete(deletePost);
+
+
+//community/:id/delete
+router.route("/:id/delete").get(deletePost);
+
 
 // community/:id
 router.route("/:id").get( isAuthenticatedUser, showPost);

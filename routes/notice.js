@@ -24,7 +24,11 @@ router
   .route("/:id/edit")
   .get(showUpdateForm)
   .put(updateNotice)
-  .delete(deleteNotice);
+
+
+//notices/:id/delete
+router.route("/:id/delete").get(deleteNotice);
+
 
 // notices/:id
 router.route("/:id").get(isAuthenticatedUser, showNotice);
