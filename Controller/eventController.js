@@ -61,6 +61,7 @@ module.exports = {
   showUpdateForm: async (req, res) => {
     try {
       const event = await Event.findOne({ _id: req.params.id }, {});
+     
       res.render("event/edit", { event: event });
     } catch (err) {
       console.error(err);
@@ -72,6 +73,7 @@ module.exports = {
   updateEvent: async (req, res) => {
     try {
       await Event.findOneAndUpdate({ _id: req.params.id }, req.body, () => {
+       
         res.redirect("/event/" + req.params.id);
       });
     } catch (err) {

@@ -6,15 +6,15 @@ module.exports = {
   // @description    Show all posts
   // @route          GET /community
   showAllPosts: async (req, res) => {
-    const data = {
-      addCss : ['board'],
-      addScript : ['board'],
-    };
+    // const data = {
+    //   addCss : ['board'],
+    //   addScript : ['board'],
+    // };
     const posts = await Community.find({ user: req.user._id }).populate("user");
-    const user = await User.findOne({ _id: req.user._id }, {})
+    const user = await User.find({ _id: req.user._id }, {})
 
 
-    res.render("community/index", { data, posts, user });
+    res.render("community/index", { posts, user });
 
     },
 
@@ -22,7 +22,7 @@ module.exports = {
   // @route          GET /community/:id
   showPost: async (req, res) => {
     try {
-      const post = await Community.findOne({ _id: req.params.id }, {});
+      const post = await Community.findOne({}, {});
       res.render("community/show", { post: post });
     } catch (err) {
       console.error(err);
@@ -40,13 +40,13 @@ module.exports = {
   createPost: async (req, res) => {
     const { title, content } = req.body;
     try {
-      // validation
-      // 필수 정보를 모두 입력했는지?
-      if (!title || !content) {
-        const msg = "글 제목, 내용을 모두 입력해주세요.";
+      // // validation
+      // // 필수 정보를 모두 입력했는지?
+      if ( !title || !content) {
+        const msg = "작성자, 글 제목, 내용을 모두 입력해주세요.";
         return res.send(`<script>alert("${msg}");history.back();</script>`);
       }
-      await Community.create( { title, content });
+      await Community.create({ title, content });
       res.redirect("/community");
     } catch (err) {
       console.log(err);
