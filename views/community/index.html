@@ -6,7 +6,7 @@
   <div class='boardWrap layout_width'>
   <div class='list'>
     <ul class='top'>
-      <li class='subject'>제목 </li>
+      <li class='subject'>제목</li>
       <li class='writer'>작성자</li>
       <li class='date'>작성일</li>
     </ul>
@@ -18,7 +18,7 @@
               {{ item.title }}
             </a>
             <div class='post_info'>
-              <span class='poster'>{{ item.user.name }}</span>
+              <span class='poster'>{{ item.user }}</span>
               <span class='date'>{{ item.createdAt }}</span>
             </div>
           </li>
@@ -27,9 +27,6 @@
         <li class='noData'>게시글이 없습니다</li>
       {% endif %}
     </ul>
-
-
-    
     <div class='boardBtn'>
       <a href='/community/new'><i class="xi-pen"></i>작성</a>
     </div>

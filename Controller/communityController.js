@@ -10,8 +10,9 @@ module.exports = {
     //   addCss : ['board'],
     //   addScript : ['board'],
     // };
-    const posts = await Community.find({ user: req.user._id }).populate("user");
+    //const posts = await Community.find({ user: req.user._id }).populate("user");
     const user = await User.find({ _id: req.user._id }, {})
+    const posts = await Community.find({});
 
 
     res.render("community/index", { posts, user });
