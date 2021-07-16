@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const sendToken = require("../utils/jwtToken");
 const event = require("../models/Event");
 const community = require("../models/Community");
+const room = require("../models/Room");
 
 module.exports = {
   // @description    Show a register form
@@ -165,7 +166,8 @@ module.exports = {
   showMyPage: async (req, res) => {
     const user = await User.findOne({ _id: req.user._id }, {});
     const events = await event.find({ user: req.user._id }).populate("user");
+    const rooms = await room.find({ user: req.user._id }).populate("user");
     const posts = await community.find({ user: req.user._id }).populate("user");
-    res.render("users/mypage", { user, events, posts });
+    res.render("users/mypage", { user, events, rooms, posts });
   },
 };
