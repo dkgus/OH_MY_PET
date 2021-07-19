@@ -2,79 +2,82 @@
 <link rel="stylesheet" href="/css/room.css" />
 <div class="layout_width res_box">
     <div class="room_tit"><img src="../image/title.png">호텔 예약하기</img></div>
+
+
     <!-- reservation -->
-		<form action='/room/new' autocomplete='off' method="post">
-	        <table class="room_res_form">
-	            <tr>
-	                <td class="">
-	                    성함
-	                </td>
-	                <td>
-	                    <input type="text" name="nickname" placeholder="성함을 입력해주세요.">
-	                </td>
-	            </tr>
-	            <tr>
-	                <td class="">
-	                    연락처
-	                </td>
-	                <td>
-	                    <input type="text" name="phone" placeholder="연락처를 입력해주세요.">
-	                </td>
-	            </tr>
-	            <tr>
-	                <td class="">
-	                    이메일
-	                </td>
-	                <td>
-	                    <input type="text" name="email" placeholder="이메일을 입력해주세요">
-	                </td>
-	            </tr>
-	            <tr>
-	                <td>
-	                    호텔 이름
-	                </td>
-	                <td>
-	                    <input type="text" name="hotelName" placeholder="예약하실 호텔 이름을 입력해주세요.">
-	                </td>
-	            </tr>
-	            <tr>
-	                <td>
-	                    방 종류
-	                </td>
-	                <td>
-	                    <select name="roomType" id="">
-	                        <option value="dorm">dorm</option>
-	                        <option value="family">family</option>
-	                    </select>
-	                </td>
-	            </tr>
-	            <tr>
-	                <td>
-	                    체크인
-	                </td>
-	                <td>
-	                    <input type="text" name="revStart">
-	                </td>
-	            </tr>
-	            <tr>
-	                <td>
-	                    체크아웃
-	                </td>
-	                <td>
-	                    <input type="text" name="revEnd">
-	                </td>
-	            </tr>
-	            <tr>
-	                <td>
-	                    기타요청사항
-	                </td>
-	                <td>
-	                    <textarea name="memo" cols="30" rows="4" placeholder="기타요청사항을 입력해주세요."></textarea>
-	                </td>
-	            </tr>
-	        </table>
-	    <input type='submit' value='예약하기' class='res_btn'>
-	  </form>
+
+    <form action='/room/new' autocomplete='off' method="post">
+        <table class="room_res_form">
+            <tr>
+                <td class="">
+                    성함
+                </td>
+                <td>
+                    <input type="text" name="nickname" placeholder="성함을 입력해주세요.">
+                </td>
+            </tr>
+            <tr>
+                <td class="">
+                    연락처
+                </td>
+                <td>
+                    <input type="text" name="phone" placeholder="연락처를 입력해주세요.">
+                </td>
+            </tr>
+            <tr>
+                <td class="">
+                    이메일
+                </td>
+                <td>
+                    <input type="text" name="email" placeholder="이메일을 입력해주세요">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    호텔 이름
+                </td>
+                <td>
+                    <input type="text" name="hotelName" placeholder="예약하실 호텔 이름을 입력해주세요.">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    방 종류
+                </td>
+                <td>
+                    <select name="roomType" id="">
+                        <option value="dorm">dorm</option>
+                        <option value="family">family</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    체크인
+                </td>
+                <td>
+                    <input type="text" name="revStart">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    체크아웃
+                </td>
+                <td>
+                    <input type="text" name="revEnd">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    기타요청사항
+                </td>
+                <td>
+                    <textarea name="memo" cols="30" rows="4" placeholder="기타요청사항을 입력해주세요."></textarea>
+                </td>
+            </tr>
+        </table>
+    <input type='submit' value='예약하기' class='res_btn'>
+  </form>
 
   <!-- guide text -->
   <div class="guide_box">

@@ -10,8 +10,8 @@ module.exports = {
   // @route          GET /users/new
   showRegisterForm: (req, res) => {
 		const data = {
-			addCss : ['users'],
-		};
+         addCss : ['users'],
+      };
     res.render("users/new", data);
   },
 
@@ -54,6 +54,8 @@ module.exports = {
         return res.send(`<script>alert("${msg}");history.back();</script>`);
       }
 
+
+
       // 비밀번호 암호화
       const salt = await bcrypt.genSalt();
       const passwordHash = await bcrypt.hash(password, salt);
@@ -69,7 +71,7 @@ module.exports = {
 
       await newUser.save();
 
-      res.redirect("/users");
+      res.redirect("/users/login");
     } catch (err) {
       console.log(err);
       res.status(500).send("server error");
