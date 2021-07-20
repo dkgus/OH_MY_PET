@@ -41,7 +41,7 @@ module.exports = {
       }
 
       await Notice.create({ title, content, user: req.user._id });
-      
+
       res.redirect("/notices");
     } catch (err) {
       console.log(err);

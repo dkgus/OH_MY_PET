@@ -3,27 +3,23 @@
 {% block content %}
 <link rel="stylesheet" type="text/css" href="/css/board.css">
   <div class='form_wrap layout_width'>
-    <div class="form_box">
       <form method='post' action='/community/new' autocomplete='off'>
-        <div class='top'>
+        <div class='comTop'>
           <ul>
             <li>제목</li>
             <li>
-              <input type='text' name='title' id='subject'>
-            </li>
-            <li>
-              <input type="hidden" name="user" id='user'>
+                <input type="text" name="title">
             </li>
           </ul>
         </div>
-      	<div class="form">
+         <div class="form">
             <textarea id="content" name="content" rows="40"></textarea>
             <script> CKEDITOR.replace( 'content', { filebrowserImageUploadUrl: '../uploadIMG.jsp' }); </script>
-	      </div>
-      </div><!-- //form_box -->
+         </div>
       <div class='btnWrap'>
-        <a href=""><i class="xi-bars"></i>목록</a>
-        <input type="submit" class="creataPost" value="{{ '수정' if _id else '작성' }}" style='float: right;'>
-      </div> <!-- //btnWrap -->
+        <a href="/community"><i class="xi-bars"></i>목록</a>
+        <input type="submit" class="upload" value="작성" style='float: right;'>
+    </div> <!-- //btnWrap -->
+  </form>
   </div> <!-- //form_wrap -->
 {% endblock %}

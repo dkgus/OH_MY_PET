@@ -36,109 +36,111 @@ ul {
 }
 
 section {
-    width: 88.8%;
+    width: 88%;
     display: table;
 }
 
 nav {
-    border-radius: 10px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     border-left: 10px solid #ffaf2d;
     background: #ffaf2d;
-}
-
-.nav {
     font-size: 1.3rem;
     line-height: 2;
     padding: 20px 0;
 }
 
-.nav ul li {
+nav ul li {
     background: #ffaf2d;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-}
-
-.nav a {
     width: 100%;
     height: 100%;
     display: block;
     padding: 5px 15px 5px 20px;
     font-family: 'Cafe24Ssurround';
+    color: #fff;
 }
 
-.nav i {
+nav a {
+    font-family: 'Cafe24Ssurround';
+}
+
+nav i {
     padding-right: 10px;
     font-weight: normal;
     vertical-align: middle;
 }
 
-.nav li {
+nav li {
     position: relative;
     margin-bottom: 15px;
 }
 
-.nav li.active {
+nav li.active {
     background: #fff;
-}
-
-.nav li.active a {
     color: #ffaf2d;
 }
 
-.nav li b:nth-child(1) {
+nav li.active a {
+    color: #ffaf2d;
+}
+
+.tab-content{
+    display: none;
+}
+    
+.tab-content.current{
+    display: block;
+}
+
+nav li b:nth-child(1) {
     position: absolute;
     top: -20px;
     height: 20px;
-    width: 100%;
+    width: 91%;
     background: #fff;
     display: none;
 }
 
-.nav li b:nth-child(1)::before {
+nav li b:nth-child(1)::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 95%;
     height: 100%;
     border-bottom-right-radius: 20px;
     background: #ffaf2d;
 }
 
-.nav li b:nth-child(2) {
+nav li b:nth-child(2) {
     position: absolute;
     bottom: -20px;
     height: 20px;
-    width: 100%;
+    width: 91%;
     background: #fff;
     display: none;
 }
 
-.nav li b:nth-child(2)::before {
+nav li b:nth-child(2)::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 95%;
     height: 100%;
     border-top-right-radius: 20px;
     background: #ffaf2d;
 }
 
-.nav li.active b:nth-child(1),
-.nav li.active b:nth-child(2) {
+nav li.active b:nth-child(1),
+nav li.active b:nth-child(2) {
     display: block;
 }
 
 .content {
-    display: table-cell;
-    vertical-align: middle;
-    width: 100%;
-    height: 100%;
-}
-
-.content.user {
-    padding: 20px;
+    padding: 10px;
 }
 
 /**공통 속성 E**/

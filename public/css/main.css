@@ -195,12 +195,19 @@ nav .icon_menu .search {
 /* body_hotel E*/
 
 /* body_board S */
-.board .notice_box,
-.board .cummunity_box {
-  display: inline-block;
-  width: 500px;
-  text-align: center;
+.board {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+.board table {
+  border-spacing: 12px;
+}
+
+.board table td:nth-child(2n-1) {
+  width: 300px;
+}
+
 /* body_board E */
 /* body E */
 

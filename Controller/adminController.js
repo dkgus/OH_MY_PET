@@ -3,16 +3,18 @@ const bcrypt = require("bcrypt");
 const sendToken = require("../utils/jwtToken");
 const Community = require("../models/Community");
 const Event = require("../models/Event");
-const Room = require('../models/Room');
-
+const Room = require("../models/Room");
 
 module.exports = {
   // @description    Show a admin Login form
   // @route          GET /admin
   showLoginForm: (req, res) => {
-   res.render("admin/login");
-  },
+    const data = {
+      addCss: ["admin"],
+    };
 
+    return res.render("admin/login", data);
+  },
 
   // @description    admin Login
   // @route          POST /admin
@@ -46,7 +48,6 @@ module.exports = {
     sendToken(user, res);
   },
 
-
   // @description    adminLogout
   // @route          GET /admin/logout
   logoutUser: async (req, res) => {
@@ -54,56 +55,7 @@ module.exports = {
       expires: new Date(Date.now()),
       httpOnly: true,
     });
-  
+
     res.redirect("/");
   },
-
-
-
-
-
-  //only for delete Controller 
-
-
-
-  // @description    Delete a post
-  // @route          DELETE /admin/community/:id/edit
-  deletePost: async (req, res) => {
-    try {
-      await Community.deleteOne({ _id: req.params.id }, () => {
-        res.redirect("/admin/community");
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  },
-
-
-  
-  // @description    Delete a event
-  // @route          DELETE admin/event/:id/edit
-  deleteEvent: async (req, res) => {
-    try {
-      await Event.deleteOne({ _id: req.params.id }, () => {
-        res.redirect("/admin/event");
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  },
-
-
-  // @description    Delete a room
-  // @route          DELETE admin/room/:id/edit
-  deleteRoom: async (req, res) => {
-    try {
-      await Room.deleteOne({ _id: req.params.id }, () => {
-        res.redirect("/admin/room");
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  },
-
-
 };

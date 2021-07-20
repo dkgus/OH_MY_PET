@@ -23,15 +23,18 @@ router.route("/new").get(showCreateForm).post(isAuthenticatedUser, createEvent);
 
 
 
-// event/:id/edit
+// event/:id/edit(update)
 router
 .route("/:id/edit")
 .get(showUpdateForm)
-.put(updateEvent)
-.delete(deleteEvent);
+.post(updateEvent)
+
+
+//event/:id/delete
+router.route("/:id/delete").get(deleteEvent);
+
 
 // event/:id
 router.route("/:id").get(isAuthenticatedUser,showEvent);
 
 module.exports = router;
-  

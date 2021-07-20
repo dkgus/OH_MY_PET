@@ -1,0 +1,27 @@
+{% extends '../layout.html' %}
+<!-- 이벤트 예약 상세보기 -->
+{% block content %}
+{%set title="이벤트 예약 상세보기"%}
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/event.css">
+      <div class='event_detail layout_width'>
+         <div class='event_detail_top border_title'>
+         <a href="/event"><i class='xi-angle-left'></i></a> 예약 상세 현황
+         </div>
+         <form method="post" action="/event/{{ event._id }}/edit" autocomplete="off">
+
+            <div class='event_detail_mid'>
+            <div class='event_detail_box box1'>
+               <img src='/image/evres.jpg'>
+               </div>
+               <table>
+               <tr>
+                  <td class='pad'>이벤트명</td>
+                  <td><input type='text' name='eventNm' value='{{ event.eventNm }}'></td>
+               </tr>
+               </table>
+            </div>
+            <input type="submit" value="이벤트 수정">
+            </form>
+      </div>
+{% endblock %}

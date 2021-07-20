@@ -26,7 +26,7 @@ module.exports = {
     }
   },
 
-  
+
 
   // @description    Show hotel list
   // @route          GET /room/list

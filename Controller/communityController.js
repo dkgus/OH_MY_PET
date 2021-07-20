@@ -1,18 +1,22 @@
 const Community = require("../models/Community");
+const User = require("../models/User");
+
 
 module.exports = {
   // @description    Show all posts
   // @route          GET /community
   showAllPosts: async (req, res) => {
-    const data = {
-      addCss : ['board'],
-      addScript : ['board'],
-    };
-    await Community.find({})
-      .sort({ createdAt: -1 })
-      .exec((err, posts) => {
-        res.render("community/index", { data, posts });
-      });
+    // const data = {
+    //   addCss : ['board'],
+    //   addScript : ['board'],
+    // };
+    //const posts = await Community.find({ user: req.user._id }).populate("user");
+    const user = await User.find({ _id: req.user._id }, {})
+    const posts = await Community.find({})
+    .sort({ createdAt: -1 })
+    ;
+
+    res.render("community/index", { posts, user });
 
     },
 
@@ -33,15 +37,15 @@ module.exports = {
     await res.render("community/new");
   },
 
-  // @description    Create a new notice
+  // @description    Create a new post
   // @route          POST /community/new
   createPost: async (req, res) => {
-    const { user, title, content } = req.body;
+    const { title, content } = req.body;
     try {
-      // validation
-      // 필수 정보를 모두 입력했는지?
-      if (!title || !content) {
-        const msg = "글 제목, 내용을 모두 입력해주세요.";
+      // // validation
+      // // 필수 정보를 모두 입력했는지?
+      if ( !title || !content) {
+        const msg = "작성자, 글 제목, 내용을 모두 입력해주세요.";
         return res.send(`<script>alert("${msg}");history.back();</script>`);
       }
       await Community.create({ title, content });
@@ -63,7 +67,7 @@ module.exports = {
     }
   },
 
-  // @description    Update a user
+  // @description    Update a post
   // @route          PUT /community/:id/edit
   updatePost: async (req, res) => {
     try {
@@ -75,7 +79,7 @@ module.exports = {
     }
   },
 
-  // @description    Delete a user
+  // @description    Delete a post
   // @route          DELETE /community/:id/edit
   deletePost: async (req, res) => {
     try {
