@@ -12,6 +12,7 @@ router.get("/", async function(req, res){
     const token = req.cookies.token;
 
     res.render("main/index", { posts, notices, token });
+
    
 });
 

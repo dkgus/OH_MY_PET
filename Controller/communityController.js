@@ -12,7 +12,7 @@ module.exports = {
     // };
     //const posts = await Community.find({ user: req.user._id }).populate("user");
     const user = await User.find({ _id: req.user._id }, {})
-    const posts = await Community.find({});
+    const posts = await Community.find({}).sort({ createAt: -1} );
 
 
     res.render("community/index", { posts, user });
@@ -23,7 +23,7 @@ module.exports = {
   // @route          GET /community/:id
   showPost: async (req, res) => {
     try {
-      const post = await Community.findOne({}, {});
+      const post = await Community.findOne({ _id :req.params.id }, {});
       res.render("community/show", { post: post });
     } catch (err) {
       console.error(err);

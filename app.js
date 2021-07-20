@@ -4,10 +4,10 @@ const port = 4646;
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
+const methodOverride =require('method-override');
 const nunjucks = require("nunjucks");
 const path = require("path");
 const cookieParser = require("cookie-parser");
-
 
 // routes
 const indexRouter = require('./routes');
@@ -50,6 +50,7 @@ mongoose
   .catch((err) => console.log(err));
 
 
+app.use(methodOverride('_method'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
