@@ -14,6 +14,8 @@ module.exports = {
     const user = await User.find({ _id: req.user._id }, {})
     const posts = await Community.find({})
     .sort({ createdAt: -1 })
+    .skip((1-1)*10) //skip((n-1)*10)에서 n이 1페이지, 2페이지가 될텐데 처리를 어떻게 해야하노...
+    .limit(10)
     ;
 
     res.render("community/index", { posts, user });

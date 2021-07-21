@@ -30,7 +30,15 @@
     </div>
   </div> <!--//list-->
     <div class='pagination'>
-
+      {% set pagination = [
+        { 'name': '1' , 'url': 'notices?page=1' },
+        { 'name': '2' , 'url': 'notices?page=2' },
+        { 'name': '3' , 'url': 'notices?page=3' }
+      ] %}
+      
+      {% for item in pagination %}
+      <a href={{item.url}}>{{item.name}}</a>
+      {% endfor %}
 	  </div> <!--//pagination-->
     <div class='searchBox'>
       <form method="get" action="?" autocomplete="off">

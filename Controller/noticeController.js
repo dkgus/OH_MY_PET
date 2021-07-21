@@ -6,6 +6,8 @@ module.exports = {
   showAllNotices: async (req, res) => {
     await Notice.find({})
       .sort({ createdAt: -1 })
+      .limit(10)
+      .skip((1-1)*10)
       .exec((err, notices) => {
         res.render("notices/index", { notices: notices });
       });

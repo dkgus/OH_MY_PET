@@ -2,7 +2,7 @@
 {%set title="{{ post.title }}"%}
 {% block content %}
 <link rel="stylesheet" type="text/css" href="/css/board.css">
-<script type='text/babel' src='/js/community.js'></script>
+<script type='text/babel' src='/js/community.js' defer></script>
   <div class="boardTitle layout_width"><img src="image/title.png">community</img></div>
   <div class='boardWrap layout_width'>
     <div class='post'>
@@ -14,14 +14,18 @@
         </dl>
       </div> <!-- //info -->
       <div class='content'>
-        {{ post.content }}
+        {{ post.content | safe }}
       </div>
       <div class='comment'> <!-- 댓글 목록 구역-->
-        흠
+        {% block comment %}
+        {% include "community/comment.html" %}
+        {% endblock %}
       </div> <!-- //comment -->
-      <div class='myComment'> <!-- 댓글 작성 구역 -->
-        <textarea class='comContent' name="new_comment"></textarea>
-        <button type="submit" onclick="subimtComment()">등록</button>
+      <div> <!-- 댓글 작성 구역 -->
+        <form action="post" action="/community/{{ post._id }}" class='myComment'>
+          <textarea class='comContent' name="content"></textarea>
+          <button type="submit">등록</button>
+        </form>
       </div> <!--//myComment-->
     </div> <!--//post-->
     <div class='buttonWrap'>

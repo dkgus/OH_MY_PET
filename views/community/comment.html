@@ -1,0 +1,19 @@
+{% if comments.length > 0 %}
+<link rel="stylesheet" type="text/css" href="/css/board.css">
+<ul class='comList'>
+	{% for item in comments %}
+	<li class='comWrap' id='comment_{{ item._id }}'>
+		<div class='comInfo'>
+			<div class='poster'>{{ item.user }}</div>
+			<div class='date'>{{ item.createdAt }}</div>
+		</div>
+		<div class='comment'>{{ item.content | safe }}</div>
+		<div class='comBtn'>
+            <a href='/comment_{{ item._id }}/edit'><i class="xi-wrench"></i>수정</a>
+            <a href='/comment_{{ item._id }}/delete' onclick="if(!confirm('삭제 하시겠습니까?')){return false;}"><i class="xi-trash"></i>삭제</a>
+		</div>
+	</li>
+    {% endfor %}
+    {% else %}
+</ul>
+{% endif %}
