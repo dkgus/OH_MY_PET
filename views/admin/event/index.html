@@ -3,29 +3,32 @@
 <!-- admin page layout -->
 
 {% block content %}
-
+<link rel="stylesheet" type="text/css" href="/css/admin/admin.css" />
 <!-- confirm event res. -->
-<div>EVENT RESERVATION LIST</div>
-<!-- DELETE METHOD -->
-<table>
-  <thead>
-    <tr>
-      <td>event name</td>
-      <td>user email</td>
-      <td>delete</td>
-    </tr>
-  </thead>
-  <tbody>
-    {% for item in events %}
-    <tr>
-      <td>{{ item.eventNm }}</td>
-      <td>{{ item.user.email }}</td>
-      <td>
-        <button onclick="deleteEvent();">DELETE</button>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-
+<div class="layout_width">
+  <div class="title">EVENT RESERVATION LIST</div>
+  <!-- DELETE METHOD -->
+  <table>
+    <thead>
+      <tr>
+        <td>event name</td>
+        <td>user email</td>
+        <td>res. time</td>
+        <td>delete</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in events %}
+      <tr>
+        <td>{{ item.eventNm }}</td>
+        <td>{{ item.user.email }}</td>
+        <td>{{ item.createdAt }}</td>
+        <td>
+          <button onclick="deleteEvent();">DELETE</button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock %}
