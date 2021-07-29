@@ -4,7 +4,7 @@ const communitySchema = new mongoose.Schema({
   // 글쓴이 식별용 user id
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    required: true,
+    //required: false,
     ref: "User",
   },
 

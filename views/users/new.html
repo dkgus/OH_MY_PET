@@ -1,15 +1,13 @@
 {% extends '../layout.html' %}
-
-<!-- 회원 가입-->
 {% block content %}
-<link rel="stylesheet" href="/css/users.css" />
+{%set title="회원가입"%}
    <div class='user_box layout_width'>
       <div class='user_title'>회원가입</div>
          <form method='post' action='/users/new' autocomplete='off' class='join_form'>
             <dl>
                <dt>이름</dt>
                <dd class='pad'>
-                  <input type='text' name='name' placeholder='닉네임을 입력해주세요.'>
+                  <input type='text' name='name' placeholder='이름을 입력해주세요.'>
                </dd>
             </dl>
             <dl>

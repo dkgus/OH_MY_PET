@@ -1,26 +1,36 @@
 {% extends '../layout.html' %}
+<!-- 이벤트 전체보기 -->
 {% block content %}
-<link rel="stylesheet" href="/css/event.css" />
+{%set title="이벤트 예약 전체보기"%}
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/event.css">
 	<div class='event_box layout_width'>
-		<div class='Event_title'>행사</div>
+		<div class='Event_title border_title'><a href='/users/mypage'><i class='xi-angle-left'></i></a> 이벤트 예약 전체보기</div>
+
 		<div class='Event_banner_wrap'>
-			<div class='banner_coentent'>
-				<a href='#'><img src='image/event1.jpg'></a>
-			</div>
-			<div class='Event_text_wrap'>
-				<div class='banner_etc'>
-					<div class='banner_subject'>
-						<!-- keeping 클래스 추가시 진행중 -->
-						<div class='keeping-box keeping'>
-						<span>진행중</span>
-						</div>
-						<span>{{ eventNm }}</span>
-					</div><!--//banner_subject-->
-				</div><!--//banner_etc-->
-				<div class='banner_date'>
-					<span>{{ eventNo }}</span>
-				</div>
+				<table class='styled-table'>
+					<thead>
+						<th>
+							이벤트 명
+						</th>
+						<th>
+							예약자 성함
+						</th>
+						<th>
+							예약자 연락처
+						</th>
+					</thead>
+					<tbody>
+						{% for item in events %}
+							<tr>
+							<td><a href="event/{{item._id}}">{{ item.eventNm }}</a></td>
+							<td><a href="event/{{item._id}}">{{user.nickname}}</a></td>
+							<td><a href="event/{{item._id}}">{{user.phone}}</a></td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
 			</div><!--//Event_text_wrap-->
-		</div><!--//Event_banner_wrap-->
+
 	</div><!--//Event_box-->
 {% endblock %}

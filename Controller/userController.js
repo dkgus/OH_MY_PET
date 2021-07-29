@@ -3,31 +3,17 @@ const bcrypt = require("bcrypt");
 const sendToken = require("../utils/jwtToken");
 const event = require("../models/Event");
 const community = require("../models/Community");
+const room = require("../models/Room");
 
 module.exports = {
-  // @description    Show all users
-  // @route          GET /users
-  showAllUsers: async (req, res) => {
-    const users = await User.find({}).sort({ username: 1 });
-    res.render("users/index", { users: users });
-  },
-
-  // @description    Show a user
-  // @route          GET /users/:id
-  showUser: async (req, res) => {
-    try {
-      const user = await User.findOne({ _id: req.params.id }, {});
-      res.render("users/show", { user });
-      console.log(user);
-    } catch (err) {
-      console.error(err);
-    }
-  },
 
   // @description    Show a register form
   // @route          GET /users/new
   showRegisterForm: (req, res) => {
-    res.render("users/new");
+		const data = {
+			addCss : ['users'],
+		};
+    res.render("users/new", data);
   },
 
   // @description    Register a User
@@ -104,6 +90,8 @@ module.exports = {
 
   // @description    Update a user
   // @route          PUT /users/:id/edit
+  // 회원수정
+
   updateUser: async (req, res) => {
     try {
       await User.findOneAndUpdate({ _id: req.params.id }, req.body);
@@ -112,6 +100,8 @@ module.exports = {
       console.error(err);
     }
   },
+
+
 
   // @description    Delete a user
   // @route          DELETE /users/:id/edit
@@ -181,8 +171,9 @@ module.exports = {
   // @route          GET /users/mypage
   showMyPage: async (req, res) => {
     const user = await User.findOne({ _id: req.user._id }, {});
-    const events = await event.find({ user: req.user._id }).populate("user");
+    const events = await event.find({ user: req.user._id }).sort({ createdAt: -1 }).populate("user");
     const posts = await community.find({ user: req.user._id }).populate("user");
-    res.render("users/mypage", { user, events, posts });
+		const rooms = await room.find({ user: req.user._id }).populate("user");
+    res.render("users/mypage", { user, events, posts, rooms });
   },
 };

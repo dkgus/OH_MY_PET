@@ -1,20 +1,38 @@
 /* body_common S */
 .box_title {
+  font-family: Cafe24Ssurround;
   position: relative;
   font-size: 2rem;
   text-align: center;
-  margin-top: 150px;
+  margin-top: 120px;
   font-weight: 700;
   color: #ffaf2d;
 }
 
 .subtitle {
   position: relative;
-  font-size: 1.125rem;
+  font-size: 1.3rem;
   text-align: center;
-  margin-top: 25px;
-  padding-top: 25px;
+  margin-top: 15px;
+}
+
+.list_sort {
+  color: #656565;
+  display: inline-block;
+  margin: 16px 0 5px 0;
+  padding-bottom: 7px;
+  border-bottom: 3px solid #ffaf2d;
+}
+
+.list_name {
+  font-size: 1.5rem;
+  font-weight: 700;
   line-height: 32px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -2px;
+  margin-top: 0;
 }
 /* body_common E */
 
@@ -31,7 +49,7 @@
 
 .user_menu nav a {
   position: relative;
-  font-size: 0.875rem;
+  font-size: 1rem;
   margin-left: 32px;
 }
 
@@ -52,6 +70,12 @@
   display: none;
 }
 /* body_user E */
+
+/* body_banner S */
+.main_banner img {
+  width: 1100px;
+}
+/* body_banner S */
 
 /* body_menu S */
 nav .gnb {
@@ -112,6 +136,7 @@ nav .icon_menu .search {
 /* body_banner E */
 
 /* body_display S */
+
 .event_display .s_event_box {
   margin: 55px -9px 0 -9px;
 }
@@ -125,22 +150,21 @@ nav .icon_menu .search {
 .event_display .s_event_box .s_event_list {
   float: left;
   width: 354px;
-  margin: 0 9px 40px 9px;
+  margin: 0 9px 10px 9px;
 }
 
 .event_display .s_event_box .s_event_list a {
   overflow: hidden;
   width: 355px;
-  height: 268px;
   position: relative;
   text-align: center;
 }
 
 .event_display .event_more {
-  font-size: 1rem;
+  font-size: 1.2rem;
   float: right;
-  margin-top: 50px;
 }
+
 /* body_display E*/
 
 /* body_hotel S */
@@ -163,37 +187,27 @@ nav .icon_menu .search {
 .hotel .hotel_box .hotel_list a img {
   overflow: hidden;
   width: 354px;
+  height: 236px;
   position: relative;
   text-align: center;
 }
 
-.hotel .hotel_box .hotel_list a .hotel_sort {
-  color: #656565;
-  display: inline-block;
-  margin: 22px 0 10px 0;
-  padding-bottom: 7px;
-  border-bottom: 2px solid #ffaf2d;
-}
-
-.hotel .hotel_box .hotel_list a .hotel_title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 32px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  letter-spacing: -2px;
-  margin-top: 0;
-}
 /* body_hotel E*/
 
 /* body_board S */
-.board .notice_box,
-.board .cummunity_box {
-  display: inline-block;
-  width: 500px;
-  text-align: center;
+.board {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+.board table {
+  border-spacing: 12px;
+}
+
+.board table td:nth-child(2n-1) {
+  width: 300px;
+}
+
 /* body_board E */
 /* body E */
 

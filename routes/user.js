@@ -3,8 +3,8 @@ const router = express.Router();
 const { isAuthenticatedUser } = require("../utils/auth");
 
 const {
-  showAllUsers,
-  showUser,
+  //showAllUsers,
+  //showUser,
   showRegisterForm,
   registerUser,
   showUpdateForm,
@@ -18,44 +18,22 @@ const {
 } = require("../controller/userController");
 
 // users/
-router.route("/")
-      .get(showAllUsers, async (req, res, next) => {
-        const data = {
-          addCss : ['users'],
-          addScript : ['users'],
-        };
-        return res.render('users/', data);
-      });
+//router.route("/").get(showAllUsers);
 
 // users/new
-router.route("/new")
-      .get(showRegisterForm, async (req, res, next) => {
-        const data = {
-          addCss : ['users'],
-          addScript : ['users'],
-        };
-        return res.render('users/new', data);
-      })
-      .post(registerUser);
+router.route("/new").get(showRegisterForm).post(registerUser);
 
 // users/login
-router.route("/login")
-      .get(showLoginForm)
-      .post(loginUser);
+router.route("/login").get(showLoginForm).post(loginUser);
 
 // users/logout
-router.route("/logout")
-      .get(logoutUser);
+router.route("/logout").get(logoutUser);
 
 // users/mypage
-router.route("/mypage")
-      .get(isAuthenticatedUser, showMyPage);
+router.route("/mypage").get(isAuthenticatedUser, showMyPage);
 
 // users/:id/edit
-router.route("/:id")
-      .get(showUpdateForm)
-      .post(updateUser)
-      .delete(deleteUser);
+router.route("/:id").get(showUpdateForm).post(updateUser).delete(deleteUser);
 
 // users/:id
 // router.route("/:id").get(showUser);

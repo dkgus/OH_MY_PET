@@ -1,43 +1,43 @@
-<link rel="stylesheet" href="/css/main.css" />  
-  <div class="header_box layout_width">
-    <!--user menu start-->
-    <div class="user_menu">
-      <nav>
-      {% if loginUser %}
-        <a href="/users/show">마이페이지</a>
-        <a href="/users/logout">로그아웃</a>
+<link rel="stylesheet" href="/css/main.css" />
+<div class="header_box layout_width">
+  <!--user menu start-->
+  <div class="user_menu">
+    <nav>
+      {% if token %}
+      <a href="/users/mypage">마이페이지</a>
+      <a href="/users/logout">로그아웃</a>
       {% else %}
-        <a href="/users/login">로그인</a>
-        <a href="/users/new">회원가입</a>
+      <a href="/users/login">로그인</a>
+      <a href="/users/new">회원가입</a>
       {% endif %}
-      </nav>
-    </div>
-    <!--user menu end-->
+    </nav>
   </div>
-  <!--main menu start-->
-  <nav>
-    <div class="gnb">
-      <div class="inner layout_width">
-        <ul class="main_menu">
-          <li>
-            <span class="all_category">
-              <a href="/">
+  <!--user menu end-->
+</div>
+<!--main menu start-->
+<nav>
+  <div class="gnb">
+    <div class="inner layout_width">
+      <ul class="main_menu">
+        <li>
+          <span class="all_category">
+            <a href="/">
               <i class="xi-emoticon-smiley-o"></i>
               Logo
-              </a> <!--수정하다가 이동 좀 편하게 하려고 a태그 추가 나중에 희영 언니 확인하면 지워도 돼!!-->
-            </span>
-          </li>
-          <li><a href="/community">커뮤니티</a></li>
-          <li><a href="/event">행사</a></li>
-          <li><a href="/room">호텔예약</a></li>
-          <li><a href="/notices">공지사항</a></li>
-        </ul>
-        <div class="icon_menu">
-          <a href="#">
-            <i calss="xi-search"></i>
-          </a>
-        </div>
+            </a>
+          </span>
+        </li>
+        <li><a href="/community">커뮤니티</a></li>
+        <li><a href="/notices">행사 및 공지</a></li>
+        <li><a href="/room/list">호텔예약</a></li>
+        <li><a href="/users/mypage">마이페이지</a></li>
+      </ul>
+      <div class="icon_menu">
+        <a href="#">
+          <i calss="xi-search"></i>
+        </a>
       </div>
     </div>
-  </nav>
-  <!-- main menu end -->
+  </div>
+</nav>
+<!-- main menu end -->

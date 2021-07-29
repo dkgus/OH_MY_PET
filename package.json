@@ -25,6 +25,7 @@
     "express-session": "^1.17.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.2",
+    "mongoose-aggregate-paginate-v2": "^1.0.42",
     "morgan": "^1.10.0",
     "nunjucks": "^3.2.3",
     "pm2": "^5.1.0"
