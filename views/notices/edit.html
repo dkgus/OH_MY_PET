@@ -3,12 +3,12 @@
 {% block content %}
 <link rel="stylesheet" type="text/css" href="/css/board.css">
   <div class='form_wrap layout_width'>
-    <form method='post' action='/notices/new' autocomplete='off'>
+    <form method='post' action='/notices/{{ notice._id }}/edit' autocomplete='off'>
         <div class='top'>
           <ul>
             <li>제목</li>
             <li>
-              <input type='text' name='title' id='subject'>
+              <input type='text' name='title' value='{{ notice.title }}'>
             </li>
             <li>읽기 권한</li>
             <li>
@@ -22,12 +22,12 @@
           </ul>
         </div>
       	<div class="form">
-            <textarea id="content" name="content" rows="40"></textarea>
+            <textarea id="content" name="content" rows="40">{{ notice.content }}</textarea>
             <script> CKEDITOR.replace( 'content', { filebrowserImageUploadUrl: '../uploadIMG.jsp' }); </script>
 	      </div>
       <div class='btnWrap'>
         <a href="/notices"><i class="xi-bars"></i>목록</a>
-        <input type="submit" class="upload" value="작성">
+        <input type="submit" class="upload" value="수정" style='float: right;'>
       </div> <!-- //btnWrap -->
     </form>
   </div> <!-- //form_wrap -->
