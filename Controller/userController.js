@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const sendToken = require("../utils/jwtToken");
 const event = require("../models/Event");
 const community = require("../models/Community");
-const room = require('../models/Room');
+const Room = require('../models/Room');
 
 
 module.exports = {
@@ -11,7 +11,10 @@ module.exports = {
   // @description    Show a register form
   // @route          GET /users/new
   showRegisterForm: (req, res) => {
-    res.render("users/new");
+    const data = {
+			addCss : ['users'],
+		};
+    res.render("users/new", data);
   },
 
   // @description    Register a User
@@ -150,9 +153,14 @@ module.exports = {
       return res.send(`<script>alert("${msg}");history.back();</script>`);
     }
 
-    //sendToken(user,token, res.redirect("/"));
-    res.cookie("token")
-    res.redirect("/");
+    //sendToken(user, res);
+    //sendToken(user, res.cookie("token",token).redirect("/"));
+    
+
+
+    sendToken(user, res);
+
+    //res.cookie("token").redirect("/");
   },
 
   // @description    Logout
@@ -174,7 +182,7 @@ module.exports = {
   showMyPage: async (req, res) => {
     const user = await User.findOne({ _id: req.user._id }, {});
     const events = await event.find({ user: req.user._id }).populate("user");
-    const rooms = await room.find({ user: req.user._id }).populate("user");
+    const rooms = await Room.find({ user: req.user._id }).populate("user");
     const posts = await community.find({ user: req.user._id }).populate("user");
     res.render("users/mypage", { user, events, rooms, posts });
   },

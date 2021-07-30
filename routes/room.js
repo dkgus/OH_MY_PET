@@ -15,7 +15,7 @@ const {
 } = require("../controller/roomController");
 
 // room/
-router.route("/").get(showAllRooms);
+router.route("/").get(isAuthenticatedUser, showAllRooms);
 
 // room/new
 router.route("/new").get(showCreateForm).post(isAuthenticatedUser, createRoom);

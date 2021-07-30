@@ -1,0 +1,291 @@
+/**공통 속성 S**/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700;900&display=swap');
+
+@font-face {
+  font-family: 'Cafe24Ssurround';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+  font-size: 13px;
+  padding: 0;
+  margin: 0;
+  min-height: 97vh;
+  display: flex;
+  flex-grow: 1;
+  margin: 10px 15px;
+}
+
+a {
+  text-decoration: none;
+  color: #FFF;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+section {
+    width: 88%;
+    display: table;
+}
+
+nav {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-left: 10px solid #ffaf2d;
+    background: #ffaf2d;
+    font-size: 1.3rem;
+    line-height: 2;
+    padding: 20px 0;
+}
+
+nav ul li {
+    background: #ffaf2d;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 5px 15px 5px 20px;
+    font-family: 'Cafe24Ssurround';
+    color: #fff;
+}
+
+nav a {
+    font-family: 'Cafe24Ssurround';
+}
+
+nav i {
+    padding-right: 10px;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+nav li {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+nav li.active {
+    background: #fff;
+    color: #ffaf2d;
+}
+
+nav li.active a {
+    color: #ffaf2d;
+}
+
+.tab-content{
+    display: none;
+}
+    
+.tab-content.current{
+    display: block;
+}
+
+nav li b:nth-child(1) {
+    position: absolute;
+    top: -20px;
+    height: 20px;
+    width: 91%;
+    background: #fff;
+    display: none;
+}
+
+nav li b:nth-child(1)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 95%;
+    height: 100%;
+    border-bottom-right-radius: 20px;
+    background: #ffaf2d;
+}
+
+nav li b:nth-child(2) {
+    position: absolute;
+    bottom: -20px;
+    height: 20px;
+    width: 91%;
+    background: #fff;
+    display: none;
+}
+
+nav li b:nth-child(2)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 95%;
+    height: 100%;
+    border-top-right-radius: 20px;
+    background: #ffaf2d;
+}
+
+nav li.active b:nth-child(1),
+nav li.active b:nth-child(2) {
+    display: block;
+}
+
+.content {
+    padding: 10px;
+}
+
+.title {
+  font-family: "Cafe24Ssurround";
+  color: #ffaf2d;
+  font-size: 1.6rem;
+  padding-bottom: 20px;
+}
+/**공통 속성 E**/
+
+/* loginAdmin */
+.loginBox {
+    text-align: center;
+    right: calc(100% / 2 - 190px);
+    top: calc(100% / 2 - 100px);
+    position: absolute;
+}
+
+.loginBox .loginTitle {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #ffaf2d;
+    margin-bottom: 10px;
+    font-family: 'Cafe24Ssurround';
+}
+
+.loginBox input[type='email'] {
+    margin-bottom: 5px;
+    border: none;
+    border-bottom: 1px solid #585858;
+}
+
+.loginBox input[type='password'] {
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #585858;
+}
+
+input::placeholder {
+    color: #585858;
+    text-align: center;
+}
+
+.loginBox input[type='submit'] {
+    font-family: 'Cafe24Ssurround';
+    border: none;
+    background: #ffaf2d;
+    color: #fff;
+    padding: 10px 50px;
+    font-size: 1.3rem;
+    border-radius: 10px;
+}
+
+/* userAdimn */
+.userAdmin ul {
+    padding: 5px 10px;
+}
+
+.userAdmin input[type='checkbox'] {
+    display: inline-block;
+}
+
+.userAdmin ul li {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.userAdmin .select { width: 3%; }
+.userAdmin .name { width: 8%; }
+.userAdmin .nickname { width: 17%; }
+.userAdmin .email { width: 15%; }
+.userAdmin .phone { width: 15%; }
+.userAdmin .grade { width: 13%; border: none; }
+.userAdmin .type { width: 13%; }
+.userAdmin .regDate { width: 13%; }
+
+.userAdmin .top {
+  background-color: #ffaf2d;
+  color: #fff;
+  font-weight: bold;
+  width: 100%;
+}
+
+.userAdmin .bottom {
+  border-bottom: 1px solid #999;
+  width: 100%;
+}
+
+.userAdmin .bottom li {
+  line-height: 1.5;
+  margin: 5px 0;
+}
+
+.userBtn button {
+    border: none;
+    background: #585858;
+    border-radius: 15px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    color: #fff;
+    font-weight: 600;
+    float: right;
+    margin-left: 10px;
+}
+
+.userBtn:after {
+    clear: right;
+    display: block;
+    content: "";
+}
+
+/* admin by 희영 S */
+  table {
+    border-spacing: 10px;
+    font-size: 1.4rem;
+    color: #585858;
+  }
+  
+  table {
+    border-collapse: collapse;
+    font-size: 15px;
+    min-width: 400px;
+    width: 1050px;
+  }
+  
+  table thead tr {
+    background-color: #ffaf2d;
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  table tbody tr {
+    text-align: center;
+  }
+  
+  table th,
+  table td {
+    padding: 12px 15px;
+  }
+  
+  table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+/* admin by 희영 E */

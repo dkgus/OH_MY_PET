@@ -1,4 +1,5 @@
 const Room = require('../models/Room');
+const User = require("../models/User");
 
 
 
@@ -6,11 +7,13 @@ module.exports = {
   // @description    Show all rooms
   // @route          GET /room
   showAllRooms: async (req, res) => {
-    await Room.find({})//이쯤에서.populate(참조가 필요한 document이름)-> exec
-      .sort({ createdAt: -1 })
-      .exec((err, rooms) => {
-        res.render("room/index", { rooms: rooms });
-      });
+    const rooms = await Room.find({ user: req.user._id }).populate("user");
+    const user = await User.findOne({ _id: req.user._id }, {})
+    
+    res.render("room/index", { rooms, user});
+      // .sort({ createdAt: -1 })
+      // .exec((err, rooms) => {
+      // });
   },
 
   // @description    Show a room

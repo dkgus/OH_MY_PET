@@ -1,3 +1,4 @@
+  
 {% extends '../layout.html' %} {% block content %}
 <link rel="stylesheet" href="/css/main.css" />
 <main>
@@ -8,15 +9,6 @@
   <!--main benner end-->
 
   <!--event start-->
-  {% if token %}
-  <a href="users/logout">로그아웃</a>
-  <a href="users/mypage">마이페이지</a>
-
-  {% else %}
-  <a href="users/new">회원가입</a>
-  <a href="users/login">로그인</a>
-  {% endif %}
-
   <section class="event_display">
     <div class="inner layout_width">
       <div class="box_title">행사목록</div>
@@ -80,34 +72,43 @@
     </ul>
   </article>
   <!--hotel list end-->
-
-  <!-- board start -->
   <div class="layout_width">
     <div class="board">
-      <!--공지사항 게시판-->
+      <!-- notices -->
       <div class="notice_box">
         <div class="box_title">공지사항</div>
-        <div class="notice_list">
-          <ul>
-            {% for item in notices %} 
-            {% if loop.revindex0 <= 5 %}
-            <li>{{ item.title }} {{ item.createdAt }}</li>
-            {% endif %} 
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-
-      <!--커뮤니티 게시판-->
-      <div class="cummunity_box">
-        <div class="box_title">커뮤니티</div>
-        <div class="cummunity_list">
-          <ul>
-            {% for item in posts %} {% if loop.revindex0 <= 5 %}
-            <li>{{ item.title }} {{ item.createdAt }}</li>
+        <table>
+          <thead>
+            <th>제목</th>
+            <th>작성일</th>
+          </thead>
+          <tbody>
+            {% for item in notices %} {% if loop.revindex0 <= 4 %}
+            <tr>
+              <td><a href="notices/{{item._id}}">{{ item.title }}</a></td>
+              <td><a href="notices/{{item._id}}">{{ item.createdAt }}</a></td>
+            </tr>
             {% endif %} {% endfor %}
-          </ul>
-        </div>
+          </tbody>
+        </table>
+      </div>
+      <!-- community -->
+      <div class="community_box">
+        <div class="box_title">커뮤니티</div>
+        <table>
+          <thead>
+            <th>제목</th>
+            <th>작성일</th>
+          </thead>
+          <tbody>
+            {% for item in posts %} {% if loop.revindex0 <= 4 %}
+            <tr>
+              <td><a href="community/{{item._id}}">{{ item.title }}</a></td>
+              <td><a href="community/{{item._id}}">{{ item.createdAt }}</a></td>
+            </tr>
+            {% endif %} {% endfor %}
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

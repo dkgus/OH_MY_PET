@@ -1,3 +1,4 @@
+  
 {% extends '../layout.html' %}
 <!-- 이벤트 예약 상세보기 -->
 {% block content %}
@@ -9,7 +10,7 @@
          <a href="/event"><i class='xi-angle-left'></i></a> 예약 상세 현황
          </div>
          <form method="post" action="/event/{{ event._id }}/edit" autocomplete="off">
-         
+
             <div class='event_detail_mid'>
             <div class='event_detail_box box1'>
                <img src='/image/evres.jpg'>
@@ -22,7 +23,6 @@
                </table>
             </div>
             <input type="submit" value="이벤트 수정">
-            
             </form>
       </div>
 {% endblock %}
