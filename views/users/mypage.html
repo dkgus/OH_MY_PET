@@ -69,7 +69,7 @@
 										<table class="styled-table">
 										<thead>
 										<tr>
-		               <th>호텔명</th><th>체크인</th><th>체크아웃</th>
+		               <th>호텔명</th><th>예약자 성함</th><th>예약자 연락처</th><th>예약일</th>
 									 </tr>
 									 </thead>
 									 <tbody>
@@ -78,6 +78,7 @@
 		               <td>{{ item.hotelName }}</td>
 									<td>{{ item.revStart }}</td>
 									<td>{{ item.revEnd }}</td>
+									<td>{{ item.user.roomType }}</td>
 		           	 	</tr>
 									{% endfor %}
 									</tbody>
