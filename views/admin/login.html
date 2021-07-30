@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-<link rel="stylesheet" type="text/css" href="css/admin/style.css">
+<link rel="stylesheet" type="text/css" href="css/admin/admin.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="js/admin.js" defer> </script>
 <title>관리 :: 오 마이 펫</title>
@@ -11,182 +11,60 @@
 <body>
   <!-- 메뉴 영역 S -->
   <nav>
-      <ul class="tabs">
-          <li class='list tab-link active'>
+  <div class='nav'>
+    <ul>
+      <li class='list'>
+        <b></b>
+        <b></b>
+        <a href="/admin"><i class='xi-lock'></i>ADMIN</a>
+        </li>
+        <li class='list'>
+        <b></b>
+        <b></b>
+        <a href="/admin/member"><i class='xi-user'></i>USER</a>
+        </li>
+        <li class='list'>
+        <b></b>
+        <b></b>
+        <a href="/admin/event"><i class='xi-school'></i>EVENT</a>
+        </li>
+        <li class='list'>
+        <b></b>
+        <b></b>
+        <a href="/admin/room"><i class='xi-building'></i>HOTEL</a>
+        </li>
+        <li class='list'>
           <b></b>
           <b></b>
-          <a href="/admin"><i class='xi-lock'></i>ADMIN</a>
+          <a href="/admin/community"><i class='xi-list-dot'></i>COMMU</a>
           </li>
-          <li class='list tab-link' data-tab="tab-1">
-          <b></b>
-          <b></b>
-          <i class='xi-user'></i>USER</a>
-          </li>
-          <li class='list tab-link' data-tab="tab-2">
-          <b></b>
-          <b></b>
-          <i class='xi-school'></i>EVENT</a>
-          </li>
-          <li class='list tab-link' data-tab="tab-3">
-          <b></b>
-          <b></b>
-          <i class='xi-building'></i>HOTEL</a>
-          </li>
-          <li class='list tab-link' data-tab="tab-4">
-          <b></b>
-          <b></b>
-          <i class='xi-list-dot'></i>COMMU</a>
-          </li>
-          <li class='list tab-link'>
-          <b></b>
-          <b></b>
-          <a href="/"><i class='xi-external-link'></i>MAIN</a>
-          </li>     
-      </ul>
-  </nav>
-  <!-- 메뉴 영역 E -->
-
-  <!-- 본문 영역 S -->
-  {% if token %}
+        <li class='list'>
+        <b></b>
+        <b></b>
+        <a href="/"><i class='xi-external-link'></i>MAIN</a>
+        </li>     
+    </ul>
+</div>
+</nav>
+  <!-- 메뉴 영역 E -->  
+  <!--본문 S-->
+  {% if loginUser %}
   <section>
-  <div class='loginBox'>
-      <div class='loginTitle'>ADMIN ONLY</div>
-      <form method="post" action="/admin" autocomplete='off'>
-          <input type='email' name='email' placeholder='관리자 이메일'><br>
-          <input type='password' name='password' placeholder="비밀번호"><br>
-          <input type='submit' value='LOGIN'>
-      </form>
-  </div>
+    <div class='content'>
+        <div class='loginBox'>
+            <div class='loginTitle'>ADMIN ONLY</div>
+            <form method="post" action="" autocomplete='off'>
+                <input type='email' name='email' placeholder='관리자 이메일'><br>
+                <input type='password' name='password' placeholder="비밀번호"><br>
+                <input type='submit' value='LOGIN'>
+            </form>
+        </div>
+    </div>
   </section>
   {% else %}
-  <section class='content'>
-  <!-- member S -->
-  <div id="tab-1" class="tab-content tabct">
-    <div class='content user'>
-      <div class='title'>회원 관리</div>
-      <div class='userAdmin'>
-        <div class='top'>
-        <ul>
-          <input type="checkbox" class='select all'>
-          <li class='name'>이름</li>
-          <li class='nickname'>닉네임</li>
-          <li class='email'>이메일</li>
-          <li class='phone'>전화 번호</li>
-          <li class='grade'>회원 등급</li>
-          <li class='type'>반려동물 종류</li>
-          <li class='regDate'>가입일</li>
-        </ul>
-        </div>
-        <div class='bottom'>
-        <ul>
-          <input type="checkbox" class='select'>
-          <li class='name'>김한국</li>
-          <li class='nickname'>만세</li>
-          <li class='email'>iLoveKorea@email.net</li>
-          <li class='phone'>010-4444-4444</li>
-          <select class='grade'>
-            <option>USER</option>
-            <option>VIP</option>
-            <option>ADMIN</option>
-          </select>
-          <li class='type'>강아지</li>
-          <li class='regDate'>2021-07-03</li>
-        </ul>
-        </div>
-        <div class='userBtn'>
-          <button>등급 변경</button>
-          <button>회원 강퇴</button>
-        </div>
-    </div> <!--//userAdmin-->
-    </div> <!--//content-->
-  </div>
-  <!-- member E -->
-  <!-- event S -->
-  <div id="tab-2" class="tab-content tabct">
-    <!-- confirm event res. -->
-    <div>EVENT RESERVATION LIST</div>
-    <!-- DELETE METHOD -->
-    <table>
-      <thead>
-        <tr>
-          <td>event name</td>
-          <td>user email</td>
-          <td>delete</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ item.eventNm }}</td>
-          <td>{{ item.user.email }}</td>
-          <td>
-            <input type="submit" value="Delete" onclick="deleteEvent();" />
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <!-- event E -->
-  <!-- room S -->
-  <div id="tab-3" class="tab-content tabct">
-    <!-- confirm event res. -->
-    <div>ROOM RESERVATION LIST</div>
-    <!-- DELETE METHOD -->
-    <table>
-      <thead>
-        <tr>
-          <td>hotel name</td>
-          <td>user email</td>
-          <td>room type</td>
-          <td>check-in/out</td>
-          <td>memo</td>
-          <td>delete</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ item.roomNm }}</td>
-          <td>{{ item.email }}</td>
-          <td>{{ item.roomType }}</td>
-          <td>{{ item.revStart }} ~ {{ item.revEnd }}</td>
-          <td>{{ item.memo }}</td>
-          <td>
-            <input type="submit" value="Delete" onclick="deleteRoom();" />
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <!-- room E -->
-  <!-- commu S -->
-  <div id="tab-4" class="tab-content tabct">
-    <div>COMMUNITY</div>
-    <!-- DELETE METHOD -->
-    <table>
-      <thead>
-        <tr>
-          <td>title</td>
-          <td>content</td>
-          <td>user</td>
-          <td>date</td>
-          <td>delete</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ item.title }}</td>
-          <td>{{ item.content }}</td>
-          <td>{{ item.user.email }}</td>
-          <td>{{ item.createdAt }}</td>
-          <td>
-            <input type="submit" value="Delete" onclick="deletePost();" />
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <!-- commu E -->
-  <!-- 본문 영역 E -->
-  </section>
+    {% block content %}
+    {% endblock %}
   {% endif %}
+  <!--본문 E-->
 </body>
 </html>

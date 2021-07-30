@@ -9,11 +9,7 @@ module.exports = {
   // @description    Show a admin Login form
   // @route          GET /admin
   showLoginForm: (req, res) => {
-    const data = {
-      addCss: ["admin"],
-    };
-
-    return res.render("admin/login", data);
+    return res.render("admin/login");
   },
 
   // @description    admin Login

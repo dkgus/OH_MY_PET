@@ -139,10 +139,6 @@ nav li.active b:nth-child(2) {
     display: block;
 }
 
-.content {
-    padding: 10px;
-}
-
 .title {
   font-family: "Cafe24Ssurround";
   color: #ffaf2d;
@@ -195,6 +191,7 @@ input::placeholder {
 }
 
 /* userAdimn */
+
 .userAdmin ul {
     padding: 5px 10px;
 }
@@ -214,7 +211,7 @@ input::placeholder {
 
 .userAdmin .select { width: 3%; }
 .userAdmin .name { width: 8%; }
-.userAdmin .nickname { width: 17%; }
+.userAdmin .nickname { width: 15%; }
 .userAdmin .email { width: 15%; }
 .userAdmin .phone { width: 15%; }
 .userAdmin .grade { width: 13%; border: none; }
@@ -225,12 +222,12 @@ input::placeholder {
   background-color: #ffaf2d;
   color: #fff;
   font-weight: bold;
-  width: 100%;
+  width: 95%;
 }
 
 .userAdmin .bottom {
   border-bottom: 1px solid #999;
-  width: 100%;
+  width: 95%;
 }
 
 .userAdmin .bottom li {
@@ -257,35 +254,52 @@ input::placeholder {
 }
 
 /* admin by 희영 S */
-  table {
-    border-spacing: 10px;
-    font-size: 1.4rem;
-    color: #585858;
-  }
-  
-  table {
-    border-collapse: collapse;
-    font-size: 15px;
-    min-width: 400px;
-    width: 1050px;
-  }
-  
-  table thead tr {
-    background-color: #ffaf2d;
-    color: #ffffff;
-    text-align: center;
-  }
-  
-  table tbody tr {
-    text-align: center;
-  }
-  
-  table th,
-  table td {
-    padding: 12px 15px;
-  }
-  
-  table tbody tr {
-    border-bottom: 1px solid #dddddd;
-  }
+.layout_width {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  margin-top: 50px;
+  font-family: "Cafe24Ssurround";
+  color: #ffaf2d;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+table {
+  margin-top: 50px;
+  border-spacing: 10px;
+  font-size: 1.4rem;
+  color: #585858;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 25px;
+  font-size: 15px;
+  min-width: 400px;
+  width: 1050px;
+}
+
+table thead tr {
+  background-color: #ffaf2d;
+  color: #ffffff;
+  text-align: center;
+}
+
+table tbody tr {
+  text-align: center;
+}
+
+table th,
+table td {
+  padding: 12px 15px;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
 /* admin by 희영 E */

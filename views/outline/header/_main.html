@@ -4,11 +4,11 @@
   <div class="user_menu">
     <nav>
       {% if token %}
-      <a href="/users/login">로그인</a>
-      <a href="/users/new">회원가입</a>
-      {% else %}
       <a href="/users/mypage">마이페이지</a>
       <a href="/users/logout">로그아웃</a>
+      {% else %}
+      <a href="/users/login">로그인</a>
+      <a href="/users/new">회원가입</a>
       {% endif %}
     </nav>
   </div>
@@ -20,12 +20,9 @@
     <div class="inner layout_width">
       <ul class="main_menu">
         <li>
-          <span class="all_category">
-            <a href="/">
-              <i class="xi-emoticon-smiley-o"></i>
-              Logo
-            </a>
-          </span>
+          <a href="/">
+            <img src="/image/logo.png" />
+          </a>
         </li>
         <li><a href="/community">커뮤니티</a></li>
         <li><a href="/notices">행사 및 공지</a></li>

@@ -6,10 +6,14 @@ const community = require("../models/Community");
 const room = require("../models/Room");
 
 module.exports = {
+
   // @description    Show a register form
   // @route          GET /users/new
   showRegisterForm: (req, res) => {
-    res.render("users/new");
+		const data = {
+			addCss : ['users'],
+		};
+    res.render("users/new", data);
   },
 
   // @description    Register a User
@@ -97,6 +101,8 @@ module.exports = {
     }
   },
 
+
+
   // @description    Delete a user
   // @route          DELETE /users/:id/edit
   deleteUser: async (req, res) => {
@@ -165,9 +171,9 @@ module.exports = {
   // @route          GET /users/mypage
   showMyPage: async (req, res) => {
     const user = await User.findOne({ _id: req.user._id }, {});
-    const events = await event.find({ user: req.user._id }).populate("user");
-    const rooms = await room.find({ user: req.user._id }).populate("user");
+    const events = await event.find({ user: req.user._id }).sort({ createdAt: -1 }).populate("user");
     const posts = await community.find({ user: req.user._id }).populate("user");
-    res.render("users/mypage", { user, events, rooms, posts });
+		const rooms = await room.find({ user: req.user._id }).populate("user");
+    res.render("users/mypage", { user, events, posts, rooms });
   },
 };

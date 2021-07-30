@@ -19,10 +19,10 @@
       <tbody>
         {% for item in rooms %}
         <tr>
-          <td>{{ item.hotelName }}</a></td>
-          <td>{{ item.revStart }}</a></td>
-          <td>{{ item.revEnd }}</a></td>
-          <td>{{ item.roomType }}</a></td>
+          <td><a href="room/{{ item._id }}">{{ item.hotelName }}</a></td>
+          <td><a href="room/{{ item._id }}">{{ item.revStart }}</a></td>
+          <td><a href="room/{{ item._id }}">{{ item.revEnd }}</a></td>
+          <td><a href="room/{{ item._id }}">{{ item.roomType }}</a></td>
         </tr>
         {% endfor %}
       </tbody>

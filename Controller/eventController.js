@@ -8,7 +8,9 @@ module.exports = {
     const data = {
       addCss : ['event'],
     };
-    const events = await Event.find({ user: req.user._id }).populate("user");
+    const events = await Event.find({ user: req.user._id })
+		.sort({ createdAt: -1 })
+		.populate("user");
     const user = await User.findOne({ _id: req.user._id }, {})
 
 
