@@ -1,4 +1,4 @@
-const express = require("express");
+const express  = require('express');
 const router = express.Router();
 const { isAuthenticatedUser } = require("../utils/auth");
 
@@ -13,20 +13,29 @@ const {
   showDetailForm,
 } = require("../controller/eventController");
 
+
+
 // event/
 router.route("/").get(isAuthenticatedUser, showAllEvents);
 
 // event/new
 router.route("/new").get(showCreateForm).post(isAuthenticatedUser, createEvent);
 
-// event/:id/edit
+
+
+// event/:id/edit(update)
 router
-  .route("/:id/edit")
-  .get(showUpdateForm)
-  .put(updateEvent)
-  .delete(deleteEvent);
+.route("/:id/edit")
+.get(showUpdateForm)
+.post(updateEvent)
+
+
+//event/:id/delete
+router.route("/:id/delete").get(deleteEvent);
+
 
 // event/:id
-router.route("/:id").get(isAuthenticatedUser, showEvent);
+router.route("/:id").get(isAuthenticatedUser,showEvent);
 
 module.exports = router;
+  

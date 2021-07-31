@@ -3,6 +3,10 @@
 {%set title="마이페이지"%}
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 <link rel="stylesheet" type="text/css" href="/css/users.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+ <script>
+	moment().format('YYYY-MM-DD');
+	</script>
 	<div class='mypage'>
 		<div class='mypage_back'>
 			<div class='layout_width'>
@@ -65,16 +69,15 @@
 										<table class="styled-table">
 										<thead>
 										<tr>
-		               <th>호텔명</th><th>예약자 성함</th><th>예약자 연락처</th><th>예약일</th>
+		               <th>호텔명</th><th>체크인</th><th>체크아웃</th>
 									 </tr>
 									 </thead>
 									 <tbody>
 										 {% for item in rooms %}
 									 <tr>
 		               <td>{{ item.hotelName }}</td>
-									<td>{{ item.user.nickname }}</td>
-									<td>{{ item.user.phone }}</td>
-									<td>{{ item.user.regDt }}</td>
+									<td>{{ item.revStart }}</td>
+									<td>{{ item.revEnd }}</td>
 		           	 	</tr>
 									{% endfor %}
 									</tbody>

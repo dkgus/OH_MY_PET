@@ -1,11 +1,9 @@
-{% extends '../layout.html' %}
-{% block content %}
+{% extends '../layout.html' %} {% block content %}
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 <link rel="stylesheet" type="text/css" href="/css/event.css" />
 <div class="event_box layout_width">
   <div class="Event_title border_title">
-    <a href="/users/mypage"><i class="xi-angle-left"></i></a> 호텔 예약
-    전체보기
+    <a href="/users/mypage"><i class="xi-angle-left"></i></a> 호텔 예약 전체보기
   </div>
 
   <div class="Event_banner_wrap">
@@ -19,10 +17,10 @@
       <tbody>
         {% for item in rooms %}
         <tr>
-          <td>{{ item.hotelName }}</a></td>
-          <td>{{ item.revStart }}</a></td>
-          <td>{{ item.revEnd }}</a></td>
-          <td>{{ item.roomType }}</a></td>
+          <td><a href="room/{{ item._id }}">{{ item.hotelName }}</a></td>
+          <td><a href="room/{{ item._id }}">{{ item.revStart }}</a></td>
+          <td><a href="room/{{ item._id }}">{{ item.revEnd }}</a></td>
+          <td><a href="room/{{ item._id }}">{{ item.roomType }}</a></td>
         </tr>
         {% endfor %}
       </tbody>

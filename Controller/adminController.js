@@ -3,18 +3,19 @@ const bcrypt = require("bcrypt");
 const sendToken = require("../utils/jwtToken");
 const Community = require("../models/Community");
 const Event = require("../models/Event");
-const Room = require("../models/Room");
+const Room = require('../models/Room');
+
 
 module.exports = {
   // @description    Show a admin Login form
   // @route          GET /admin
   showLoginForm: (req, res) => {
-    const data = {
-      addCss: ["admin"],
-    };
 
-    return res.render("admin/login", data);
+    
+
+   return res.render("admin/login");
   },
+
 
   // @description    admin Login
   // @route          POST /admin
@@ -48,6 +49,7 @@ module.exports = {
     sendToken(user, res);
   },
 
+
   // @description    adminLogout
   // @route          GET /admin/logout
   logoutUser: async (req, res) => {
@@ -55,7 +57,12 @@ module.exports = {
       expires: new Date(Date.now()),
       httpOnly: true,
     });
-
+  
     res.redirect("/");
   },
+
+
 };
+
+
+ 

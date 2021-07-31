@@ -1,7 +1,4 @@
-{% extends '../login.html' %}
-<!-- admin page layout -->
-
-{% block content %}
+{% extends '../login.html' %} {% block content %}
 <link rel="stylesheet" type="text/css" href="/css/admin/admin.css" />
 <!-- confirm event res. -->
 <div class="layout_width">
@@ -12,7 +9,6 @@
       <tr>
         <td>event name</td>
         <td>user email</td>
-        <td>res. time</td>
         <td>delete</td>
       </tr>
     </thead>
@@ -21,13 +17,8 @@
       <tr>
         <td>{{ item.eventNm }}</td>
         <td>{{ item.user.email }}</td>
-        <td>{{ item.createdAt }}</td>
         <td>
-          <a
-            href="/event/{{ item._id }}/delete"
-            onclick="confirm('정말 삭제하시겠습니까?')"
-            >DELETE</a
-          >
+          <button>DELETE</button>
         </td>
       </tr>
       {% endfor %}

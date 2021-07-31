@@ -13,10 +13,13 @@ const {
 } = require("../controller/communityController");
 
 // community/
-router.route("/").get(isAuthenticatedUser, showAllPosts);
+router.route("/").get( isAuthenticatedUser, showAllPosts);
 
 // community/new
-router.route("/new").get(showCreateForm).post(isAuthenticatedUser, createPost);
+router
+  .route("/new")
+  .get(showCreateForm)
+  .post( isAuthenticatedUser,createPost);
 
 // community/:id
 router.route("/:id").get(showPost);
@@ -26,9 +29,13 @@ router
   .route("/:id/edit")
   .get(showUpdateForm)
   .put(updatePost)
-  .delete(deletePost);
+
+
+//community/:id/delete
+router.route("/:id/delete").get(deletePost);
+
 
 // community/:id
-router.route("/:id").get(isAuthenticatedUser, showPost);
+router.route("/:id").get( isAuthenticatedUser, showPost);
 
 module.exports = router;

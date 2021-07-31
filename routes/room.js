@@ -1,3 +1,4 @@
+  
 const express = require("express");
 const router = express.Router();
 const { isAuthenticatedUser } = require("../utils/auth");
@@ -14,7 +15,7 @@ const {
 } = require("../controller/roomController");
 
 // room/
-router.route("/").get(showAllRooms);
+router.route("/").get(isAuthenticatedUser, showAllRooms);
 
 // room/new
 router.route("/new").get(showCreateForm).post(isAuthenticatedUser, createRoom);
@@ -27,7 +28,10 @@ router
   .route("/:id/edit")
   .get(showUpdateForm)
   .put(updateRoom)
-  .delete(deleteRoom);
+
+//room/:id/delete
+router.route("/:id/delete").get(deleteRoom);
+
 
 // room/:id
 router.route("/:id").get(isAuthenticatedUser, showRoom);

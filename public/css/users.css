@@ -3,47 +3,47 @@
   padding: 30px;
 }
 .main_title {
-  font-size: 30px;
+    font-size: 30px;
   text-align: center;
   font-family: Cafe24Ssurround;
   margin-bottom: 20px;
 }
 .sub_title {
   font-size: 24px;
-  font-family: Cafe24Ssurround;
-  margin-bottom: 20px;
-  text-align: center;
+    font-family: Cafe24Ssurround;
+    margin-bottom: 20px;
+    text-align: center;
 }
 .border_title {
-  font-size: 25px;
-  padding: 15px;
-  border-top: 3px solid #ffaf2d;
-  font-family: Cafe24Ssurround;
-  font-weight: 500;
-  background-color: #ffffff;
-  margin: 30px 0;
+    font-size: 25px;
+    padding: 15px;
+    border-top: 3px solid #ffaf2d;
+    font-family: Cafe24Ssurround;
+    font-weight: 500;
+    background-color: #ffffff;
+    margin: 30px 0;
 }
 .mb10 {
-  margin-bottom: 10px;
+margin-bottom: 10px;
 }
 .mt10 {
-  margin-top: 10px;
+margin-top: 10px;
 }
 .btn1 {
-  background-color: #ffaf2d;
-  color: #ffffff;
-  border: 0;
-  width: 100%;
-  height: 45px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 13px;
-  text-align: center;
+background-color: #ffaf2d;
+color: #ffffff;
+border: 0;
+width: 100%;
+height: 45px;
+cursor: pointer;
+border-radius: 5px;
+font-size: 13px;
+text-align: center;
 }
 
 /* user common S */
 .user_box button,
-.user_box input[type="submit"] {
+.user_box input[type='submit'] {
   background-color: #ffaf2d;
   border: none;
   width: 100%;
@@ -54,15 +54,15 @@
   font-size: 1.5rem;
 }
 
-.user_box input[type="text"],
-.user_box input[type="password"],
-.user_box input[type="email"] {
+.user_box input[type='text'],
+.user_box input[type='password'],
+.user_box input[type='email'] {
   width: 100%;
   text-align: center;
   height: 50px;
-  border: 1px solid #d5d5d5;
-  border-radius: 5px;
-  padding: 0 10px;
+   border: 1px solid #d5d5d5;
+   border-radius: 5px;
+   padding: 0 10px;
   margin-bottom: 10px;
   font-size: 18px;
 }
@@ -90,7 +90,7 @@
   padding: 40px;
 }
 
-.join_form input[type="submit"] {
+.join_form input[type='submit'] {
   margin-top: 20px;
 }
 
@@ -105,7 +105,8 @@
 }
 input[type="text"]:focus,
 input[type="password"]:focus,
-input[type="email"]:focus {
+input[type="email"]:focus
+ {
   border-color: #ffaf2d;
 }
 .user_box dl dd:last-child {
@@ -180,84 +181,83 @@ input[type="email"]:focus {
   box-shadow: 10px 10px 20px rgb(0 0 0 / 12%);
 }
 .mypage .my_info .infobox {
-  background-color: #ffffff;
-  margin-bottom: 20px;
-  box-shadow: 10px 10px 20px rgb(0 0 0 / 12%);
-  padding-bottom: 10px;
+background-color:  #ffffff;
+margin-bottom: 20px;
+box-shadow: 10px 10px 20px rgb(0 0 0 / 12%);
+padding-bottom: 10px;
 }
 .mypage .my_info .infobox .info_left {
-  padding: 5px 40px 20px;
-  display: inline-block;
-  margin-right: 150px;
+    padding: 5px 40px 20px;
+    display: inline-block;
+    margin-right: 150px;
 }
 .mypage .my_info .infobox .info_right {
-  display: inline-block;
-  vertical-align: top;
+display: inline-block;
+vertical-align: top;
 }
 .mypage .my_info .infobox .info_left img {
-  width: 150px;
+width: 150px;
 }
 .mypage .my_info .infobox .info_right .user_name {
-  font-size: 25px;
-  padding-bottom: 20px;
-  font-weight: 700;
-  display: inline-block;
+font-size: 25px;
+padding-bottom: 20px;
+font-weight: 700;
+display: inline-block;
 }
 .mypage .my_info .infobox .info_right .edit {
-  display: inline-block;
-  vertical-align: top;
-  padding: 10px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
 }
-.mypage .my_info .infobox .info_right .edit i {
-  font-size: 20px;
+.mypage .my_info .infobox .info_right .edit  i{
+    font-size: 20px;
 }
 .mypage .my_info .infobox .info_right table {
-  width: 100%;
-  border-top: 3px solid #ffaf2d;
+    width: 100%;
+    border-top: 3px solid #ffaf2d;
 }
 .mypage .my_info .infobox .info_right table tr td {
-  width: 300px;
-  padding: 15px 15px 15px 5px;
-  font-size: 17px;
-  font-weight: 500;
+    width: 300px;
+    padding: 15px 15px 15px 5px;
+    font-size: 17px;
+    font-weight: 500;
 }
-.mypage .infobox .mypage_hotel_title,
-.mypage .infobox .mypage_event_title,
+.mypage .infobox .mypage_hotel_title, .mypage .infobox .mypage_event_title,
 .mypage .infobox ._wrap .mypage_write_title {
-  display: inline-block;
-  padding: 30px;
-  font-size: 24px;
-  font-family: Cafe24Ssurround;
+display: inline-block;
+padding: 30px;
+font-size: 24px;
+font-family: Cafe24Ssurround;
 }
 .all_event {
-  display: inline-block;
-  font-size: 17px;
-  vertical-align: middle;
+display: inline-block;
+font-size: 17px;
+vertical-align: middle;
 }
 .styled-table {
-  border-collapse: collapse;
-  margin: 25px;
-  font-size: 15px;
-  min-width: 400px;
-  width: 1050px;
+border-collapse: collapse;
+margin: 25px;
+font-size: 15px;
+min-width: 400px;
+width: 1050px;
 }
 .styled-table thead tr {
-  background-color: #ffaf2d;
-  color: #ffffff;
-  text-align: center;
+ background-color: #ffaf2d;
+ color: #ffffff;
+ text-align: center;
 }
 .styled-table tbody tr {
-  text-align: center;
+text-align: center;
 }
 .styled-table th,
 .styled-table td {
-  padding: 12px 15px;
+ padding: 12px 15px;
 }
 .styled-table tbody tr {
-  border-bottom: 1px solid #dddddd;
+ border-bottom: 1px solid #dddddd;
 }
-.styled-table tr:nth-child(n + 4) {
-  display: none;
+.styled-table tr:nth-child(n+4) {
+display: none;
 }
 /* mypage E */
 /** users 페이지 by 현빈 E **/

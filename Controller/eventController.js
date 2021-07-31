@@ -6,17 +6,21 @@ module.exports = {
   // @route          GET /event
   showAllEvents: async (req, res) => {
     const data = {
-      addCss: ["event"],
+      addCss : ['event'],
     };
-    const events = await Event.find({ user: req.user._id }).populate("user");
-    const user = await User.findOne({ _id: req.user._id }, {});
-
-    res.render("event/index", { data, events, user });
+    const events = await Event.find({ user: req.user._id })
+                  .sort({ createdAt: -1 })
+                  .populate("user");
+    const user = await User.findOne({ _id: req.user._id }, {})
+    
+    
+    res.render("event/index", { data, events , user });
   },
+
 
   // @description    Show a event
   // @route          GET /event/:id
-  showEvent: async (req, res) => {
+  showEvent: async (req, res) => {  
     try {
       const event = await Event.findOne({ _id: req.params.id }, {});
       const user = await User.findOne({ _id: req.user._id }, {});
@@ -59,6 +63,7 @@ module.exports = {
   showUpdateForm: async (req, res) => {
     try {
       const event = await Event.findOne({ _id: req.params.id }, {});
+     
       res.render("event/edit", { event: event });
     } catch (err) {
       console.error(err);
@@ -70,6 +75,7 @@ module.exports = {
   updateEvent: async (req, res) => {
     try {
       await Event.findOneAndUpdate({ _id: req.params.id }, req.body, () => {
+       
         res.redirect("/event/" + req.params.id);
       });
     } catch (err) {

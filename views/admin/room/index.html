@@ -27,11 +27,7 @@
         <td>{{ item.revStart }} ~ {{ item.revEnd }}</td>
         <td>{{ item.memo }}</td>
         <td>
-          <a
-            href="/room/{{ item._id }}/delete"
-            onclick="confirm('정말 삭제하시겠습니까?')"
-            >DELETE</a
-          >
+          <a>DELETE</a>
         </td>
       </tr>
       {% endfor %}
@@ -39,3 +35,5 @@
   </table>
 </div>
 {% endblock %}
+
+<input type="data" />

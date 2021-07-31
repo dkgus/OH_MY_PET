@@ -1,25 +1,29 @@
 const Community = require("../models/Community");
 const User = require("../models/User");
 
+
 module.exports = {
   // @description    Show all posts
   // @route          GET /community
   showAllPosts: async (req, res) => {
-    const data = {
-      addCss: ["board"],
-      addScript: ["board"],
-    };
-    const posts = await Community.find({ user: req.user._id }).populate("user");
-    const user = await User.findOne({ _id: req.user._id }, {});
+    // const data = {
+    //   addCss : ['board'],
+    //   addScript : ['board'],
+    // };
+    //const posts = await Community.find({ user: req.user._id }).populate("user");
+    const user = await User.find({ _id: req.user._id }, {})
+    const posts = await Community.find({}).sort({ createAt: -1} );
 
-    res.render("community/index", { data, posts, user });
-  },
+
+    res.render("community/index", { posts, user });
+
+    },
 
   // @description    Show a post
   // @route          GET /community/:id
   showPost: async (req, res) => {
     try {
-      const post = await Community.findOne({ _id: req.params.id }, {});
+      const post = await Community.findOne({ _id :req.params.id }, {});
       res.render("community/show", { post: post });
     } catch (err) {
       console.error(err);
@@ -37,10 +41,10 @@ module.exports = {
   createPost: async (req, res) => {
     const { title, content } = req.body;
     try {
-      // validation
-      // 필수 정보를 모두 입력했는지?
-      if (!title || !content) {
-        const msg = "글 제목, 내용을 모두 입력해주세요.";
+      // // validation
+      // // 필수 정보를 모두 입력했는지?
+      if ( !title || !content) {
+        const msg = "작성자, 글 제목, 내용을 모두 입력해주세요.";
         return res.send(`<script>alert("${msg}");history.back();</script>`);
       }
       await Community.create({ title, content });

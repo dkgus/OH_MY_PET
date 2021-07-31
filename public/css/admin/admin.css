@@ -13,16 +13,10 @@
 }
 
 table {
-  margin-top: 50px;
-  border-spacing: 10px;
-  font-size: 1.4rem;
-  color: #585858;
-}
-
-table {
   border-collapse: collapse;
-  margin: 25px;
-  font-size: 15px;
+  margin-top: 50px 25px 25px;
+  border-spacing: 10px;
+  color: #585858;
   min-width: 400px;
   width: 1050px;
 }
@@ -44,4 +38,9 @@ table td {
 
 table tbody tr {
   border-bottom: 1px solid #dddddd;
+}
+
+.deleteBtn {
+  text-decoration: none;
+  color: red;
 }
