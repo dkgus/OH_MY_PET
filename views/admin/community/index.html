@@ -1,4 +1,4 @@
-{% extends '../../layout.html' %} {% block content %}
+{% extends '../login.html' %} {% block content %}
 <link rel="stylesheet" type="text/css" href="/css/admin/admin.css" />
 <div class="layout_width">
   <div class="title">COMMUNITY</div>
@@ -21,7 +21,11 @@
         <td>{{ item.user.email }}</td>
         <td>{{ item.createdAt }}</td>
         <td>
-          <button onclick="deletePost();">Delete</button>
+          <a
+            href="/community/{{ item._id }}/delete"
+            onclick="confirm('정말 삭제하시겠습니까?')"
+            >DELETE</a
+          >
         </td>
       </tr>
       {% endfor %}

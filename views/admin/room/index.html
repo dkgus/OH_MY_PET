@@ -1,5 +1,4 @@
-<!-- 어드민 _ 이벤트 등록 페이지 -->
-{% extends '../../layout.html' %}
+{% extends '../login.html' %}
 <!-- admin page layout -->
 
 {% block content %}
@@ -28,7 +27,11 @@
         <td>{{ item.revStart }} ~ {{ item.revEnd }}</td>
         <td>{{ item.memo }}</td>
         <td>
-          <button onclick="deleteEvent();">DELETE</button>
+          <a
+            href="/room/{{ item._id }}/delete"
+            onclick="confirm('정말 삭제하시겠습니까?')"
+            >DELETE</a
+          >
         </td>
       </tr>
       {% endfor %}

@@ -1,5 +1,4 @@
-<!-- 어드민 _ 이벤트 등록 페이지 -->
-{% extends '../../layout.html' %}
+{% extends '../login.html' %}
 <!-- admin page layout -->
 
 {% block content %}
@@ -24,7 +23,11 @@
         <td>{{ item.user.email }}</td>
         <td>{{ item.createdAt }}</td>
         <td>
-          <button onclick="deleteEvent();">DELETE</button>
+          <a
+            href="/event/{{ item._id }}/delete"
+            onclick="confirm('정말 삭제하시겠습니까?')"
+            >DELETE</a
+          >
         </td>
       </tr>
       {% endfor %}
