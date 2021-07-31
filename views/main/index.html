@@ -71,32 +71,43 @@
     </ul>
   </article>
   <!--hotel list end-->
-
-  <!-- board start -->
   <div class="layout_width">
     <div class="board">
-      <!--공지사항 게시판-->
+      <!-- notices -->
       <div class="notice_box">
         <div class="box_title">공지사항</div>
-        <div class="notice_list">
-          <ul>
-            {% for item in notices %} {% if loop.revindex0 <= 5 %}
-            <li>{ item.title } { item.createdAt }</li>
+        <table>
+          <thead>
+            <th>제목</th>
+            <th>작성일</th>
+          </thead>
+          <tbody>
+            {% for item in notices %} {% if loop.revindex0 <= 4 %}
+            <tr>
+              <td><a href="notices/{{item._id}}">{{ item.title }}</a></td>
+              <td><a href="notices/{{item._id}}">{{ item.createdAt }}</a></td>
+            </tr>
             {% endif %} {% endfor %}
-          </ul>
-        </div>
+          </tbody>
+        </table>
       </div>
-
-      <!--커뮤니티 게시판-->
-      <div class="cummunity_box">
+      <!-- community -->
+      <div class="community_box">
         <div class="box_title">커뮤니티</div>
-        <div class="cummunity_list">
-          <ul>
-            {% for item in posts %} {% if loop.revindex0 <= 5 %}
-            <li>{ item.title } { item.createdAt }</li>
+        <table>
+          <thead>
+            <th>제목</th>
+            <th>작성일</th>
+          </thead>
+          <tbody>
+            {% for item in posts %} {% if loop.revindex0 <= 4 %}
+            <tr>
+              <td><a href="community/{{item._id}}">{{ item.title }}</a></td>
+              <td><a href="community/{{item._id}}">{{ item.createdAt }}</a></td>
+            </tr>
             {% endif %} {% endfor %}
-          </ul>
-        </div>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

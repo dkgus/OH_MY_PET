@@ -31,7 +31,7 @@
     "pm2": "^5.1.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.9"
+    "nodemon": "^2.0.12"
   },
   "description": ""
 }

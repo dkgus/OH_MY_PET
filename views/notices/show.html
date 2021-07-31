@@ -1,5 +1,5 @@
 {% extends '../layout.html' %}
-{%set title="{%boardtitle%}"%}
+{%set title="{{notice.title}}"%}
 {% block content %}
 <link rel="stylesheet" type="text/css" href="/css/board.css">
   <div class="boardTitle layout_width"><img src="image/title.png">notice</img></div>
@@ -13,7 +13,7 @@
         </dl>
       </div> <!-- //info -->
       <div class='content' style="border-bottom: none;">
-        {{ notice.content }}
+        {{ notice.content | safe }}
       </div>
     </div> <!--//post-->
     <div class='buttonWrap'>

@@ -1,13 +1,14 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const Community = require("../models/Community");
+const Notice = require("../models/Notice");
 
-router.get("/", async (req, res, next) => {
-	const data = {
-        addCss : ['main'],
-        addScript : ['main'],
-    }
-    return res.render("main/index", data);
+router.get("/", async function (req, res) {
+  const posts = await Community.find({});
+  const notices = await Notice.find({});
+  const token = req.cookies.token;
 
+  res.render("main/index", { posts, notices, token });
 });
 
 module.exports = router;

@@ -29,10 +29,10 @@
 				</table>
 			</div>
 			<div class='event_detail_btn'>
-			<a href="/event/{{ event._id}}/edit">수정</a>
+			<a href="/event/{{ event._id }}/edit">수정</a>
 			</div>
 			<div class='event_detail_btn'>
-			<a href="/event/{{ event._id }}/delete" onclick="confirm('정말 삭제하시겠습니까?')">삭제</a>
+			<a href="/event/{{ event._id }}/delete" onclick="if(!confirm('삭제 하시겠습니까?')){return false;}">삭제</a>
 			</div>
 	</div>
 {% endblock %}

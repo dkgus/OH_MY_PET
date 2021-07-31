@@ -1,52 +1,50 @@
 /* index S */
 .border_title {
-		font-size: 25px;
-		padding: 15px;
-		border-top: 3px solid #ffaf2d;
-		font-family: Cafe24Ssurround;
-		font-weight: 500;
-		background-color: #ffffff;
-		margin: 30px 0;
+  font-size: 25px;
+  padding: 15px;
+  border-top: 3px solid #ffaf2d;
+  font-family: "Cafe24Ssurround";
+  font-weight: 500;
+  background-color: #ffffff;
+  margin: 30px 0;
 }
 .room_list .room_list_top {
-margin: 20px 0 50px;
-border-top: 3px solid #ffaf2d;
-padding-top: 15px;
-
+  margin: 20px 0 50px;
+  border-top: 3px solid #ffaf2d;
+  padding-top: 15px;
 }
 .room_list .room_list_top i {
-	font-size: 20px;
-	font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
 }
 .room_list .room_list_box {
-padding-left: 10px;
+  padding-left: 10px;
 }
 .room_list_mid {
-padding: 30px;
-display: inline-block;
-width: 33%;
+  padding: 30px;
+  display: inline-block;
+  width: 33%;
 }
 .room_list_mid .room_list_box .img_box img {
-width: 300px;
-height: 200px;
-border-radius: 5px;
+  width: 300px;
+  height: 200px;
+  border-radius: 5px;
 }
 .room_list_mid .room_list_box table td {
-	padding-top: 5px;
-	font-size: 13px;
-	color: #807d7d;
+  padding-top: 5px;
+  font-size: 13px;
+  color: #807d7d;
 }
 .room_list_banner {
-margin-top: 120px;
-background-color: #ffaf2d;
-padding: 30px;
-text-align: center;
-
+  margin-top: 120px;
+  background-color: #ffaf2d;
+  padding: 30px;
+  text-align: center;
 }
 .room_list_banner .banner_text {
-	color: #ffffff;
-	font-family: Cafe24Ssurround;
-	font-size: 35px;
+  color: #ffffff;
+  font-family: "Cafe24Ssurround";
+  font-size: 35px;
 }
 /* index E */
 
@@ -221,111 +219,85 @@ text-align: center;
 .room_infoDes table td:nth-child(2n-1) {
   width: 140px;
 }
+
+/* 희영 */
+
 /* hotel edit by 정유 S */
-.title {
-	margin-top: 50px;
-	font-family: "Cafe24Ssurround";
-	color: #ffaf2d;
-	font-size: 1.6rem;
-	padding-bottom: 20px;
-	border-bottom: 1px solid #ffaf2d;
-  }
+.listBox,
+.modifyBox {
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 5px #00000005;
+}
 
-  .title > i {
-	  transform: rotate(90deg);
-	  vertical-align: middle;
-	  margin-right: 10px;
-  }
+.listBox li,
+.modifyBox li {
+  display: inline-block;
+  padding-bottom: 5px;
+  line-height: 1.5;
+}
 
-  .listWrap {
-	  margin: 20px 0;
-  }
+.listBox ul li:first-child {
+  width: 10%;
+  text-align: right;
+  padding-right: 10px;
+  font-weight: bold;
+}
 
-  .listBox, .modifyBox {
-	  padding: 15px;
-	  border-radius: 10px;
-	  box-shadow: 0 0 10px 5px #00000005;
-  }
+.listBox ul li:last-child {
+  width: 88%;
+}
 
-  .listBox li,
-  .modifyBox li {
-	  display: inline-block;
-	  padding-bottom: 5px;
-	  line-height: 1.5;
-  }
+.modifyBox ul li:first-child {
+  margin-right: 30px;
+  vertical-align: top;
+  width: 10%;
+  text-align: right;
+  font-weight: bold;
+}
 
-  .modifyBox .detail ul {
-	display: inline-flex;
-	width: calc(100% / 3 - 2px);
-  }
+.modifyBox ul li:last-child {
+  width: 85%;
+}
 
-  .modifyBox .detail li:first-child {
-	width: 20%;
-  }
+.listBox ul,
+.modifyBox ul {
+  margin-bottom: 10px;
+}
 
-  .modifyBox input[type='date'], select {
-	width: 50%;
-  }
+.modifyBox input[type="text"],
+.modifyBox select {
+  border:none;
+  border-bottom: 1px solid #585858;
+  width: 100%;
+}
 
-  .modifyBox input[type='textarea'] {
-	width: 100%;
-	height: 50px;
-	border: none;
-	border-bottom: 1px solid #585858;
-  }
+.modifyBox textarea {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-bottom: 1px solid #585858;
+  resize: none;
+}
 
-  .listBox li:first-child,
-  .modifyBox li:first-child {
-	  width: 5%;
-  }
+.listBox a,
+.modifyBox .subBtn {
+  border: none;
+  background-color: #585858;
+  color: #fff;
+  border-radius: 50px;
+  padding: 5px 10px;
+  float: right;
+}
 
-  .listBox button,
-  .modifyBox input[type='submit'] {
-	border: none;
-	background: #cacaca;
-	margin-left: 5px;
-	border-radius: 15px;
-	padding: 5px 10px;
-	color: #fff;
-	float: right;
-	margin-top: 5px;
-  }
+.listbox a:last-child {
+  margin-right: 10px;
+}
 
-  .listBox:after,
-  .modifyBox:after {
-	clear: right;
-	content: "";
-	display: block;
-  }
-
-  .prevRev ul li {
-	display: inline-block;
-	text-align: center;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-  }
-
-  .prevRev .date { width: 20%; }
-  .prevRev .name { width: 40%; }
-  .prevRev .period { width: 40%; }
-
-  .top {
-	background-color: #ffaf2d;
-	color: #fff;
-	padding: 10px 0;
-	display: flex;
-	font-weight: bold;
-  }
-
-  .bottom .eachList {
-	border-bottom: 1px solid #999;
-	display: flex;
-	overflow: hidden;
-  }
-
-  .bottom li {
-	line-height: 1.5;
-	margin: 5px 0;
-  }
-  /* hotel edit by 정유 E */
+.listBox:after,
+.modifyBox form:after {
+  clear: right;
+  content: "";
+  display: block;
+}
+/* hotel edit by 정유 E */

@@ -1,0 +1,167 @@
+/* 공통 속성 S */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+
+@font-face {
+    font-family: "Cafe24Ssurround";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+html {
+    font-size: 12px;
+    color: #000000;
+    height: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-image: url("../img/devbg.jpg");
+    background-size: cover;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dn {
+    display: none;
+}
+
+button {
+      background: none;
+      border: none;
+}
+/* 공통 속성 E */
+
+.book_content {
+    position: fixed;
+    left: -429px;
+    top: 0;
+    z-index: 1002;
+}
+
+.book_content.on {
+    left: calc(100% / 2 - 225px);
+    top: calc(100% / 2 - 264px);
+    z-index: 1002;
+    cursor: default;
+}
+
+.book_content #book span {
+    position: fixed;
+    left: calc(100% / 2 - 170px);
+    top: calc(100% / 2 - 200px);
+    font-size: 1.6rem;
+}
+
+.book_swipe {
+    position: fixed;
+    z-index: 11;
+}
+
+.book_content .book_swipe .btn {
+    border: 0;
+    background-color: #00000000;
+    cursor: pointer;
+}
+
+.book_content .book_swipe .btn-secondary {
+    position: fixed;
+    bottom: calc(100% / 2 - 240px);
+    left: calc(100% / 2 - 198px);
+}
+
+.book_content .book_swipe .btn-primary {
+    position: fixed;
+    bottom: calc(100% / 2 - 240px);
+    right: calc(100% / 2 - 175px);
+}
+
+.book_content .book_swipe .btn-secondary:active,
+.book_content .book_swipe .btn-primary:active {
+    filter: sepia(100%);
+}
+
+.book_close {
+    position: fixed;
+    top: 20px;
+    right: 0;
+    border: 0;
+    background-color: #00000000;
+}
+
+#layer_dim {
+    background-color: #00000099;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1001;
+}
+
+.book_open button img {
+    position: absolute;
+    bottom: 0;
+    left: 6%;
+    width: 108vh;
+    height: 100vh;
+    filter: drop-shadow(0 2px 4px #00000050);
+}
+
+.book_open button img:hover {
+    filter: drop-shadow(0 10px 20px #ffaf2d);
+}
+
+.goGit > a {
+    position: absolute;
+    bottom: 0;
+    right: 15%;
+    filter: drop-shadow(0 2px 4px #00000050);
+}
+
+.goGit > a:hover {
+    filter: drop-shadow(0 10px 20px #ffaf2d);
+}
+
+#book .name {
+  font-family: "Cafe24Ssurround";
+  font-size: 2.5rem;
+}
+
+#book .position {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+#book dl {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+#book dt,
+#book dd {
+  margin: 0;
+  display: inline-block;
+}
+
+#book dt {
+  font-weight: 600;
+}
+
+#book .git {
+  position: absolute;
+  top: -6%;
+  left: 43%;
+  font-size: 2.5rem;
+}

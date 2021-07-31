@@ -14,7 +14,6 @@ exports.isAuthenticatedUser = async (req, res, next) => {
 
   next();
 
-
   //관리자
   exports.isAdmin = async (req, res, next) => {
     if (!req.user.role == 0) {
@@ -34,8 +33,6 @@ exports.isAuthenticatedUser = async (req, res, next) => {
 
     next();
   };
-
-
 
   //최우수회원
   exports.isMvp = async (req, res, next) => {

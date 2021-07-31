@@ -24,5 +24,3 @@ router.route("/logout").get(isAuthenticatedUser, logoutUser);
 
 
 module.exports = router;
-
-  

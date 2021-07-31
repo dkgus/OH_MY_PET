@@ -1,0 +1,42 @@
+{% extends '../layout.html' %}
+{% block content %}
+<link rel="stylesheet" href="/css/room.css">
+<div class="revShow layout_width">
+    <div class='listBox'>
+        <ul>
+            <li>예약자명</li>
+            <li>{{ room.nickname }}</li>
+        </ul>
+        <ul>
+            <li>연락처</li>
+            <li>{{ room.phone }}</li>
+        </ul>
+        <ul>
+            <li>이메일</li>
+            <li>{{ room.email }}</li>
+        </ul>
+        <ul>
+            <li>호텔명</li>
+            <li>{{ room.hotelName }}</li>
+        </ul>
+        <ul>
+            <li>입실일</li>
+            <li>{{ room.revStart }}</li>
+        </ul>
+        <ul>
+            <li>퇴실일</li>
+            <li>{{ room.revEnd }}</li>
+        </ul>
+        <ul>
+            <li>룸 타입</li>
+            <li>{{ room.roomType }}</li>
+        </ul>
+        <ul>
+            <li>특이사항</li>
+            <li>{{ room.memo }}</li>
+        </ul>
+        <a href='/room/{{ room._id }}/delete' onclick="if(!confirm('취소하시겠습니까?')){return false;}">취소</a>
+        <a href='/room/{{ room._id }}/edit'>수정</a>
+    </div> <!-- //listBox -->
+</div>
+{% endblock %}
