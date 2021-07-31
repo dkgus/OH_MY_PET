@@ -2,11 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
 
 @font-face {
-    font-family: "Cafe24Ssurround";
-    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-  }
+  font-family: "Cafe24Ssurround";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
 html {
     font-size: 12px;
@@ -57,10 +57,10 @@ button {
     cursor: default;
 }
       
-.book_content #book span {
+.book_content #book ul {
     position: fixed;
-    left: calc(100% / 2 - 170px);
-    top: calc(100% / 2 - 200px);
+    left: calc(100% / 2 - 20vh);
+    top: calc(100% / 2 - 14vh);
     font-size: 1.6rem;
 }
       
@@ -77,19 +77,19 @@ button {
       
 .book_content .book_swipe .btn-secondary {
     position: fixed;
-    bottom: calc(100% / 2 - 240px);
-    left: calc(100% / 2 - 198px);
+    bottom: calc(100% / 2 - 13vh);
+    left: calc(100% / 2 - 24vh);
 }
       
 .book_content .book_swipe .btn-primary {
     position: fixed;
-    bottom: calc(100% / 2 - 240px);
-    right: calc(100% / 2 - 175px);
+    bottom: calc(100% / 2 - 13vh);
+    right: calc(100% / 2 - 35vh);
 }
       
 .book_content .book_swipe .btn-secondary:active,
 .book_content .book_swipe .btn-primary:active {
-    filter: sepia(100%);
+    filter: grayscale(100%);
 }
       
 .book_close {
@@ -130,17 +130,17 @@ button {
     filter: drop-shadow(0 2px 4px #00000050);
 }
     
-.goGit > a:hover {
-    filter: drop-shadow(0 10px 20px #ffaf2d);
-}
+    .goGit > a:hover {
+      filter: drop-shadow(0 10px 20px #ffaf2d);
+    }
 
 #book .name {
   font-family: "Cafe24Ssurround";
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 
 #book .position {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
@@ -160,8 +160,6 @@ button {
 }
 
 #book .git {
-  position: absolute;
-  top: -6%;
-  left: 43%;
+
   font-size: 2.5rem;
 }

@@ -1,0 +1,31 @@
+{% extends '../login.html' %} {% block content %}
+<link rel="stylesheet" type="text/css" href="/css/admin/admin.css" />
+<div class="layout_width">
+  <div class="title">COMMUNITY</div>
+  <!-- DELETE METHOD -->
+  <table>
+    <thead>
+      <tr>
+        <td>title</td>
+        <td>content</td>
+        <td>user</td>
+        <td>date</td>
+        <td>delete</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in posts %}
+      <tr>
+        <td>{{ item.title }}</td>
+        <td>{{ item.content }}</td>
+        <td>{{ item.user.email }}</td>
+        <td>{{ item.createdAt }}</td>
+        <td>
+          <button onclick="deletePost();">Delete</button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

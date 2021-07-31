@@ -11,11 +11,9 @@ module.exports = {
   // @route          GET /admin
   showLoginForm: (req, res) => {
 
-    const data = {
-      addCss : ['admin'],
-    };
+    
 
-   return res.render("admin/login", data);
+   return res.render("admin/login");
   },
 
 
