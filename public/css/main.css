@@ -78,6 +78,7 @@
 /* body_banner S */
 
 /* body_menu S */
+
 nav .gnb {
   text-align: center;
 }
@@ -97,6 +98,14 @@ nav .gnb:after {
   display: block;
 }
 
+nav .main_menu li img {
+  height: 24px;
+}
+
+nav .main_menu li:first-child {
+  padding-left: 0;
+}
+
 nav .main_menu li {
   display: block;
   width: 180px;
@@ -106,11 +115,6 @@ nav .main_menu li {
   font-size: 1.2rem;
   font-weight: 500;
   cursor: pointer;
-}
-
-nav .main_menu li span:hover,
-nav .main_menu li span:hover .xi-bars {
-  color: #ffaf2d;
 }
 
 nav .main_menu li a:hover {

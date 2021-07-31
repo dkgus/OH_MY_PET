@@ -4,9 +4,6 @@
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 <link rel="stylesheet" type="text/css" href="/css/users.css">
  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
- <script>
-	moment().format('YYYY-MM-DD');
-	</script>
 	<div class='mypage'>
 		<div class='mypage_back'>
 			<div class='layout_width'>
@@ -96,8 +93,8 @@
 											 <tbody>
 												 {% for item in posts %}
 											 <tr>
-				               <td>{{ item.title }}</td>
-											<td>{{ item.content }}</td>
+				               <td><a href='/community/{{ item._id }}'>{{ item.title }}</a></td>
+											<td>{{ item.content | safe }}</td>
 											<td>{{ item.createdAt }}</td>
 				           	 	</tr>
 											{% endfor %}

@@ -4,7 +4,8 @@
    <div class='user_box layout_width'>
       <div class='user_title'>회원가입</div>
          <form method='post' action='/users/new' autocomplete='off' class='join_form'>
-            <dl>
+					<input type="hidden" id="time" name="createdAt">
+						<dl>
                <dt>이름</dt>
                <dd class='pad'>
                   <input type='text' name='name' placeholder='이름을 입력해주세요.'>
@@ -78,4 +79,24 @@
          <input type='submit' value='회원가입' class='join_btn'>
       </form>
    </div>
+	 <script>
+    const time = document.getElementById('time');
+
+    function getCurrentDate() {
+      var date = new Date();
+      var year = date.getFullYear();
+      var month = date.getMonth();
+      var today = date.getDate();
+      var hours = date.getHours();
+      var minutes = date.getMinutes();
+      var seconds = date.getSeconds();
+      var milliseconds = date.getMilliseconds();
+
+      return (`${year}/${month}/${today}/ ${hours}:${minutes}`);
+
+    };
+
+    time.value = getCurrentDate();
+
+  </script>
 {% endblock %}

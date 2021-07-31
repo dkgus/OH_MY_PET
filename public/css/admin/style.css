@@ -89,7 +89,7 @@ nav li.active a {
 .tab-content{
     display: none;
 }
-
+    
 .tab-content.current{
     display: block;
 }
@@ -262,29 +262,29 @@ input::placeholder {
     font-size: 1.4rem;
     color: #585858;
   }
-
+  
   table {
     border-collapse: collapse;
     font-size: 15px;
     min-width: 400px;
     width: 1050px;
   }
-
+  
   table thead tr {
     background-color: #ffaf2d;
     color: #ffffff;
     text-align: center;
   }
-
+  
   table tbody tr {
     text-align: center;
   }
-
+  
   table th,
   table td {
     padding: 12px 15px;
   }
-
+  
   table tbody tr {
     border-bottom: 1px solid #dddddd;
   }

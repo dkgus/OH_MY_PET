@@ -3,14 +3,15 @@ const bcrypt = require("bcrypt");
 const sendToken = require("../utils/jwtToken");
 const event = require("../models/Event");
 const community = require("../models/Community");
-const room = require("../models/Room");
+const Room = require('../models/Room');
+
 
 module.exports = {
 
   // @description    Show a register form
   // @route          GET /users/new
   showRegisterForm: (req, res) => {
-		const data = {
+    const data = {
 			addCss : ['users'],
 		};
     res.render("users/new", data);
@@ -19,7 +20,8 @@ module.exports = {
   // @description    Register a User
   // @route          POST /users/new
   registerUser: async (req, res) => {
-    const { name, nickname, email, password, memPwRe, phone, type } = req.body;
+    const { name, nickname, email, password, memPwRe, phone, type, createdAt } =
+      req.body;
     try {
       // validation
       // 1. 필수 정보를 모두 입력했는지?
@@ -55,6 +57,8 @@ module.exports = {
         return res.send(`<script>alert("${msg}");history.back();</script>`);
       }
 
+   
+      
       // 비밀번호 암호화
       const salt = await bcrypt.genSalt();
       const passwordHash = await bcrypt.hash(password, salt);
@@ -66,11 +70,12 @@ module.exports = {
         password: passwordHash,
         phone,
         type,
+        createdAt,
       });
 
       await newUser.save();
 
-      res.redirect("/users");
+      res.redirect("/users/login");
     } catch (err) {
       console.log(err);
       res.status(500).send("server error");
@@ -82,7 +87,9 @@ module.exports = {
   showUpdateForm: async (req, res) => {
     try {
       const user = await User.findOne({ _id: req.params.id }, {});
-      res.render("users/edit", { user: user });
+      const token = req.cookies.token;
+
+      res.render("users/edit", { user, token });
     } catch (err) {
       console.error(err);
     }
@@ -101,7 +108,7 @@ module.exports = {
     }
   },
 
-
+  
 
   // @description    Delete a user
   // @route          DELETE /users/:id/edit
@@ -150,7 +157,14 @@ module.exports = {
       return res.send(`<script>alert("${msg}");history.back();</script>`);
     }
 
+    //sendToken(user, res);
+    //sendToken(user, res.cookie("token",token).redirect("/"));
+    
+
+
     sendToken(user, res);
+
+    //res.cookie("token").redirect("/");
   },
 
   // @description    Logout
@@ -170,10 +184,12 @@ module.exports = {
   // @description    Show my page
   // @route          GET /users/mypage
   showMyPage: async (req, res) => {
+    const token = req.cookies.token;
+
     const user = await User.findOne({ _id: req.user._id }, {});
-    const events = await event.find({ user: req.user._id }).sort({ createdAt: -1 }).populate("user");
+    const events = await event.find({ user: req.user._id }).populate("user");
+    const rooms = await Room.find({ user: req.user._id }).populate("user");
     const posts = await community.find({ user: req.user._id }).populate("user");
-		const rooms = await room.find({ user: req.user._id }).populate("user");
-    res.render("users/mypage", { user, events, posts, rooms });
+    res.render("users/mypage", { user, events, rooms, posts, token });
   },
 };

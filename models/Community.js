@@ -4,9 +4,16 @@ const communitySchema = new mongoose.Schema({
   // 글쓴이 식별용 user id
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    //required: false,
+    required: true,
     ref: "User",
   },
+
+  // 글쓴이 닉네임
+  name: {
+    type: String,
+    required: true,
+  },
+
 
   // 글제목
   title: {
@@ -22,8 +29,7 @@ const communitySchema = new mongoose.Schema({
 
   // 작성일
   createdAt: {
-    type: Date,
-    default: Date.now,
+    type: String,
   },
 
   // 수정일
@@ -31,5 +37,6 @@ const communitySchema = new mongoose.Schema({
     type: Date,
   },
 });
+
 
 module.exports = mongoose.model("Community", communitySchema);

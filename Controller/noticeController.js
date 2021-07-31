@@ -4,12 +4,11 @@ module.exports = {
   // @description    Show all notices
   // @route          GET /notices
   showAllNotices: async (req, res) => {
+    const { page = 1, limit = 10 } = req.query
     await Notice.find({})
-      .sort({ createdAt: -1 })
-      .limit(10)
-      .skip((1-1)*10)
-      .exec((err, notices) => {
-        res.render("notices/index", { notices: notices });
+    .sort({ createdAt: -1 })
+    .exec((err, notices) => {
+        res.render("notices/index", { notices, page });
       });
   },
 
@@ -33,7 +32,12 @@ module.exports = {
   // @description    Create a new notice
   // @route          POST /notices/new
   createNotice: async (req, res) => {
-    const { title, content, role } = req.body;
+    const { title, content, role, createAt } = req.body;
+    if(createAt){
+      createAt = new Date().toLocaleString('en-US',{timeZone:'Asia/Seoul'}) ;
+    }
+    
+    //const createAtForm = moment().format("YYYY-MM-DD HH:mm:ss")
     try {
       // validation
       // 필수 정보를 모두 입력했는지?
@@ -43,7 +47,7 @@ module.exports = {
       }
 
       await Notice.create({ title, content, user: req.user._id });
-
+      
       res.redirect("/notices");
     } catch (err) {
       console.log(err);

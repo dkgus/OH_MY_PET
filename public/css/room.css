@@ -1,303 +1,303 @@
 /* index S */
 .border_title {
-  font-size: 25px;
-  padding: 15px;
-  border-top: 3px solid #ffaf2d;
-  font-family: "Cafe24Ssurround";
-  font-weight: 500;
-  background-color: #ffffff;
-  margin: 30px 0;
-}
-.room_list .room_list_top {
-  margin: 20px 0 50px;
-  border-top: 3px solid #ffaf2d;
-  padding-top: 15px;
-}
-.room_list .room_list_top i {
-  font-size: 20px;
-  font-weight: bold;
-}
-.room_list .room_list_box {
-  padding-left: 10px;
-}
-.room_list_mid {
-  padding: 30px;
-  display: inline-block;
-  width: 33%;
-}
-.room_list_mid .room_list_box .img_box img {
-  width: 300px;
-  height: 200px;
-  border-radius: 5px;
-}
-.room_list_mid .room_list_box table td {
-  padding-top: 5px;
-  font-size: 13px;
-  color: #807d7d;
-}
-.room_list_banner {
-  margin-top: 120px;
-  background-color: #ffaf2d;
-  padding: 30px;
-  text-align: center;
-}
-.room_list_banner .banner_text {
-  color: #ffffff;
-  font-family: "Cafe24Ssurround";
-  font-size: 35px;
-}
-/* index E */
-
-/* /room/new S */
-.res_box {
-  width: 640px;
-  margin-top: 100px;
-}
-
-.room_tit img {
-  padding-right: 5px;
-  width: 2.4rem;
-  vertical-align: top;
-  transform: rotate(-20deg);
-}
-
-.room_tit {
-  text-align: center;
-  margin-top: 50px;
-  font-family: "Cafe24Ssurround";
-  color: #ffaf2d;
-  font-size: 2rem;
-  text-transform: uppercase;
-}
-
-.res_box form {
-  padding: 50px;
-  text-align: center;
-}
-
-.room_res_form td {
-  width: 144px;
-  font-size: 1.2rem;
-  vertical-align: middle;
-}
-
-.room_res_form input,
-.room_res_form select,
-.room_res_form textarea {
-  width: 350px;
-  line-height: 2;
-  margin: 10px 0 10px 0;
-}
-
-.res_btn {
-  background-color: #ffaf2d;
-  color: #ffffff;
-  border: 0;
-  width: 500px;
-  height: 45px;
-  cursor: pointer;
-  margin-top: 20px;
-  border-radius: 5px;
-  font-size: 1.3rem;
-  text-align: center;
-}
-
-.guide_box .guide_text {
-  background-color: #f2f2f2;
-  border-radius: 10px;
-  padding: 20px;
-  margin-top: 20px;
-  font-size: 1.1rem;
-}
-
-.guide_box .guide_text li {
-  margin: 10px 0;
-  color: #585858;
-}
-
-/* /room/new E */
-
-/* roomn.html */
-
-.room_box {
-  padding: 80px;
-}
-
-.moveToBack {
-  margin: 40px 0 20px 0;
-  font-size: 1.1rem;
-}
-
-.moveToBack a {
-  color: #807d7d;
-}
-
-.room_desBox {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.roomimg {
-  width: 450px;
-}
-
-.room_tit2 {
-  text-align: center;
-  font-family: "Cafe24Ssurround";
-  color: #ffaf2d;
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.room_desBoxRight table {
-  border-spacing: 10px;
-  font-size: 1.4rem;
-  color: #585858;
-}
-
-.room_desBoxRight table td:nth-child(2n-1) {
-  width: 100px;
-}
-
-.room_desBoxRight button {
-  margin-top: 20px;
-  background-color: #ffaf2d;
-  border: 0;
-  width: 400px;
-  height: 45px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.room_desBoxRight button a {
-  color: #ffffff;
-  font-size: 1.3rem;
-  text-align: center;
-}
-
-.room_info {
-  background-color: #ffae2d0c;
-  border-radius: 10px;
-  padding: 20px;
-  margin: 60px 0 40px 0;
-}
-
-.room_info table {
-  border-spacing: 15px;
-}
-
-.room_info table tr td i {
-  font-size: 1.5rem;
-  color: #ffaf2d;
-}
-
-.room_info table td:nth-child(2n-1) {
-  width: 35px;
-}
-
-.room_info2 {
-  padding-top: 30px;
-}
-
-.room_infoTit {
-  font-family: "Cafe24Ssurround";
-  color: #ffaf2d;
-  font-size: 1.6rem;
-  margin-bottom: 15px;
-}
-
-.room_infoDes {
-  font-size: 1.25rem;
-  padding-bottom: 50px;
-}
-
-.room_infoDes table td {
-  font-size: 1.25rem;
-}
-
-.room_infoDes table td:nth-child(2n-1) {
-  width: 140px;
-}
-
-/* 희영 */
-
-/* hotel edit by 정유 S */
-.listBox,
-.modifyBox {
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 5px #00000005;
-}
-
-.listBox li,
-.modifyBox li {
-  display: inline-block;
-  padding-bottom: 5px;
-  line-height: 1.5;
-}
-
-.listBox ul li:first-child {
-  width: 10%;
-  text-align: right;
-  padding-right: 10px;
-  font-weight: bold;
-}
-
-.listBox ul li:last-child {
-  width: 88%;
-}
-
-.modifyBox ul li:first-child {
-  margin-right: 30px;
-  vertical-align: top;
-  width: 10%;
-  text-align: right;
-  font-weight: bold;
-}
-
-.modifyBox ul li:last-child {
-  width: 85%;
-}
-
-.listBox ul,
-.modifyBox ul {
-  margin-bottom: 10px;
-}
-
-.modifyBox input[type="text"],
-.modifyBox select {
-  border:none;
-  border-bottom: 1px solid #585858;
-  width: 100%;
-}
-
-.modifyBox textarea {
-  width: 100%;
-  height: 50px;
-  border: none;
-  border-bottom: 1px solid #585858;
-  resize: none;
-}
-
-.listBox a,
-.modifyBox .subBtn {
-  border: none;
-  background-color: #585858;
-  color: #fff;
-  border-radius: 50px;
-  padding: 5px 10px;
-  float: right;
-}
-
-.listbox a:last-child {
-  margin-right: 10px;
-}
-
-.listBox:after,
-.modifyBox form:after {
-  clear: right;
-  content: "";
-  display: block;
-}
-/* hotel edit by 정유 E */
+    font-size: 25px;
+    padding: 15px;
+    border-top: 3px solid #ffaf2d;
+    font-family: "Cafe24Ssurround";
+    font-weight: 500;
+    background-color: #ffffff;
+    margin: 30px 0;
+  }
+  .room_list .room_list_top {
+    margin: 20px 0 50px;
+    border-top: 3px solid #ffaf2d;
+    padding-top: 15px;
+  }
+  .room_list .room_list_top i {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .room_list .room_list_box {
+    padding-left: 10px;
+  }
+  .room_list_mid {
+    padding: 30px;
+    display: inline-block;
+    width: 33%;
+  }
+  .room_list_mid .room_list_box .img_box img {
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
+  }
+  .room_list_mid .room_list_box table td {
+    padding-top: 5px;
+    font-size: 13px;
+    color: #807d7d;
+  }
+  .room_list_banner {
+    margin-top: 120px;
+    background-color: #ffaf2d;
+    padding: 30px;
+    text-align: center;
+  }
+  .room_list_banner .banner_text {
+    color: #ffffff;
+    font-family: "Cafe24Ssurround";
+    font-size: 35px;
+  }
+  /* index E */
+  
+  /* /room/new S */
+  .res_box {
+    width: 640px;
+    margin-top: 100px;
+  }
+  
+  .room_tit img {
+    padding-right: 5px;
+    width: 2.4rem;
+    vertical-align: top;
+    transform: rotate(-20deg);
+  }
+  
+  .room_tit {
+    text-align: center;
+    margin-top: 50px;
+    font-family: "Cafe24Ssurround";
+    color: #ffaf2d;
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+  
+  .res_box form {
+    padding: 50px;
+    text-align: center;
+  }
+  
+  .room_res_form td {
+    width: 144px;
+    font-size: 1.2rem;
+    vertical-align: middle;
+  }
+  
+  .room_res_form input,
+  .room_res_form select,
+  .room_res_form textarea {
+    width: 350px;
+    line-height: 2;
+    margin: 10px 0 10px 0;
+  }
+  
+  .res_btn {
+    background-color: #ffaf2d;
+    color: #ffffff;
+    border: 0;
+    width: 500px;
+    height: 45px;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  
+  .guide_box .guide_text {
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 1.1rem;
+  }
+  
+  .guide_box .guide_text li {
+    margin: 10px 0;
+    color: #585858;
+  }
+  
+  /* /room/new E */
+  
+  /* roomn.html */
+  
+  .room_box {
+    padding: 80px;
+  }
+  
+  .moveToBack {
+    margin: 40px 0 20px 0;
+    font-size: 1.1rem;
+  }
+  
+  .moveToBack a {
+    color: #807d7d;
+  }
+  
+  .room_desBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .roomimg {
+    width: 450px;
+  }
+  
+  .room_tit2 {
+    text-align: center;
+    font-family: "Cafe24Ssurround";
+    color: #ffaf2d;
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .room_desBoxRight table {
+    border-spacing: 10px;
+    font-size: 1.4rem;
+    color: #585858;
+  }
+  
+  .room_desBoxRight table td:nth-child(2n-1) {
+    width: 100px;
+  }
+  
+  .room_desBoxRight button {
+    margin-top: 20px;
+    background-color: #ffaf2d;
+    border: 0;
+    width: 400px;
+    height: 45px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .room_desBoxRight button a {
+    color: #ffffff;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  
+  .room_info {
+    background-color: #ffae2d0c;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 60px 0 40px 0;
+  }
+  
+  .room_info table {
+    border-spacing: 15px;
+  }
+  
+  .room_info table tr td i {
+    font-size: 1.5rem;
+    color: #ffaf2d;
+  }
+  
+  .room_info table td:nth-child(2n-1) {
+    width: 35px;
+  }
+  
+  .room_info2 {
+    padding-top: 30px;
+  }
+  
+  .room_infoTit {
+    font-family: "Cafe24Ssurround";
+    color: #ffaf2d;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+  
+  .room_infoDes {
+    font-size: 1.25rem;
+    padding-bottom: 50px;
+  }
+  
+  .room_infoDes table td {
+    font-size: 1.25rem;
+  }
+  
+  .room_infoDes table td:nth-child(2n-1) {
+    width: 140px;
+  }
+  
+  /* 희영 */
+  
+  /* hotel edit by 정유 S */
+  .listBox,
+  .modifyBox {
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px #00000005;
+  }
+  
+  .listBox li,
+  .modifyBox li {
+    display: inline-block;
+    padding-bottom: 5px;
+    line-height: 1.5;
+  }
+  
+  .listBox ul li:first-child {
+    width: 10%;
+    text-align: right;
+    padding-right: 10px;
+    font-weight: bold;
+  }
+  
+  .listBox ul li:last-child {
+    width: 88%;
+  }
+  
+  .modifyBox ul li:first-child {
+    margin-right: 30px;
+    vertical-align: top;
+    width: 10%;
+    text-align: right;
+    font-weight: bold;
+  }
+  
+  .modifyBox ul li:last-child {
+    width: 85%;
+  }
+  
+  .listBox ul,
+  .modifyBox ul {
+    margin-bottom: 10px;
+  }
+  
+  .modifyBox input[type="text"],
+  .modifyBox select {
+    border:none;
+    border-bottom: 1px solid #585858;
+    width: 100%;
+  }
+  
+  .modifyBox textarea {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid #585858;
+    resize: none;
+  }
+  
+  .listBox a,
+  .modifyBox .subBtn {
+    border: none;
+    background-color: #585858;
+    color: #fff;
+    border-radius: 50px;
+    padding: 5px 10px;
+    float: right;
+  }
+  
+  .listbox a:last-child {
+    margin-right: 10px;
+  }
+  
+  .listBox:after,
+  .modifyBox form:after {
+    clear: right;
+    content: "";
+    display: block;
+  }
+  /* hotel edit by 정유 E */

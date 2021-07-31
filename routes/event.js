@@ -38,3 +38,4 @@ router.route("/:id/delete").get(deleteEvent);
 router.route("/:id").get(isAuthenticatedUser,showEvent);
 
 module.exports = router;
+  
