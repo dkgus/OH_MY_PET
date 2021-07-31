@@ -87,6 +87,7 @@ module.exports = {
   updatePost: async (req, res) => {
     try {
       await Community.findOneAndUpdate({ _id: req.params.id }, req.body, () => {
+
         res.redirect("/community/" + req.params.id);
       });
     } catch (err) {

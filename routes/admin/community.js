@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { isAuthenticatedUser } = require("../../utils/auth");
+const { isAuthenticatedUser} = require("../../utils/auth");
 
 
 const {
@@ -14,7 +14,7 @@ const {
 
 
 // admin/community/
-router.route("/").get( isAuthenticatedUser, showAllPosts);
+router.route("/").get(isAuthenticatedUser, showAllPosts);
 
 // admin/community/:id
 router.route("/:id").get(isAuthenticatedUser,showPost);

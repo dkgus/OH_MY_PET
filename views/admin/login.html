@@ -48,7 +48,7 @@
 </nav>
   <!-- 메뉴 영역 E -->  
   <!--본문 S-->
-  {% if loginUser %}
+  {% if token %}
   <section>
     <div class='content'>
         <div class='loginBox'>
@@ -63,6 +63,7 @@
   </section>
   {% else %}
     {% block content %}
+    토큰오류입니다
     {% endblock %}
   {% endif %}
   <!--본문 E-->
