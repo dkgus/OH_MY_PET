@@ -12,14 +12,14 @@ const {
   } = require("../../controller/deleteController")
 
 
-  // admin/event/
+  // admin/room/
   router.route("/").get( isAuthenticatedUser, showAllRooms);
 
-  // admin/event/:id
+  // admin/room/:id
   router.route("/:id").get(isAuthenticatedUser, showRoom);
 
 
-  // admin/event/:id/edit
+  // admin/romm/:id/edit
     router.route("admin/:id/edit")
     .get(isAuthenticatedUser,showUpdateForm)
     .put(isAuthenticatedUser, updateRoom)

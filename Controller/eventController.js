@@ -1,20 +1,22 @@
 const Event = require("../models/Event");
 const User = require("../models/User");
+const { getCurrentDate } = require("../utils/date");
+
 
 module.exports = {
   // @description    Show all events
   // @route          GET /event
   showAllEvents: async (req, res) => {
-    const data = {
-      addCss : ['event'],
-    };
+    
     const events = await Event.find({ user: req.user._id })
                   .sort({ createdAt: -1 })
                   .populate("user");
     const user = await User.findOne({ _id: req.user._id }, {})
+    const token = req.cookies.token
+
     
     
-    res.render("event/index", { data, events , user });
+    res.render("event/index", { events , user, token });
   },
 
 
@@ -24,7 +26,8 @@ module.exports = {
     try {
       const event = await Event.findOne({ _id: req.params.id }, {});
       const user = await User.findOne({ _id: req.user._id }, {});
-      res.render("event/show", { event, user });
+      const token = req.cookies.token
+      res.render("event/show", { event, user, token });
       console.log(user);
     } catch (err) {
       console.error(err);
@@ -34,6 +37,7 @@ module.exports = {
   // @description    Show a register form
   // @route          GET /event/new
   showCreateForm: async (req, res) => {
+    
     await res.render("event/new");
   },
 
@@ -63,8 +67,8 @@ module.exports = {
   showUpdateForm: async (req, res) => {
     try {
       const event = await Event.findOne({ _id: req.params.id }, {});
-     
-      res.render("event/edit", { event: event });
+      const token = req.cookies.token
+      res.render("event/edit", { event, token });
     } catch (err) {
       console.error(err);
     }

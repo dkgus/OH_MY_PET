@@ -20,7 +20,8 @@ module.exports = {
   // @description    Register a User
   // @route          POST /users/new
   registerUser: async (req, res) => {
-    const { name, nickname, email, password, memPwRe, phone, type } = req.body;
+    const { name, nickname, email, password, memPwRe, phone, type, createdAt } =
+      req.body;
     try {
       // validation
       // 1. 필수 정보를 모두 입력했는지?
@@ -69,6 +70,7 @@ module.exports = {
         password: passwordHash,
         phone,
         type,
+        createdAt,
       });
 
       await newUser.save();
@@ -85,7 +87,9 @@ module.exports = {
   showUpdateForm: async (req, res) => {
     try {
       const user = await User.findOne({ _id: req.params.id }, {});
-      res.render("users/edit", { user: user });
+      const token = req.cookies.token;
+
+      res.render("users/edit", { user, token });
     } catch (err) {
       console.error(err);
     }
@@ -180,10 +184,12 @@ module.exports = {
   // @description    Show my page
   // @route          GET /users/mypage
   showMyPage: async (req, res) => {
+    const token = req.cookies.token;
+
     const user = await User.findOne({ _id: req.user._id }, {});
     const events = await event.find({ user: req.user._id }).populate("user");
     const rooms = await Room.find({ user: req.user._id }).populate("user");
     const posts = await community.find({ user: req.user._id }).populate("user");
-    res.render("users/mypage", { user, events, rooms, posts });
+    res.render("users/mypage", { user, events, rooms, posts, token });
   },
 };

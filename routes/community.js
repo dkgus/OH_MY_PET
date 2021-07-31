@@ -16,19 +16,13 @@ const {
 router.route("/").get( isAuthenticatedUser, showAllPosts);
 
 // community/new
-router
-  .route("/new")
-  .get(showCreateForm)
-  .post( isAuthenticatedUser,createPost);
+router.route("/new").get(showCreateForm).post(isAuthenticatedUser, createPost);
 
 // community/:id
 router.route("/:id").get(showPost);
 
 // community/:id/edit
-router
-  .route("/:id/edit")
-  .get(showUpdateForm)
-  .put(updatePost)
+router.route("/:id/edit").get(showUpdateForm).put(updatePost);
 
 
 //community/:id/delete

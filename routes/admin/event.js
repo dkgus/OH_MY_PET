@@ -20,9 +20,10 @@ router.route("/:id").get(isAuthenticatedUser,showEvent);
 
 
 // admin/event/:id/edit
-router.route("/admin/:id/edit")
-.get(isAuthenticatedUser,showUpdateForm)
-.put(isAuthenticatedUser, updateEvent)
-.delete( isAuthenticatedUser, deleteEvent);
+router.route("/:id/delete").get(deleteEvent);
+// router.route("/admin/:id/edit")
+// .get(isAuthenticatedUser,showUpdateForm)
+// .put(isAuthenticatedUser, updateEvent)
+// .delete( isAuthenticatedUser, deleteEvent);
 
 module.exports = router;
