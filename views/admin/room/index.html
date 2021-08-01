@@ -1,7 +1,4 @@
-{% extends '../login.html' %}
-<!-- admin page layout -->
-
-{% block content %}
+{% extends '../login.html' %} {% block content %}
 <link rel="stylesheet" type="text/css" href="/css/admin/admin.css" />
 <!-- confirm ROOM res. -->
 <div class="layout_width">
@@ -27,7 +24,7 @@
         <td>{{ item.revStart }} ~ {{ item.revEnd }}</td>
         <td>{{ item.memo }}</td>
         <td>
-          <a>DELETE</a>
+          <button onclick="deleteEvent();">DELETE</button>
         </td>
       </tr>
       {% endfor %}
@@ -35,5 +32,3 @@
   </table>
 </div>
 {% endblock %}
-
-<input type="data" />

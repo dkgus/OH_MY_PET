@@ -38,8 +38,7 @@ const userSchema = new mongoose.Schema({
 
   // 가입일자
   createdAt: {
-    type: Date,
-    default: Date.now,
+    type: String,
   },
 
   // 회원등급 (관리자 - 0, 일반회원 - 3, 우수회원 - 2, 최우수회원 - 1)

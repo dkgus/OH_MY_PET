@@ -38,8 +38,7 @@ revEnd: {
 
 //예약일
 regDt: {
-    type: Date,
-    default: Date.now,
+    type: String,
 },
 
 //특이사항

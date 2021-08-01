@@ -10,10 +10,11 @@ module.exports = {
   // @description    Show a admin Login form
   // @route          GET /admin
   showLoginForm: (req, res) => {
+    const token = req.cookies.token
 
     
 
-   return res.render("admin/login");
+   return res.render("admin/login", {token});
   },
 
 

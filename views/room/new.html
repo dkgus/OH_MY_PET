@@ -7,6 +7,7 @@
     <!-- reservation -->
 
     <form action='/room/new' autocomplete='off' method="post">
+        <input type="hidden" id="time" name="createdAt">
         <table class="room_res_form">
             <tr>
                 <td class="">
@@ -56,7 +57,7 @@
                     체크인
                 </td>
                 <td>
-                    <input type="text" name="revStart">
+                    <input type="date" name="revStart">
                 </td>
             </tr>
             <tr>
@@ -72,7 +73,7 @@
                     기타요청사항
                 </td>
                 <td>
-                    <textarea name="memo" cols="30" rows="4" placeholder="기타요청사항을 입력해주세요."></textarea>
+                    <input type="number" name="memo" cols="30" rows="4" placeholder="기타요청사항을 입력해주세요.">
                 </td>
             </tr>
         </table>
@@ -89,6 +90,29 @@
   </ul>
 </div>
 </div>
+
+
+
+<script>
+    const time = document.getElementById('time');
+
+    function getCurrentDate() {
+      var date = new Date();
+      var year = date.getFullYear();
+      var month = date.getMonth();
+      var today = date.getDate();
+      var hours = date.getHours();
+      var minutes = date.getMinutes();
+      var seconds = date.getSeconds();
+      var milliseconds = date.getMilliseconds();
+
+      return (`${year}/${month}/${today}/ ${hours}:${minutes}`);
+
+    };
+
+    time.value = getCurrentDate();
+
+  </script>
 
 <!-- 예약 후 '예약이 완료되었습니다' 알림 -->
 {% endblock %}

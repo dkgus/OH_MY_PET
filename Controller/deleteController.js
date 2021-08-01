@@ -19,14 +19,12 @@
   // @description    Show all posts as a admin
   // @route          GET /admmin/community
   showAllPosts: async (req, res) => {
-  
-    const posts = await Community.find({ user: req.user._id }).populate("user");
-    const user = await User.findOne({ _id: req.user._id }, {})
-
-
-    res.render("admin/community/index", { posts, user });
-
-    },
+    await Community.find({})
+      .sort({ createdAt: -1 })
+      .exec((err, posts) => {
+        res.render("admin/community/index", { posts: posts });
+      });
+  },
 
   // @description    Show a post
   // @route          GET /admin/community/:id
@@ -86,17 +84,13 @@
 
   // @description    Show all events
   // @route          GET /admin/admin/event
-  showAllEvents: async (req, res) => {
-    const data = {
-      addCss : ['event'],
-    };
-    const events = await Event.find({ user: req.user._id }).populate("user");
-    const user = await User.findOne({ _id: req.user._id }, {})
-    
-    
-    res.render("admin/event/index", { data, events , user });
+showAllEvents: async (req, res) => {
+    await Event.find({}) //이쯤에서.populate(참조가 필요한 document이름)-> exec
+      .sort({ createdAt: -1 })
+      .exec((err, events) => {
+        res.render("admin/event/index", { events: events });
+      });
   },
-
 
   // @description    Show a event
   // @route          GET /admin/event/:id
@@ -161,10 +155,12 @@
   // @description    Show all rooms
   // @route          GET /admin/room
   showAllRooms: async (req, res) => {
-    await Room.find({})//이쯤에서.populate(참조가 필요한 document이름)-> exec
+
+  const user = await User.find( {});
+  const rooms=  await Room.find().populate("user")//이쯤에서.populate(참조가 필요한 document이름)-> exec
       .sort({ createdAt: -1 })
       .exec((err, rooms) => {
-        res.render("admin/room/index", { rooms: rooms });
+        res.render("admin/room/index", { rooms, user });
       });
   },
 
