@@ -2,7 +2,6 @@
 {%set title="커뮤니티"%}
 {% block content %}
 <link rel="stylesheet" type="text/css" href="/css/board.css">
-<script type='text/babel' src='/js/community.js' defer></script>
   <div class="boardTitle layout_width"><img src="image/title.png">community</img></div>
   <div class='indexWrap layout_width'>
   <div class='list'>
@@ -18,7 +17,7 @@
             <a href='/community/{{ item._id }}' class='title'>
               {{ item.title }}
             </a>
-            <span class='poster'>{{ item.user }}</span>
+            <span class='poster'>{{ item.name }}</span>
             <span class='date'>{{ item.createdAt }}</span>
           </li>
         {% endfor %}
