@@ -9,7 +9,6 @@
       <tr>
         <td>event name</td>
         <td>user email</td>
-        <td>res. time</td>
         <td>delete</td>
       </tr>
     </thead>
@@ -18,7 +17,6 @@
       <tr>
         <td>{{ item.eventNm }}</td>
         <td>{{ item.user.email }}</td>
-        <td>{{ item.createdAt }}</td>
         <td>
           <a
             href="/admin/event/{{ item._id }}/delete"
