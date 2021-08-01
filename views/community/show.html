@@ -1,5 +1,4 @@
 {% extends '../layout.html' %}
-{%set title="{{ post.title }}"%}
 {% block content %}
 <link rel="stylesheet" type="text/css" href="/css/board.css">
 <script type='text/babel' src='/js/community.js' defer></script>
@@ -9,7 +8,7 @@
       <div class="info">
         <h3 class="title">{{ post.title }}</h3>
         <dl>
-          <dt class='poster'>{{ post.user }}</dt>
+          <dt class='poster'>{{ post.name }}</dt>
           <dd class='date'>{{ post.createdAt }}</dd>
         </dl>
       </div> <!-- //info -->
