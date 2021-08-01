@@ -17,10 +17,10 @@ router.route("/").get(isAuthenticatedUser, showAllPosts);
 router.route("/:id").get(isAuthenticatedUser, showPost);
 
 // admin/community/:id/edit
-router
-  .route("/:id/edit")
-  .get(isAuthenticatedUser, showUpdateForm)
-  .put(isAuthenticatedUser, updatePost)
-  .delete(isAuthenticatedUser, deletePost);
+router.route("/:id/delete").get(deletePost);
+// router.route("/admin/:id/edit")
+// .get(isAuthenticatedUser,showUpdateForm)
+// .put(isAuthenticatedUser, updatePost)
+// .delete( isAuthenticatedUser, deletePost);
 
 module.exports = router;

@@ -20,7 +20,12 @@
         <td>{{ item.user.email }}</td>
         <td>{{ item.createdAt }}</td>
         <td>
-          <button>DELETE</button>
+          <a
+            href="/admin/event/{{ item._id }}/delete"
+            onclick="if(!confirm('정말 삭제 하시겠습니까?')){return false;}"
+            class="deleteBtn"
+            >DELETE</a
+          >
         </td>
       </tr>
       {% endfor %}
