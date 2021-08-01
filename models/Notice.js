@@ -8,6 +8,12 @@ const noticeSchema = new mongoose.Schema({
     ref: "User",
   },
 
+    // 글쓴이 닉네임
+  name: {
+    type: String,
+    required: true,
+  },
+  
   // 글제목
   title: {
     type: String,
@@ -22,8 +28,7 @@ const noticeSchema = new mongoose.Schema({
 
   // 작성일
   createdAt: {
-    type: Date,
-    default: Date.now,
+    type: String,
   },
 
   // 글 등급 (일반회원 - 3, 우수회원 - 2, 최우수회원 - 1)
