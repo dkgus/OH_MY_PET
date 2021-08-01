@@ -1,4 +1,7 @@
 {% extends '../layout.html' %} {% block content %}
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/css/room.css" />
 <div class="layout_width res_box">
     <div class="room_tit"><img src="../image/title.png">호텔 예약하기</img></div>
@@ -7,7 +10,6 @@
     <!-- reservation -->
 
     <form action='/room/new' autocomplete='off' method="post">
-        <input type="hidden" id="time" name="createdAt">
         <table class="room_res_form">
             <tr>
                 <td class="">
@@ -53,27 +55,19 @@
                 </td>
             </tr>
             <tr>
-                <td>
-                    체크인
-                </td>
-                <td>
-                    <input type="date" name="revStart">
-                </td>
+                <td>체크인</td>
+                <td><input type="text" id="revDate" name="revStart" placeholder="체크인 날짜를 선택해주세요."></td>
             </tr>
             <tr>
-                <td>
-                    체크아웃
-                </td>
-                <td>
-                    <input type="text" name="revEnd">
-                </td>
+                <td>체크아웃</td>
+                <td><input type="date" id="test" name="revEnd" placeholder="체크아웃 날짜를 선택해주세요."></td>
             </tr>
             <tr>
                 <td>
                     기타요청사항
                 </td>
                 <td>
-                    <input type="number" name="memo" cols="30" rows="4" placeholder="기타요청사항을 입력해주세요.">
+                    <input type="text" name="memo" cols="30" rows="4" placeholder="기타요청사항을 입력해주세요.">
                 </td>
             </tr>
         </table>
@@ -94,25 +88,28 @@
 
 
 <script>
-    const time = document.getElementById('time');
+    $(function() {
+    $( "#revDate" ).datepicker({
+        changeMonth : true,
+        changeYear : true,
+        dateFormat : "yy-mm-dd",
+        monthNames : ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        monthNamesShort : ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+        dayNames : ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+        dayNamesMin : ['일', '월', '화', '수', '목', '금', '토']
+    });
+});
 
-    function getCurrentDate() {
+const test = document.getElementById('test');
+    function getDate() {
       var date = new Date();
       var year = date.getFullYear();
       var month = date.getMonth();
-      var today = date.getDate();
-      var hours = date.getHours();
-      var minutes = date.getMinutes();
-      var seconds = date.getSeconds();
-      var milliseconds = date.getMilliseconds();
-
-      return (`${year}/${month}/${today}/ ${hours}:${minutes}`);
-
+      var date = date.getDate();
+      return (`${year}-${month}-${date}`);
     };
+    test.value = getDate();
 
-    time.value = getCurrentDate();
+</script>
 
-  </script>
-
-<!-- 예약 후 '예약이 완료되었습니다' 알림 -->
 {% endblock %}
