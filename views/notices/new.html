@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="/css/board.css">
   <div class='form_wrap layout_width'>
     <form method='post' action='/notices/new' autocomplete='off'>
+      <input type="hidden" id="time" name="createdAt">
         <div class='top'>
           <ul>
             <li>제목</li>
@@ -31,4 +32,24 @@
       </div> <!-- //btnWrap -->
     </form>
   </div> <!-- //form_wrap -->
+
+  <script>
+    const time = document.getElementById('time');
+    
+    function getCurrentDate() {
+      var date = new Date();
+      var year = date.getFullYear();
+      var month = date.getMonth();
+      var today = date.getDate();
+      var hours = date.getHours();
+      var minutes = date.getMinutes();
+      var seconds = date.getSeconds();
+      var milliseconds = date.getMilliseconds();
+    
+      return (`${year}/${month+1}/${today}/ ${hours}:${minutes}`);
+    
+    };
+    
+    time.value = getCurrentDate();
+    </script>
   {% endblock %}
