@@ -1,5 +1,4 @@
 {% extends '../layout.html' %}
-{%set title="{{notice.title}}"%}
 {% block content %}
 <link rel="stylesheet" type="text/css" href="/css/board.css">
   <div class="boardTitle layout_width"><img src="image/title.png">notice</img></div>
@@ -8,7 +7,7 @@
       <div class="info">
         <h3 class="nt_title">{{ notice.title }}</h3>
         <dl>
-          <dt class='poster'>{{ notice.user }}</dt>
+          <dt class='poster'>{{ notice.name }}</dt>
           <dd class='date'>{{notice.createdAt }}</dd>
         </dl>
       </div> <!-- //info -->
@@ -18,7 +17,6 @@
     </div> <!--//post-->
     <div class='buttonWrap'>
       <a href='/notices/new'><i class="xi-pen"></i>작성</a>
-      <a href='/notices/{{ notice._id }}/edit'><i class="xi-wrench"></i>수정</a>
       <a href='/notices/{{ notice._id }}/delete' onclick="if(!confirm('삭제 하시겠습니까?')){return false;}"><i class="xi-trash"></i>삭제</a>
       <a href="/notices"><i class="xi-bars"></i>목록</a>
     </div>
