@@ -1,24 +1,29 @@
 const Notice = require("../models/Notice");
+const User = require("../models/User");
+const { getCurrentDate } = require("../utils/date");
 
 module.exports = {
   // @description    Show all notices
   // @route          GET /notices
   showAllNotices: async (req, res) => {
-    await Notice.find({})
-      .sort({ createdAt: -1 })
-      .limit(10)
-      .skip((1-1)*10)
-      .exec((err, notices) => {
-        res.render("notices/index", { notices: notices });
-      });
+    const user = await User.find({ _id: req.user._id }, {});
+    const notices = await Notice.find({})
+    .sort({ createdAt: -1 })
+    .skip((1-1)*10) 
+    .limit(10);
+    const token = req.cookies.token;
+
+    res.render("notices/index", { notices, user, token });
   },
 
   // @description    Show a notice
   // @route          GET /notices/:id
   showNotice: async (req, res) => {
     try {
+      const user = await User.find({ _id: req.user._id }, {});
       const notice = await Notice.findOne({ _id: req.params.id }, {});
-      res.render("notices/show", { notice: notice });
+      const token = req.cookies.token;
+      res.render("notices/show", { notice, user, token });
     } catch (err) {
       console.error(err);
     }
@@ -27,13 +32,16 @@ module.exports = {
   // @description    Show a write form
   // @route          GET /notices/new
   showCreateForm: async (req, res) => {
-    await res.render("notices/new");
+    const token = req.cookies.token;
+    await res.render("notices/new", { token });
   },
 
   // @description    Create a new notice
   // @route          POST /notices/new
   createNotice: async (req, res) => {
-    const { title, content, role } = req.body;
+    const { title, content, role, createdAt } = req.body;
+    
+    //const createAtForm = moment().format("YYYY-MM-DD HH:mm:ss")
     try {
       // validation
       // 필수 정보를 모두 입력했는지?
@@ -42,8 +50,8 @@ module.exports = {
         return res.send(`<script>alert("${msg}");history.back();</script>`);
       }
 
-      await Notice.create({ title, content, user: req.user._id });
-
+      await Notice.create({ title, content, user: req.user._id, name: req.user.name, createdAt, });
+      
       res.redirect("/notices");
     } catch (err) {
       console.log(err);
@@ -56,7 +64,8 @@ module.exports = {
   showUpdateForm: async (req, res) => {
     try {
       const notice = await Notice.findOne({ _id: req.params.id }, {});
-      res.render("notices/edit", { notice: notice });
+      const token = req.cookies.token;
+      res.render("notices/edit", { notice, token });
     } catch (err) {
       console.error(err);
     }
