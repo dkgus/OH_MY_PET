@@ -1,0 +1,48 @@
+{% extends '../layout.html' %}
+{%set title="글 작성"%}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/css/board.css">
+  <div class='form_wrap layout_width'>
+      <form method='post' action='/community/new' autocomplete='off'>
+        <input type="hidden" id="time" name="createdAt">
+        <div class='comTop'>
+          <ul>
+            <li>제목</li>
+            <li>
+                <input type="text" name="title">
+            </li>
+          </ul>
+        </div>
+         <div class="form">
+            <textarea id="content" name="content" rows="40"></textarea>
+            <script> CKEDITOR.replace( 'content', { filebrowserImageUploadUrl: '../uploadIMG.jsp' }); </script>
+         </div>
+      <div class='btnWrap'>
+        <a href="/community"><i class="xi-bars"></i>목록</a>
+        <input type="submit" class="upload" value="작성" style='float: right;'>
+    </div> <!-- //btnWrap -->
+  </form>
+  </div> <!-- //form_wrap -->
+
+
+  <script>
+    const time = document.getElementById('time');
+  
+    function getCurrentDate() {
+      var date = new Date();
+      var year = date.getFullYear();
+      var month = date.getMonth();
+      var today = date.getDate();
+      var hours = date.getHours();
+      var minutes = date.getMinutes();
+      var seconds = date.getSeconds();
+      var milliseconds = date.getMilliseconds();
+  
+      return (`${year}/${month}/${today}/ ${hours}:${minutes}`);
+  
+    };
+  
+    time.value = getCurrentDate();
+  
+  </script>
+{% endblock %}

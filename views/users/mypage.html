@@ -1,0 +1,111 @@
+{% extends '../layout.html' %}
+{% block content %}
+{%set title="마이페이지"%}
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/users.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+ <script>
+	moment().format('YYYY-MM-DD');
+	</script>
+	<div class='mypage'>
+		<div class='mypage_back'>
+			<div class='layout_width'>
+				<a href='/users/mypage'>my page</a>
+			</div>
+		</div>
+		<div class='my_info layout_width'>
+			<div class='mypage_title'>마이페이지</div>
+			<div class='infobox box1'>
+				<div class='info'>
+					<div class='info_left'>
+							<img src='/image/pets.png'>
+					</div>
+					<div class='info_right'>
+						<div class='user_name'>{{ user.nickname }} 님</div><a href="{{user._id}}"><div class='edit'><i class='xi-pen'></i></div></a>
+						<table>
+							<tr>
+								<td>이름</td>
+								<td>{{ user.name }}</td>
+							</tr>
+							<tr>
+								<td>이메일</td>
+								<td>{{ user.email }}</td>
+							</tr>
+							<tr>
+								<td>가입일자</td>
+								<td>{{ user.createdAt }}</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class='infobox'>
+					<div class='_wrap'>
+						<div class='mypage_event_title'>이벤트 예약현황</div>
+							<div class='all_event'><a href="/event">자세히</a></div>
+								<table class="styled-table">
+								<thead>
+								<tr>
+               <th>이벤트 명</th><th>예약자 성함</th><th>예약자 연락처</th>
+							 </tr>
+							 </thead>
+							 <tbody>
+								 {% for item in events %}
+							 <tr>
+               <td>{{ item.eventNm }}</td>
+							<td>{{ item.user.nickname }}</td>
+							<td>{{ item.user.phone }}</td>
+           	 	</tr>
+							{% endfor %}
+							</tbody>
+						</table>
+						</div>
+					</div>
+					<div class='infobox'>
+						<div class='_wrap'>
+							<div class='mypage_hotel_title'>호텔 예약현황</div>
+								<div class='all_event'><a href="/room">자세히</a></div>
+									<table class="styled-table">
+										<table class="styled-table">
+										<thead>
+										<tr>
+		               <th>호텔명</th><th>체크인</th><th>체크아웃</th>
+									 </tr>
+									 </thead>
+									 <tbody>
+										 {% for item in rooms %}
+									 <tr>
+		               <td>{{ item.hotelName }}</td>
+									<td>{{ item.revStart }}</td>
+									<td>{{ item.revEnd }}</td>
+		           	 	</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+								</div>
+							</div>
+							<div class='infobox'>
+									<div class='_wrap'>
+										<div class='mypage_write_title'>작성한 글 내역</div>
+												<table class="styled-table">
+												<thead>
+												<tr>
+				               <th>글제목</th><th>글내용</th><th>작성시간</th>
+											 </tr>
+											 </thead>
+											 <tbody>
+												 {% for item in posts %}
+											 <tr>
+				               <td>{{ item.title }}</td>
+											<td>{{ item.content }}</td>
+											<td>{{ item.createdAt }}</td>
+				           	 	</tr>
+											{% endfor %}
+											</tbody>
+										</table>
+										</div>
+								</div>
+						</div>
+				</div>
+	<!-- //mypage -->
+{% endblock %}

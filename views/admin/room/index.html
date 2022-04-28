@@ -1,0 +1,34 @@
+{% extends '../login.html' %} {% block content %}
+<link rel="stylesheet" type="text/css" href="/css/admin/admin.css" />
+<!-- confirm ROOM res. -->
+<div class="layout_width">
+  <div class="title">ROOM RESERVATION LIST</div>
+  <!-- DELETE METHOD -->
+  <table>
+    <thead>
+      <tr>
+        <td>hotel name</td>
+        <td>user email</td>
+        <td>room type</td>
+        <td>check-in/out</td>
+        <td>memo</td>
+        <td>delete</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in rooms %}
+      <tr>
+        <td>{{ item.hotelName }}</td>
+        <td>{{ item.user.email }}</td>
+        <td>{{ item.roomType }}</td>
+        <td>{{ item.revStart }} ~ {{ item.revEnd }}</td>
+        <td>{{ item.memo }}</td>
+        <td>
+          <button onclick="deleteEvent();">DELETE</button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

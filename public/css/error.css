@@ -1,0 +1,131 @@
+body {
+    background: #5ab7ff;
+    margin: 0;
+    padding: 0;
+}
+
+.grass {
+    width: 100%;
+    height: 150px;
+    position: absolute;
+    bottom: 0;
+    background: #627700;
+}
+
+.cloud img {
+    width: 15%;
+}
+
+.cloud img:nth-child(1) {
+    position: absolute;
+    top: 17%;
+    right: 17%;
+}
+
+.cloud img:nth-child(2) {
+    position: absolute;
+    top: 12%;
+    left: 5%;
+    width: 25%;
+}
+
+.cloud img:nth-child(3) {
+    position: absolute;
+    top: 6%;
+    right: 2%;
+}
+
+.member img:nth-child(1) {
+    width: 10%;
+    position: absolute;
+    bottom: 10%;
+    left: 4%;
+    z-index: 100;
+}
+
+.member img:nth-child(2) {
+    width: 15%;
+    position: absolute;
+    bottom: 7%;
+    left: 13%;
+    z-index: 100;
+}
+
+.member img:nth-child(3) {
+    width: 7%;
+    position: absolute;
+    bottom: 19%;
+    right: 24%;
+    z-index: 100;
+}
+
+.member img:nth-child(4) {
+    width: 9%;
+    position: absolute;
+    bottom: 6%;
+    right: 14.5%;
+    z-index: 100;
+}
+
+.member img:nth-child(5) {
+    width: 15%;
+    position: absolute;
+    bottom: 15%;
+    right: 1%;
+    z-index: 100;
+}
+
+.error h2 {
+    font-size: 150px;
+    color: #fff;
+    text-shadow: 10px 10px 0 #00000010;
+    text-align: center;
+    line-height: 1.8;
+}
+
+.error h2 span {
+    display: inline-block;
+    animation: moveY 2s ease-in-out infinite;
+}
+
+.error h2 span:nth-child(even) {
+    animation-delay: -1s;
+}
+
+@keyframes moveY {
+    0%,100%
+    {
+        transform: translateY(-5px);
+    }
+    50%
+    {
+        transform: translateY(5px);
+    }
+}
+
+.errorBack {
+    position: absolute;
+    bottom: 30%;
+    left: calc(50% - 160px);
+    margin: 0 auto;
+    z-index: 101;
+}
+
+.errorBack h3 {
+    color: #fff;
+    text-align: center;
+    width: 320px;
+}
+
+.errorBack a {
+    background: #fff;
+    border-radius: 50px;
+    text-align: center;
+    color: #5ab7ff;
+    font-weight: bold;
+    text-decoration: none;
+    width: 320px;
+    height: 50px;
+    padding: 10px 100px;
+    font-size: 1.5rem;
+}

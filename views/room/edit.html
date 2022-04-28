@@ -1,0 +1,44 @@
+{% extends '../layout.html' %}
+{% block content %}
+<link rel="stylesheet" href="/css/room.css">
+<div class='modifyBox layout_width'>
+    <form method="post" action="/room/{{ room._id }}/edit" autocomplete="off">
+    <ul>
+        <li>예약자명</li>
+        <li><input type="text" name="nickname" value="{{ room.nickname }}"></li>
+    </ul>
+    <ul>
+        <li>연락처</li>
+        <li><input type="text" name="phone" value="{{ room.phone }}"></li>
+    </ul>
+    <ul>
+        <li>이메일</li>
+        <li><input type="text" name="email" value="{{ room.email }}"></li>
+    </ul>
+    <ul>
+        <li>호텔명</li>
+        <li><input type="text" name="hotelName" value="{{ room.hotelName }}"></li>
+    </ul>
+    <ul>
+        <li>입실일</li>
+        <li><input type="text" name="revStart" value="{{ room.revStart }}"></li>
+    </ul>
+    <ul>
+        <li>퇴실일</li>
+        <li><input type="text" name="revEnd" value="{{ room.revEnd }}"></li>
+    </ul>
+    <ul>
+        <li>룸 타입</li>
+        <li><select name="roomType">
+            <option value="1">dorm</option>
+            <option value="2">family</option>
+        </select></li>
+    </ul>
+    <ul>
+        <li>특이사항</li>
+        <li><textarea name="memo">{{ memo.room }}</textarea></li>
+    </ul>
+    <input type="submit" class='subBtn' value="수정">
+</form>
+</div> <!-- //modifyBox -->
+{% endblock %}
