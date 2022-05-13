@@ -3,63 +3,41 @@ const bcrypt = require("bcrypt");
 const sendToken = require("../utils/jwtToken");
 const event = require("../models/Event");
 const community = require("../models/Community");
-const Room = require('../models/Room');
-
+const Room = require("../models/Room");
+const { check, validationResult } = require("express-validator");
 
 module.exports = {
-
   // @description    Show a register form
   // @route          GET /users/new
   showRegisterForm: (req, res) => {
     const data = {
-			addCss : ['users'],
-		};
+      addCss: ["users"],
+    };
     res.render("users/new", data);
   },
 
   // @description    Register a User
   // @route          POST /users/new
-  registerUser: async (req, res) => {
-    const { name, nickname, email, password, memPwRe, phone, type, createdAt } =
-      req.body;
-    try {
-      // validation
-      // 1. 필수 정보를 모두 입력했는지?
-      if (
-        !nickname ||
-        !name ||
-        !email ||
-        !password ||
-        !memPwRe ||
-        !phone ||
-        !type
-      ) {
-        const msg = "필수항목은 모두 입력해주세요.";
-        return res.send(`<script>alert("${msg}");history.back();</script>`);
-      }
 
-      // 2. 비밀번호의 길이가 5자 이상인지?
+  registerUser: async (req, res) => {
+    const { name, nickname, email, password, memPwRe, phone, type } = req.body;
+    try {
       if (password.length < 5) {
         const msg = "비밀번호는 최소 5자 이상입니다.";
         return res.send(`<script>alert("${msg}");history.back();</script>`);
       }
 
-      // 3. 비밀번호를 2번 입력했을때 그 값이 모두 같은지?
       if (password !== memPwRe) {
         const msg = "비밀번호가 일치하지 않습니다.";
         return res.send(`<script>alert("${msg}");history.back();</script>`);
       }
 
-      // 4. email주소 중복 확인
       let user = await User.findOne({ email });
       if (user) {
         const msg = "이미 존재 하는 메일주소 입니다.";
         return res.send(`<script>alert("${msg}");history.back();</script>`);
       }
 
-   
-      
-      // 비밀번호 암호화
       const salt = await bcrypt.genSalt();
       const passwordHash = await bcrypt.hash(password, salt);
 
@@ -70,15 +48,14 @@ module.exports = {
         password: passwordHash,
         phone,
         type,
-        createdAt,
       });
 
-      await newUser.save();
-
-      res.redirect("/users/login");
+      const userInfo = await newUser.save();
+      return res.json(userInfo);
+      //.redirect("/users/login");
     } catch (err) {
       console.log(err);
-      res.status(500).send("server error");
+      return res.status(500).send("server error");
     }
   },
 
@@ -107,8 +84,6 @@ module.exports = {
       console.error(err);
     }
   },
-
-  
 
   // @description    Delete a user
   // @route          DELETE /users/:id/edit
@@ -159,8 +134,6 @@ module.exports = {
 
     //sendToken(user, res);
     //sendToken(user, res.cookie("token",token).redirect("/"));
-    
-
 
     sendToken(user, res);
 

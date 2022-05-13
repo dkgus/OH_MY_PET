@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { isAuthenticatedUser } = require("../utils/auth");
+const { checkRegister } = require("../utils/checkInfo");
 
 const {
   //showAllUsers,
@@ -21,7 +22,7 @@ const {
 //router.route("/").get(showAllUsers);
 
 // users/new
-router.route("/new").get(showRegisterForm).post(registerUser);
+router.route("/new").get(showRegisterForm).post(checkRegister, registerUser);
 
 // users/login
 router.route("/login").get(showLoginForm).post(loginUser);
