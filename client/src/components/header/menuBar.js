@@ -1,15 +1,50 @@
 import React from "react";
-import { Menu } from "antd";
-import {
-  MailOutlined,
-  AppstoreOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
+import { Nav } from "react-bootstrap";
 
 const Menubar = () => {
   return (
     <>
-      <Menu mode="horizontal" defaultSelectedKeys={["two"]}>
+      <Nav
+        justify="true"
+        activeKey="/home"
+        className="nav_box"
+        style={{ backgroundColor: "#f7f4f0", borderRadius: 10 }}
+      >
+        <Nav.Item>
+          <Nav.Link
+            href="/home"
+            className="nav_item"
+            style={{ color: "#ffaf2d", fontWeight: "bold", fontSize: 20 }}
+          >
+            community
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-1"
+            style={{ color: "#ffaf2d", fontWeight: "bold", fontSize: 20 }}
+          >
+            Event & Notice
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-2"
+            style={{ color: "#ffaf2d", fontWeight: "bold", fontSize: 20 }}
+          >
+            Room reservation
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link
+            eventKey="disabled"
+            style={{ color: "#ffaf2d", fontWeight: "bold", fontSize: 20 }}
+          >
+            My page
+          </Nav.Link>
+        </Nav.Item>
+      </Nav>
+      {/* <Menu mode="horizontal" className="big_menu">
         <Menu.SubMenu key="SubMenu1" title="커뮤니티" icon={<MailOutlined />}>
           <Menu.Item key="two" icon={<AppstoreOutlined />}>
             글 작성하기
@@ -45,7 +80,7 @@ const Menubar = () => {
         <Menu.Item key="mail" icon={<MailOutlined />}>
           마이페이지
         </Menu.Item>
-      </Menu>
+      </Menu> */}
     </>
   );
 };
