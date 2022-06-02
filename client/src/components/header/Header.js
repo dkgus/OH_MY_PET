@@ -26,7 +26,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div clssName="nav_bar" style={{ height: "10vh", paddingTop: 30 }}>
+      <div clssName="nav_bar" style={{ height: "10vh", paddingTop: 10 }}>
         <Menubar />
       </div>
     </>
