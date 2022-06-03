@@ -107,6 +107,7 @@ module.exports = {
   // @route          POST /users/login
   loginUser: async (req, res, next) => {
     const { email, password } = req.body;
+    console.log("req.body", req.body);
 
     // 이메일, 비밀번호 입력되었는지 확인
     if (!email || !password) {

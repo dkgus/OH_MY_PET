@@ -1,18 +1,27 @@
 import React, { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
+import { connect } from "react-redux";
+import { login } from "../../../actions/auth";
 
-export const Login = () => {
+const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const { email, password } = formData;
 
-  const onChange = (e) =>
+  const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  console.log("formData", formData);
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
+    login({ formData });
   };
+  if (isAuthenticated) {
+    return <Navigate to="/" />;
+  }
   return (
     <>
       <div
@@ -33,25 +42,29 @@ export const Login = () => {
         </h3>
 
         <Form onSubmit={(e) => onSubmit(e)}>
-          <Form.Group
-            className="mb-3"
-            controlId="formBasicEmail"
-            onChange={(e) => onChange(e)}
-          >
-            <Form.Label style={{ fontWeight: "bold" }}>Email </Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label style={{ fontWeight: "bold" }}>Email</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              name="email"
+              value={email}
+              onChange={(e) => onChange(e)}
+            />
             <Form.Text className="text-muted">
               이메일 양식으로 작성해주세요.
             </Form.Text>
           </Form.Group>
 
-          <Form.Group
-            className="mb-3"
-            controlId="formBasicPassword"
-            onChange={(e) => onChange(e)}
-          >
+          <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label style={{ fontWeight: "bold" }}>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={password}
+              onChange={(e) => onChange(e)}
+            />
             <Form.Text className="text-muted">6자 이상 입력해주세요.</Form.Text>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -74,3 +87,9 @@ export const Login = () => {
     </>
   );
 };
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { login })(Login);

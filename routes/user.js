@@ -25,7 +25,7 @@ const {
 router.route("/new").get(showRegisterForm).post(checkRegister, registerUser);
 
 // users/login
-router.route("/login").get(showLoginForm).post(loginUser);
+router.route("/login").post(loginUser);
 
 // users/logout
 router.route("/logout").get(logoutUser);

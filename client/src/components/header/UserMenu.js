@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { MdOutlinePets } from "react-icons/md";
+import { connect } from "react-redux";
 
-const UserMenu = () => {
+const UserMenu = ({ isAuthenticated }) => {
   const guest = (
     <ul
       style={{
@@ -20,8 +21,9 @@ const UserMenu = () => {
             marginRight: "3px",
           }}
         />
-        {/* <Link to="/login">Login</Link> */}
-        Login
+        <Link to="/login" style={{ color: "black", textDecoration: "none" }}>
+          Login
+        </Link>
       </li>
       <li style={{ fontWeight: "bold", marginLeft: "1%", fontSize: "1.2rem" }}>
         <MdOutlinePets
@@ -31,8 +33,9 @@ const UserMenu = () => {
             marginRight: "3px",
           }}
         />
-        {/* <Link to="/register">Register</Link> */}
-        Register
+        <Link to="/register" style={{ color: "black", textDecoration: "none" }}>
+          Register
+        </Link>
       </li>
     </ul>
   );
@@ -46,7 +49,7 @@ const UserMenu = () => {
         padding: 0,
       }}
     >
-      <li style={{ fontWeight: "bold", fontSize: "1rem" }}>
+      <li style={{ fontWeight: "bold", fontSize: "1.2rem" }}>
         <MdOutlinePets
           style={{
             color: "#ffaf2d",
@@ -54,10 +57,11 @@ const UserMenu = () => {
             marginRight: "3px",
           }}
         />
-        {/* <Link to="/login">Login</Link> */}
-        My Page
+        <Link to="/my_page" style={{ color: "black", textDecoration: "none" }}>
+          My Page
+        </Link>
       </li>
-      <li style={{ fontWeight: "bold", marginLeft: "1%", fontSize: "1rem" }}>
+      <li style={{ fontWeight: "bold", marginLeft: "1%", fontSize: "1.2rem" }}>
         <MdOutlinePets
           style={{
             color: "#ffaf2d",
@@ -65,13 +69,18 @@ const UserMenu = () => {
             marginRight: "3px",
           }}
         />
-        {/* <Link to="/register">Register</Link> */}
-        Logout
+        <Link to="/logout" style={{ color: "black", textDecoration: "none" }}>
+          Logout
+        </Link>
       </li>
     </ul>
   );
 
-  return <>{guest}</>;
+  return <>{isAuthenticated ? member : guest}</>;
 };
 
-export default UserMenu;
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, {})(UserMenu);
