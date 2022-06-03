@@ -22,7 +22,7 @@ const {
 //router.route("/").get(showAllUsers);
 
 // users/new
-router.route("/new").get(showRegisterForm).post(checkRegister, registerUser);
+router.route("/new").post(checkRegister, registerUser);
 
 // users/login
 router.route("/login").post(loginUser);

@@ -6,7 +6,7 @@ const Menubar = () => {
     <>
       <Nav
         justify="true"
-        activeKey="/home"
+        //activeKey="/home"
         className="nav_box"
         style={{ backgroundColor: "#f7f4f0", borderRadius: 10 }}
       >
@@ -29,7 +29,7 @@ const Menubar = () => {
         </Nav.Item>
         <Nav.Item>
           <Nav.Link
-            eventKey="link-2"
+            href="/room_reservation"
             style={{ color: "#ffaf2d", fontWeight: "bold", fontSize: 20 }}
           >
             Room reservation

@@ -5,6 +5,8 @@ import Header from "./components/header/Header";
 import Contents from "./components/body/Contents";
 import Footer from "./components/footer/Footer";
 import Login from "./components/body/login/Login";
+import RoomReservation from "./components/body/room/RoomReservation";
+import RoomList from "./components/body/room/RoomList";
 
 import { Provider } from "react-redux";
 import store from "./store";
@@ -18,6 +20,8 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Contents />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/room_reservation" element={<RoomReservation />} />
+            <Route path="/room_list/:id" element={<RoomList />} />
           </Routes>
         </Router>
         <Footer />
