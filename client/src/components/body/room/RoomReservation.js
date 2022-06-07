@@ -60,9 +60,11 @@ const RoomReservation = () => {
                     <b>{name}</b>
                   </Card.Title>
                   <Card.Text style={{ fontSize: "0.8rem", paddingBottom: 50 }}>
-                    <b>{title}</b>
+                    <b style={{ fontSize: "1rem", color: "#ffaf2d" }}>
+                      {title}
+                    </b>
                     <br />
-                    {text}
+                    <div style={{ fontWeight: "600" }}>{text}</div>
                   </Card.Text>
 
                   <Button

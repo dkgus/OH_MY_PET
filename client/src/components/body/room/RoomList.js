@@ -1,7 +1,13 @@
 import React from "react";
-import { Row, Col, Image } from "react-bootstrap";
+import { Row, Col, Image, Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
-import { BsFillCaretLeftFill } from "react-icons/bs";
+import {
+  BsFillCaretLeftFill,
+  BsFillGeoAltFill,
+  BsCalendar2Check,
+  BsFillTelephoneFill,
+  BsEmojiLaughing,
+} from "react-icons/bs";
 
 const hotelInfo = [
   {
@@ -74,6 +80,7 @@ const hotelInfo = [
 console.log("hotelInfo", hotelInfo);
 const RoomList = () => {
   const { id } = useParams();
+  const parseId = parseInt(id);
 
   return (
     <div>
@@ -110,9 +117,9 @@ const RoomList = () => {
           locationDetail,
         } = item;
         //hotelInfo id - useParams로 받아온 id 두개 식별하는 조건문 필요
-        if (id == item.id) {
+        if (parseId === item.id) {
           return (
-            <div key={id}>
+            <div key={parseId} style={{ width: "1200px", margin: "0 auto" }}>
               <Row style={{ height: "340px", paddingTop: 30 }}>
                 <Col>
                   <Image
@@ -121,28 +128,128 @@ const RoomList = () => {
                   />
                 </Col>
                 <Col>
-                  <h3 style={{ fontWeight: "bold" }}>{title}</h3>
-                  <div>{location}</div>
-                  <div>{grade}</div>
+                  <h3
+                    style={{
+                      fontWeight: "bold",
+                      textAlign: "center",
+                      paddingBottom: 30,
+                    }}
+                  >
+                    {title}
+                  </h3>
+                  <h5 style={{ fontWeight: "600" }}> - 위치: {location}</h5>
+                  <h5 style={{ fontWeight: "600", paddingBottom: 130 }}>
+                    - 호텔 등급: {grade}
+                  </h5>
+
+                  <Button
+                    type="submit"
+                    href={`/room_reserve/${id}`}
+                    style={{
+                      backgroundColor: "#ffaf2d",
+                      border: "none",
+                      fontWeight: "bold",
+                      width: "100%",
+                    }}
+                  >
+                    예약서 작성하기
+                  </Button>
                 </Col>
               </Row>
-              <Row style={{ height: "200px" }}>
-                <div>
-                  <div>{locationDetail}</div>
-                  <div>
-                    {checkIn} | {checkOut}
+              <Row style={{ height: "260px", marginBottom: 50 }}>
+                <div
+                  style={{
+                    backgroundColor: "#FFFBF5",
+                    borderRadius: 10,
+                    marginTop: 30,
+                    padding: "50px 30px 30px 50px",
+                  }}
+                >
+                  <div style={{ paddingBottom: 15 }}>
+                    <BsFillGeoAltFill
+                      style={{
+                        color: "#ffaf2d",
+                        fontSize: "1.5rem",
+                        marginRight: 10,
+                      }}
+                    />
+                    <span style={{ fontWeight: "bold" }}>{locationDetail}</span>
                   </div>
-                  <div>{call}</div>
-                  <div>{describe}</div>
+                  <div style={{ paddingBottom: 15 }}>
+                    <BsCalendar2Check
+                      style={{
+                        color: "#ffaf2d",
+                        fontSize: "1.5rem",
+                        marginRight: 10,
+                      }}
+                    />
+                    <span style={{ fontWeight: "bold" }}>
+                      {checkIn} | {checkOut}
+                    </span>
+                  </div>
+                  <div style={{ paddingBottom: 15 }}>
+                    <BsFillTelephoneFill
+                      style={{
+                        color: "#ffaf2d",
+                        fontSize: "1.5rem",
+                        marginRight: 10,
+                      }}
+                    />
+                    <span style={{ fontWeight: "bold" }}>{call}</span>
+                  </div>
+                  <div>
+                    <BsEmojiLaughing
+                      style={{
+                        color: "#ffaf2d",
+                        fontSize: "1.5rem",
+                        marginRight: 10,
+                      }}
+                    />
+                    <span style={{ fontWeight: "bold" }}>{describe}</span>
+                  </div>
                 </div>
               </Row>
-              <Row style={{ height: "174px" }}>
-                <div>{describe_detail_one_title}</div>
-                <div>{describe_detail_two_title}</div>
-                <div>{describe_detail_three_title}</div>
-                <div>{describe_detail_one_detail}</div>
-                <div>{describe_detail_two_detail}</div>
-                <div>{describe_detail_three_detail}</div>
+              <Row style={{ height: "500px", paddingBottom: 30 }}>
+                <h4
+                  style={{
+                    fontWeight: 700,
+                    color: "#ffaf2d",
+                    paddingBottom: 10,
+                  }}
+                >
+                  {describe_detail_one_title}
+                </h4>
+                <div style={{ fontWeight: "bold" }}>
+                  {describe_detail_one_detail}
+                </div>
+
+                <h4
+                  style={{
+                    fontWeight: 700,
+                    color: "#ffaf2d",
+                    paddingBottom: 10,
+                    paddingTop: 30,
+                  }}
+                >
+                  <div>{describe_detail_two_title}</div>
+                </h4>
+                <div style={{ fontWeight: "bold" }}>
+                  {describe_detail_two_detail}
+                </div>
+
+                <h4
+                  style={{
+                    fontWeight: 700,
+                    color: "#ffaf2d",
+                    paddingBottom: 10,
+                    paddingTop: 30,
+                  }}
+                >
+                  {describe_detail_three_title}
+                </h4>
+                <div style={{ fontWeight: "bold" }}>
+                  {describe_detail_three_detail}
+                </div>
               </Row>
             </div>
           );

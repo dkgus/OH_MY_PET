@@ -4,7 +4,8 @@ const sendToken = require("../utils/jwtToken");
 const event = require("../models/Event");
 const community = require("../models/Community");
 const Room = require("../models/Room");
-const { check, validationResult } = require("express-validator");
+const config = require("config");
+const jwt = require("jsonwebtoken");
 
 module.exports = {
   // @description    Show a register form
@@ -41,7 +42,7 @@ module.exports = {
       const salt = await bcrypt.genSalt();
       const passwordHash = await bcrypt.hash(password, salt);
 
-      const newUser = new User({
+      user = new User({
         name,
         nickname,
         email,
@@ -50,9 +51,21 @@ module.exports = {
         type,
       });
 
-      const userInfo = await newUser.save();
-      return res.json(userInfo);
-      //.redirect("/users/login");
+      await user.save();
+      const payload = {
+        user: {
+          id: user.id,
+        },
+      };
+      jwt.sign(
+        payload,
+        config.get("jwtSecret"),
+        { expiresIn: 36000 },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+        }
+      );
     } catch (err) {
       console.log(err);
       return res.status(500).send("server error");

@@ -7,6 +7,7 @@ import Footer from "./components/footer/Footer";
 import Login from "./components/body/login/Login";
 import RoomReservation from "./components/body/room/RoomReservation";
 import RoomList from "./components/body/room/RoomList";
+import RoomForm from "./components/body/room/RoomForm";
 
 import { Provider } from "react-redux";
 import store from "./store";
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/room_reservation" element={<RoomReservation />} />
             <Route path="/room_list/:id" element={<RoomList />} />
+            <Route path="/room_reserve/:id" element={<RoomForm />} />
           </Routes>
         </Router>
         <Footer />

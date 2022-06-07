@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { isAuthenticatedUser } = require("../utils/auth");
 const { checkRegister } = require("../utils/checkInfo");
+const auth = require("../utils/jwtToken");
 
 const {
   //showAllUsers,
@@ -25,7 +26,7 @@ const {
 router.route("/new").post(checkRegister, registerUser);
 
 // users/login
-router.route("/login").post(loginUser);
+router.route("/login").post(auth, loginUser);
 
 // users/logout
 router.route("/logout").get(logoutUser);
