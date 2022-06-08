@@ -118,40 +118,60 @@ module.exports = {
 
   // @description    Login
   // @route          POST /users/login
-  loginUser: async (req, res, next) => {
-    const { email, password } = req.body;
-    console.log("req.body", req.body);
+  loginUser: async (req, res) => {
+    try {
+      const { email, password } = req.body;
+      if (!email || !password) {
+        return res
+          .status(400)
+          .json({ msg: "이메일 비밀번호를 모두 입력해주세요" });
+      }
 
-    // 이메일, 비밀번호 입력되었는지 확인
-    if (!email || !password) {
-      const msg = "이메일, 비밀번호 모두 입력해주세요.";
-      return res.send(`<script>alert("${msg}");history.back();</script>`);
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        return res.status(400).json({ msg: "없는 회원입니다" });
+      }
+
+      const isPasswordMatched = await bcrypt.compare(password, user.password);
+
+      if (!isPasswordMatched) {
+        return res.status(400).json({ msg: "비밀번호가 일치하지 않습니다." });
+      }
+
+      const payload = {
+        user: {
+          id: user.id,
+        },
+      };
+
+      jwt.sign(
+        payload,
+        config.get("jwtSecret"),
+        { expiresIn: "5 days" },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token, msg: "로그인되었습니다" });
+        }
+      );
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send("Server error");
     }
+  },
 
-    // DB에 유저 아이디가 있는지 확인
-    const user = await User.findOne({ email });
-
-    if (!user) {
-      const msg = "존재하지 않는 이메일 입니다.";
-      return res.send(`<script>alert("${msg}");history.back();</script>`);
+  // @description    Get user Info
+  // @route          GET /users/login
+  getUserInfo: async (req, res) => {
+    try {
+      console.log("1111", req.user);
+      const user = await User.findById(req.user.id).select("-password");
+      console.log("user", user);
+      return res.json(user);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send("Server Error");
     }
-
-    // 비밀번호가 일치하는지 확인
-    const isPasswordMatched = async () => {
-      await bcrypt.compare(password, user.password);
-    };
-
-    if (!isPasswordMatched) {
-      const msg = "올바른 비밀번호를 입력해주세요.";
-      return res.send(`<script>alert("${msg}");history.back();</script>`);
-    }
-
-    //sendToken(user, res);
-    //sendToken(user, res.cookie("token",token).redirect("/"));
-
-    sendToken(user, res);
-
-    //res.cookie("token").redirect("/");
   },
 
   // @description    Logout

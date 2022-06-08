@@ -17,16 +17,20 @@ const {
   showLoginForm,
   showMyPage,
   goHome,
+  getUserInfo,
 } = require("../controller/userController");
 
 // users/
 //router.route("/").get(showAllUsers);
 
 // users/new
-router.route("/new").post(checkRegister, registerUser);
+router.route("/new").post(checkRegister, registerUser); //get token
 
-// users/login
-router.route("/login").post(auth, loginUser);
+// user/login(get)
+router.route("/login").get(auth, getUserInfo);
+
+// users/login(post)
+router.route("/login").post(loginUser);
 
 // users/logout
 router.route("/logout").get(logoutUser);
