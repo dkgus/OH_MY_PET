@@ -110,17 +110,19 @@ module.exports = {
     }
   },
 
-  // @description    Show a Login form
-  // @route          GET /users/login
-  showLoginForm: (req, res) => {
-    res.render("users/login", { title: "로그인" });
-  },
+  // // @description    Show a Login form
+  // // @route          GET /users/login
+  // showLoginForm: (req, res) => {
+  //   res.render("users/login", { title: "로그인" });
+  // },
 
   // @description    Login
   // @route          POST /users/login
   loginUser: async (req, res) => {
+    console.log("Req", req.body);
     try {
       const { email, password } = req.body;
+      console.log("email", email);
       if (!email || !password) {
         return res
           .status(400)

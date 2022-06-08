@@ -1,6 +1,9 @@
+import { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
+import setTokenToLocal from "./utils/setTokenToLocal";
+
 import Header from "./components/header/Header";
 import Contents from "./components/body/Contents";
 import Footer from "./components/footer/Footer";
@@ -11,8 +14,15 @@ import RoomForm from "./components/body/room/RoomForm";
 
 import { Provider } from "react-redux";
 import store from "./store";
+import { loadUser } from "./actions/auth";
 
 const App = () => {
+  useEffect(() => {
+    if (localStorage.token) {
+      setTokenToLocal(localStorage.token);
+    }
+    store.dispatch(loadUser());
+  }, []);
   return (
     <div style={{ maxWidth: "80%", margin: "0 auto" }}>
       <Provider store={store}>

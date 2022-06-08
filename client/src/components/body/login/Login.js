@@ -17,7 +17,7 @@ const Login = ({ login, isAuthenticated }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    login({ formData });
+    login({ email, password });
   };
   if (isAuthenticated) {
     return <Navigate to="/" />;
