@@ -4,3 +4,5 @@ export const USER_LOADED = "USER_LOADED";
 export const AUTH_ERROR = "AUTH_ERROR";
 export const RESERVATION_SUCCESS = "RESERVATION_SUCCESS";
 export const RESERVE_ERROR = "RESERVE_ERROR";
+export const ALERT_SUCCESS = "ALERT_SUCCESS";
+export const ALERT_REMOVE = "ALERT_REMOVE";

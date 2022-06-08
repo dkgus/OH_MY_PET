@@ -7,6 +7,7 @@ import setTokenToLocal from "./utils/setTokenToLocal";
 import Header from "./components/header/Header";
 import Contents from "./components/body/Contents";
 import Footer from "./components/footer/Footer";
+import Alert from "./components/alert/Alert";
 import Login from "./components/body/login/Login";
 import RoomReservation from "./components/body/room/RoomReservation";
 import RoomList from "./components/body/room/RoomList";
@@ -29,6 +30,7 @@ const App = () => {
       <Provider store={store}>
         <Router>
           <Header />
+          <Alert />
           <Routes>
             <Route path="/" element={<Contents />} />
             <Route path="/login" element={<Login />} />

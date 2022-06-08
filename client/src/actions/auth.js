@@ -1,5 +1,6 @@
 import axios from "axios";
 import setTokenToLocal from "../utils/setTokenToLocal";
+import { setAlert } from "./alert";
 
 import { LOGIN_SUCCESS, LOGIN_FAIL, USER_LOADED, AUTH_ERROR } from "./types";
 
@@ -32,7 +33,6 @@ export const login =
 
     try {
       const res = await axios.post("/users/login", body, config);
-      console.log("res", res);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,
@@ -41,8 +41,7 @@ export const login =
     } catch (err) {
       const errors = err.response.data.errors;
       if (errors) {
-        console.log("errors", errors);
-        //errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+        errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
       }
       dispatch({
         type: LOGIN_FAIL,

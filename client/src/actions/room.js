@@ -1,4 +1,5 @@
 import axios from "axios";
+import { setAlert } from "./alert";
 import { RESERVATION_SUCCESS, RESERVE_ERROR } from "./types";
 
 export const reserveRoom =
@@ -16,6 +17,7 @@ export const reserveRoom =
         type: RESERVATION_SUCCESS,
         payload: res.data,
       });
+      dispatch(setAlert("예약이 완료되었습니다 :)", "success"));
       navigate("/room_reservation");
     } catch (err) {
       dispatch({
