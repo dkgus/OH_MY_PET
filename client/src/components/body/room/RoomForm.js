@@ -1,76 +1,79 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import { connect } from "react-redux";
+import { reserveRoom } from "../../../actions/room";
+import { useNavigate } from "react-router-dom";
 
-const RoomForm = () => {
+const RoomForm = ({ reserveRoom }) => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    hotelName: "",
+    roomType: "",
+    revStart: "",
+    revEnd: "",
   });
 
+  const { hotelName, roomType, revStart, revEnd } = formData;
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const onSubmit = (e) => {
     e.preventDefault();
+    reserveRoom({ hotelName, roomType, revStart, revEnd, navigate });
   };
 
   return (
     <div style={{ width: "70%", margin: "0 auto" }}>
       <Form onSubmit={(e) => onSubmit(e)}>
-        {/* 이름 */}
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label style={{ fontWeight: "bold" }}>예약자 성함</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            name="name"
-            //value={email}
-            onChange={(e) => onChange(e)}
-          />
-        </Form.Group>
-
-        {/* 호텔종류 */}
         <Form.Group className="mb-3">
-          <Form.Label>호텔선택</Form.Label>
-          <Form.Select>
-            <option>호텔1</option>
-            <option>호텔2</option>
-            <option>호텔3</option>
+          <Form.Label>호텔 선택</Form.Label>
+          <Form.Select
+            value={hotelName}
+            name="hotelName"
+            onChange={(e) => onChange(e)}
+          >
+            <option>선택해주세요</option>
+            <option>[인천] 개편한 세상</option>
+            <option>[서울] 앨리스애견호텔</option>
+            <option>[경기] 망고쿠로</option>
           </Form.Select>
         </Form.Group>
 
-        {/* 객실 종류 */}
         <Form.Group className="mb-3">
-          <Form.Label>호텔선택</Form.Label>
-          <Form.Select>
+          <Form.Label>객실 종류 선택</Form.Label>
+          <Form.Select
+            value={roomType}
+            name="roomType"
+            onChange={(e) => onChange(e)}
+          >
+            <option>선택해주세요</option>
             <option>강아지 기숙사</option>
             <option>강아지 가족 호텔</option>
           </Form.Select>
           <Form.Text className="text-muted" style={{ fontWeight: 700 }}>
-            * 강아지 가족호텔은 한 집의 강아지들끼리만 방을 제공합니다.
+            * 강아지 가족호텔은 한 집의 강아지들끼리만 방을 사용합니다.
           </Form.Text>
         </Form.Group>
 
-        {/* 예약시작일 */}
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label style={{ fontWeight: "bold" }}>체크인 날짜</Form.Label>
           <Form.Control
             type="date"
             placeholder="date"
-            name="date"
-            //value={password}
+            name="revStart"
+            value={revStart}
             onChange={(e) => onChange(e)}
           />
         </Form.Group>
 
-        {/* 예약마지막일 */}
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label style={{ fontWeight: "bold" }}>체크아웃 날짜</Form.Label>
           <Form.Control
             type="date"
             placeholder="date"
-            name="date"
-            //value={password}
+            name="revEnd"
+            value={revEnd}
             onChange={(e) => onChange(e)}
           />
         </Form.Group>
@@ -91,4 +94,4 @@ const RoomForm = () => {
   );
 };
 
-export default RoomForm;
+export default connect(null, { reserveRoom })(RoomForm);

@@ -49,34 +49,22 @@ module.exports = {
   // @description    Create a new room
   // @route          POST /room/new
   createRoom: async (req, res) => {
-    const { nickname, phone, email, hotelName, roomType, revStart, revEnd } =
-      req.body;
     try {
-      // validation
-      // 필수 정보를 모두 입력했는지?
-      if (
-        !nickname ||
-        !phone ||
-        !email ||
-        !hotelName ||
-        !roomType ||
-        !revStart ||
-        !revEnd
-      ) {
-        const msg =
-          "이름, 연락처, 이메일, 호텔명, 객실종류, 일정시작일, 일정 종료일을 입력해주세요.";
-        return res.send(`<script>alert("${msg}");history.back();</script>`);
-      }
-      await Room.create({
-        hotelName,
-        roomType,
-        revStart,
-        revEnd,
-        user: req.user._id,
+      console.log("req", req.body);
+      const user = await User.findById(req.user.id).select("-password");
+
+      const newRoom = new Room({
+        hotelName: req.body.hotelName,
+        roomType: req.body.roomType,
+        revStart: req.body.revStart.Room,
+        revEnd: req.body.revStart.revEnd,
+        user: user,
       });
-      res.redirect("/room");
+
+      const room = await newRoom.save();
+      res.json(room);
     } catch (err) {
-      console.log(err);
+      console.error(err.message);
       res.status(500).send("server error");
     }
   },

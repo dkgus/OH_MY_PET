@@ -11,6 +11,7 @@ import Login from "./components/body/login/Login";
 import RoomReservation from "./components/body/room/RoomReservation";
 import RoomList from "./components/body/room/RoomList";
 import RoomForm from "./components/body/room/RoomForm";
+import PrivateRoute from "./components/privateRouting/PrivateRouting";
 
 import { Provider } from "react-redux";
 import store from "./store";

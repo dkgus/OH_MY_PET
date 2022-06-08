@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { isAuthenticatedUser } = require("../utils/auth");
+const auth = require("../utils/jwtToken");
 
 const {
   showAllRooms,
@@ -17,7 +18,7 @@ const {
 router.route("/").get(showAllRooms);
 
 // room/new
-router.route("/new").get(showCreateForm).post(createRoom);
+router.route("/new").get(showCreateForm).post(auth, createRoom);
 
 // room/list
 router.route("/list").get(showRoomList);
