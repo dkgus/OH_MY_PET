@@ -13,25 +13,18 @@ const {
 } = require("../controller/communityController");
 
 // community/
-router.route("/").get( isAuthenticatedUser, showAllPosts);
+router.route("/").get(isAuthenticatedUser, showAllPosts);
 
 // community/new
 router.route("/new").get(showCreateForm).post(isAuthenticatedUser, createPost);
 
-
-
 // community/:id/edit(update)
-router
-.route("/:id/edit")
-.get(showUpdateForm)
-.post(updatePost)
-
+router.route("/:id/edit").post(updatePost);
 
 //community/:id/delete
 router.route("/:id/delete").get(deletePost);
 
-
 // community/:id
-router.route("/:id").get( isAuthenticatedUser, showPost);
+router.route("/:id").get(isAuthenticatedUser, showPost);
 
 module.exports = router;

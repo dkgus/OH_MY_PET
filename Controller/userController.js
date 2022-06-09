@@ -193,12 +193,16 @@ module.exports = {
   // @description    Show my page
   // @route          GET /users/mypage
   showMyPage: async (req, res) => {
-    const token = req.cookies.token;
+    try {
+      const room = await Room.find({ user: req.user.id }).populate("user", [
+        "name",
+        "type",
+      ]);
 
-    const user = await User.findOne({ _id: req.user._id }, {});
-    const events = await event.find({ user: req.user._id }).populate("user");
-    const rooms = await Room.find({ user: req.user._id }).populate("user");
-    const posts = await community.find({ user: req.user._id }).populate("user");
-    res.render("users/mypage", { user, events, rooms, posts, token });
+      return res.json(room);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send("server error");
+    }
   },
 };

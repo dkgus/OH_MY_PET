@@ -6,3 +6,5 @@ export const RESERVATION_SUCCESS = "RESERVATION_SUCCESS";
 export const RESERVE_ERROR = "RESERVE_ERROR";
 export const ALERT_SUCCESS = "ALERT_SUCCESS";
 export const ALERT_REMOVE = "ALERT_REMOVE";
+export const GET_MY_INFO = "GET_MY_INFO";
+export const MISS_MY_INFO = "MISS_MY_INFO";

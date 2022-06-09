@@ -12,7 +12,7 @@ const Menubar = () => {
       >
         <Nav.Item>
           <Nav.Link
-            href="/home"
+            href="/"
             className="nav_item"
             style={{ color: "#ffaf2d", fontWeight: "bold", fontSize: 20 }}
           >
@@ -21,6 +21,7 @@ const Menubar = () => {
         </Nav.Item>
         <Nav.Item>
           <Nav.Link
+            href="/"
             eventKey="link-1"
             style={{ color: "#ffaf2d", fontWeight: "bold", fontSize: 20 }}
           >
@@ -37,7 +38,7 @@ const Menubar = () => {
         </Nav.Item>
         <Nav.Item>
           <Nav.Link
-            eventKey="disabled"
+            href="/my_page"
             style={{ color: "#ffaf2d", fontWeight: "bold", fontSize: 20 }}
           >
             My page

@@ -36,7 +36,7 @@ router.route("/login").post(loginUser);
 router.route("/logout").get(logoutUser);
 
 // users/mypage
-router.route("/mypage").get(isAuthenticatedUser, showMyPage);
+router.route("/mypage").get(auth, showMyPage);
 
 // users/:id/edit
 router.route("/:id").get(showUpdateForm).post(updateUser).delete(deleteUser);

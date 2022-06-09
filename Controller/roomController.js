@@ -56,8 +56,8 @@ module.exports = {
       const newRoom = new Room({
         hotelName: req.body.hotelName,
         roomType: req.body.roomType,
-        revStart: req.body.revStart.Room,
-        revEnd: req.body.revStart.revEnd,
+        revStart: req.body.revStart,
+        revEnd: req.body.revEnd,
         user: user,
       });
 

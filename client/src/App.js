@@ -12,6 +12,7 @@ import Login from "./components/body/login/Login";
 import RoomReservation from "./components/body/room/RoomReservation";
 import RoomList from "./components/body/room/RoomList";
 import RoomForm from "./components/body/room/RoomForm";
+import MyPage from "./components/body/myPage/MyPage";
 import PrivateRoute from "./components/privateRouting/PrivateRouting";
 
 import { Provider } from "react-redux";
@@ -37,6 +38,7 @@ const App = () => {
             <Route path="/room_reservation" element={<RoomReservation />} />
             <Route path="/room_list/:id" element={<RoomList />} />
             <Route path="/room_reserve/:id" element={<RoomForm />} />
+            <Route path="/my_page" element={<MyPage />} />
           </Routes>
         </Router>
         <Footer />
