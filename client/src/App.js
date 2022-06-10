@@ -14,6 +14,7 @@ import RoomList from "./components/body/room/RoomList";
 import RoomForm from "./components/body/room/RoomForm";
 import MyPage from "./components/body/myPage/MyPage";
 import EditRoom from "./components/body/myPage/EditRoom";
+import MyPages from "./components/body/myPage/MyPages";
 import PrivateRoute from "./components/privateRouting/PrivateRouting";
 
 import { Provider } from "react-redux";
@@ -41,6 +42,7 @@ const App = () => {
             <Route path="/room_reserve/:id" element={<RoomForm />} />
             <Route path="/my_page" element={<MyPage />} />
             <Route path="/my_page/:id" element={<EditRoom />} />
+            <Route path="/mypage_test/:id" element={<MyPages />} />
           </Routes>
         </Router>
         <Footer />

@@ -18,6 +18,7 @@ const {
   showMyPage,
   goHome,
   getUserInfo,
+  showMyPageTwo,
 } = require("../controller/userController");
 
 // users/
@@ -37,6 +38,9 @@ router.route("/logout").get(logoutUser);
 
 // users/mypage
 router.route("/mypage").get(auth, showMyPage);
+
+//
+router.route("/mypage_test/:id").get(auth, showMyPageTwo);
 
 // users/:id/edit
 router.route("/:id").get(showUpdateForm).post(updateUser).delete(deleteUser);
