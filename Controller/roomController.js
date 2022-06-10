@@ -85,13 +85,16 @@ module.exports = {
   // @route          PUT /room/:id/edit
   updateRoom: async (req, res) => {
     try {
-      await this.deleteRoom.findOneAndUpdate(
-        { _id: req.params.id },
-        req.body,
-        () => {
-          res.redirect("/room/" + req.params.id);
-        }
-      );
+      const room = await Room.findOne({ _id: req.params.id });
+      console.log("room", room);
+
+      // await this.deleteRoom.findOneAndUpdate(
+      //   { _id: req.params.id },
+      //   req.body,
+      //   () => {
+      //     res.redirect("/room/" + req.params.id);
+      //   }
+      // );
     } catch (err) {
       console.error(err);
     }

@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { getMyInfo } from "../../../actions/myPage";
+import { Link } from "react-router-dom";
 import Moment from "react-moment";
 
 import BootstrapTable from "react-bootstrap-table-next";
@@ -24,24 +25,41 @@ import "./style.css";
 const columns = [
   { dataField: "hotel_name", text: "호텔 명" },
   { dataField: "room_type", text: "객실 타입" },
-  { dataField: "rev_start", text: "숙박시작일" },
-
+  { dataField: "rev_start", text: "숙박 시작일" },
   { dataField: "rev_end", text: "숙박 종료일" },
   { dataField: "reg_dt", text: "예약일" },
 ];
 
 const MyPage = ({ getMyInfo, myInfo }) => {
-  console.log("myInfo", myInfo);
+  const [keyData, setKeyData] = useState("");
+  let IdKey = "";
 
   useEffect(() => {
     getMyInfo();
-  }, [getMyInfo]);
+    setKeyData(IdKey);
+  }, [getMyInfo, keyData]);
+
+  if (myInfo) {
+    myInfo.forEach((item) => {
+      IdKey = item._id;
+      console.log("IdKey", IdKey);
+    });
+    //setKeyData(IdKey);
+  }
+
+  //console.log("IdKey", IdKey);
+  //setKeyData(IdKey);
+
+  const tableRowEvents = {
+    onClick: (e, row, rowIndex) => {
+      window.location.href = `/my_page/${rowIndex}/${keyData}`;
+    },
+  };
 
   let getOne = [];
 
   myInfo &&
     myInfo.forEach((item) => {
-      console.log("item", item);
       const { hotelName, regDt, revEnd, revStart, roomType } = item;
       let momentStart = <Moment format="YYYY/MM/DD">{revStart}</Moment>;
       let momentEnd = <Moment format="YYYY/MM/DD">{revEnd}</Moment>;
@@ -59,6 +77,7 @@ const MyPage = ({ getMyInfo, myInfo }) => {
   return (
     <>
       <h4>나의 예약 리스트</h4>
+      <div>수정을 원하는 예약을 클릭해주세요 :)</div>
       <BootstrapTable
         keyField="name"
         data={getOne}
@@ -67,6 +86,7 @@ const MyPage = ({ getMyInfo, myInfo }) => {
         bordered={false}
         hover={true}
         rowStyle={{ backgroundColor: "white" }}
+        rowEvents={tableRowEvents}
       />
     </>
   );

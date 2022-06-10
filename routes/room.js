@@ -24,7 +24,7 @@ router.route("/new").get(showCreateForm).post(auth, createRoom);
 router.route("/list").get(showRoomList);
 
 // room/:id/edit
-router.route("/:id/edit").get(showUpdateForm).put(updateRoom);
+router.route("/:id/edit").put(updateRoom);
 
 //room/:id/delete
 router.route("/:id/delete").get(deleteRoom);
