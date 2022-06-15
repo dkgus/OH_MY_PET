@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getMyInfo } from "../../../actions/myPage";
 import Moment from "react-moment";
-import { useParams } from "react-router-dom";
 
 import BootstrapTable from "react-bootstrap-table-next";
 import paginationFactory from "react-bootstrap-table2-paginator";
@@ -31,14 +30,9 @@ const columns = [
 ];
 
 const MyPage = ({ getMyInfo, myInfo, id }) => {
-  const { memberId } = useParams();
-  console.log("memberId", memberId);
-
   useEffect(() => {
     getMyInfo(id);
   }, [getMyInfo]);
-
-  useEffect(() => {});
 
   const tableRowEvents = {
     onClick: (e, row, rowIndex) => {

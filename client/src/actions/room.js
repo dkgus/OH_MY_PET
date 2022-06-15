@@ -31,15 +31,17 @@ export const reserveRoom =
   };
 
 export const updateRoom =
-  ({ id, num }) =>
+  ({ id, pageIndex }) =>
   async (dispatch) => {
+    //console.log("id11", id);
+    //onsole.log("pageIndex", pageIndex);
     try {
-      console.log("1212");
-      const res = await axios.put(`/room/${id}/${num}`);
+      //const res = await axios.put(`/room/${id}/${pageIndex}`);
+      //console.log("Res.", res.data);
 
       dispatch({
         type: RESERVATION_UPDATE,
-        payload: res.data,
+        //payload: res.data,
       });
       dispatch(setAlert("예약이 수정되었습니다 :)", "success"));
     } catch (err) {

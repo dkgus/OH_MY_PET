@@ -40,7 +40,7 @@ const App = () => {
             <Route path="/room_list/:id" element={<RoomList />} />
             <Route path="/room_reserve/:id" element={<RoomForm />} />
             <Route path="/my_page/:id" element={<MyPage />} />
-            <Route path="/my_page/:id/:editId" element={<EditRoom />} />
+            <Route path="/my_page/:id/:editIndex" element={<EditRoom />} />
           </Routes>
         </Router>
         <Footer />

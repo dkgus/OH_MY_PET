@@ -37,8 +37,9 @@ router.route("/login").post(loginUser);
 router.route("/logout").get(logoutUser);
 
 // users/mypage
-
 router.route("/mypage/:id").get(auth, showMyPage);
+
+//router.route("/mypage/:id/:editId").put(auth, updateRoom);
 
 // users/:id/edit
 router.route("/:id").get(showUpdateForm).post(updateUser).delete(deleteUser);

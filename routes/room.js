@@ -25,7 +25,7 @@ router.route("/list").get(showRoomList);
 
 // room/:id/:editId
 //router.route("/:id/edit").put(updateRoom);
-router.route("/edit/:editId").put(auth, updateRoom);
+router.route("/:id/:editId").put(auth, updateRoom);
 
 //room/:id/delete
 router.route("/:id/delete").get(deleteRoom);

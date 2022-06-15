@@ -85,9 +85,8 @@ module.exports = {
   // @route          PUT /room/:id/:editId
   updateRoom: async (req, res) => {
     try {
-      //const user = await User.findById(req.user.id).select("-password");
-      //const room = await Room.findById(user);
-      const room = await Room.findById(req.params.editId);
+      const room = await Room.findByIdAndUpdate(req.params.editId, req.body);
+      //파라미터는 (아이디, 변경 할 값, 설정) 순
 
       return res.json({ room });
     } catch (err) {
