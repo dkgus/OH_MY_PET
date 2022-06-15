@@ -205,19 +205,4 @@ module.exports = {
       res.status(500).send("server error");
     }
   },
-
-  //GET /users/mypage_test/:id
-  showMyPageTwo: async (req, res) => {
-    try {
-      const room = await Room.find({ user: req.user.id }).populate("user", [
-        "name",
-        "type",
-      ]);
-
-      return res.json(room);
-    } catch (err) {
-      console.error(err.message);
-      res.status(500).send("server error");
-    }
-  },
 };

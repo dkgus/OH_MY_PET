@@ -5,9 +5,9 @@ import { GET_MY_INFO, MISS_MY_INFO } from "./types";
  * 마이페이지 조회
  *
  */
-export const getMyInfo = () => async (dispatch) => {
+export const getMyInfo = (id) => async (dispatch) => {
   try {
-    const res = await axios.get("/users/mypage");
+    const res = await axios.get(`/users/mypage/${id}`);
 
     dispatch({
       type: GET_MY_INFO,

@@ -37,15 +37,10 @@ router.route("/login").post(loginUser);
 router.route("/logout").get(logoutUser);
 
 // users/mypage
-router.route("/mypage").get(auth, showMyPage);
 
-//
-router.route("/mypage_test/:id").get(auth, showMyPageTwo);
+router.route("/mypage/:id").get(auth, showMyPage);
 
 // users/:id/edit
 router.route("/:id").get(showUpdateForm).post(updateUser).delete(deleteUser);
-
-// users/:id
-// router.route("/:id").get(showUser);
 
 module.exports = router;

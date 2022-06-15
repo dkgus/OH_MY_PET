@@ -1,4 +1,9 @@
-import { RESERVATION_SUCCESS, RESERVE_ERROR } from "../actions/types";
+/* eslint-disable import/no-anonymous-default-export */
+import {
+  RESERVATION_SUCCESS,
+  RESERVE_ERROR,
+  RESERVATION_UPDATE,
+} from "../actions/types";
 
 const initialState = {
   reservationInfo: null,
@@ -16,7 +21,12 @@ export default function (state = initialState, action) {
         reservationInfo: payload,
         loading: false,
       };
-
+    case RESERVATION_UPDATE:
+      return {
+        ...state,
+        hotelInfo: payload,
+        loading: false,
+      };
     case RESERVE_ERROR:
       return {
         ...state,

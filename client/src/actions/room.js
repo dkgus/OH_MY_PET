@@ -1,6 +1,10 @@
 import axios from "axios";
 import { setAlert } from "./alert";
-import { RESERVATION_SUCCESS, RESERVE_ERROR } from "./types";
+import {
+  RESERVATION_SUCCESS,
+  RESERVE_ERROR,
+  RESERVATION_UPDATE,
+} from "./types";
 
 export const reserveRoom =
   ({ hotelName, roomType, revStart, revEnd, navigate }) =>
@@ -19,6 +23,25 @@ export const reserveRoom =
       });
       dispatch(setAlert("예약이 완료되었습니다 :)", "success"));
       navigate("/room_reservation");
+    } catch (err) {
+      dispatch({
+        type: RESERVE_ERROR,
+      });
+    }
+  };
+
+export const updateRoom =
+  ({ id, num }) =>
+  async (dispatch) => {
+    try {
+      console.log("1212");
+      const res = await axios.put(`/room/${id}/${num}`);
+
+      dispatch({
+        type: RESERVATION_UPDATE,
+        payload: res.data,
+      });
+      dispatch(setAlert("예약이 수정되었습니다 :)", "success"));
     } catch (err) {
       dispatch({
         type: RESERVE_ERROR,

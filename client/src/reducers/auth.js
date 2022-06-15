@@ -9,6 +9,7 @@ const initialState = {
   token: localStorage.getItem("token"),
   isAuthenticated: null,
   loading: true,
+  user: "",
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -26,9 +27,9 @@ export default function (state = initialState, action) {
       localStorage.setItem("token", payload.token);
       return {
         ...state,
+        ...payload,
         isAuthenticated: true,
         loading: false,
-        user: payload,
       };
 
     case LOGIN_FAIL:

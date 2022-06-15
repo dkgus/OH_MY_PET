@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getMyInfo } from "../../../actions/myPage";
-import { Link } from "react-router-dom";
 import Moment from "react-moment";
+import { useParams } from "react-router-dom";
 
 import BootstrapTable from "react-bootstrap-table-next";
 import paginationFactory from "react-bootstrap-table2-paginator";
@@ -30,29 +30,19 @@ const columns = [
   { dataField: "reg_dt", text: "예약일" },
 ];
 
-const MyPage = ({ getMyInfo, myInfo }) => {
-  const [keyData, setKeyData] = useState("");
-  let IdKey = "";
+const MyPage = ({ getMyInfo, myInfo, id }) => {
+  const { memberId } = useParams();
+  console.log("memberId", memberId);
 
   useEffect(() => {
-    getMyInfo();
-    setKeyData(IdKey);
-  }, [getMyInfo, keyData]);
+    getMyInfo(id);
+  }, [getMyInfo]);
 
-  if (myInfo) {
-    myInfo.forEach((item) => {
-      IdKey = item._id;
-      console.log("IdKey", IdKey);
-    });
-    //setKeyData(IdKey);
-  }
-
-  //console.log("IdKey", IdKey);
-  //setKeyData(IdKey);
+  useEffect(() => {});
 
   const tableRowEvents = {
     onClick: (e, row, rowIndex) => {
-      window.location.href = `/my_page/${rowIndex}/${keyData}`;
+      window.location.href = `/my_page/${id}/${rowIndex}`;
     },
   };
 
@@ -93,6 +83,7 @@ const MyPage = ({ getMyInfo, myInfo }) => {
 };
 const mapStateToProps = (state) => ({
   myInfo: state.myPage.myInfo,
+  id: state.auth.user._id,
 });
 
 export default connect(mapStateToProps, { getMyInfo })(MyPage);

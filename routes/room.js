@@ -23,13 +23,14 @@ router.route("/new").get(showCreateForm).post(auth, createRoom);
 // room/list
 router.route("/list").get(showRoomList);
 
-// room/:id/edit
-router.route("/:id/edit").put(updateRoom);
+// room/:id/:editId
+//router.route("/:id/edit").put(updateRoom);
+router.route("/edit/:editId").put(auth, updateRoom);
 
 //room/:id/delete
 router.route("/:id/delete").get(deleteRoom);
 
 // room/:id
-router.route("/:id").get(isAuthenticatedUser, showRoom);
+//router.route("/:id").get(isAuthenticatedUser, showRoom);
 
 module.exports = router;

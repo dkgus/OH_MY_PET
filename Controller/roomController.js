@@ -82,19 +82,14 @@ module.exports = {
   },
 
   // @description    Update a room
-  // @route          PUT /room/:id/edit
+  // @route          PUT /room/:id/:editId
   updateRoom: async (req, res) => {
     try {
-      const room = await Room.findOne({ _id: req.params.id });
-      console.log("room", room);
+      //const user = await User.findById(req.user.id).select("-password");
+      //const room = await Room.findById(user);
+      const room = await Room.findById(req.params.editId);
 
-      // await this.deleteRoom.findOneAndUpdate(
-      //   { _id: req.params.id },
-      //   req.body,
-      //   () => {
-      //     res.redirect("/room/" + req.params.id);
-      //   }
-      // );
+      return res.json({ room });
     } catch (err) {
       console.error(err);
     }

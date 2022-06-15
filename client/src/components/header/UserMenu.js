@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { MdOutlinePets } from "react-icons/md";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 
 const UserMenu = ({ isAuthenticated }) => {
+  const user = useSelector((state) => state.auth.user);
+
   const guest = (
     <ul
       style={{
@@ -57,7 +59,10 @@ const UserMenu = ({ isAuthenticated }) => {
             marginRight: "3px",
           }}
         />
-        <Link to="/my_page" style={{ color: "black", textDecoration: "none" }}>
+        <Link
+          to={`/my_page/${user._id}`}
+          style={{ color: "black", textDecoration: "none" }}
+        >
           My Page
         </Link>
       </li>
@@ -81,6 +86,7 @@ const UserMenu = ({ isAuthenticated }) => {
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
+  //id: state.auth.user._id,
 });
 
 export default connect(mapStateToProps, {})(UserMenu);

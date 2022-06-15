@@ -38,10 +38,10 @@ const Menubar = () => {
         </Nav.Item>
         <Nav.Item>
           <Nav.Link
-            href="/my_page"
             style={{ color: "#ffaf2d", fontWeight: "bold", fontSize: 20 }}
+            href="/room_reservation1"
           >
-            My page
+            sth
           </Nav.Link>
         </Nav.Item>
       </Nav>
