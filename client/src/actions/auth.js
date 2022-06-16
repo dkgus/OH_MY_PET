@@ -2,7 +2,13 @@ import axios from "axios";
 import setTokenToLocal from "../utils/setTokenToLocal";
 import { setAlert } from "./alert";
 
-import { LOGIN_SUCCESS, LOGIN_FAIL, USER_LOADED, AUTH_ERROR } from "./types";
+import {
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
+  USER_LOADED,
+  AUTH_ERROR,
+  LOGOUT,
+} from "./types";
 
 export const loadUser = () => async (dispatch) => {
   if (localStorage.token) {
@@ -48,3 +54,9 @@ export const login =
       });
     }
   };
+
+export const logout = () => async (dispatch) => {
+  dispatch({
+    type: LOGOUT,
+  });
+};

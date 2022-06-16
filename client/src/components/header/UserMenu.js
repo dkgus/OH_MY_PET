@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MdOutlinePets } from "react-icons/md";
 import { connect, useSelector } from "react-redux";
+import { logout } from "../../actions/auth";
 
-const UserMenu = ({ isAuthenticated }) => {
+const UserMenu = ({ isAuthenticated, logout }) => {
   const user = useSelector((state) => state.auth.user);
 
   const guest = (
@@ -74,7 +75,11 @@ const UserMenu = ({ isAuthenticated }) => {
             marginRight: "3px",
           }}
         />
-        <Link to="/logout" style={{ color: "black", textDecoration: "none" }}>
+        <Link
+          to="/logout"
+          style={{ color: "black", textDecoration: "none" }}
+          onClick={logout}
+        >
           Logout
         </Link>
       </li>
@@ -86,7 +91,6 @@ const UserMenu = ({ isAuthenticated }) => {
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
-  //id: state.auth.user._id,
 });
 
-export default connect(mapStateToProps, {})(UserMenu);
+export default connect(mapStateToProps, { logout })(UserMenu);
