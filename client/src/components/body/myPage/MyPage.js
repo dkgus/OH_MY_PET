@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getMyInfo } from "../../../actions/myPage";
+
 import Moment from "react-moment";
 
 import BootstrapTable from "react-bootstrap-table-next";
@@ -30,26 +31,29 @@ const columns = [
 ];
 
 const MyPage = ({ getMyInfo, myInfo, id }) => {
+  let getOne = [];
+
   useEffect(() => {
     getMyInfo(id);
   }, [getMyInfo]);
 
   const tableRowEvents = {
     onClick: (e, row, rowIndex) => {
-      window.location.href = `/my_page/${id}/${rowIndex}`;
+      console.log("row", row._id);
+      window.location.href = `/my_page/${id}/${row._id}`;
     },
   };
 
-  let getOne = [];
-
   myInfo &&
     myInfo.forEach((item) => {
-      const { hotelName, regDt, revEnd, revStart, roomType } = item;
+      const { hotelName, regDt, revEnd, revStart, roomType, _id } = item;
+
       let momentStart = <Moment format="YYYY/MM/DD">{revStart}</Moment>;
       let momentEnd = <Moment format="YYYY/MM/DD">{revEnd}</Moment>;
       let momentDate = <Moment format="YYYY/MM/DD">{regDt}</Moment>;
 
       getOne.push({
+        _id: _id,
         hotel_name: hotelName,
         reg_dt: momentDate,
         rev_end: momentEnd,
@@ -78,6 +82,7 @@ const MyPage = ({ getMyInfo, myInfo, id }) => {
 const mapStateToProps = (state) => ({
   myInfo: state.myPage.myInfo,
   id: state.auth.user._id,
+  roomIds: state.myPage,
 });
 
 export default connect(mapStateToProps, { getMyInfo })(MyPage);

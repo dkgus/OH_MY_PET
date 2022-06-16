@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -21,6 +21,7 @@ import store from "./store";
 import { loadUser } from "./actions/auth";
 
 const App = () => {
+  const [rowIndexitem, setRowIndex] = useState();
   useEffect(() => {
     if (localStorage.token) {
       setTokenToLocal(localStorage.token);

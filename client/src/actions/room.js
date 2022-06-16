@@ -31,19 +31,24 @@ export const reserveRoom =
   };
 
 export const updateRoom =
-  ({ id, pageIndex }) =>
+  ({ id, editIndex, formData, navigate }) =>
   async (dispatch) => {
-    //console.log("id11", id);
-    //onsole.log("pageIndex", pageIndex);
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const body = JSON.stringify({ formData });
+
     try {
-      //const res = await axios.put(`/room/${id}/${pageIndex}`);
-      //console.log("Res.", res.data);
+      const res = await axios.put(`/room/${id}/${editIndex}`, body, config);
 
       dispatch({
         type: RESERVATION_UPDATE,
-        //payload: res.data,
+        payload: res.data,
       });
       dispatch(setAlert("예약이 수정되었습니다 :)", "success"));
+      navigate(`/my_page/${id}`);
     } catch (err) {
       dispatch({
         type: RESERVE_ERROR,

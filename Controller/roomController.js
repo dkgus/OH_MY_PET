@@ -85,9 +85,15 @@ module.exports = {
   // @route          PUT /room/:id/:editId
   updateRoom: async (req, res) => {
     try {
-      const room = await Room.findByIdAndUpdate(req.params.editId, req.body);
+      const room = await Room.findByIdAndUpdate(
+        req.params.editId,
+        req.body.formData
+      );
+      console.log("req.params", req.params);
+      console.log("req.body", req.body.formData);
       //파라미터는 (아이디, 변경 할 값, 설정) 순
-
+      console.log("room", room);
+      await room.save();
       return res.json({ room });
     } catch (err) {
       console.error(err);
