@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getMyInfo } from "../../../actions/myPage";
+import { getReserveEventInfo } from "../../../actions/event";
 
 import Moment from "react-moment";
 
@@ -30,12 +31,22 @@ const columns = [
   { dataField: "reg_dt", text: "예약일" },
 ];
 
-const MyPage = ({ getMyInfo, myInfo, id }) => {
-  let getOne = [];
+const columns2 = [
+  { dataField: "event_name", text: "이벤트 명" },
+  { dataField: "pet_type", text: "반려동물 종류" },
+  { dataField: "pet_name", text: "반려동물 이름" },
+  { dataField: "rev_dt", text: "이벤트 참여일" },
+  { dataField: "reg_dt", text: "예약일" },
+];
+
+const MyPage = ({ getMyInfo, myInfo, id, eventInfo }) => {
+  let getRoom = [];
+  const getEvent = [];
 
   useEffect(() => {
     getMyInfo(id);
   }, [getMyInfo]);
+  console.log("eventInfo", eventInfo);
 
   const tableRowEvents = {
     onClick: (e, row, rowIndex) => {
@@ -43,6 +54,28 @@ const MyPage = ({ getMyInfo, myInfo, id }) => {
       window.location.href = `/my_page/${id}/${row._id}`;
     },
   };
+  const tableRowEvents2 = {
+    onClick: (e, row, rowIndex) => {
+      window.location.href = `/my_page/${id}/${row._id}`;
+    },
+  };
+
+  eventInfo &&
+    eventInfo.forEach((item) => {
+      const { _id, eventNm, regDt, revDate, user } = item;
+      let momentReserveDate = <Moment format="YYYY/MM/DD">{revDate}</Moment>;
+      let momentRegisterDate = <Moment format="YYYY/MM/DD">{regDt}</Moment>;
+      let { nickname, type } = user;
+
+      getEvent.push({
+        _id: _id,
+        event_name: eventNm,
+        rev_dt: momentReserveDate,
+        reg_dt: momentRegisterDate,
+        pet_name: nickname,
+        pet_type: type,
+      });
+    });
 
   myInfo &&
     myInfo.forEach((item) => {
@@ -52,7 +85,7 @@ const MyPage = ({ getMyInfo, myInfo, id }) => {
       let momentEnd = <Moment format="YYYY/MM/DD">{revEnd}</Moment>;
       let momentDate = <Moment format="YYYY/MM/DD">{regDt}</Moment>;
 
-      getOne.push({
+      getRoom.push({
         _id: _id,
         hotel_name: hotelName,
         reg_dt: momentDate,
@@ -64,11 +97,22 @@ const MyPage = ({ getMyInfo, myInfo, id }) => {
 
   return (
     <>
-      <h4>나의 예약 리스트</h4>
+      <h4>나의 이벤트 예약 리스트</h4>
+      <BootstrapTable
+        keyField="name"
+        data={getEvent}
+        columns={columns2}
+        pagination={paginationFactory()}
+        bordered={false}
+        hover={true}
+        rowStyle={{ backgroundColor: "white" }}
+        rowEvents={tableRowEvents2}
+      />
+      <h4>나의 룸 예약 리스트</h4>
       <div>수정을 원하는 예약을 클릭해주세요 :)</div>
       <BootstrapTable
         keyField="name"
-        data={getOne}
+        data={getRoom}
         columns={columns}
         pagination={paginationFactory()}
         bordered={false}
@@ -83,6 +127,9 @@ const mapStateToProps = (state) => ({
   myInfo: state.myPage.myInfo,
   id: state.auth.user._id,
   roomIds: state.myPage,
+  eventInfo: state.event.reservationList,
 });
 
-export default connect(mapStateToProps, { getMyInfo })(MyPage);
+export default connect(mapStateToProps, { getMyInfo, getReserveEventInfo })(
+  MyPage
+);

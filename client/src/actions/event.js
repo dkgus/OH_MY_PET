@@ -1,6 +1,11 @@
 import axios from "axios";
 import { setAlert } from "./alert";
-import { RESERVATION_EVENT_SUCCESS, RESERVATION_EVENT_FAIL } from "./types";
+import {
+  RESERVATION_EVENT_SUCCESS,
+  RESERVATION_EVENT_FAIL,
+  GET_EVENT_INFO,
+  FAIL_EVENT_INFO,
+} from "./types";
 
 export const reserveEvent =
   ({ formData, navigate }) =>
@@ -29,3 +34,18 @@ export const reserveEvent =
       });
     }
   };
+
+export const getReserveEventInfo = () => async (dispatch) => {
+  try {
+    const res = await axios.get("/event/getInfo");
+    dispatch({
+      type: GET_EVENT_INFO,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: FAIL_EVENT_INFO,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};

@@ -38,18 +38,38 @@ module.exports = {
   // @description    Create a new event reservation
   // @route          POST /event/new
   createEvent: async (req, res) => {
-    const user = await User.findById(req.user.id).select("-password");
-
-    const newEvent = new Event({
-      eventNm: req.body.eventNm,
-      revDate: req.body.revDate,
-      user: user,
-    });
-
-    const event = await newEvent.save();
-    res.json(event);
-
     try {
+      const user = await User.findById(req.user.id).select("-password");
+
+      const newEvent = new Event({
+        eventNm: req.body.eventNm,
+        revDate: req.body.revDate,
+        user: user,
+      });
+
+      const event = await newEvent.save();
+      res.json(event);
+    } catch (err) {
+      console.error(err);
+    }
+  },
+
+  // @description    Get a new event reservation
+  // @route          GET /event/getInfo
+  getEventInfo: async (req, res) => {
+    try {
+      const events = await Event.find({ user: req.user.id }).populate("user", [
+        "name",
+        "phone",
+        "email",
+        "nickname",
+        "type",
+      ]);
+
+      //전체회원의 모든 예약정보 조회가능
+      //const events = await Event.find().populate("user", ["name", "phone"]);
+
+      return res.json(events);
     } catch (err) {
       console.error(err);
     }

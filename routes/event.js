@@ -12,6 +12,7 @@ const {
   updateEvent,
   deleteEvent,
   showDetailForm,
+  getEventInfo,
 } = require("../controller/eventController");
 
 // event/
@@ -19,6 +20,9 @@ router.route("/").get(isAuthenticatedUser, showAllEvents);
 
 // event/new
 router.route("/new").post(auth, createEvent);
+
+//event/getInfo
+router.route("/getInfo").get(auth, getEventInfo);
 
 // event/:id/edit(update)
 router.route("/:id/edit").get(showUpdateForm).post(updateEvent);
