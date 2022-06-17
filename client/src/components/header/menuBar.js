@@ -21,11 +21,11 @@ const Menubar = () => {
         </Nav.Item>
         <Nav.Item>
           <Nav.Link
-            href="/"
+            href="/event_reservation"
             eventKey="link-1"
             style={{ color: "#ffaf2d", fontWeight: "bold", fontSize: 20 }}
           >
-            Event & Notice
+            Event
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
@@ -41,7 +41,7 @@ const Menubar = () => {
             style={{ color: "#ffaf2d", fontWeight: "bold", fontSize: 20 }}
             href="/room_reservation1"
           >
-            sth
+            Notice
           </Nav.Link>
         </Nav.Item>
       </Nav>

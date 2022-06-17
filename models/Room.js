@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const roomSchema = new mongoose.Schema({
-  // 글쓴이 식별용 user id
   user: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
@@ -36,11 +35,6 @@ const roomSchema = new mongoose.Schema({
   regDt: {
     type: Date,
     default: Date,
-  },
-
-  //특이사항
-  memo: {
-    type: String,
   },
 });
 

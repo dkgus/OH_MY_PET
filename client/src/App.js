@@ -14,6 +14,8 @@ import RoomList from "./components/body/room/RoomList";
 import RoomForm from "./components/body/room/RoomForm";
 import MyPage from "./components/body/myPage/MyPage";
 import EditRoom from "./components/body/myPage/EditRoom";
+import EventReservation from "./components/body/event/EventReservation";
+import EventForm from "./components/body/event/EventForm";
 import PrivateRoute from "./components/privateRouting/PrivateRouting";
 
 import { Provider } from "react-redux";
@@ -21,7 +23,6 @@ import store from "./store";
 import { loadUser } from "./actions/auth";
 
 const App = () => {
-  const [rowIndexitem, setRowIndex] = useState();
   useEffect(() => {
     if (localStorage.token) {
       setTokenToLocal(localStorage.token);
@@ -38,11 +39,14 @@ const App = () => {
             <Route exact path="/" element={<Contents />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Login />} />
+            <Route path="/my_page/:id" element={<MyPage />} />
+            <Route path="/my_page/:id/:editIndex" element={<EditRoom />} />
             <Route path="/room_reservation" element={<RoomReservation />} />
             <Route path="/room_list/:id" element={<RoomList />} />
             <Route path="/room_reserve/:id" element={<RoomForm />} />
-            <Route path="/my_page/:id" element={<MyPage />} />
-            <Route path="/my_page/:id/:editIndex" element={<EditRoom />} />
+            <Route path="/event_reservation" element={<EventReservation />} />
+            <Route path="/event_reservation/form" element={<EventForm />} />
+            eventForm
           </Routes>
         </Router>
         <Footer />
