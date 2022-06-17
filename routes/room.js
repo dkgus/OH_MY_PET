@@ -18,13 +18,12 @@ const {
 router.route("/").get(showAllRooms);
 
 // room/new
-router.route("/new").get(showCreateForm).post(auth, createRoom);
+router.route("/new").post(auth, createRoom);
 
 // room/list
 router.route("/list").get(showRoomList);
 
 // room/:id/:editId
-//router.route("/:id/edit").put(updateRoom);
 router.route("/:id/:editId").put(auth, updateRoom);
 
 //room/:id/delete

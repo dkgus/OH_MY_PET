@@ -56,7 +56,7 @@ const MyPage = ({ getMyInfo, myInfo, id, eventInfo }) => {
   };
   const tableRowEvents2 = {
     onClick: (e, row, rowIndex) => {
-      window.location.href = `/my_page/${id}/${row._id}`;
+      window.location.href = `/my_page_event/${id}/${row._id}`;
     },
   };
 
@@ -98,6 +98,7 @@ const MyPage = ({ getMyInfo, myInfo, id, eventInfo }) => {
   return (
     <>
       <h4>나의 이벤트 예약 리스트</h4>
+      <div>수정을 원하는 예약을 클릭해주세요 :)</div>
       <BootstrapTable
         keyField="name"
         data={getEvent}
@@ -108,6 +109,7 @@ const MyPage = ({ getMyInfo, myInfo, id, eventInfo }) => {
         rowStyle={{ backgroundColor: "white" }}
         rowEvents={tableRowEvents2}
       />
+
       <h4>나의 룸 예약 리스트</h4>
       <div>수정을 원하는 예약을 클릭해주세요 :)</div>
       <BootstrapTable

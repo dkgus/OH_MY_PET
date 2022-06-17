@@ -5,6 +5,8 @@ import {
   RESERVATION_EVENT_FAIL,
   GET_EVENT_INFO,
   FAIL_EVENT_INFO,
+  EVENT_UPDATE,
+  EVENT_ERROR,
 } from "./types";
 
 export const reserveEvent =
@@ -49,3 +51,29 @@ export const getReserveEventInfo = () => async (dispatch) => {
     });
   }
 };
+
+export const updateInfo =
+  ({ formData, navigate, id, editIndex }) =>
+  async (dispatch) => {
+    console.log("id, editIndex ", id, editIndex);
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const body = JSON.stringify(formData);
+    try {
+      const res = await axios.put(`/event/${id}/${editIndex}`, body, config);
+
+      dispatch({
+        type: RESERVATION_EVENT_SUCCESS,
+        payload: res.data,
+      });
+      navigate(`/my_page/${id}`);
+    } catch (err) {
+      dispatch({
+        type: EVENT_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status },
+      });
+    }
+  };

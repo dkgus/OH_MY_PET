@@ -4,12 +4,14 @@ import {
   RESERVATION_EVENT_FAIL,
   GET_EVENT_INFO,
   FAIL_EVENT_INFO,
+  EVENT_UPDATE,
+  EVENT_ERROR,
 } from "../actions/types";
 
 const initialState = {
-  reservationEventInfo: null,
+  reservationEventInfo: null, //화면 출력용
   reservationEventInfoAll: [],
-  reservationList: [],
+  reservationList: [], //데이터 가져오기용
   loading: true,
   error: {},
 };
@@ -24,11 +26,14 @@ export default function (state = initialState, action) {
         loading: false,
       };
     case GET_EVENT_INFO:
+    case EVENT_UPDATE:
       return {
         ...state,
         reservationList: payload,
         loading: false,
       };
+
+    case EVENT_ERROR:
     case RESERVATION_EVENT_FAIL:
     case FAIL_EVENT_INFO:
       return {

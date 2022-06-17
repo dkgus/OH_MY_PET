@@ -88,12 +88,15 @@ module.exports = {
   },
 
   // @description    Update a user
-  // @route          PUT /event/:id/edit
+  // @route          PUT /event/:id/:edit
   updateEvent: async (req, res) => {
     try {
-      await Event.findOneAndUpdate({ _id: req.params.id }, req.body, () => {
-        res.redirect("/event/" + req.params.id);
-      });
+      let event = await Event.findOneAndUpdate(
+        { _id: req.params.editId },
+        req.body
+      );
+      await event.save();
+      return res.json({ event });
     } catch (err) {
       console.error(err);
     }

@@ -25,7 +25,7 @@ router.route("/new").post(auth, createEvent);
 router.route("/getInfo").get(auth, getEventInfo);
 
 // event/:id/edit(update)
-router.route("/:id/edit").get(showUpdateForm).post(updateEvent);
+router.route("/:id/:editId").put(auth, updateEvent);
 
 //event/:id/delete
 router.route("/:id/delete").get(deleteEvent);
