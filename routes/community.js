@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { isAuthenticatedUser } = require("../utils/auth");
+const auth = require("../utils/jwtToken");
 
 const {
   showAllPosts,
@@ -12,11 +13,11 @@ const {
   deletePost,
 } = require("../controller/communityController");
 
-// community/
-router.route("/").get(isAuthenticatedUser, showAllPosts);
+// community/list
+router.route("/list").get(auth, showAllPosts);
 
 // community/new
-router.route("/new").get(showCreateForm).post(isAuthenticatedUser, createPost);
+router.route("/new_post").post(auth, createPost);
 
 // community/:id/edit(update)
 router.route("/:id/edit").post(updatePost);
