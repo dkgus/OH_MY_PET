@@ -5,6 +5,7 @@ const auth = require("../utils/jwtToken");
 
 const {
   showAllPosts,
+  showOnlyOnePost,
   showPost,
   showCreateForm,
   createPost,
@@ -15,6 +16,9 @@ const {
 
 // community/list
 router.route("/list").get(auth, showAllPosts);
+
+// community/:id/:postId
+router.route("/list/:id/:postId").get(auth, showOnlyOnePost);
 
 // community/new
 router.route("/new_post").post(auth, createPost);

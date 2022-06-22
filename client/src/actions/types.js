@@ -17,6 +17,7 @@ export const FAIL_EVENT_INFO = "FAIL_EVENT_INFO";
 export const EVENT_UPDATE = "EVENT_UPDATE";
 export const EVENT_ERROR = "EVENT_ERROR";
 export const GET_POST = "GET_POST";
+export const GET_POSTS = "GET_POSTS";
 export const CREATE_POST = "CREATE_POST";
 export const POST_ERROR = "POST_ERROR";
 export const EDIT_POST = "EDIT_POST";

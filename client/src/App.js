@@ -19,6 +19,7 @@ import EventForm from "./components/body/event/EventForm";
 import EditEvent from "./components/body/myPage/EditEvent";
 import Community from "./components/body/community/Community";
 import ContentDetail from "./components/body/community/ContentDetail";
+import CommunityForm from "./components/body/community/CommunityForm";
 
 import PrivateRoute from "./components/privateRouting/PrivateRouting";
 
@@ -59,6 +60,7 @@ const App = () => {
               path="/community/list/:id/:postId"
               element={<ContentDetail />}
             />
+            <Route path="/community/form" element={<CommunityForm />} />
           </Routes>
         </Router>
         <Footer />

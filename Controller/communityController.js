@@ -19,6 +19,22 @@ module.exports = {
     }
   },
 
+  // @description    Show only one post
+  // @route          GET /list/community/:id/:postId
+  showOnlyOnePost: async (req, res) => {
+    try {
+      console.log("req.params", req.params);
+      //      const posts = await Community.findOne({ user: req.user._id }).populate("user");
+      const post = await Community.findById(req.params.postId).populate(
+        "user",
+        ["name", "type", "nickname"]
+      );
+      res.json(post);
+    } catch (err) {
+      console.error(err);
+    }
+  },
+
   // @description    Show a post
   // @route          GET /community/:id
   showPost: async (req, res) => {
