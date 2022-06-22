@@ -17,6 +17,8 @@ import EditRoom from "./components/body/myPage/EditRoom";
 import EventReservation from "./components/body/event/EventReservation";
 import EventForm from "./components/body/event/EventForm";
 import EditEvent from "./components/body/myPage/EditEvent";
+import Community from "./components/body/community/Community";
+import ContentDetail from "./components/body/community/ContentDetail";
 
 import PrivateRoute from "./components/privateRouting/PrivateRouting";
 
@@ -52,6 +54,11 @@ const App = () => {
             <Route path="/room_reserve/:id" element={<RoomForm />} />
             <Route path="/event_reservation" element={<EventReservation />} />
             <Route path="/event_reservation/form" element={<EventForm />} />
+            <Route path="/community/list" element={<Community />} />
+            <Route
+              path="/community/list/:id/:postId"
+              element={<ContentDetail />}
+            />
           </Routes>
         </Router>
         <Footer />

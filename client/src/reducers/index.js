@@ -4,6 +4,7 @@ import room from "./room";
 import alert from "./alert";
 import myPage from "./myPage";
 import event from "./event";
+import community from "./community";
 
 export default combineReducers({
   auth,
@@ -11,4 +12,5 @@ export default combineReducers({
   alert,
   myPage,
   event,
+  community,
 });

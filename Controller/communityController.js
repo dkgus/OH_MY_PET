@@ -8,8 +8,9 @@ module.exports = {
   showAllPosts: async (req, res) => {
     try {
       //const posts = await Community.find({ user: req.user._id }).populate("user");
-      const posts = await Community.find().sort({ createdAt: -1 });
-      console.log("posts", posts);
+      const posts = await Community.find()
+        .populate("user", ["name", "nickname", "type", "role"])
+        .sort({ createdAt: -1 });
       // const user = await User.find({ _id: req.user._id }, {});
       // const posts = await Community.find({}).sort({ createAt: -1 });
       res.json(posts);
@@ -43,8 +44,6 @@ module.exports = {
     try {
       //const user = await User.findById(req.user.id).select("-password");
       const user = await User.findById(req.user.id, ["name", "role"]);
-      console.log("user", user);
-      console.log("req.body", req.body);
       const { title, content } = req.body;
 
       // if (!title || !content) {
@@ -55,8 +54,8 @@ module.exports = {
         content: content,
         user: user,
       });
-      const post = await newPost.save();
 
+      const post = await newPost.save();
       res.json(post);
     } catch (err) {
       console.log(err);

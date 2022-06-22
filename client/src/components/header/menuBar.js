@@ -12,7 +12,7 @@ const Menubar = () => {
       >
         <Nav.Item>
           <Nav.Link
-            href="/"
+            href="/community/list"
             className="nav_item"
             style={{ color: "#ffaf2d", fontWeight: "bold", fontSize: 20 }}
           >
