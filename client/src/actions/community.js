@@ -65,3 +65,22 @@ export const createPost =
       });
     }
   };
+
+export const deletePost =
+  ({ id, postId, navigate }) =>
+  async (dispatch) => {
+    try {
+      await axios.delete(`/community/delete/${id}/${postId}`);
+      dispatch(setAlert("글이 삭제되었습니다. :)", "success"));
+      navigate("/community/list");
+    } catch (err) {
+      const errors = err.response.data.msg;
+      if (errors) {
+        dispatch(setAlert(errors, "danger"));
+      }
+      dispatch({
+        type: POST_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status },
+      });
+    }
+  };

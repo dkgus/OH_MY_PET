@@ -20,7 +20,7 @@ module.exports = {
   },
 
   // @description    Show only one post
-  // @route          GET /list/community/:id/:postId
+  // @route          GET community/list/:id/:postId
   showOnlyOnePost: async (req, res) => {
     try {
       console.log("req.params", req.params);
@@ -62,9 +62,6 @@ module.exports = {
       const user = await User.findById(req.user.id, ["name", "role"]);
       const { title, content } = req.body;
 
-      // if (!title || !content) {
-      //   res.json({ msg: "글 제목, 내용을 모두 입력해주세요." });
-      // }
       const newPost = new Community({
         title: title,
         content: content,
@@ -104,12 +101,21 @@ module.exports = {
   },
 
   // @description    Delete a post
-  // @route          DELETE /community/:id/edit
+  // @route          DELETE /community/delete/:id/deleteId
   deletePost: async (req, res) => {
     try {
-      await Community.deleteOne({ _id: req.params.id }, () => {
-        res.redirect("/community");
-      });
+      console.log("req.params", req.params);
+      console.log("req.user1", req.user.id);
+      const post = await Community.findById(req.params.deleteId);
+      if (!post) {
+        return res.status(404).json({ msg: "포스트가 없습니다." });
+      }
+      if (post.user.toString() !== req.user.id) {
+        return res.status(401).json({ msg: "삭제 권한이 없습니다." });
+      }
+
+      await post.remove();
+      res.json({ msg: "삭제되었습니다!!" });
     } catch (err) {
       console.error(err);
     }

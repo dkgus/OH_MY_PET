@@ -45,6 +45,7 @@ const Login = ({ login, isAuthenticated }) => {
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label style={{ fontWeight: "bold" }}>Email</Form.Label>
             <Form.Control
+              required
               type="email"
               placeholder="Enter email"
               name="email"
@@ -59,6 +60,7 @@ const Login = ({ login, isAuthenticated }) => {
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label style={{ fontWeight: "bold" }}>Password</Form.Label>
             <Form.Control
+              required
               type="password"
               placeholder="Password"
               name="password"

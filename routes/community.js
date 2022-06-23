@@ -17,7 +17,7 @@ const {
 // community/list
 router.route("/list").get(auth, showAllPosts);
 
-// community/:id/:postId
+// community/list/:id/:postId
 router.route("/list/:id/:postId").get(auth, showOnlyOnePost);
 
 // community/new
@@ -26,8 +26,8 @@ router.route("/new_post").post(auth, createPost);
 // community/:id/edit(update)
 router.route("/:id/edit").post(updatePost);
 
-//community/:id/delete
-router.route("/:id/delete").get(deletePost);
+//community/delete/:id/deleteId
+router.route("/delete/:id/:deleteId").delete(auth, deletePost);
 
 // community/:id
 router.route("/:id").get(isAuthenticatedUser, showPost);
