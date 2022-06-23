@@ -1,16 +1,14 @@
 /* eslint-disable import/no-anonymous-default-export */
 import {
-  GET_POST,
-  GET_POSTS,
-  CREATE_POST,
-  EDIT_POST,
-  DELETE_POST,
-  POST_ERROR,
+  GET_ALL_USER,
+  GET_ALL_EVENT,
+  GET_ALL_ROOM,
+  ADMIN_GET_ERR,
 } from "../actions/types";
 
 const initialState = {
-  post: null,
-  posts: [],
+  users: [],
+  reservationInfo: [],
   loading: true,
   error: {},
 };
@@ -18,27 +16,20 @@ const initialState = {
 export default function (state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
-    case GET_POST:
-    case CREATE_POST:
+    case GET_ALL_USER:
       return {
         ...state,
-        post: payload,
+        users: payload,
         loading: false,
       };
-    case GET_POSTS:
+    case GET_ALL_EVENT:
+    case GET_ALL_ROOM:
       return {
         ...state,
-        posts: payload,
+        reservationInfo: payload,
         loading: false,
       };
-    case DELETE_POST:
-      return {
-        ...state,
-        //post: state.filter((postOne) => postOne._id !== payload),
-        //post: null,
-        loading: false,
-      };
-    case POST_ERROR:
+    case ADMIN_GET_ERR:
       return {
         ...state,
         error: payload,

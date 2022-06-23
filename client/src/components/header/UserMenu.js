@@ -86,7 +86,47 @@ const UserMenu = ({ isAuthenticated, logout }) => {
     </ul>
   );
 
-  return <>{isAuthenticated ? member : guest}</>;
+  const admin = (
+    <ul
+      style={{
+        display: "flex",
+        justifyContent: "space-evenly",
+        listStyle: "none",
+        padding: 0,
+      }}
+    >
+      <li style={{ fontWeight: "bold", fontSize: "1.2rem" }}>
+        <MdOutlinePets
+          style={{
+            color: "#ffaf2d",
+            marginBottom: "5px",
+            marginRight: "3px",
+          }}
+        />
+        <Link to="/admin" style={{ color: "black", textDecoration: "none" }}>
+          Admin
+        </Link>
+      </li>
+      <li style={{ fontWeight: "bold", marginLeft: "1%", fontSize: "1.2rem" }}>
+        <MdOutlinePets
+          style={{
+            color: "#ffaf2d",
+            marginBottom: "5px",
+            marginRight: "3px",
+          }}
+        />
+        <Link
+          to="/logout"
+          style={{ color: "black", textDecoration: "none" }}
+          onClick={logout}
+        >
+          Logout
+        </Link>
+      </li>
+    </ul>
+  );
+
+  return <>{isAuthenticated ? (user.role === 0 ? admin : member) : guest}</>;
 };
 
 const mapStateToProps = (state) => ({

@@ -22,3 +22,9 @@ export const CREATE_POST = "CREATE_POST";
 export const POST_ERROR = "POST_ERROR";
 export const EDIT_POST = "EDIT_POST";
 export const DELETE_POST = "DELETE_POST";
+
+//admin
+export const GET_ALL_USER = "GET_ALL_USER";
+export const GET_ALL_EVENT = "GET_ALL_EVENT";
+export const GET_ALL_ROOM = "GET_ALL_ROOM";
+export const ADMIN_GET_ERR = "ADMIN_GET_ERR";

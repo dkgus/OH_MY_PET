@@ -20,12 +20,16 @@ import EditEvent from "./components/body/myPage/EditEvent";
 import Community from "./components/body/community/Community";
 import ContentDetail from "./components/body/community/ContentDetail";
 import CommunityForm from "./components/body/community/CommunityForm";
+import Admin from "./components/body/admin/Admin";
+import Users from "./components/body/admin/Users";
 
 import PrivateRoute from "./components/privateRouting/PrivateRouting";
 
 import { Provider } from "react-redux";
 import store from "./store";
 import { loadUser } from "./actions/auth";
+import Events from "./components/body/admin/Events";
+import Rooms from "./components/body/admin/Rooms";
 
 const App = () => {
   useEffect(() => {
@@ -61,6 +65,12 @@ const App = () => {
               element={<ContentDetail />}
             />
             <Route path="/community/form" element={<CommunityForm />} />
+
+            {/* 관리자페이지 */}
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/users" element={<Users />} />
+            <Route path="/admin/event" element={<Events />} />
+            <Route path="/admin/room" element={<Rooms />} />
           </Routes>
         </Router>
         <Footer />

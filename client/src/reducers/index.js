@@ -5,6 +5,7 @@ import alert from "./alert";
 import myPage from "./myPage";
 import event from "./event";
 import community from "./community";
+import admin from "./admin";
 
 export default combineReducers({
   auth,
@@ -13,4 +14,5 @@ export default combineReducers({
   myPage,
   event,
   community,
+  admin,
 });

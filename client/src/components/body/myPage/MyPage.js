@@ -43,10 +43,10 @@ const MyPage = ({ getMyInfo, myInfo, id, eventInfo }) => {
   let getRoom = [];
   const getEvent = [];
 
+  console.log("myInfo", myInfo);
   useEffect(() => {
     getMyInfo(id);
   }, [getMyInfo]);
-  console.log("eventInfo", eventInfo);
 
   const tableRowEvents = {
     onClick: (e, row, rowIndex) => {
