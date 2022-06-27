@@ -9,18 +9,6 @@ import "react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.m
 import "bootstrap/dist/css/bootstrap.min.css";
 import Moment from "react-moment";
 
-const columns2 = [
-  { dataField: "name", text: "회원명" },
-  { dataField: "email", text: "이메일" },
-  { dataField: "nickname", text: "반려동물 이름" },
-  { dataField: "type", text: "반려동물 타입" },
-  { dataField: "regStart", text: "예약 시작일" },
-  { dataField: "regEnd", text: "예약 종료일" },
-  { dataField: "register", text: "예약일" },
-  { dataField: "phone", text: "휴대폰 번호" },
-  { dataField: "role", text: "회원등급" },
-];
-
 const columns = [
   { dataField: "name", text: "회원명" },
   { dataField: "email", text: "이메일" },

@@ -18,6 +18,9 @@ function EventForm({ reserveEvent }) {
   };
   const onSubmit = (e) => {
     e.preventDefault();
+    if (!eventNm) {
+      alert("참여하실 이벤트를 선택해주세요.");
+    }
     reserveEvent({ formData, navigate });
   };
 
@@ -41,11 +44,14 @@ function EventForm({ reserveEvent }) {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label style={{ fontWeight: "bold" }}>참여 날짜</Form.Label>
           <Form.Control
+            required
             type="date"
             placeholder="date"
             name="revDate"
             value={revDate}
             onChange={(e) => onChange(e)}
+            disabled={!eventNm}
+            min={new Date().toISOString().slice(0, 10)}
           />
         </Form.Group>
         <div style={{ fontWeight: "bold" }}>
