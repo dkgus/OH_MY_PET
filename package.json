@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/dkgus/OH_MY_PET/issues"
   },
-  "homepage": "https://github.com/dkgus/OH_MY_PET#readme",
+  "homepage": "https://dkgus.github.io/OH_MY_PET/",
   "devDependencies": {
     "nodemon": "^2.0.7"
   },
