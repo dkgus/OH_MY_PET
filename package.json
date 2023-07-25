@@ -8,8 +8,10 @@
     "server": "nodemon app",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "webpack-cli"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dkgus/OH_MY_PET.git"
@@ -19,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/dkgus/OH_MY_PET/issues"
   },
-  "homepage": "https://dkgus.github.io/OH_MY_PET/",
+  "homepage": "https://dkgus.github.io/OH_MY_PET",
   "devDependencies": {
     "nodemon": "^2.0.7"
   },
