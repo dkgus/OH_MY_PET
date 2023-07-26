@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const setTokenToLocal = (token) => {
-  console.log("token");
   if (token) {
     axios.defaults.headers.common["x-auth-token"] = token;
   } else {
