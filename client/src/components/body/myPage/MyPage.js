@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { getMyInfo } from "../../../actions/myPage";
 import { getReserveEventInfo } from "../../../actions/event";
-
+import { GET_MY_INFO, GET_EVENT_INFO } from "../../../actions/types";
+import { useNavigate } from "react-router-dom";
 import Moment from "react-moment";
 
 import BootstrapTable from "react-bootstrap-table-next";
@@ -42,21 +43,41 @@ const columns2 = [
 const MyPage = ({ getMyInfo, myInfo, id, eventInfo }) => {
   let getRoom = [];
   const getEvent = [];
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  console.log("myInfo", myInfo);
   useEffect(() => {
     getMyInfo(id);
+    dispatch({
+      type: GET_MY_INFO,
+      payload: myInfo,
+    });
+    dispatch({
+      type: GET_EVENT_INFO,
+      payload: eventInfo,
+    });
   }, [getMyInfo]);
 
   const tableRowEvents = {
     onClick: (e, row, rowIndex) => {
-      console.log("row", row._id);
-      window.location.href = `/my_page/${id}/${row._id}`;
+      //room
+      myInfo.forEach((item) => {
+        if (item._id === row._id) {
+          dispatch({
+            type: GET_MY_INFO,
+            payload: item,
+          });
+          navigate(`/my_page/${id}/${row._id}`);
+        }
+      });
     },
   };
   const tableRowEvents2 = {
     onClick: (e, row, rowIndex) => {
-      window.location.href = `/my_page_event/${id}/${row._id}`;
+      //이벤트
+      console.log("row._id2", row._id);
+
+      //window.location.href = `/my_page_event/${id}/${row._id}`;
     },
   };
 
@@ -79,6 +100,7 @@ const MyPage = ({ getMyInfo, myInfo, id, eventInfo }) => {
 
   myInfo &&
     myInfo.forEach((item) => {
+      console.log("myInfo", myInfo);
       const { hotelName, regDt, revEnd, revStart, roomType, _id } = item;
 
       let momentStart = <Moment format="YYYY/MM/DD">{revStart}</Moment>;
@@ -97,19 +119,6 @@ const MyPage = ({ getMyInfo, myInfo, id, eventInfo }) => {
 
   return (
     <>
-      <h4>나의 이벤트 예약 리스트</h4>
-      <div>수정을 원하는 예약을 클릭해주세요 :)</div>
-      <BootstrapTable
-        keyField="name"
-        data={getEvent}
-        columns={columns2}
-        pagination={paginationFactory()}
-        bordered={false}
-        hover={true}
-        rowStyle={{ backgroundColor: "white" }}
-        rowEvents={tableRowEvents2}
-      />
-
       <h4>나의 룸 예약 리스트</h4>
       <div>수정을 원하는 예약을 클릭해주세요 :)</div>
       <BootstrapTable
@@ -121,6 +130,19 @@ const MyPage = ({ getMyInfo, myInfo, id, eventInfo }) => {
         hover={true}
         rowStyle={{ backgroundColor: "white" }}
         rowEvents={tableRowEvents}
+      />
+
+      <h4>나의 이벤트 예약 리스트</h4>
+      <div>수정을 원하는 예약을 클릭해주세요 :)</div>
+      <BootstrapTable
+        keyField="name"
+        data={getEvent}
+        columns={columns2}
+        pagination={paginationFactory()}
+        bordered={false}
+        hover={true}
+        rowStyle={{ backgroundColor: "white" }}
+        rowEvents={tableRowEvents2}
       />
     </>
   );

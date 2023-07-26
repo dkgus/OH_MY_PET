@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
 import { Form, Button } from "react-bootstrap";
 import { updateRoom } from "../../../actions/room";
 import { useParams } from "react-router";
@@ -11,10 +11,9 @@ const EditRoom = ({
 }) => {
   const useParam = useParams();
   const { id, editIndex } = useParam;
-
-  // useEffect(() => {
-  //   updateRoom({ id, editIndex });
-  // }, [updateRoom]);
+  console.log("editIndex", editIndex);
+  const MY_ROOM = useSelector((state) => state.myPage.myInfo);
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     hotelName: "",
@@ -29,12 +28,9 @@ const EditRoom = ({
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("formData", formData);
-
     updateRoom({ formData, navigate, id, editIndex });
   };
   const navigate = useNavigate();
-
   return (
     <>
       <h4 style={{ fontWeight: "bold" }}>예약 수정하기</h4>
@@ -45,14 +41,16 @@ const EditRoom = ({
           <Form.Group className="mb-3">
             <Form.Label>호텔 선택</Form.Label>
             <Form.Select
-              value={hotelName}
               name="hotelName"
-              onChange={(e) => onChange(e)}
+              onChange={onChange}
+              //defaultValue="[인천] 개편한 세상"
+              //defaultValue={MY_ROOM.hotelName !== null && name}
             >
-              <option>선택해주세요</option>
-              <option>[인천] 개편한 세상</option>
-              <option>[서울] 앨리스애견호텔</option>
-              <option>[경기] 망고쿠로</option>
+              <option value="[인천] 개편한 세상">[인천] 개편한 세상</option>
+              <option value="[서울] 앨리스애견호텔">
+                [서울] 앨리스애견호텔
+              </option>
+              <option value="[경기] 망고쿠로">[경기] 망고쿠로</option>
             </Form.Select>
           </Form.Group>
 

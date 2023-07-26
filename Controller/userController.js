@@ -119,10 +119,8 @@ module.exports = {
   // @description    Login
   // @route          POST /users/login
   loginUser: async (req, res) => {
-    console.log("Req", req.body);
     try {
       const { email, password } = req.body;
-      console.log("email", email);
       if (!email || !password) {
         return res
           .status(400)
@@ -132,13 +130,13 @@ module.exports = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        return res.status(400).json({ msg: "없는 회원입니다" });
+        return res.status(402).json({ msg: "없는 회원입니다" });
       }
 
       const isPasswordMatched = await bcrypt.compare(password, user.password);
 
       if (!isPasswordMatched) {
-        return res.status(400).json({ msg: "비밀번호가 일치하지 않습니다." });
+        return res.status(401).json({ msg: "비밀번호가 일치하지 않습니다." });
       }
 
       const payload = {
@@ -153,7 +151,7 @@ module.exports = {
         { expiresIn: "5 days" },
         (err, token) => {
           if (err) throw err;
-          res.json({ token, msg: "로그인되었습니다" });
+          res.json({ token, msg: "로그인되었습니다", code: 200 });
         }
       );
     } catch (err) {
