@@ -1,33 +1,47 @@
-import React from "react";
 import { Container, Row } from "react-bootstrap";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Main from "./newAppComponents/Pages/Main";
 import Login from "./newAppComponents/Pages/user/Login";
 import RoomReservationForm from "./newAppComponents/Pages/room/RoomReservationForm";
+import Header from "./newAppComponents/Header/Header";
+import { useSelector } from "react-redux";
 
 const NewApp = () => {
+  const LOGIN_STATUS = useSelector((state) => state.auth.isLogin);
+
   return (
     <Container>
       <Router>
-        <Row>헤더</Row>
-        <Row>
-          <Routes>
-            <Route exact path="/" element={<Main />} />
-            <Route exact path="/login" element={<Login />} />
-            <Route
-              exact
-              path="/room_reservation_form"
-              element={<RoomReservationForm />}
-            />
-            {/* 404 리다이렉트 처리 */}
-            {/* <Route path="/*" element={<Navigate to="/"></Navigate>}></Route> */}
-          </Routes>
-        </Row>
+        {LOGIN_STATUS ? (
+          <>
+            <Row>
+              <Header />
+            </Row>
+            <Row>
+              <Routes>
+                <>
+                  <Route exact path="/" element={<Main />} />
+                  <Route
+                    exact
+                    path="/room_reservation_form"
+                    element={<RoomReservationForm />}
+                  />
+                  {/* 404 리다이렉트 처리 */}
+                  {/* <Route path="/*" element={<Navigate to="/"></Navigate>}></Route> */}
+                </>
+              </Routes>
+            </Row>
+          </>
+        ) : (
+          <>
+            <Row>
+              <Header />
+            </Row>
+            <Routes>
+              <Route path="/login" element={<Login />} />
+            </Routes>
+          </>
+        )}
       </Router>
     </Container>
   );

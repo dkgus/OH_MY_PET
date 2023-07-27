@@ -1,10 +1,13 @@
 import React, { useState, useRef } from "react";
 import { Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { LOGIN_STATUS } from "../../../newAction";
 import { commonApi } from "../../utils/commonApi";
 
-const Login = () => {
+const Login = (props) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [errorMsg, setErrorMsg] = useState("");
   const [info, setInfo] = useState({ email: "", password: "" });
 
@@ -26,8 +29,9 @@ const Login = () => {
       if (res.data.code === 200) {
         localStorage.setItem("token", res.data.token);
         const userInfo = await commonApi().get("/users/login");
-        console.log("userInfo", userInfo);
-        navigate("/room_reservation_form");
+        dispatch(LOGIN_STATUS({ isLogin: true }));
+        dispatch(LOGIN_STATUS({ userInfo: userInfo.data }));
+        navigate("/");
       }
     } catch (error) {
       if (
@@ -35,8 +39,10 @@ const Login = () => {
         (error.response.status === 401 || error.response.status === 402)
       ) {
         setErrorMsg(error.response.data.msg);
+        dispatch(LOGIN_STATUS({ isLogin: false }));
       } else {
         setErrorMsg("An error occurred. Please try again later.");
+        dispatch(LOGIN_STATUS({ isLogin: false }));
       }
     }
   };
